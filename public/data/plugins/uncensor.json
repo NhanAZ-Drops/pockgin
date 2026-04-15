@@ -10,14 +10,14 @@
   "verified": true,
   "approved_release_tag": "v0.0.1",
   "stars": 0,
-  "total_downloads": 0,
+  "total_downloads": 1,
   "last_commit_at": "2026-04-15T10:11:25Z",
   "versions": {
     "stable": {
       "version": "0.0.1",
       "tag": "v0.0.1",
       "published_at": "2026-04-15T10:11:27Z",
-      "downloads": 0,
+      "downloads": 1,
       "download_url": "https://github.com/NhanAZ-Plugins/Uncensor/releases/download/v0.0.1/UncensorAZ.phar"
     },
     "dev": null
