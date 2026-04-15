@@ -60,21 +60,6 @@
     html += "  </div>";
     html += "</div>";
 
-    if (p.readme_markdown) {
-      html += '<h2 class="section-title">Description</h2>';
-      html += '<div class="accordion">';
-      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
-      html += "    View README";
-      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-      html += "  </button>";
-      html += '  <div class="accordion-content">';
-      html += '    <div class="version-card">';
-      html += '      <div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + "</div>";
-      html += "    </div>";
-      html += "  </div>";
-      html += "</div>";
-    }
-
     // Repo link
     if (p.repo) {
       html += '<a class="repo-link" href="' + escapeAttr(p.repo) + '" target="_blank" rel="noopener">';
@@ -101,6 +86,21 @@
       html += statBlock(formatDate(p.last_commit_at), "Last Commit");
     }
     html += "</div>";
+
+    if (p.readme_markdown) {
+      html += '<h2 class="section-title">Description</h2>';
+      html += '<div class="accordion">';
+      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
+      html += "    View README";
+      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+      html += "  </button>";
+      html += '  <div class="accordion-content">';
+      html += '    <div class="version-card">';
+      html += '      <div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + "</div>";
+      html += "    </div>";
+      html += "  </div>";
+      html += "</div>";
+    }
 
     // Versions (stable + dev)
     html += '<h2 class="section-title">Versions</h2>';
