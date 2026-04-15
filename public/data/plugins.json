@@ -24,6 +24,18 @@
     "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
   },
   {
+    "id": "simpleeconomy",
+    "name": "SimpleEconomy",
+    "author": "NhanAZ",
+    "description": "A production-ready economy plugin powered by SimpleSQL - Hybrid SQL-YAML storage.",
+    "icon_url": "assets/icons/simpleeconomy.png",
+    "verified": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 0,
+    "stars": 1,
+    "download_url": "https://github.com/NhanAZ-Plugins/SimpleEconomy/releases/download/v1.0.0/SimpleEconomy.phar"
+  },
+  {
     "id": "uncensor",
     "name": "Uncensor",
     "author": "NhanAZ-Plugins",
