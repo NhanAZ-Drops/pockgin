@@ -500,6 +500,16 @@ img.image-loading {
 .stat-block {
   text-align: center;
 }
+.stat-link {
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.stat-link:hover {
+  background: var(--bg-surface);
+}
 .stat-block .stat-value {
   font-size: 1.5rem;
   font-weight: 700;
@@ -621,10 +631,6 @@ img.image-loading {
 .repo-link svg {
   width: 16px;
   height: 16px;
-}
-.detail-star-btn {
-  margin: 0 0 10px 10px;
-  vertical-align: middle;
 }
 
 .meta-pill-row {
