@@ -1,4 +1,6 @@
 name: Sync & Deploy
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   push:
@@ -23,6 +25,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -74,7 +79,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: sync public data [skip ci]"
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
   deploy:
