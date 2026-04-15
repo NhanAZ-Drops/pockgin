@@ -369,17 +369,9 @@ img.image-loading {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
-.badge-verified {
-  background: #DCFCE7;
-  color: var(--badge-success);
-}
 .badge-featured {
-  background: #DBEAFE;
-  color: #1D4ED8;
-}
-.badge-unverified {
-  background: #FEF3C7;
-  color: #92400E;
+  background: #DCFCE7;
+  color: #166534;
 }
 .badge-unapproved {
   background: #FEE2E2;

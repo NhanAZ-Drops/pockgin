@@ -43,9 +43,6 @@
     if (p.featured) {
       badges += '<span class="badge badge-featured">Featured</span>';
     }
-    badges += p.verified
-      ? '<span class="badge badge-verified">Verified</span>'
-      : '<span class="badge badge-unverified">Unverified</span>';
     var version = p.stable_version || "-";
 
     return (
@@ -92,8 +89,6 @@
     sorted.sort(function (a, b) {
       var featuredDelta = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
       if (featuredDelta !== 0) return featuredDelta;
-      var verifiedDelta = Number(Boolean(b.verified)) - Number(Boolean(a.verified));
-      if (verifiedDelta !== 0) return verifiedDelta;
       if (key === "downloads") return (b.total_downloads || 0) - (a.total_downloads || 0);
       if (key === "stars") return (b.stars || 0) - (a.stars || 0);
       return a.name.localeCompare(b.name);

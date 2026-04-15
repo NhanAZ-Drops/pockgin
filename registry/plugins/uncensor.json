@@ -3,7 +3,6 @@
   "name": "Uncensor",
   "repo": "https://github.com/NhanAZ-Plugins/Uncensor",
   "approved_release_tag": "v0.0.1",
-  "verified": true,
   "build": {
     "provider": "github-releases",
     "include_prerelease": false

@@ -34,9 +34,6 @@
     if (p.featured) {
       badges += '<span class="badge badge-featured">Featured</span>';
     }
-    badges += p.verified
-      ? '<span class="badge badge-verified">Verified</span>'
-      : '<span class="badge badge-unverified">Unverified</span>';
 
     var html = "";
 
