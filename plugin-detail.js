@@ -240,7 +240,7 @@
 
     function flushParagraph() {
       if (paragraph.length === 0) return;
-      htmlParts.push("<p>" + formatInline(paragraph.join(" ")) + "</p>");
+      htmlParts.push("<p>" + formatInline(paragraph.join(" "), plugin) + "</p>");
       paragraph = [];
     }
 
