@@ -48,9 +48,17 @@
     html += "</div>";
 
     if (p.readme_markdown) {
-      html += '<h2 class="section-title">About this plugin</h2>';
-      html += '<div class="version-card">';
-      html += '  <div class="markdown-content">' + renderMarkdown(p.readme_markdown) + "</div>";
+      html += '<h2 class="section-title">Description</h2>';
+      html += '<div class="accordion">';
+      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
+      html += "    View README";
+      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+      html += "  </button>";
+      html += '  <div class="accordion-content">';
+      html += '    <div class="version-card">';
+      html += '      <div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + "</div>";
+      html += "    </div>";
+      html += "  </div>";
       html += "</div>";
     }
 
@@ -219,14 +227,15 @@
     return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
-  function renderMarkdown(markdown) {
+  function renderMarkdown(markdown, plugin) {
     var text = String(markdown || "").replace(/\r\n/g, "\n");
     if (!text.trim()) return "";
 
     var lines = text.split("\n");
     var htmlParts = [];
     var inCodeFence = false;
-    var inList = false;
+    var inUnorderedList = false;
+    var inOrderedList = false;
     var paragraph = [];
 
     function flushParagraph() {
@@ -235,10 +244,21 @@
       paragraph = [];
     }
 
-    function closeList() {
-      if (!inList) return;
+    function closeUnorderedList() {
+      if (!inUnorderedList) return;
       htmlParts.push("</ul>");
-      inList = false;
+      inUnorderedList = false;
+    }
+
+    function closeOrderedList() {
+      if (!inOrderedList) return;
+      htmlParts.push("</ol>");
+      inOrderedList = false;
+    }
+
+    function closeLists() {
+      closeUnorderedList();
+      closeOrderedList();
     }
 
     for (var i = 0; i < lines.length; i++) {
@@ -247,7 +267,7 @@
 
       if (trimmed.startsWith("```")) {
         flushParagraph();
-        closeList();
+        closeLists();
         if (!inCodeFence) {
           inCodeFence = true;
           htmlParts.push("<pre><code>");
@@ -265,56 +285,87 @@
 
       if (!trimmed) {
         flushParagraph();
-        closeList();
+        closeLists();
         continue;
       }
 
       if (trimmed.startsWith("# ")) {
         flushParagraph();
-        closeList();
-        htmlParts.push("<h3>" + formatInline(trimmed.slice(2)) + "</h3>");
+        closeLists();
+        htmlParts.push("<h3>" + formatInline(trimmed.slice(2), plugin) + "</h3>");
         continue;
       }
       if (trimmed.startsWith("## ")) {
         flushParagraph();
-        closeList();
-        htmlParts.push("<h4>" + formatInline(trimmed.slice(3)) + "</h4>");
+        closeLists();
+        htmlParts.push("<h4>" + formatInline(trimmed.slice(3), plugin) + "</h4>");
         continue;
       }
       if (trimmed.startsWith("### ")) {
         flushParagraph();
-        closeList();
-        htmlParts.push("<h5>" + formatInline(trimmed.slice(4)) + "</h5>");
+        closeLists();
+        htmlParts.push("<h5>" + formatInline(trimmed.slice(4), plugin) + "</h5>");
         continue;
       }
 
       if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
         flushParagraph();
-        if (!inList) {
-          inList = true;
+        closeOrderedList();
+        if (!inUnorderedList) {
+          inUnorderedList = true;
           htmlParts.push("<ul>");
         }
-        htmlParts.push("<li>" + formatInline(trimmed.slice(2)) + "</li>");
+        htmlParts.push("<li>" + formatInline(trimmed.slice(2), plugin) + "</li>");
         continue;
       }
 
-      closeList();
+      if (/^\d+\.\s+/.test(trimmed)) {
+        flushParagraph();
+        closeUnorderedList();
+        if (!inOrderedList) {
+          inOrderedList = true;
+          htmlParts.push("<ol>");
+        }
+        htmlParts.push("<li>" + formatInline(trimmed.replace(/^\d+\.\s+/, ""), plugin) + "</li>");
+        continue;
+      }
+
+      closeLists();
       paragraph.push(trimmed);
     }
 
     flushParagraph();
-    closeList();
+    closeLists();
     if (inCodeFence) htmlParts.push("</code></pre>");
     return htmlParts.join("");
   }
 
-  function formatInline(text) {
+  function formatInline(text, plugin) {
     var html = escapeHtml(String(text || ""));
     html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
     html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) {
+      var resolved = resolveMarkdownUrl(url, plugin);
+      return '<a href="' + escapeAttr(resolved) + '" target="_blank" rel="noopener">' + label + "</a>";
+    });
     return html;
+  }
+
+  function resolveMarkdownUrl(rawUrl, plugin) {
+    var url = String(rawUrl || "").trim();
+    if (!url) return "#";
+    if (/^(javascript|data):/i.test(url)) return "#";
+    if (/^(https?:|mailto:|#)/i.test(url)) return url;
+    if (!plugin || !plugin.repo) return url;
+
+    var ref = plugin.approved_release_tag || "main";
+    var base = plugin.repo.replace(/\/+$/, "") + "/blob/" + encodeURIComponent(ref) + "/README.md";
+    try {
+      return new URL(url, base).toString();
+    } catch (_) {
+      return plugin.repo;
+    }
   }
 
   function githubSvg() {
