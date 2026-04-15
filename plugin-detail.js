@@ -74,6 +74,8 @@
       html += "</a>";
     }
 
+    html += renderQuickFacts(p);
+
     // Stats
     html += '<div class="detail-stats">';
     html += statBlock(formatNumber(p.stars || 0), "Stars");
@@ -106,6 +108,41 @@
       p.recent_builds.slice(0, 5).forEach(function (build) {
         html += buildCard(build, p.approved_release_tag);
       });
+      html += "  </div>";
+      html += "</div>";
+    }
+
+    if (p.dependencies && ((p.dependencies.required && p.dependencies.required.length) || (p.dependencies.optional && p.dependencies.optional.length))) {
+      html += '<div class="accordion">';
+      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
+      html += "    Dependencies";
+      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+      html += "  </button>";
+      html += '  <div class="accordion-content">';
+      html += '    <div class="version-card">';
+      html += '      <div class="markdown-content">';
+      if (p.dependencies.required && p.dependencies.required.length) {
+        html += "<h4>Required</h4><ul>" + p.dependencies.required.map(function (d) { return "<li>" + escapeHtml(d) + "</li>"; }).join("") + "</ul>";
+      }
+      if (p.dependencies.optional && p.dependencies.optional.length) {
+        html += "<h4>Optional</h4><ul>" + p.dependencies.optional.map(function (d) { return "<li>" + escapeHtml(d) + "</li>"; }).join("") + "</ul>";
+      }
+      html += "      </div>";
+      html += "    </div>";
+      html += "  </div>";
+      html += "</div>";
+    }
+
+    if (p.whats_new) {
+      html += '<div class="accordion">';
+      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
+      html += "    What's New";
+      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+      html += "  </button>";
+      html += '  <div class="accordion-content">';
+      html += '    <div class="version-card">';
+      html += '      <div class="markdown-content">' + renderMarkdown(p.whats_new, p) + "</div>";
+      html += "    </div>";
       html += "  </div>";
       html += "</div>";
     }
@@ -422,6 +459,30 @@
     var heightAttr = heightMatch ? ' height="' + escapeAttr(heightMatch[1]) + '"' : "";
 
     return '<p class="markdown-image-wrap"><img class="markdown-image image-loading" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\')"></p>';
+  }
+
+  function renderQuickFacts(p) {
+    var facts = [];
+    if (p.license && (p.license.spdx_id || p.license.name)) {
+      var licenseLabel = p.license.spdx_id && p.license.spdx_id !== "NOASSERTION"
+        ? p.license.spdx_id
+        : (p.license.name || "License");
+      facts.push('<span class="meta-pill">License: ' + escapeHtml(licenseLabel) + "</span>");
+    }
+    if (p.api_support && p.api_support.length) {
+      facts.push('<span class="meta-pill">API: ' + escapeHtml(p.api_support.join(", ")) + "</span>");
+    }
+    if (p.tags && p.tags.length) {
+      facts.push('<span class="meta-pill">Tags: ' + escapeHtml(p.tags.slice(0, 4).join(", ")) + "</span>");
+    }
+    if (p.producers && p.producers.length) {
+      facts.push('<span class="meta-pill">Producers: ' + escapeHtml(p.producers.slice(0, 3).join(", ")) + "</span>");
+    }
+    if (p.last_updated_at) {
+      facts.push('<span class="meta-pill">Updated: ' + escapeHtml(formatDate(p.last_updated_at)) + "</span>");
+    }
+    if (!facts.length) return "";
+    return '<div class="meta-pill-row">' + facts.join("") + "</div>";
   }
 
   function normalizeImageUrl(url) {
