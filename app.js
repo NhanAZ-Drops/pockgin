@@ -101,6 +101,8 @@
 
     var key = currentSort;
     sorted.sort(function (a, b) {
+      var verifiedDelta = Number(Boolean(b.verified)) - Number(Boolean(a.verified));
+      if (verifiedDelta !== 0) return verifiedDelta;
       if (key === "downloads") return (b.total_downloads || 0) - (a.total_downloads || 0);
       if (key === "stars") return (b.stars || 0) - (a.stars || 0);
       return a.name.localeCompare(b.name);
