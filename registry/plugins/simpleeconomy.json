@@ -1,0 +1,15 @@
+{
+  "id": "simpleeconomy",
+  "name": "SimpleEconomy",
+  "repo": "https://github.com/NhanAZ-Plugins/SimpleEconomy",
+  "approved_release_tag": "v1.0.0",
+  "verified": false,
+  "build": {
+    "provider": "github-releases",
+    "include_prerelease": false
+  },
+  "comments": {
+    "enabled": true,
+    "provider": "giscus"
+  }
+}
