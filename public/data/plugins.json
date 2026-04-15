@@ -2,13 +2,13 @@
   {
     "id": "example",
     "name": "Example Plugin",
-    "author": "NhanAZ",
-    "description": "A demo plugin for Pockgin registry showcasing the standard workflow.",
+    "author": "YourName",
+    "description": "A PocketMine-MP plugin built with the Pockgin standard workflow.",
     "icon_url": "assets/icons/default.svg",
     "verified": false,
     "stable_version": "1.0.0",
-    "total_downloads": 165,
-    "stars": 30,
+    "total_downloads": 0,
+    "stars": 0,
     "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
   }
 ]

@@ -1,47 +1,31 @@
 {
   "id": "example",
   "name": "Example Plugin",
-  "author": "NhanAZ",
-  "description": "A demo plugin for Pockgin registry showcasing the standard workflow.",
+  "author": "YourName",
+  "description": "A PocketMine-MP plugin built with the Pockgin standard workflow.",
   "repo": "https://github.com/pockgin/plugin-template",
-  "archive_repo": "https://github.com/pockgin-archive/example",
+  "archive_repo": null,
   "icon_url": "assets/icons/default.svg",
   "verified": false,
   "approved_release_tag": "v1.0.0",
-  "stars": 30,
-  "total_downloads": 165,
-  "last_commit_at": "2026-04-10T08:30:00Z",
+  "stars": 0,
+  "total_downloads": 0,
+  "last_commit_at": "2026-04-15T08:55:11Z",
   "versions": {
     "stable": {
       "version": "1.0.0",
       "tag": "v1.0.0",
-      "published_at": "2026-04-01T12:00:00Z",
-      "downloads": 140,
+      "published_at": "2026-04-15T08:55:13Z",
+      "downloads": 0,
       "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
     },
-    "dev": {
-      "version": "1.1.0-dev",
-      "tag": "v1.1.0-dev",
-      "published_at": "2026-04-08T15:00:00Z",
-      "downloads": 25,
-      "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.1.0-dev/ExamplePlugin.phar"
-    }
+    "dev": null
   },
   "recent_builds": [
     {
       "tag": "v1.0.0",
-      "published_at": "2026-04-01T12:00:00Z",
+      "published_at": "2026-04-15T08:55:13Z",
       "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
-    },
-    {
-      "tag": "v1.1.0-dev",
-      "published_at": "2026-04-08T15:00:00Z",
-      "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.1.0-dev/ExamplePlugin.phar"
-    },
-    {
-      "tag": "v0.9.0",
-      "published_at": "2026-03-15T10:00:00Z",
-      "download_url": "https://github.com/pockgin/plugin-template/releases/download/v0.9.0/ExamplePlugin.phar"
     }
   ],
   "comments": {
