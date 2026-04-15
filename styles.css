@@ -670,6 +670,51 @@ img.image-loading {
   padding: 24px;
 }
 
+/* README Tab Bar */
+.pd-readme-tabs-section {
+  margin-bottom: 32px;
+}
+
+.pd-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.pd-tab {
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pd-tab:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.pd-tab.active {
+  background: var(--bg-primary);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.pd-tab-panel.hidden {
+  display: none;
+}
+
 .pd-muted {
   font-size: 0.88rem;
   color: var(--text-secondary);

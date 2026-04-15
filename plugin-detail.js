@@ -66,14 +66,21 @@
     h += '<div class="pd-main">';
 
     if (p.readme_markdown) {
-      h += '<section class="pd-section">';
-      h += '<button class="pd-accordion-btn" aria-expanded="false" onclick="toggleAccordion(this)">';
-      h += 'README';
-      h += chevronSvg();
-      h += '</button>';
-      h += '<div class="pd-accordion-body">';
-      h += '<div class="pd-readme-content"><div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + '</div></div>';
-      h += '</div></section>';
+      var sections = splitReadmeSections(p.readme_markdown);
+      h += '<section class="pd-section pd-readme-tabs-section">';
+      h += '<div class="pd-tab-bar" role="tablist">';
+      sections.forEach(function (sec, idx) {
+        var active = idx === 0 ? ' active' : '';
+        h += '<button class="pd-tab' + active + '" role="tab" aria-selected="' + (idx === 0 ? 'true' : 'false') + '" data-tab-index="' + idx + '" onclick="switchReadmeTab(this)">' + escHtml(sec.title) + '</button>';
+      });
+      h += '</div>';
+      sections.forEach(function (sec, idx) {
+        var hidden = idx === 0 ? '' : ' hidden';
+        h += '<div class="pd-tab-panel' + hidden + '" role="tabpanel" data-tab-index="' + idx + '">';
+        h += '<div class="pd-readme-content"><div class="markdown-content">' + renderMarkdown(sec.content, p) + '</div></div>';
+        h += '</div>';
+      });
+      h += '</section>';
     }
 
     if (p.whats_new) {
@@ -287,6 +294,64 @@
     if (!cfg.repo || !cfg.repo_id || !cfg.category || !cfg.category_id) return null;
     return cfg;
   }
+
+  // ─── README Tabs ───
+
+  function splitReadmeSections(markdown) {
+    var text = String(markdown || "").replace(/\r\n/g, "\n");
+    var lines = text.split("\n");
+    var sections = [];
+    var currentTitle = "General";
+    var currentLines = [];
+
+    for (var i = 0; i < lines.length; i++) {
+      var m = lines[i].match(/^##\s+(.+)$/);
+      if (m) {
+        // Push the previous section
+        var content = currentLines.join("\n").trim();
+        if (content || sections.length === 0) {
+          sections.push({ title: currentTitle, content: content });
+        }
+        currentTitle = m[1].trim();
+        currentLines = [];
+      } else {
+        currentLines.push(lines[i]);
+      }
+    }
+    // Push the last section
+    var lastContent = currentLines.join("\n").trim();
+    if (lastContent || sections.length === 0) {
+      sections.push({ title: currentTitle, content: lastContent });
+    }
+
+    // If "General" section is empty and there are other sections, remove it
+    if (sections.length > 1 && !sections[0].content) {
+      sections.shift();
+    }
+
+    return sections;
+  }
+
+  window.switchReadmeTab = function (btn) {
+    var container = btn.closest(".pd-readme-tabs-section");
+    if (!container) return;
+    var idx = btn.getAttribute("data-tab-index");
+
+    // Update tab buttons
+    var tabs = container.querySelectorAll(".pd-tab");
+    tabs.forEach(function (t) {
+      var isActive = t.getAttribute("data-tab-index") === idx;
+      t.classList.toggle("active", isActive);
+      t.setAttribute("aria-selected", String(isActive));
+    });
+
+    // Update panels
+    var panels = container.querySelectorAll(".pd-tab-panel");
+    panels.forEach(function (p) {
+      var isVisible = p.getAttribute("data-tab-index") === idx;
+      p.classList.toggle("hidden", !isVisible);
+    });
+  };
 
   // ─── Accordion ───
 
