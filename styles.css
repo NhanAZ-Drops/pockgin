@@ -662,7 +662,8 @@ img.image-loading {
 }
 .markdown-content h3,
 .markdown-content h4,
-.markdown-content h5 {
+.markdown-content h5,
+.markdown-content h6 {
   margin: 16px 0 8px;
   color: var(--text-primary);
   line-height: 1.35;
@@ -670,6 +671,7 @@ img.image-loading {
 .markdown-content h3 { font-size: 1.1rem; }
 .markdown-content h4 { font-size: 1rem; }
 .markdown-content h5 { font-size: 0.95rem; }
+.markdown-content h6 { font-size: 0.9rem; }
 .markdown-content ul {
   margin: 8px 0 12px 20px;
   padding: 0;

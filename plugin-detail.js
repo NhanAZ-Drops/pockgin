@@ -419,6 +419,24 @@
         htmlParts.push("<h5>" + formatInline(trimmed.slice(4), plugin) + "</h5>");
         continue;
       }
+      if (trimmed.startsWith("#### ")) {
+        flushParagraph();
+        closeLists();
+        htmlParts.push("<h6>" + formatInline(trimmed.slice(5), plugin) + "</h6>");
+        continue;
+      }
+      if (trimmed.startsWith("##### ")) {
+        flushParagraph();
+        closeLists();
+        htmlParts.push("<h6>" + formatInline(trimmed.slice(6), plugin) + "</h6>");
+        continue;
+      }
+      if (trimmed.startsWith("###### ")) {
+        flushParagraph();
+        closeLists();
+        htmlParts.push("<h6>" + formatInline(trimmed.slice(7), plugin) + "</h6>");
+        continue;
+      }
 
       if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
         flushParagraph();
