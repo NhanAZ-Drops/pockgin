@@ -18,6 +18,12 @@
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 16px;
+  color: #f59e0b;
+}
+
+.hof-hero-icon i {
+  font-size: 3rem;
+  display: inline-block;
 }
 
 .hof-hero h1 {

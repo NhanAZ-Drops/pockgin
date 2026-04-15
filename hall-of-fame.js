@@ -22,31 +22,13 @@
 
     // Hero
     html += '<div class="hof-hero">';
-    html += '  <div class="hof-hero-icon">🏆</div>';
+    html += '  <div class="hof-hero-icon"><i class="fi fi-rr-medal" aria-hidden="true"></i></div>';
     html += '  <h1>Hall of Fame</h1>';
     html += '  <p class="hof-hero-sub">Celebrating the developers, contributors, and moderators who make Pockgin possible.</p>';
     if (data.last_updated_at) {
       html += '  <p class="hof-updated">Updated ' + formatDate(data.last_updated_at) + '</p>';
     }
     html += '</div>';
-
-    // Moderators
-    if (data.moderators && data.moderators.length) {
-      html += hofSection(
-        "Moderators",
-        "The team that keeps Pockgin safe, fair, and growing.",
-        "mod",
-        data.moderators.map(function (m) {
-          return personCard({
-            username: m.username,
-            display_name: m.display_name || m.username,
-            avatar_url: m.avatar_url,
-            subtitle: m.role || "Moderator",
-            badge: "mod",
-          });
-        })
-      );
-    }
 
     // Top authors by plugin count
     if (data.top_authors_by_plugins && data.top_authors_by_plugins.length) {
@@ -107,6 +89,24 @@
             avatar_url: c.avatar_url,
             subtitle: formatNumber(c.contributions) + " commit" + (c.contributions !== 1 ? "s" : ""),
             detail: repoSummary || null,
+          });
+        })
+      );
+    }
+
+    // Moderators (silent builders behind Pockgin)
+    if (data.moderators && data.moderators.length) {
+      html += hofSection(
+        "Moderators",
+        "The quiet builders behind Pockgin.",
+        "mod",
+        data.moderators.map(function (m) {
+          return personCard({
+            username: m.username,
+            display_name: m.display_name || m.username,
+            avatar_url: m.avatar_url,
+            subtitle: m.role || "Moderator",
+            badge: "mod",
           });
         })
       );
