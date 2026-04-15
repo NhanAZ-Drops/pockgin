@@ -1,0 +1,28 @@
+name: Validate Registry
+
+on:
+  pull_request:
+    paths:
+      - "registry/plugins/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install scripts
+        run: |
+          git clone https://github.com/pockgin/scripts.git /tmp/pockgin-scripts
+          cd /tmp/pockgin-scripts && npm ci
+
+      - name: Validate registry entries
+        env:
+          REGISTRY_DIR: ${{ github.workspace }}/registry/plugins
+        run: node /tmp/pockgin-scripts/validate-registry.js

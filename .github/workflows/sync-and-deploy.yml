@@ -1,0 +1,102 @@
+name: Sync & Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Run every 12 hours
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync-deploy
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install scripts
+        run: |
+          git clone https://github.com/pockgin/scripts.git /tmp/pockgin-scripts
+          cd /tmp/pockgin-scripts && npm ci
+
+      - name: Restore sync cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/pockgin-scripts/.cache
+          key: sync-cache-${{ github.sha }}
+          restore-keys: |
+            sync-cache-
+
+      - name: Restore previous sync data
+        uses: actions/cache@v4
+        with:
+          path: /tmp/pockgin-scripts/.sync-cache
+          key: sync-data-${{ github.sha }}
+          restore-keys: |
+            sync-data-
+
+      - name: Run sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY_DIR: ${{ github.workspace }}/registry/plugins
+          PUBLIC_DIR: ${{ github.workspace }}/public
+        working-directory: /tmp/pockgin-scripts
+        run: node sync-github.js
+        continue-on-error: true
+
+      - name: Generate public data
+        env:
+          PUBLIC_DATA_DIR: ${{ github.workspace }}/public/data
+        working-directory: /tmp/pockgin-scripts
+        run: node generate-public-data.js
+
+      - name: Commit updated public data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/ public/assets/ || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: sync public data [skip ci]"
+            git push
+          fi
+
+  deploy:
+    needs: sync
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

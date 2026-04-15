@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pockgin</title>
+  <meta name="description" content="Pockgin – A static-first plugin registry for PocketMine-MP. Browse, discover, and download plugins without the overhead.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="favicon-32x32.png" alt="Pockgin" width="32" height="32">
+        <span>Pockgin</span>
+      </a>
+      <nav class="header-nav">
+        <a href="https://github.com/pockgin" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/pockgin/docs" target="_blank" rel="noopener">Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container home-main">
+    <div class="toolbar">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search plugins..." autocomplete="off">
+      </div>
+      <div class="sort-dropdown" id="sort-dropdown">
+        <button type="button" class="sort-trigger" id="sort-trigger" aria-haspopup="listbox" aria-expanded="false">
+          <span id="sort-label">Sort by Name</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="sort-menu" id="sort-menu" role="listbox" aria-labelledby="sort-trigger">
+          <button type="button" class="sort-option active" data-sort="name" role="option" aria-selected="true">Sort by Name</button>
+          <button type="button" class="sort-option" data-sort="downloads" role="option" aria-selected="false">Sort by Downloads</button>
+          <button type="button" class="sort-option" data-sort="stars" role="option" aria-selected="false">Sort by Stars</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="stats-bar" id="stats-bar"></p>
+
+    <div id="plugin-list" class="plugin-grid">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Loading plugins...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

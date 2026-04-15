@@ -1,0 +1,15 @@
+{
+  "id": "example",
+  "name": "Example Plugin",
+  "repo": "https://github.com/example/example-plugin",
+  "approved_release_tag": "v1.0.0",
+  "verified": false,
+  "build": {
+    "provider": "github-releases",
+    "include_prerelease": true
+  },
+  "comments": {
+    "enabled": true,
+    "provider": "giscus"
+  }
+}
