@@ -10,14 +10,14 @@
   "verified": false,
   "approved_release_tag": "v1.0.0",
   "stars": 0,
-  "total_downloads": 1,
+  "total_downloads": 2,
   "last_commit_at": "2026-04-15T08:55:11Z",
   "versions": {
     "stable": {
       "version": "1.0.0",
       "tag": "v1.0.0",
       "published_at": "2026-04-15T08:55:13Z",
-      "downloads": 1,
+      "downloads": 2,
       "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
     },
     "dev": null
