@@ -1,0 +1,15 @@
+{
+  "id": "anti-poggit-staff",
+  "name": "AntiPoggitStaff",
+  "repo": "https://github.com/pockgin/AntiPoggitStaff",
+  "approved_release_tag": "v1.0.0",
+  "verified": true,
+  "build": {
+    "provider": "github-releases",
+    "include_prerelease": false
+  },
+  "comments": {
+    "enabled": true,
+    "provider": "giscus"
+  }
+}
