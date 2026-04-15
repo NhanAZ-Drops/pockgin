@@ -3,7 +3,7 @@
   "name": "SimpleEconomy",
   "repo": "https://github.com/NhanAZ-Plugins/SimpleEconomy",
   "approved_release_tag": "v1.0.0",
-  "verified": false,
+  "verified": true,
   "build": {
     "provider": "github-releases",
     "include_prerelease": false
