@@ -295,6 +295,27 @@
         htmlParts.push("<h3>" + formatInline(trimmed.slice(2), plugin) + "</h3>");
         continue;
       }
+
+      // Basic HTML block support inside README (common in GitHub READMEs)
+      if (/^<h[1-6][^>]*>.*<\/h[1-6]>$/i.test(trimmed)) {
+        flushParagraph();
+        closeLists();
+        var headingHtml = renderHtmlHeading(trimmed, plugin);
+        if (headingHtml) {
+          htmlParts.push(headingHtml);
+          continue;
+        }
+      }
+
+      if (/^<img\b[^>]*\/?>$/i.test(trimmed)) {
+        flushParagraph();
+        closeLists();
+        var imageHtml = renderHtmlImage(trimmed, plugin);
+        if (imageHtml) {
+          htmlParts.push(imageHtml);
+          continue;
+        }
+      }
       if (trimmed.startsWith("## ")) {
         flushParagraph();
         closeLists();
@@ -366,6 +387,41 @@
     } catch (_) {
       return plugin.repo;
     }
+  }
+
+  function renderHtmlHeading(html, plugin) {
+    var m = html.match(/^<h([1-6])[^>]*>([\s\S]*)<\/h\1>$/i);
+    if (!m) return "";
+    var level = Number(m[1]);
+    var inner = m[2] || "";
+
+    // Extract first inline image if any
+    var imgMatch = inner.match(/<img\b[^>]*>/i);
+    var imgHtml = imgMatch ? renderHtmlImage(imgMatch[0], plugin) : "";
+
+    // Remove all tags for heading text and render safely
+    var textOnly = inner.replace(/<img\b[^>]*>/gi, "").replace(/<[^>]+>/g, "").trim();
+    if (!textOnly && !imgHtml) return "";
+
+    var hTag = level <= 2 ? "h3" : (level === 3 ? "h4" : "h5");
+    var out = "<" + hTag + ">" + formatInline(textOnly, plugin) + "</" + hTag + ">";
+    if (imgHtml) out += imgHtml;
+    return out;
+  }
+
+  function renderHtmlImage(tag, plugin) {
+    var srcMatch = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
+    if (!srcMatch) return "";
+    var altMatch = tag.match(/\balt\s*=\s*["']([^"']*)["']/i);
+    var widthMatch = tag.match(/\bwidth\s*=\s*["']([^"']+)["']/i);
+    var heightMatch = tag.match(/\bheight\s*=\s*["']([^"']+)["']/i);
+
+    var src = resolveMarkdownUrl(srcMatch[1], plugin);
+    var alt = altMatch ? escapeHtml(altMatch[1]) : "";
+    var widthAttr = widthMatch ? ' width="' + escapeAttr(widthMatch[1]) + '"' : "";
+    var heightAttr = heightMatch ? ' height="' + escapeAttr(heightMatch[1]) + '"' : "";
+
+    return '<p class="markdown-image-wrap"><img class="markdown-image" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy"></p>';
   }
 
   function githubSvg() {

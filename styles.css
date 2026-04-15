@@ -665,6 +665,16 @@ img {
   border-radius: 0;
   padding: 0;
 }
+.markdown-image-wrap {
+  margin: 12px 0 16px;
+}
+.markdown-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+  background: #fff;
+}
 
 /* ---- Comments Section ---- */
 
