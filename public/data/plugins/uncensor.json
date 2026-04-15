@@ -12,6 +12,33 @@
   "stars": 0,
   "total_downloads": 1,
   "last_commit_at": "2026-04-15T10:11:25Z",
+  "last_updated_at": "2026-04-15T10:11:27Z",
+  "license": {
+    "spdx_id": "LGPL-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  },
+  "api_support": [
+    "4.0.0",
+    "5.0.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "plugin",
+    "pmmp",
+    "pocketmine",
+    "pocketmine-mp",
+    "uncensor"
+  ],
+  "producers": [
+    "NhanAZ",
+    "dktapps",
+    "NhanAZ-Plugins"
+  ],
+  "whats_new": "**Full Changelog**: https://github.com/NhanAZ-Plugins/Uncensor/compare/0.2.0...v0.0.1",
   "versions": {
     "stable": {
       "version": "0.0.1",

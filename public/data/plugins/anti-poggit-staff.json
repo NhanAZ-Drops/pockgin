@@ -12,6 +12,35 @@
   "stars": 30,
   "total_downloads": 0,
   "last_commit_at": "2026-04-15T09:43:38Z",
+  "last_updated_at": "2026-04-15T09:43:40Z",
+  "license": {
+    "spdx_id": "MIT",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "api_support": [
+    "1.0.0",
+    "2.0.0",
+    "3.0.0",
+    "4.0.0",
+    "5.0.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "antipoggitstaffs",
+    "php",
+    "plugin",
+    "pmmp",
+    "pocketmine",
+    "pocketmine-mp"
+  ],
+  "producers": [
+    "NhanAZ-Plugins"
+  ],
+  "whats_new": "## What's Changed\n* Fuck Poggit! by @HBIDamian in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/1\n* Because.... Fuck Poggit Reviewers! by @HBIDamian in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/2\n* Add `shogchips` by @IvanCraft623 in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/4\n* Overall, Improved the plugin & repository. by @xShamir in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/9\n* Members Poggit Github by @0xliam627 in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/5\n* Added Shakespear Character ban only if the name starts with A by @Hydros01 in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/11\n* Fixes lagg by @Hydros01 in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/12\n* Imports urmom.com features <3 by @Hydros01 in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/13\n* made the code even worse for no reason in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/14\n* Added ShockedPlot by @Xekvern in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/15\n* Better code in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/16\n* code style in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/17\n\n## New Contributors\n* @HBIDamian made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/1\n* @IvanCraft623 made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/4\n* @xShamir made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/9\n* @0xliam627 made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/5\n* @Hydros01 made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/11\n* @Xekvern made their first contribution in https://github.com/NhanAZ-Plugins/AntiPoggitStaff/pull/15\n\n**Full Changelog**: https://github.com/NhanAZ-Plugins/AntiPoggitStaff/commits/v1.0.0",
   "versions": {
     "stable": {
       "version": "1.0.0",
