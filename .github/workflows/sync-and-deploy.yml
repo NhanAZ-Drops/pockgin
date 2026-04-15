@@ -6,8 +6,10 @@ on:
   push:
     branches: [main]
   schedule:
-    # Run every 12 hours
+    # Sync plugin data every 12 hours
     - cron: "0 */12 * * *"
+    # Sync Hall of Fame on the 1st of every month at 03:00 UTC
+    - cron: "0 3 1 * *"
   workflow_dispatch:
 
 permissions:
@@ -69,6 +71,16 @@ jobs:
           PUBLIC_DATA_DIR: ${{ github.workspace }}/public/data
         working-directory: /tmp/pockgin-scripts
         run: node generate-public-data.js
+
+      - name: Sync Hall of Fame
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_DATA_DIR: ${{ github.workspace }}/public/data
+          REGISTRY_DIR: ${{ github.workspace }}/registry
+          POCKGIN_ORG: pockgin
+        working-directory: /tmp/pockgin-scripts
+        run: node sync-hall-of-fame.js
+        continue-on-error: true
 
       - name: Commit updated public data
         run: |

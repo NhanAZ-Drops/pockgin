@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plugin – Pockgin</title>
-  <meta name="description" content="Plugin details on Pockgin – A static-first plugin registry for PocketMine-MP.">
+  <title>Hall of Fame – Pockgin</title>
+  <meta name="description" content="Pockgin Hall of Fame – celebrating top developers, contributors, and moderators of the PocketMine-MP plugin ecosystem.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hall-of-fame.css">
 </head>
 <body>
 
@@ -19,29 +20,21 @@
         <span>Pockgin</span>
       </a>
       <nav class="header-nav">
-        <a href="hall-of-fame.html">Hall of Fame</a>
+        <a href="index.html">Plugins</a>
+        <a href="hall-of-fame.html" class="nav-active">Hall of Fame</a>
         <a href="https://github.com/pockgin" target="_blank" rel="noopener">GitHub</a>
         <a href="https://github.com/pockgin/docs" target="_blank" rel="noopener">Docs</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <a href="index.html" class="back-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-      Back to plugins
-    </a>
-
-    <div id="plugin-detail">
-      <div class="loading">
-        <div class="spinner"></div>
-        <p>Loading plugin details...</p>
-      </div>
+  <main class="container hof-main" id="hof-root">
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading Hall of Fame...</p>
     </div>
   </main>
 
-  <script src="plugin-detail.js"></script>
+  <script src="hall-of-fame.js"></script>
 </body>
 </html>
