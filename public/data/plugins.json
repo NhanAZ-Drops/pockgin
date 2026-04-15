@@ -4,7 +4,7 @@
     "name": "Example Plugin",
     "author": "NhanAZ",
     "description": "A demo plugin for Pockgin registry showcasing the standard workflow.",
-    "icon_url": "assets/icons/default.svg",
+    "icon_url": "happy_ghast.png",
     "verified": false,
     "stable_version": "1.0.0",
     "total_downloads": 165,

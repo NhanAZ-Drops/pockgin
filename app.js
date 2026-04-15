@@ -2,7 +2,7 @@
   "use strict";
 
   const DATA_URL = "public/data/plugins.json";
-  const DEFAULT_ICON = "assets/icons/default.svg";
+  const DEFAULT_ICON = "happy_ghast.png";
 
   let allPlugins = [];
 

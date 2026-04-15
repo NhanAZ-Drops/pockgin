@@ -5,7 +5,7 @@
   "description": "A demo plugin for Pockgin registry showcasing the standard workflow.",
   "repo": "https://github.com/pockgin/plugin-template",
   "archive_repo": "https://github.com/pockgin-archive/example",
-  "icon_url": "assets/icons/default.svg",
+  "icon_url": "happy_ghast.png",
   "verified": false,
   "approved_release_tag": "v1.0.0",
   "stars": 30,

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DEFAULT_ICON = "assets/icons/default.svg";
+  var DEFAULT_ICON = "happy_ghast.png";
   var container = document.getElementById("plugin-detail");
 
   function getPluginId() {
