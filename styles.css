@@ -287,7 +287,7 @@ img {
 .card-icon {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   object-fit: cover;
   flex-shrink: 0;
   background: var(--bg-surface);
@@ -444,7 +444,7 @@ img {
 .detail-icon {
   width: 80px;
   height: 80px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   object-fit: cover;
   flex-shrink: 0;
   background: var(--bg-surface);
