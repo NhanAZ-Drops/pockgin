@@ -21,8 +21,7 @@
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error("Failed to fetch plugins data");
       allPlugins = await res.json();
-      render(allPlugins);
-      updateStats(allPlugins);
+      applyFilters();
     } catch (err) {
       listEl.innerHTML =
         '<div class="empty-state"><p>Unable to load plugins. Please try again later.</p></div>';
