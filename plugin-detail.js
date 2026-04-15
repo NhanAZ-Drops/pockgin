@@ -15,12 +15,11 @@
       container.innerHTML = '<div class="empty-state"><p>No plugin ID provided.</p></div>';
       return;
     }
-
     try {
       var res = await fetch("public/data/plugins/" + encodeURIComponent(id) + ".json");
       if (!res.ok) throw new Error("Plugin not found");
       var plugin = await res.json();
-      document.title = plugin.name + " \u2013 Pockgin";
+      document.title = plugin.name + " – Pockgin";
       renderDetail(plugin);
     } catch (err) {
       container.innerHTML = '<div class="empty-state"><p>Plugin not found or failed to load.</p></div>';
@@ -28,729 +27,457 @@
     }
   }
 
+  // ─── Main render ───
+
   function renderDetail(p) {
     var icon = p.icon_url || DEFAULT_ICON;
-    var authorMeta = buildAuthorMeta(p);
-    var badges = "";
+    var author = buildAuthorMeta(p);
     var pendingGiscus = null;
-    if (p.featured) {
-      badges += '<span class="badge badge-featured">Featured</span>';
-    }
 
-    var html = "";
+    var h = "";
 
-    // Header
-    html += '<div class="detail-header">';
-    html += '  <img class="detail-icon image-loading" src="' + escapeAttr(icon) + '" alt="" width="80" height="80" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\');this.src=\'' + DEFAULT_ICON + '\'">';
-    html += '  <div class="detail-title-area">';
-    html += "    <h1>" + escapeHtml(p.name) + "</h1>";
-    html += '    <div class="detail-author">';
-    if (authorMeta.avatar_url) {
-      html += '      <img class="author-avatar image-loading" src="' + escapeAttr(authorMeta.avatar_url) + '" alt="' + escapeAttr(authorMeta.name) + '" width="22" height="22" loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\')">';
+    // ── Header ──
+    h += '<div class="pd-header">';
+    h += '<img class="pd-icon image-loading" src="' + esc(icon) + '" alt="" width="64" height="64"'
+       + " onload=\"this.classList.remove('image-loading')\" onerror=\"this.classList.remove('image-loading');this.src='" + DEFAULT_ICON + "'\">";
+    h += '<div class="pd-header-info">';
+    h += '<div class="pd-name-row">';
+    h += '<h1 class="pd-name">' + escHtml(p.name) + '</h1>';
+    if (p.featured) h += '<span class="badge badge-featured">Featured</span>';
+    h += '</div>';
+    h += '<div class="pd-author">';
+    if (author.avatar_url) {
+      h += '<img class="pd-author-avatar image-loading" src="' + esc(author.avatar_url) + '" alt="" width="20" height="20" loading="lazy"'
+         + " onload=\"this.classList.remove('image-loading')\" onerror=\"this.classList.remove('image-loading')\">";
     }
-    html += "      <span>by </span>";
-    if (authorMeta.profile_url) {
-      html += '      <a href="' + escapeAttr(authorMeta.profile_url) + '" target="_blank" rel="noopener">' + escapeHtml(authorMeta.name) + "</a>";
+    if (author.profile_url) {
+      h += '<a href="' + esc(author.profile_url) + '" target="_blank" rel="noopener">' + escHtml(author.name) + '</a>';
     } else {
-      html += "      <span>" + escapeHtml(authorMeta.name) + "</span>";
+      h += '<span>' + escHtml(author.name) + '</span>';
     }
-    html += "    </div>";
-    html += '    <p class="detail-desc">' + escapeHtml(p.description || "") + "</p>";
-    html += '    <div class="detail-badges">' + badges + "</div>";
-    html += "  </div>";
-    html += "</div>";
+    h += '</div>';
+    if (p.description) h += '<p class="pd-desc">' + escHtml(p.description) + '</p>';
+    h += '</div></div>';
 
-    // Repo link
-    if (p.repo) {
-      html += '<a class="repo-link" href="' + escapeAttr(p.repo) + '" target="_blank" rel="noopener">';
-      html += githubSvg() + " " + escapeHtml(p.repo.replace("https://github.com/", ""));
-      html += "</a>";
-    }
-    if (p.archive_repo) {
-      html += '<br><a class="repo-link" href="' + escapeAttr(p.archive_repo) + '" target="_blank" rel="noopener">';
-      html += githubSvg() + " Archive: " + escapeHtml(p.archive_repo.replace("https://github.com/", ""));
-      html += "</a>";
-    }
+    // ── 2-column layout ──
+    h += '<div class="pd-layout">';
 
-    html += renderQuickFacts(p);
-
-    // Stats
-    html += '<div class="detail-stats">';
-    if (p.repo) {
-      html += linkedStatBlock(formatNumber(p.stars || 0), "Stars", buildStarUrl(p.repo));
-    } else {
-      html += statBlock(formatNumber(p.stars || 0), "Stars");
-    }
-    html += statBlock(formatNumber(p.total_downloads || 0), "Downloads");
-    if (p.last_commit_at) {
-      html += statBlock(formatDate(p.last_commit_at), "Last Commit");
-    }
-    html += "</div>";
+    // ── Main column ──
+    h += '<div class="pd-main">';
 
     if (p.readme_markdown) {
-      html += '<h2 class="section-title">Description</h2>';
-      html += '<div class="accordion">';
-      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
-      html += "    View README";
-      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-      html += "  </button>";
-      html += '  <div class="accordion-content">';
-      html += '    <div class="version-card">';
-      html += '      <div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + "</div>";
-      html += "    </div>";
-      html += "  </div>";
-      html += "</div>";
-    }
-
-    // Versions (stable + dev)
-    html += '<h2 class="section-title">Versions</h2>';
-    if (p.versions && p.versions.stable) {
-      html += versionCard(p.versions.stable, "stable");
-    }
-    if (p.versions && p.versions.dev) {
-      html += versionCard(p.versions.dev, "dev");
-    }
-    if (!p.versions || (!p.versions.stable && !p.versions.dev)) {
-      html += '<p style="color:var(--text-secondary);font-size:0.9rem;">No version data available.</p>';
-    }
-
-    // Recent Builds accordion
-    if (p.recent_builds && p.recent_builds.length > 0) {
-      html += '<div class="accordion">';
-      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
-      html += "    Recent Builds (" + p.recent_builds.length + ")";
-      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-      html += "  </button>";
-      html += '  <div class="accordion-content">';
-      p.recent_builds.slice(0, 5).forEach(function (build) {
-        html += buildCard(build, p.approved_release_tag);
-      });
-      html += "  </div>";
-      html += "</div>";
-    }
-
-    if (p.dependencies && ((p.dependencies.required && p.dependencies.required.length) || (p.dependencies.optional && p.dependencies.optional.length))) {
-      html += '<div class="accordion">';
-      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
-      html += "    Dependencies";
-      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-      html += "  </button>";
-      html += '  <div class="accordion-content">';
-      html += '    <div class="version-card">';
-      html += '      <div class="markdown-content">';
-      if (p.dependencies.required && p.dependencies.required.length) {
-        html += "<h4>Required</h4><ul>" + p.dependencies.required.map(function (d) { return "<li>" + escapeHtml(d) + "</li>"; }).join("") + "</ul>";
-      }
-      if (p.dependencies.optional && p.dependencies.optional.length) {
-        html += "<h4>Optional</h4><ul>" + p.dependencies.optional.map(function (d) { return "<li>" + escapeHtml(d) + "</li>"; }).join("") + "</ul>";
-      }
-      html += "      </div>";
-      html += "    </div>";
-      html += "  </div>";
-      html += "</div>";
+      h += '<section class="pd-section">';
+      h += '<button class="pd-accordion-btn" aria-expanded="false" onclick="toggleAccordion(this)">';
+      h += 'README';
+      h += chevronSvg();
+      h += '</button>';
+      h += '<div class="pd-accordion-body">';
+      h += '<div class="pd-readme-content"><div class="markdown-content">' + renderMarkdown(p.readme_markdown, p) + '</div></div>';
+      h += '</div></section>';
     }
 
     if (p.whats_new) {
-      html += '<div class="accordion">';
-      html += '  <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">';
-      html += "    What's New";
-      html += '    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-      html += "  </button>";
-      html += '  <div class="accordion-content">';
-      html += '    <div class="version-card">';
-      html += '      <div class="markdown-content">' + renderMarkdown(p.whats_new, p) + "</div>";
-      html += "    </div>";
-      html += "  </div>";
-      html += "</div>";
+      h += '<section class="pd-section">';
+      h += '<button class="pd-accordion-btn" aria-expanded="false" onclick="toggleAccordion(this)">';
+      h += 'What\'s New';
+      h += chevronSvg();
+      h += '</button>';
+      h += '<div class="pd-accordion-body">';
+      h += '<div class="pd-readme-content"><div class="markdown-content">' + renderMarkdown(p.whats_new, p) + '</div></div>';
+      h += '</div></section>';
+    }
+
+    if (p.recent_builds && p.recent_builds.length > 0) {
+      h += '<section class="pd-section">';
+      h += '<button class="pd-accordion-btn" aria-expanded="false" onclick="toggleAccordion(this)">';
+      h += 'Recent Builds (' + p.recent_builds.length + ')';
+      h += chevronSvg();
+      h += '</button>';
+      h += '<div class="pd-accordion-body">';
+      p.recent_builds.slice(0, 5).forEach(function (b) {
+        h += buildRow(b, p.approved_release_tag);
+      });
+      h += '</div></section>';
     }
 
     // Comments
-    html += '<div class="comments-section">';
-    html += '<h2 class="section-title">Comments</h2>';
+    h += '<section class="pd-section pd-comments">';
+    h += '<h2 class="pd-section-title">Comments</h2>';
     if (p.comments && p.comments.enabled) {
       if (p.comments.provider === "giscus") {
-        var giscusCfg = resolveGiscusConfig(p);
-        if (giscusCfg) {
-          html += '<div id="giscus-container"></div>';
-          pendingGiscus = { cfg: giscusCfg, pluginId: p.id };
+        var gCfg = resolveGiscusConfig(p);
+        if (gCfg) {
+          h += '<div id="giscus-container"></div>';
+          pendingGiscus = { cfg: gCfg, pluginId: p.id };
         } else {
-          html += '<div id="comments-placeholder" style="padding:24px;background:var(--bg-surface);border-radius:var(--radius-md);text-align:center;color:var(--text-secondary);">Comments are enabled, but Giscus default config is incomplete. Please update comments-config.js.</div>';
+          h += '<p class="pd-muted">Giscus config incomplete. Update comments-config.js.</p>';
         }
       } else {
-        html += '<div id="comments-placeholder" style="padding:24px;background:var(--bg-surface);border-radius:var(--radius-md);text-align:center;color:var(--text-secondary);">Comments are enabled. Provider integration pending.</div>';
+        h += '<p class="pd-muted">Comments provider integration pending.</p>';
       }
     } else {
-      html += '<div class="comments-disabled">Comments are disabled for this plugin.</div>';
+      h += '<p class="pd-muted">Comments are disabled for this plugin.</p>';
     }
-    html += "</div>";
+    h += '</section>';
 
-    container.innerHTML = html;
-    if (pendingGiscus) {
-      mountGiscus(pendingGiscus.cfg, pendingGiscus.pluginId);
+    h += '</div>'; // end .pd-main
+
+    // ── Sidebar ──
+    h += '<aside class="pd-sidebar">';
+
+    // Card: Download
+    var stable = p.versions && p.versions.stable;
+    var dev = p.versions && p.versions.dev;
+    if (stable || dev) {
+      h += '<div class="pd-card">';
+      h += '<h3 class="pd-card-title">Install</h3>';
+      if (stable) {
+        h += '<div class="pd-install-version">';
+        h += '<span class="pd-ver-tag">' + escHtml(stable.version || stable.tag || "?") + '</span>';
+        h += '<span class="version-channel channel-stable">Stable</span>';
+        h += '</div>';
+        if (stable.published_at) h += '<p class="pd-ver-meta">Released ' + fmtDate(stable.published_at) + '</p>';
+        if (typeof stable.downloads === "number") h += '<p class="pd-ver-meta">' + fmtNum(stable.downloads) + ' downloads</p>';
+        if (stable.download_url) {
+          h += '<a class="btn btn-primary pd-dl-btn" href="' + esc(stable.download_url) + '" target="_blank" rel="noopener">';
+          h += downloadSvg() + ' Download .phar</a>';
+        }
+      }
+      if (dev) {
+        if (stable) h += '<div class="pd-card-divider"></div>';
+        h += '<div class="pd-install-version">';
+        h += '<span class="pd-ver-tag">' + escHtml(dev.version || dev.tag || "?") + '</span>';
+        h += '<span class="version-channel channel-dev">Dev</span>';
+        h += '</div>';
+        if (dev.published_at) h += '<p class="pd-ver-meta">Released ' + fmtDate(dev.published_at) + '</p>';
+        if (dev.download_url) {
+          h += '<a class="btn btn-outline pd-dl-btn" href="' + esc(dev.download_url) + '" target="_blank" rel="noopener">';
+          h += downloadSvg() + ' Download dev</a>';
+        }
+      }
+      h += '</div>';
     }
+
+    // Card: Repository
+    if (p.repo || p.archive_repo) {
+      h += '<div class="pd-card">';
+      h += '<h3 class="pd-card-title">Repository</h3>';
+      if (p.repo) {
+        h += '<a class="pd-repo-link" href="' + esc(p.repo) + '" target="_blank" rel="noopener">';
+        h += githubSvg() + '<span>' + escHtml(p.repo.replace("https://github.com/", "")) + '</span></a>';
+      }
+      if (p.archive_repo) {
+        h += '<a class="pd-repo-link pd-repo-archive" href="' + esc(p.archive_repo) + '" target="_blank" rel="noopener">';
+        h += githubSvg() + '<span>Archive: ' + escHtml(p.archive_repo.replace("https://github.com/", "")) + '</span></a>';
+      }
+      h += '</div>';
+    }
+
+    // Card: Stats
+    h += '<div class="pd-card">';
+    h += '<h3 class="pd-card-title">Stats</h3>';
+    h += '<ul class="pd-stat-list">';
+    var starVal = fmtNum(p.stars || 0);
+    if (p.repo) {
+      h += '<li><span class="pd-stat-label">Stars</span><a class="pd-stat-value pd-stat-link" href="' + esc(buildStarUrl(p.repo)) + '" target="_blank" rel="noopener">' + starVal + '</a></li>';
+    } else {
+      h += '<li><span class="pd-stat-label">Stars</span><span class="pd-stat-value">' + starVal + '</span></li>';
+    }
+    h += '<li><span class="pd-stat-label">Downloads</span><span class="pd-stat-value">' + fmtNum(p.total_downloads || 0) + '</span></li>';
+    if (p.last_commit_at) {
+      h += '<li><span class="pd-stat-label">Last Commit</span><span class="pd-stat-value">' + fmtDate(p.last_commit_at) + '</span></li>';
+    }
+    if (p.last_updated_at) {
+      h += '<li><span class="pd-stat-label">Updated</span><span class="pd-stat-value">' + fmtDate(p.last_updated_at) + '</span></li>';
+    }
+    h += '</ul></div>';
+
+    // Card: Details (license, api, tags, producers)
+    var details = [];
+    if (p.license && (p.license.spdx_id || p.license.name)) {
+      var lic = p.license.spdx_id && p.license.spdx_id !== "NOASSERTION" ? p.license.spdx_id : (p.license.name || "—");
+      details.push({ label: "License", value: lic });
+    }
+    if (p.api_support && p.api_support.length) details.push({ label: "API", value: p.api_support.join(", ") });
+    if (p.tags && p.tags.length) details.push({ label: "Tags", value: p.tags.slice(0, 5).join(", ") });
+    if (p.producers && p.producers.length) details.push({ label: "Producers", value: p.producers.slice(0, 3).join(", ") });
+
+    if (details.length) {
+      h += '<div class="pd-card">';
+      h += '<h3 class="pd-card-title">Details</h3>';
+      h += '<ul class="pd-stat-list">';
+      details.forEach(function (d) {
+        h += '<li><span class="pd-stat-label">' + escHtml(d.label) + '</span><span class="pd-stat-value">' + escHtml(d.value) + '</span></li>';
+      });
+      h += '</ul></div>';
+    }
+
+    // Card: Dependencies
+    var deps = p.dependencies;
+    if (deps && ((deps.required && deps.required.length) || (deps.optional && deps.optional.length))) {
+      h += '<div class="pd-card">';
+      h += '<h3 class="pd-card-title">Dependencies</h3>';
+      if (deps.required && deps.required.length) {
+        h += '<p class="pd-dep-label">Required</p>';
+        h += '<ul class="pd-dep-list">' + deps.required.map(function (d) { return '<li>' + escHtml(d) + '</li>'; }).join('') + '</ul>';
+      }
+      if (deps.optional && deps.optional.length) {
+        h += '<p class="pd-dep-label">Optional</p>';
+        h += '<ul class="pd-dep-list">' + deps.optional.map(function (d) { return '<li>' + escHtml(d) + '</li>'; }).join('') + '</ul>';
+      }
+      h += '</div>';
+    }
+
+    h += '</aside>'; // end .pd-sidebar
+    h += '</div>'; // end .pd-layout
+
+    container.innerHTML = h;
+    if (pendingGiscus) mountGiscus(pendingGiscus.cfg, pendingGiscus.pluginId);
   }
 
-  function versionCard(v, channel) {
-    var channelClass = channel === "stable" ? "channel-stable" : "channel-dev";
-    var channelLabel = channel.charAt(0).toUpperCase() + channel.slice(1);
-    var html = '<div class="version-card">';
-    html += '  <div class="version-info">';
-    html += '    <span class="version-tag">' + escapeHtml(v.version || v.tag || "-") + "</span>";
-    if (v.published_at) {
-      html += '    <span class="version-date">Released ' + formatDate(v.published_at) + "</span>";
+  // ─── Build row ───
+
+  function buildRow(build, approvedTag) {
+    var approved = build.tag === approvedTag;
+    var h = '<div class="pd-build-row">';
+    h += '<div class="pd-build-info">';
+    h += '<span class="pd-ver-tag">' + escHtml(build.tag || "—");
+    if (!approved) h += ' <span class="badge badge-unapproved">Unapproved</span>';
+    h += '</span>';
+    if (build.published_at) h += '<span class="pd-ver-meta">' + fmtDate(build.published_at) + '</span>';
+    h += '</div>';
+    if (approved && build.download_url) {
+      h += '<a class="btn btn-outline btn-sm" href="' + esc(build.download_url) + '" target="_blank" rel="noopener">Download</a>';
     }
-    if (typeof v.downloads === "number") {
-      html += '    <span class="version-downloads">' + formatNumber(v.downloads) + " downloads</span>";
-    }
-    html += "  </div>";
-    html += '  <div style="display:flex;align-items:center;gap:10px;">';
-    html += '    <span class="version-channel ' + channelClass + '">' + channelLabel + "</span>";
-    if (v.download_url) {
-      html += '    <a class="btn btn-primary" href="' + escapeAttr(v.download_url) + '" target="_blank" rel="noopener">Download</a>';
-    }
-    html += "  </div>";
-    html += "</div>";
-    return html;
+    h += '</div>';
+    return h;
   }
 
-  function buildCard(build, approvedTag) {
-    var isApproved = build.tag === approvedTag;
-    var html = '<div class="version-card">';
-    html += '  <div class="version-info">';
-    html += '    <span class="version-tag">' + escapeHtml(build.tag || "-");
-    if (!isApproved) {
-      html += ' <span class="badge badge-unapproved">Unapproved</span>';
-    }
-    html += "    </span>";
-    if (build.published_at) {
-      html += '    <span class="version-date">' + formatDate(build.published_at) + "</span>";
-    }
-    html += "  </div>";
-    if (isApproved && build.download_url) {
-      html += '  <a class="btn btn-outline" href="' + escapeAttr(build.download_url) + '" target="_blank" rel="noopener">Download</a>';
-    }
-    html += "</div>";
-    return html;
-  }
+  // ─── Giscus ───
 
   function mountGiscus(cfg, pluginId) {
     var host = document.getElementById("giscus-container");
     if (!host) return;
-
     var mapping = cfg.mapping || "specific";
     var term = cfg.term || ("plugin:" + String(pluginId || "").trim());
-    var script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", cfg.repo || "");
-    script.setAttribute("data-repo-id", cfg.repo_id || "");
-    script.setAttribute("data-category", cfg.category || "");
-    script.setAttribute("data-category-id", cfg.category_id || "");
-    script.setAttribute("data-mapping", mapping);
-    if (mapping === "specific") {
-      script.setAttribute("data-term", term);
-    }
-    script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", "light");
-    script.setAttribute("data-lang", "en");
-    host.appendChild(script);
+    var s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.async = true;
+    s.crossOrigin = "anonymous";
+    s.setAttribute("data-repo", cfg.repo || "");
+    s.setAttribute("data-repo-id", cfg.repo_id || "");
+    s.setAttribute("data-category", cfg.category || "");
+    s.setAttribute("data-category-id", cfg.category_id || "");
+    s.setAttribute("data-mapping", mapping);
+    if (mapping === "specific") s.setAttribute("data-term", term);
+    s.setAttribute("data-strict", "0");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "bottom");
+    s.setAttribute("data-theme", "light");
+    s.setAttribute("data-lang", "en");
+    host.appendChild(s);
   }
 
   function resolveGiscusConfig(plugin) {
     var pluginCfg = plugin && plugin.comments ? plugin.comments.giscus : null;
-    var fallbackCfg = (typeof window !== "undefined" && window.POCKGIN_GISCUS_DEFAULT)
-      ? window.POCKGIN_GISCUS_DEFAULT
-      : null;
+    var fallbackCfg = (typeof window !== "undefined" && window.POCKGIN_GISCUS_DEFAULT) ? window.POCKGIN_GISCUS_DEFAULT : null;
     var cfg = pluginCfg || fallbackCfg;
     if (!cfg) return null;
     if (!cfg.repo || !cfg.repo_id || !cfg.category || !cfg.category_id) return null;
     return cfg;
   }
 
-  /* ---- Global accordion toggle ---- */
+  // ─── Accordion ───
+
   window.toggleAccordion = function (trigger) {
     var expanded = trigger.getAttribute("aria-expanded") === "true";
     trigger.setAttribute("aria-expanded", String(!expanded));
-    var content = trigger.nextElementSibling;
-    content.classList.toggle("open", !expanded);
+    trigger.nextElementSibling.classList.toggle("open", !expanded);
   };
 
-  /* ---- Helpers ---- */
+  // ─── SVG icons ───
 
-  function statBlock(value, label) {
-    return '<div class="stat-block"><div class="stat-value">' + value + '</div><div class="stat-label">' + label + "</div></div>";
-  }
-
-  function linkedStatBlock(value, label, href) {
-    return '<a class="stat-block stat-link" href="' + escapeAttr(href) + '" target="_blank" rel="noopener"><div class="stat-value">' + value + '</div><div class="stat-label">' + label + "</div></a>";
-  }
-
-  function formatNumber(n) {
-    if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
-    if (n >= 1000) return (n / 1000).toFixed(1) + "K";
-    return String(n);
-  }
-
-  function formatDate(iso) {
-    try {
-      var d = new Date(iso);
-      return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-    } catch (_) {
-      return iso;
-    }
-  }
-
-  function escapeHtml(s) {
-    var div = document.createElement("div");
-    div.appendChild(document.createTextNode(s));
-    return div.innerHTML;
-  }
-
-  function escapeAttr(s) {
-    return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-
-  function renderMarkdown(markdown, plugin) {
-    var text = String(markdown || "").replace(/\r\n/g, "\n");
-    if (!text.trim()) return "";
-
-    var lines = text.split("\n");
-    var htmlParts = [];
-    var inCodeFence = false;
-    var inUnorderedList = false;
-    var inOrderedList = false;
-    var inBlockquote = false;
-    var paragraph = [];
-
-    function flushParagraph() {
-      if (paragraph.length === 0) return;
-      htmlParts.push("<p>" + formatInline(paragraph.join(" "), plugin) + "</p>");
-      paragraph = [];
-    }
-
-    function closeUnorderedList() {
-      if (!inUnorderedList) return;
-      htmlParts.push("</ul>");
-      inUnorderedList = false;
-    }
-
-    function closeOrderedList() {
-      if (!inOrderedList) return;
-      htmlParts.push("</ol>");
-      inOrderedList = false;
-    }
-
-    function closeLists() {
-      closeUnorderedList();
-      closeOrderedList();
-    }
-
-    function openBlockquote() {
-      if (inBlockquote) return;
-      htmlParts.push('<blockquote class="markdown-quote">');
-      inBlockquote = true;
-    }
-
-    function closeBlockquote() {
-      if (!inBlockquote) return;
-      flushParagraph();
-      closeLists();
-      htmlParts.push("</blockquote>");
-      inBlockquote = false;
-    }
-
-    for (var i = 0; i < lines.length; i++) {
-      var line = lines[i];
-      var trimmed = line.trim();
-
-      if (trimmed.startsWith("```")) {
-        flushParagraph();
-        closeLists();
-        if (!inCodeFence) {
-          inCodeFence = true;
-          htmlParts.push("<pre><code>");
-        } else {
-          inCodeFence = false;
-          htmlParts.push("</code></pre>");
-        }
-        continue;
-      }
-
-      if (inCodeFence) {
-        htmlParts.push(escapeHtml(line) + "\n");
-        continue;
-      }
-
-      if (!trimmed) {
-        flushParagraph();
-        closeLists();
-        closeBlockquote();
-        continue;
-      }
-
-      // Horizontal rule (---, ***, ___)
-      if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
-        flushParagraph();
-        closeLists();
-        closeBlockquote();
-        htmlParts.push("<hr>");
-        continue;
-      }
-
-      // Markdown table support
-      if (isTableStart(lines, i)) {
-        flushParagraph();
-        closeLists();
-        closeBlockquote();
-        var table = buildMarkdownTable(lines, i, plugin);
-        htmlParts.push(table.html);
-        i = table.nextIndex;
-        continue;
-      }
-
-      // Blockquote support (>, >>, ...)
-      if (trimmed.startsWith(">")) {
-        var quoteText = trimmed.replace(/^>\s?/, "");
-        openBlockquote();
-        if (!quoteText) {
-          flushParagraph();
-          closeLists();
-          continue;
-        }
-        trimmed = quoteText;
-      } else {
-        closeBlockquote();
-      }
-
-      if (trimmed.startsWith("# ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h3>" + formatInline(trimmed.slice(2), plugin) + "</h3>");
-        continue;
-      }
-
-      // Basic HTML block support inside README (common in GitHub READMEs)
-      if (/^<h[1-6][^>]*>.*<\/h[1-6]>$/i.test(trimmed)) {
-        flushParagraph();
-        closeLists();
-        var headingHtml = renderHtmlHeading(trimmed, plugin);
-        if (headingHtml) {
-          htmlParts.push(headingHtml);
-          continue;
-        }
-      }
-
-      if (/^<img\b[^>]*\/?>$/i.test(trimmed)) {
-        flushParagraph();
-        closeLists();
-        var imageHtml = renderHtmlImage(trimmed, plugin);
-        if (imageHtml) {
-          htmlParts.push(imageHtml);
-          continue;
-        }
-      }
-      if (trimmed.startsWith("## ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h4>" + formatInline(trimmed.slice(3), plugin) + "</h4>");
-        continue;
-      }
-      if (trimmed.startsWith("### ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h5>" + formatInline(trimmed.slice(4), plugin) + "</h5>");
-        continue;
-      }
-      if (trimmed.startsWith("#### ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h6>" + formatInline(trimmed.slice(5), plugin) + "</h6>");
-        continue;
-      }
-      if (trimmed.startsWith("##### ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h6>" + formatInline(trimmed.slice(6), plugin) + "</h6>");
-        continue;
-      }
-      if (trimmed.startsWith("###### ")) {
-        flushParagraph();
-        closeLists();
-        htmlParts.push("<h6>" + formatInline(trimmed.slice(7), plugin) + "</h6>");
-        continue;
-      }
-
-      if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-        flushParagraph();
-        closeOrderedList();
-        if (!inUnorderedList) {
-          inUnorderedList = true;
-          htmlParts.push("<ul>");
-        }
-        var listBody = trimmed.slice(2);
-        var checklist = listBody.match(/^\[( |x|X)\]\s+(.*)$/);
-        if (checklist) {
-          var checked = checklist[1].toLowerCase() === "x";
-          var label = checklist[2];
-          htmlParts.push(
-            '<li class="markdown-checklist-item"><input type="checkbox" disabled' +
-            (checked ? " checked" : "") +
-            "><span>" + formatInline(label, plugin) + "</span></li>"
-          );
-        } else {
-          htmlParts.push("<li>" + formatInline(listBody, plugin) + "</li>");
-        }
-        continue;
-      }
-
-      if (/^\d+\.\s+/.test(trimmed)) {
-        flushParagraph();
-        closeUnorderedList();
-        if (!inOrderedList) {
-          inOrderedList = true;
-          htmlParts.push("<ol>");
-        }
-        htmlParts.push("<li>" + formatInline(trimmed.replace(/^\d+\.\s+/, ""), plugin) + "</li>");
-        continue;
-      }
-
-      closeLists();
-      paragraph.push(trimmed);
-    }
-
-    flushParagraph();
-    closeLists();
-    closeBlockquote();
-    if (inCodeFence) htmlParts.push("</code></pre>");
-    return htmlParts.join("");
-  }
-
-  function isTableStart(lines, idx) {
-    if (idx + 1 >= lines.length) return false;
-    var header = lines[idx].trim();
-    var separator = lines[idx + 1].trim();
-    if (!header || !separator) return false;
-    if (header.indexOf("|") === -1) return false;
-    return /^\|?[\s:-]+(?:\|[\s:-]+)+\|?$/.test(separator);
-  }
-
-  function buildMarkdownTable(lines, startIdx, plugin) {
-    var headerCells = parseTableRow(lines[startIdx]);
-    var colCount = headerCells.length;
-    var bodyRows = [];
-    var i = startIdx + 2; // skip header + separator
-
-    while (i < lines.length) {
-      var raw = lines[i];
-      var trimmed = raw.trim();
-      if (!trimmed) break;
-      if (trimmed.indexOf("|") === -1) break;
-      var row = parseTableRow(raw);
-      if (row.length === 0) break;
-      bodyRows.push(normalizeRowLength(row, colCount));
-      i++;
-    }
-
-    var html = '<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr>';
-    html += normalizeRowLength(headerCells, colCount).map(function (cell) {
-      return "<th>" + formatInline(cell, plugin) + "</th>";
-    }).join("");
-    html += "</tr></thead>";
-
-    if (bodyRows.length > 0) {
-      html += "<tbody>";
-      html += bodyRows.map(function (row) {
-        return "<tr>" + row.map(function (cell) {
-          return "<td>" + formatInline(cell, plugin) + "</td>";
-        }).join("") + "</tr>";
-      }).join("");
-      html += "</tbody>";
-    }
-
-    html += "</table></div>";
-    return { html: html, nextIndex: i - 1 };
-  }
-
-  function parseTableRow(line) {
-    var raw = String(line || "").trim();
-    if (!raw) return [];
-    if (raw.startsWith("|")) raw = raw.slice(1);
-    if (raw.endsWith("|")) raw = raw.slice(0, -1);
-    return raw.split("|").map(function (cell) {
-      return cell.trim();
-    });
-  }
-
-  function normalizeRowLength(cells, length) {
-    var out = cells.slice(0, length);
-    while (out.length < length) out.push("");
-    return out;
-  }
-
-  function formatInline(text, plugin) {
-    var html = escapeHtml(String(text || ""));
-    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-    html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-    html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) {
-      var resolved = resolveMarkdownUrl(url, plugin);
-      return '<a href="' + escapeAttr(resolved) + '" target="_blank" rel="noopener">' + label + "</a>";
-    });
-    html = linkifyPlainSegments(html, plugin);
-    return html;
-  }
-
-  function resolveMarkdownUrl(rawUrl, plugin) {
-    var url = String(rawUrl || "").trim();
-    if (!url) return "#";
-    if (/^(javascript|data):/i.test(url)) return "#";
-    if (/^(https?:|mailto:|#)/i.test(url)) return url;
-    if (!plugin || !plugin.repo) return url;
-
-    var ref = plugin.approved_release_tag || "main";
-    var base = plugin.repo.replace(/\/+$/, "") + "/blob/" + encodeURIComponent(ref) + "/README.md";
-    try {
-      return new URL(url, base).toString();
-    } catch (_) {
-      return plugin.repo;
-    }
-  }
-
-  function renderHtmlHeading(html, plugin) {
-    var m = html.match(/^<h([1-6])[^>]*>([\s\S]*)<\/h\1>$/i);
-    if (!m) return "";
-    var level = Number(m[1]);
-    var inner = m[2] || "";
-
-    // Extract first inline image if any
-    var imgMatch = inner.match(/<img\b[^>]*>/i);
-    var imgHtml = imgMatch ? renderHtmlImage(imgMatch[0], plugin) : "";
-
-    // Remove all tags for heading text and render safely
-    var textOnly = inner.replace(/<img\b[^>]*>/gi, "").replace(/<[^>]+>/g, "").trim();
-    if (!textOnly && !imgHtml) return "";
-
-    var hTag = level <= 2 ? "h3" : (level === 3 ? "h4" : "h5");
-    var out = "<" + hTag + ">" + formatInline(textOnly, plugin) + "</" + hTag + ">";
-    if (imgHtml) out += imgHtml;
-    return out;
-  }
-
-  function renderHtmlImage(tag, plugin) {
-    var srcMatch = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
-    if (!srcMatch) return "";
-    var altMatch = tag.match(/\balt\s*=\s*["']([^"']*)["']/i);
-    var widthMatch = tag.match(/\bwidth\s*=\s*["']([^"']+)["']/i);
-    var heightMatch = tag.match(/\bheight\s*=\s*["']([^"']+)["']/i);
-
-    var src = normalizeImageUrl(resolveMarkdownUrl(srcMatch[1], plugin));
-    var alt = altMatch ? escapeHtml(altMatch[1]) : "";
-    var widthAttr = widthMatch ? ' width="' + escapeAttr(widthMatch[1]) + '"' : "";
-    var heightAttr = heightMatch ? ' height="' + escapeAttr(heightMatch[1]) + '"' : "";
-
-    return '<p class="markdown-image-wrap"><img class="markdown-image image-loading" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\')"></p>';
-  }
-
-  function renderQuickFacts(p) {
-    var facts = [];
-    if (p.license && (p.license.spdx_id || p.license.name)) {
-      var licenseLabel = p.license.spdx_id && p.license.spdx_id !== "NOASSERTION"
-        ? p.license.spdx_id
-        : (p.license.name || "License");
-      facts.push('<span class="meta-pill">License: ' + escapeHtml(licenseLabel) + "</span>");
-    }
-    if (p.api_support && p.api_support.length) {
-      facts.push('<span class="meta-pill">API: ' + escapeHtml(p.api_support.join(", ")) + "</span>");
-    }
-    if (p.tags && p.tags.length) {
-      facts.push('<span class="meta-pill">Tags: ' + escapeHtml(p.tags.slice(0, 4).join(", ")) + "</span>");
-    }
-    if (p.producers && p.producers.length) {
-      facts.push('<span class="meta-pill">Producers: ' + escapeHtml(p.producers.slice(0, 3).join(", ")) + "</span>");
-    }
-    if (p.last_updated_at) {
-      facts.push('<span class="meta-pill">Updated: ' + escapeHtml(formatDate(p.last_updated_at)) + "</span>");
-    }
-    if (!facts.length) return "";
-    return '<div class="meta-pill-row">' + facts.join("") + "</div>";
-  }
-
-  function normalizeImageUrl(url) {
-    var value = String(url || "");
-    // Convert GitHub blob links to raw links so <img> can load.
-    var m = value.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i);
-    if (m) {
-      return "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + m[4];
-    }
-    return value;
-  }
-
-  function buildAuthorMeta(plugin) {
-    var repoOwner = parseGithubOwnerFromRepo(plugin && plugin.repo);
-    var name = String((plugin && plugin.author) || repoOwner || "Unknown");
-    var profileUrl = repoOwner ? ("https://github.com/" + encodeURIComponent(repoOwner)) : null;
-    var avatarUrl = repoOwner ? ("https://avatars.githubusercontent.com/" + encodeURIComponent(repoOwner) + "?s=64") : null;
-    return {
-      name: name,
-      profile_url: profileUrl,
-      avatar_url: avatarUrl,
-    };
-  }
-
-  function parseGithubOwnerFromRepo(repoUrl) {
-    var match = String(repoUrl || "").match(/^https:\/\/github\.com\/([^/]+)\/[^/]+/i);
-    return match ? match[1] : null;
-  }
-
-  function linkifyPlainSegments(html, plugin) {
-    var parts = html.split(/(<a\b[\s\S]*?<\/a>|<code\b[\s\S]*?<\/code>)/gi);
-    for (var i = 0; i < parts.length; i++) {
-      var part = parts[i];
-      if (!part) continue;
-      if (/^<a\b/i.test(part) || /^<code\b/i.test(part)) continue;
-      parts[i] = linkifyTextPart(part, plugin);
-    }
-    return parts.join("");
-  }
-
-  function linkifyTextPart(text, plugin) {
-    var out = text;
-
-    // 1) Plain URLs
-    out = out.replace(/(https?:\/\/[^\s<]+)/g, function (url) {
-      var safe = escapeAttr(url);
-      return '<a href="' + safe + '" target="_blank" rel="noopener">' + safe + "</a>";
-    });
-
-    // 2) @username mentions
-    out = out.replace(/(^|[^A-Za-z0-9_])@([A-Za-z0-9-]{1,39})\b/g, function (_, prefix, username) {
-      var safeUser = escapeAttr(username);
-      return prefix + '<a href="https://github.com/' + safeUser + '" target="_blank" rel="noopener">@' + safeUser + "</a>";
-    });
-
-    // 3) #123 references -> repo pull request link
-    if (plugin && plugin.repo) {
-      var repoBase = plugin.repo.replace(/\/+$/, "");
-      out = out.replace(/(^|[^A-Za-z0-9_])#(\d+)\b/g, function (_, prefix, number) {
-        return prefix + '<a href="' + escapeAttr(repoBase + "/pull/" + number) + '" target="_blank" rel="noopener">#' + number + "</a>";
-      });
-    }
-
-    return out;
+  function chevronSvg() {
+    return '<svg class="pd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
   }
 
   function githubSvg() {
     return '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>';
   }
 
-  function buildStarUrl(repoUrl) {
-    var base = String(repoUrl || "").replace(/\/+$/, "");
-    if (!base) return "#";
-    return base + "/stargazers";
+  function downloadSvg() {
+    return '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  }
+
+  // ─── Helpers ───
+
+  function fmtNum(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(1) + "K";
+    return String(n);
+  }
+
+  function fmtDate(iso) {
+    try { return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }); }
+    catch (_) { return iso; }
+  }
+
+  function escHtml(s) {
+    var d = document.createElement("div");
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function buildAuthorMeta(p) {
+    var owner = parseGhOwner(p && p.repo);
+    var name = String((p && p.author) || owner || "Unknown");
+    return {
+      name: name,
+      profile_url: owner ? "https://github.com/" + encodeURIComponent(owner) : null,
+      avatar_url: owner ? "https://avatars.githubusercontent.com/" + encodeURIComponent(owner) + "?s=64" : null,
+    };
+  }
+
+  function parseGhOwner(url) {
+    var m = String(url || "").match(/^https:\/\/github\.com\/([^/]+)\/[^/]+/i);
+    return m ? m[1] : null;
+  }
+
+  function buildStarUrl(repo) {
+    return String(repo || "").replace(/\/+$/, "") + "/stargazers";
+  }
+
+  // ─── Markdown renderer (unchanged logic) ───
+
+  function renderMarkdown(markdown, plugin) {
+    var text = String(markdown || "").replace(/\r\n/g, "\n");
+    if (!text.trim()) return "";
+    var lines = text.split("\n");
+    var out = [];
+    var inCode = false, inUl = false, inOl = false, inBq = false;
+    var para = [];
+
+    function flush() { if (para.length) { out.push("<p>" + fmt(para.join(" "), plugin) + "</p>"); para = []; } }
+    function closeUl() { if (inUl) { out.push("</ul>"); inUl = false; } }
+    function closeOl() { if (inOl) { out.push("</ol>"); inOl = false; } }
+    function closeLists() { closeUl(); closeOl(); }
+    function openBq() { if (!inBq) { out.push('<blockquote class="markdown-quote">'); inBq = true; } }
+    function closeBq() { if (inBq) { flush(); closeLists(); out.push("</blockquote>"); inBq = false; } }
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i], t = line.trim();
+
+      if (t.startsWith("```")) { flush(); closeLists(); inCode = !inCode; out.push(inCode ? "<pre><code>" : "</code></pre>"); continue; }
+      if (inCode) { out.push(escHtml(line) + "\n"); continue; }
+      if (!t) { flush(); closeLists(); closeBq(); continue; }
+      if (/^(-{3,}|\*{3,}|_{3,})$/.test(t)) { flush(); closeLists(); closeBq(); out.push("<hr>"); continue; }
+
+      if (isTableStart(lines, i)) { flush(); closeLists(); closeBq(); var tbl = buildTable(lines, i, plugin); out.push(tbl.html); i = tbl.next; continue; }
+
+      if (t.startsWith(">")) { var qt = t.replace(/^>\s?/, ""); openBq(); if (!qt) { flush(); closeLists(); continue; } t = qt; } else { closeBq(); }
+
+      var hm;
+      if ((hm = t.match(/^(#{1,6})\s+(.*)$/))) { flush(); closeLists(); var lvl = hm[1].length; var tag = lvl <= 1 ? "h3" : lvl === 2 ? "h4" : lvl === 3 ? "h5" : "h6"; out.push("<" + tag + ">" + fmt(hm[2], plugin) + "</" + tag + ">"); continue; }
+
+      if (/^<h[1-6][^>]*>.*<\/h[1-6]>$/i.test(t)) { flush(); closeLists(); var hh = renderHtmlH(t, plugin); if (hh) { out.push(hh); continue; } }
+      if (/^<img\b[^>]*\/?>$/i.test(t)) { flush(); closeLists(); var ih = renderHtmlImg(t, plugin); if (ih) { out.push(ih); continue; } }
+
+      if (t.startsWith("- ") || t.startsWith("* ")) { flush(); closeOl(); if (!inUl) { inUl = true; out.push("<ul>"); } var lb = t.slice(2); var cl = lb.match(/^\[( |x|X)\]\s+(.*)$/); if (cl) { out.push('<li class="markdown-checklist-item"><input type="checkbox" disabled' + (cl[1].toLowerCase() === "x" ? " checked" : "") + "><span>" + fmt(cl[2], plugin) + "</span></li>"); } else { out.push("<li>" + fmt(lb, plugin) + "</li>"); } continue; }
+      if (/^\d+\.\s+/.test(t)) { flush(); closeUl(); if (!inOl) { inOl = true; out.push("<ol>"); } out.push("<li>" + fmt(t.replace(/^\d+\.\s+/, ""), plugin) + "</li>"); continue; }
+
+      closeLists();
+      para.push(t);
+    }
+    flush(); closeLists(); closeBq();
+    if (inCode) out.push("</code></pre>");
+    return out.join("");
+  }
+
+  function isTableStart(lines, i) {
+    if (i + 1 >= lines.length) return false;
+    var h = lines[i].trim(), s = lines[i + 1].trim();
+    if (!h || !s || h.indexOf("|") === -1) return false;
+    return /^\|?[\s:-]+(?:\|[\s:-]+)+\|?$/.test(s);
+  }
+
+  function buildTable(lines, start, plugin) {
+    var hCells = parseRow(lines[start]);
+    var cols = hCells.length, body = [];
+    var i = start + 2;
+    while (i < lines.length) { var r = lines[i].trim(); if (!r || r.indexOf("|") === -1) break; var row = parseRow(lines[i]); if (!row.length) break; body.push(padRow(row, cols)); i++; }
+    var html = '<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr>' + padRow(hCells, cols).map(function (c) { return "<th>" + fmt(c, plugin) + "</th>"; }).join("") + "</tr></thead>";
+    if (body.length) { html += "<tbody>" + body.map(function (r) { return "<tr>" + r.map(function (c) { return "<td>" + fmt(c, plugin) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody>"; }
+    html += "</table></div>";
+    return { html: html, next: i - 1 };
+  }
+
+  function parseRow(line) { var r = String(line || "").trim(); if (!r) return []; if (r[0] === "|") r = r.slice(1); if (r[r.length - 1] === "|") r = r.slice(0, -1); return r.split("|").map(function (c) { return c.trim(); }); }
+  function padRow(cells, len) { var o = cells.slice(0, len); while (o.length < len) o.push(""); return o; }
+
+  function fmt(text, plugin) {
+    var h = escHtml(String(text || ""));
+    h = h.replace(/`([^`]+)`/g, "<code>$1</code>");
+    h = h.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    h = h.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    h = h.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) { return '<a href="' + esc(resolveUrl(url, plugin)) + '" target="_blank" rel="noopener">' + label + "</a>"; });
+    h = linkify(h, plugin);
+    return h;
+  }
+
+  function resolveUrl(raw, plugin) {
+    var u = String(raw || "").trim();
+    if (!u) return "#";
+    if (/^(javascript|data):/i.test(u)) return "#";
+    if (/^(https?:|mailto:|#)/i.test(u)) return u;
+    if (!plugin || !plugin.repo) return u;
+    var ref = plugin.approved_release_tag || "main";
+    try { return new URL(u, plugin.repo.replace(/\/+$/, "") + "/blob/" + encodeURIComponent(ref) + "/README.md").toString(); } catch (_) { return plugin.repo; }
+  }
+
+  function renderHtmlH(html, plugin) {
+    var m = html.match(/^<h([1-6])[^>]*>([\s\S]*)<\/h\1>$/i);
+    if (!m) return "";
+    var lvl = Number(m[1]), inner = m[2] || "";
+    var imgM = inner.match(/<img\b[^>]*>/i);
+    var imgH = imgM ? renderHtmlImg(imgM[0], plugin) : "";
+    var txt = inner.replace(/<img\b[^>]*>/gi, "").replace(/<[^>]+>/g, "").trim();
+    if (!txt && !imgH) return "";
+    var tag = lvl <= 2 ? "h3" : lvl === 3 ? "h4" : "h5";
+    return "<" + tag + ">" + fmt(txt, plugin) + "</" + tag + ">" + imgH;
+  }
+
+  function renderHtmlImg(tag, plugin) {
+    var src = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
+    if (!src) return "";
+    var alt = tag.match(/\balt\s*=\s*["']([^"']*)["']/i);
+    var w = tag.match(/\bwidth\s*=\s*["']([^"']+)["']/i);
+    var h = tag.match(/\bheight\s*=\s*["']([^"']+)["']/i);
+    var url = normalizeImgUrl(resolveUrl(src[1], plugin));
+    return '<p class="markdown-image-wrap"><img class="markdown-image image-loading" src="' + esc(url) + '" alt="' + (alt ? escHtml(alt[1]) : "") + '"' + (w ? ' width="' + esc(w[1]) + '"' : "") + (h ? ' height="' + esc(h[1]) + '"' : "") + " loading=\"lazy\" onload=\"this.classList.remove('image-loading')\" onerror=\"this.classList.remove('image-loading')\"></p>";
+  }
+
+  function normalizeImgUrl(url) {
+    var v = String(url || "");
+    var m = v.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i);
+    return m ? "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + m[4] : v;
+  }
+
+  function linkify(html, plugin) {
+    var parts = html.split(/(<a\b[\s\S]*?<\/a>|<code\b[\s\S]*?<\/code>)/gi);
+    for (var i = 0; i < parts.length; i++) { var p = parts[i]; if (!p || /^<a\b/i.test(p) || /^<code\b/i.test(p)) continue; parts[i] = linkifyText(p, plugin); }
+    return parts.join("");
+  }
+
+  function linkifyText(text, plugin) {
+    var o = text.replace(/(https?:\/\/[^\s<]+)/g, function (u) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(u) + "</a>"; });
+    o = o.replace(/(^|[^A-Za-z0-9_])@([A-Za-z0-9-]{1,39})\b/g, function (_, pre, u) { return pre + '<a href="https://github.com/' + esc(u) + '" target="_blank" rel="noopener">@' + esc(u) + "</a>"; });
+    if (plugin && plugin.repo) { var base = plugin.repo.replace(/\/+$/, ""); o = o.replace(/(^|[^A-Za-z0-9_])#(\d+)\b/g, function (_, pre, n) { return pre + '<a href="' + esc(base + "/pull/" + n) + '" target="_blank" rel="noopener">#' + n + "</a>"; }); }
+    return o;
   }
 
   init();
