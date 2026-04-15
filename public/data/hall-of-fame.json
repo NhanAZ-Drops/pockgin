@@ -1,0 +1,90 @@
+{
+  "last_updated_at": "2026-04-15T11:50:50.076Z",
+  "moderators": [
+    {
+      "username": "NhanAZ",
+      "display_name": "NhanAZ",
+      "role": "Moderator",
+      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ?s=64"
+    }
+  ],
+  "top_authors_by_plugins": [
+    {
+      "username": "NhanAZ-Plugins",
+      "display_name": "NhanAZ-Plugins",
+      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
+      "plugin_count": 3,
+      "plugins": [
+        {
+          "id": "anti-poggit-staff",
+          "name": "AntiPoggitStaff"
+        },
+        {
+          "id": "simpleeconomy",
+          "name": "SimpleEconomy"
+        },
+        {
+          "id": "uncensor",
+          "name": "Uncensor"
+        }
+      ]
+    },
+    {
+      "username": "pockgin",
+      "display_name": "YourName",
+      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
+      "plugin_count": 1,
+      "plugins": [
+        {
+          "id": "example",
+          "name": "Example Plugin"
+        }
+      ]
+    }
+  ],
+  "top_authors_by_downloads": [
+    {
+      "username": "NhanAZ-Plugins",
+      "display_name": "NhanAZ-Plugins",
+      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
+      "total_downloads": 2,
+      "plugin_count": 3
+    },
+    {
+      "username": "pockgin",
+      "display_name": "YourName",
+      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
+      "total_downloads": 2,
+      "plugin_count": 1
+    }
+  ],
+  "top_contributors": [
+    {
+      "username": "NhanAZ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60387689?v=4",
+      "contributions": 58,
+      "repos": [
+        {
+          "repo": "pockgin",
+          "contributions": 39
+        },
+        {
+          "repo": "plugin-template",
+          "contributions": 3
+        },
+        {
+          "repo": "cli",
+          "contributions": 2
+        },
+        {
+          "repo": "docs",
+          "contributions": 6
+        },
+        {
+          "repo": "scripts",
+          "contributions": 8
+        }
+      ]
+    }
+  ]
+}
