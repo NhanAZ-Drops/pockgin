@@ -3,7 +3,7 @@
   "name": "AntiPoggitStaff",
   "repo": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff",
   "approved_release_tag": "v1.0.0",
-  "verified": true,
+  "verified": false,
   "build": {
     "provider": "github-releases",
     "include_prerelease": false
