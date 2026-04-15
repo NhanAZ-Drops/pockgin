@@ -622,6 +622,10 @@ img.image-loading {
   width: 16px;
   height: 16px;
 }
+.detail-star-btn {
+  margin: 0 0 10px 10px;
+  vertical-align: middle;
+}
 
 .meta-pill-row {
   display: flex;
