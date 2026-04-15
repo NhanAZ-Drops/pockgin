@@ -152,9 +152,14 @@
     html += '<div class="comments-section">';
     html += '<h2 class="section-title">Comments</h2>';
     if (p.comments && p.comments.enabled) {
-      if (p.comments.provider === "giscus" && p.comments.giscus) {
+      if (p.comments.provider === "giscus") {
+        var giscusCfg = resolveGiscusConfig(p);
+        if (giscusCfg) {
         html += '<div id="giscus-container"></div>';
-        html += giscusScript(p.comments.giscus);
+          html += giscusScript(giscusCfg, p.id);
+        } else {
+          html += '<div id="comments-placeholder" style="padding:24px;background:var(--bg-surface);border-radius:var(--radius-md);text-align:center;color:var(--text-secondary);">Comments are enabled, but Giscus default config is incomplete. Please update comments-config.js.</div>';
+        }
       } else {
         html += '<div id="comments-placeholder" style="padding:24px;background:var(--bg-surface);border-radius:var(--radius-md);text-align:center;color:var(--text-secondary);">Comments are enabled. Provider integration pending.</div>';
       }
@@ -209,13 +214,16 @@
     return html;
   }
 
-  function giscusScript(cfg) {
+  function giscusScript(cfg, pluginId) {
+    var mapping = cfg.mapping || "specific";
+    var term = cfg.term || ("plugin:" + String(pluginId || "").trim());
     return '<script src="https://giscus.app/client.js"' +
       ' data-repo="' + escapeAttr(cfg.repo || "") + '"' +
       ' data-repo-id="' + escapeAttr(cfg.repo_id || "") + '"' +
       ' data-category="' + escapeAttr(cfg.category || "") + '"' +
       ' data-category-id="' + escapeAttr(cfg.category_id || "") + '"' +
-      ' data-mapping="' + escapeAttr(cfg.mapping || "pathname") + '"' +
+      ' data-mapping="' + escapeAttr(mapping) + '"' +
+      (mapping === "specific" ? ' data-term="' + escapeAttr(term) + '"' : "") +
       ' data-strict="0"' +
       ' data-reactions-enabled="1"' +
       ' data-emit-metadata="0"' +
@@ -224,6 +232,17 @@
       ' data-lang="en"' +
       ' crossorigin="anonymous"' +
       " async><\/script>";
+  }
+
+  function resolveGiscusConfig(plugin) {
+    var pluginCfg = plugin && plugin.comments ? plugin.comments.giscus : null;
+    var fallbackCfg = (typeof window !== "undefined" && window.POCKGIN_GISCUS_DEFAULT)
+      ? window.POCKGIN_GISCUS_DEFAULT
+      : null;
+    var cfg = pluginCfg || fallbackCfg;
+    if (!cfg) return null;
+    if (!cfg.repo || !cfg.repo_id || !cfg.category || !cfg.category_id) return null;
+    return cfg;
   }
 
   /* ---- Global accordion toggle ---- */
