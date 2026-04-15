@@ -30,7 +30,11 @@
 
   function renderDetail(p) {
     var icon = p.icon_url || DEFAULT_ICON;
-    var badge = p.verified
+    var badges = "";
+    if (p.featured) {
+      badges += '<span class="badge badge-featured">Featured</span>';
+    }
+    badges += p.verified
       ? '<span class="badge badge-verified">Verified</span>'
       : '<span class="badge badge-unverified">Unverified</span>';
 
@@ -43,7 +47,7 @@
     html += "    <h1>" + escapeHtml(p.name) + "</h1>";
     html += '    <p class="detail-author">by ' + escapeHtml(p.author || "Unknown") + "</p>";
     html += '    <p class="detail-desc">' + escapeHtml(p.description || "") + "</p>";
-    html += '    <div class="detail-badges">' + badge + "</div>";
+    html += '    <div class="detail-badges">' + badges + "</div>";
     html += "  </div>";
     html += "</div>";
 

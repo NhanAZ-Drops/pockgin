@@ -373,6 +373,10 @@ img.image-loading {
   background: #DCFCE7;
   color: var(--badge-success);
 }
+.badge-featured {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}
 .badge-unverified {
   background: #FEF3C7;
   color: #92400E;

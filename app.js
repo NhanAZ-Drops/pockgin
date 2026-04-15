@@ -47,7 +47,11 @@
 
   function pluginCard(p) {
     var icon = p.icon_url || DEFAULT_ICON;
-    var badge = p.verified
+    var badges = "";
+    if (p.featured) {
+      badges += '<span class="badge badge-featured">Featured</span>';
+    }
+    badges += p.verified
       ? '<span class="badge badge-verified">Verified</span>'
       : '<span class="badge badge-unverified">Unverified</span>';
     var version = p.stable_version || "-";
@@ -63,7 +67,7 @@
         "</div>" +
         '<p class="card-desc">' + escapeHtml(p.description || "") + "</p>" +
         '<div class="card-meta">' +
-          badge +
+          badges +
           '<span class="meta-item">' + iconSvg("tag") + version + "</span>" +
           '<span class="meta-item">' + iconSvg("download") + formatNumber(p.total_downloads || 0) + "</span>" +
           '<span class="meta-item">' + iconSvg("star") + formatNumber(p.stars || 0) + "</span>" +
@@ -100,6 +104,8 @@
 
     var key = currentSort;
     sorted.sort(function (a, b) {
+      var featuredDelta = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+      if (featuredDelta !== 0) return featuredDelta;
       var verifiedDelta = Number(Boolean(b.verified)) - Number(Boolean(a.verified));
       if (verifiedDelta !== 0) return verifiedDelta;
       if (key === "downloads") return (b.total_downloads || 0) - (a.total_downloads || 0);
