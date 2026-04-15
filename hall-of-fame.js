@@ -22,7 +22,7 @@
 
     // Hero
     html += '<div class="hof-hero">';
-    html += '  <div class="hof-hero-icon"><i class="fi fi-rr-medal" aria-hidden="true"></i></div>';
+    html += '  <div class="hof-hero-icon"><img src="assets/medal.svg" alt="Medal icon" width="56" height="56" loading="eager"></div>';
     html += '  <h1>Hall of Fame</h1>';
     html += '  <p class="hof-hero-sub">Celebrating the developers, contributors, and moderators who make Pockgin possible.</p>';
     if (data.last_updated_at) {

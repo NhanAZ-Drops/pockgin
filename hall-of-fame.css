@@ -26,6 +26,13 @@
   display: inline-block;
 }
 
+.hof-hero-icon img {
+  width: 56px;
+  height: 56px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .hof-hero h1 {
   font-size: 2rem;
   font-weight: 800;
