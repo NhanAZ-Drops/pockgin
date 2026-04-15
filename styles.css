@@ -611,6 +611,61 @@ img {
   height: 16px;
 }
 
+/* ---- Markdown Content ---- */
+
+.markdown-content {
+  width: 100%;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.markdown-content p {
+  margin: 0 0 12px;
+}
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5 {
+  margin: 16px 0 8px;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+.markdown-content h3 { font-size: 1.1rem; }
+.markdown-content h4 { font-size: 1rem; }
+.markdown-content h5 { font-size: 0.95rem; }
+.markdown-content ul {
+  margin: 8px 0 12px 20px;
+  padding: 0;
+}
+.markdown-content li {
+  margin-bottom: 6px;
+}
+.markdown-content a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+.markdown-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: #eef2f7;
+  color: #0f172a;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 0.86em;
+}
+.markdown-content pre {
+  margin: 10px 0 14px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  overflow-x: auto;
+}
+.markdown-content pre code {
+  background: transparent;
+  color: inherit;
+  border-radius: 0;
+  padding: 0;
+}
+
 /* ---- Comments Section ---- */
 
 .comments-section {

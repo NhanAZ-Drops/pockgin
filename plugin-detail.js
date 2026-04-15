@@ -47,6 +47,13 @@
     html += "  </div>";
     html += "</div>";
 
+    if (p.readme_markdown) {
+      html += '<h2 class="section-title">About this plugin</h2>';
+      html += '<div class="version-card">';
+      html += '  <div class="markdown-content">' + renderMarkdown(p.readme_markdown) + "</div>";
+      html += "</div>";
+    }
+
     // Repo link
     if (p.repo) {
       html += '<a class="repo-link" href="' + escapeAttr(p.repo) + '" target="_blank" rel="noopener">';
@@ -210,6 +217,104 @@
 
   function escapeAttr(s) {
     return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function renderMarkdown(markdown) {
+    var text = String(markdown || "").replace(/\r\n/g, "\n");
+    if (!text.trim()) return "";
+
+    var lines = text.split("\n");
+    var htmlParts = [];
+    var inCodeFence = false;
+    var inList = false;
+    var paragraph = [];
+
+    function flushParagraph() {
+      if (paragraph.length === 0) return;
+      htmlParts.push("<p>" + formatInline(paragraph.join(" ")) + "</p>");
+      paragraph = [];
+    }
+
+    function closeList() {
+      if (!inList) return;
+      htmlParts.push("</ul>");
+      inList = false;
+    }
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var trimmed = line.trim();
+
+      if (trimmed.startsWith("```")) {
+        flushParagraph();
+        closeList();
+        if (!inCodeFence) {
+          inCodeFence = true;
+          htmlParts.push("<pre><code>");
+        } else {
+          inCodeFence = false;
+          htmlParts.push("</code></pre>");
+        }
+        continue;
+      }
+
+      if (inCodeFence) {
+        htmlParts.push(escapeHtml(line) + "\n");
+        continue;
+      }
+
+      if (!trimmed) {
+        flushParagraph();
+        closeList();
+        continue;
+      }
+
+      if (trimmed.startsWith("# ")) {
+        flushParagraph();
+        closeList();
+        htmlParts.push("<h3>" + formatInline(trimmed.slice(2)) + "</h3>");
+        continue;
+      }
+      if (trimmed.startsWith("## ")) {
+        flushParagraph();
+        closeList();
+        htmlParts.push("<h4>" + formatInline(trimmed.slice(3)) + "</h4>");
+        continue;
+      }
+      if (trimmed.startsWith("### ")) {
+        flushParagraph();
+        closeList();
+        htmlParts.push("<h5>" + formatInline(trimmed.slice(4)) + "</h5>");
+        continue;
+      }
+
+      if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+        flushParagraph();
+        if (!inList) {
+          inList = true;
+          htmlParts.push("<ul>");
+        }
+        htmlParts.push("<li>" + formatInline(trimmed.slice(2)) + "</li>");
+        continue;
+      }
+
+      closeList();
+      paragraph.push(trimmed);
+    }
+
+    flushParagraph();
+    closeList();
+    if (inCodeFence) htmlParts.push("</code></pre>");
+    return htmlParts.join("");
+  }
+
+  function formatInline(text) {
+    var html = escapeHtml(String(text || ""));
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    return html;
   }
 
   function githubSvg() {
