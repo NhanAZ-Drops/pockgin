@@ -14,7 +14,6 @@
   const sortMenuEl = document.getElementById("sort-menu");
   const sortOptionEls = document.querySelectorAll(".sort-option");
   let currentSort = "name";
-  const statsEl = document.getElementById("stats-bar");
 
   async function init() {
     try {
@@ -27,13 +26,6 @@
         '<div class="empty-state"><p>Unable to load plugins. Please try again later.</p></div>';
       console.error(err);
     }
-  }
-
-  function updateStats(plugins) {
-    const total = plugins.length;
-    const totalDl = plugins.reduce(function (s, p) { return s + (p.total_downloads || 0); }, 0);
-    statsEl.textContent =
-      total + " plugin" + (total !== 1 ? "s" : "") + " \u00B7 " + formatNumber(totalDl) + " total downloads";
   }
 
   function render(plugins) {
@@ -72,12 +64,6 @@
           '<span class="meta-item">' + iconSvg("download") + formatNumber(p.total_downloads || 0) + "</span>" +
           '<span class="meta-item">' + iconSvg("star") + formatNumber(p.stars || 0) + "</span>" +
         "</div>" +
-        '<div class="card-actions">' +
-          '<a class="btn btn-primary" href="plugin.html?id=' + encodeURIComponent(p.id) + '">View</a>' +
-          (p.download_url
-            ? '<a class="btn btn-outline" href="' + escapeAttr(p.download_url) + '" target="_blank" rel="noopener">' + iconSvg("download") + "Download</a>"
-            : "") +
-        "</div>" +
       "</div>"
     );
   }
@@ -114,7 +100,6 @@
     });
 
     render(sorted);
-    updateStats(sorted);
   }
 
   /* ---- Helpers ---- */
