@@ -273,6 +273,7 @@
     var inCodeFence = false;
     var inUnorderedList = false;
     var inOrderedList = false;
+    var inBlockquote = false;
     var paragraph = [];
 
     function flushParagraph() {
@@ -296,6 +297,20 @@
     function closeLists() {
       closeUnorderedList();
       closeOrderedList();
+    }
+
+    function openBlockquote() {
+      if (inBlockquote) return;
+      htmlParts.push('<blockquote class="markdown-quote">');
+      inBlockquote = true;
+    }
+
+    function closeBlockquote() {
+      if (!inBlockquote) return;
+      flushParagraph();
+      closeLists();
+      htmlParts.push("</blockquote>");
+      inBlockquote = false;
     }
 
     for (var i = 0; i < lines.length; i++) {
@@ -323,7 +338,42 @@
       if (!trimmed) {
         flushParagraph();
         closeLists();
+        closeBlockquote();
         continue;
+      }
+
+      // Horizontal rule (---, ***, ___)
+      if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
+        flushParagraph();
+        closeLists();
+        closeBlockquote();
+        htmlParts.push("<hr>");
+        continue;
+      }
+
+      // Markdown table support
+      if (isTableStart(lines, i)) {
+        flushParagraph();
+        closeLists();
+        closeBlockquote();
+        var table = buildMarkdownTable(lines, i, plugin);
+        htmlParts.push(table.html);
+        i = table.nextIndex;
+        continue;
+      }
+
+      // Blockquote support (>, >>, ...)
+      if (trimmed.startsWith(">")) {
+        var quoteText = trimmed.replace(/^>\s?/, "");
+        openBlockquote();
+        if (!quoteText) {
+          flushParagraph();
+          closeLists();
+          continue;
+        }
+        trimmed = quoteText;
+      } else {
+        closeBlockquote();
       }
 
       if (trimmed.startsWith("# ")) {
@@ -373,7 +423,19 @@
           inUnorderedList = true;
           htmlParts.push("<ul>");
         }
-        htmlParts.push("<li>" + formatInline(trimmed.slice(2), plugin) + "</li>");
+        var listBody = trimmed.slice(2);
+        var checklist = listBody.match(/^\[( |x|X)\]\s+(.*)$/);
+        if (checklist) {
+          var checked = checklist[1].toLowerCase() === "x";
+          var label = checklist[2];
+          htmlParts.push(
+            '<li class="markdown-checklist-item"><input type="checkbox" disabled' +
+            (checked ? " checked" : "") +
+            "><span>" + formatInline(label, plugin) + "</span></li>"
+          );
+        } else {
+          htmlParts.push("<li>" + formatInline(listBody, plugin) + "</li>");
+        }
         continue;
       }
 
@@ -394,8 +456,71 @@
 
     flushParagraph();
     closeLists();
+    closeBlockquote();
     if (inCodeFence) htmlParts.push("</code></pre>");
     return htmlParts.join("");
+  }
+
+  function isTableStart(lines, idx) {
+    if (idx + 1 >= lines.length) return false;
+    var header = lines[idx].trim();
+    var separator = lines[idx + 1].trim();
+    if (!header || !separator) return false;
+    if (header.indexOf("|") === -1) return false;
+    return /^\|?[\s:-]+(?:\|[\s:-]+)+\|?$/.test(separator);
+  }
+
+  function buildMarkdownTable(lines, startIdx, plugin) {
+    var headerCells = parseTableRow(lines[startIdx]);
+    var colCount = headerCells.length;
+    var bodyRows = [];
+    var i = startIdx + 2; // skip header + separator
+
+    while (i < lines.length) {
+      var raw = lines[i];
+      var trimmed = raw.trim();
+      if (!trimmed) break;
+      if (trimmed.indexOf("|") === -1) break;
+      var row = parseTableRow(raw);
+      if (row.length === 0) break;
+      bodyRows.push(normalizeRowLength(row, colCount));
+      i++;
+    }
+
+    var html = '<div class="markdown-table-wrap"><table class="markdown-table"><thead><tr>';
+    html += normalizeRowLength(headerCells, colCount).map(function (cell) {
+      return "<th>" + formatInline(cell, plugin) + "</th>";
+    }).join("");
+    html += "</tr></thead>";
+
+    if (bodyRows.length > 0) {
+      html += "<tbody>";
+      html += bodyRows.map(function (row) {
+        return "<tr>" + row.map(function (cell) {
+          return "<td>" + formatInline(cell, plugin) + "</td>";
+        }).join("") + "</tr>";
+      }).join("");
+      html += "</tbody>";
+    }
+
+    html += "</table></div>";
+    return { html: html, nextIndex: i - 1 };
+  }
+
+  function parseTableRow(line) {
+    var raw = String(line || "").trim();
+    if (!raw) return [];
+    if (raw.startsWith("|")) raw = raw.slice(1);
+    if (raw.endsWith("|")) raw = raw.slice(0, -1);
+    return raw.split("|").map(function (cell) {
+      return cell.trim();
+    });
+  }
+
+  function normalizeRowLength(cells, length) {
+    var out = cells.slice(0, length);
+    while (out.length < length) out.push("");
+    return out;
   }
 
   function formatInline(text, plugin) {

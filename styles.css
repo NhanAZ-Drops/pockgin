@@ -673,6 +673,30 @@ img.image-loading {
 .markdown-content li {
   margin-bottom: 6px;
 }
+.markdown-content .markdown-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.markdown-content .markdown-checklist-item input[type="checkbox"] {
+  margin-top: 3px;
+}
+.markdown-content .markdown-checklist-item span {
+  flex: 1;
+}
+.markdown-quote {
+  margin: 12px 0 16px;
+  padding: 10px 14px;
+  border-left: 3px solid #cbd5e1;
+  background: #f8fafc;
+  color: var(--text-secondary);
+  border-radius: 8px;
+}
+.markdown-content hr {
+  border: 0;
+  border-top: 1px solid var(--border-default);
+  margin: 16px 0;
+}
 .markdown-content a {
   color: var(--brand-primary);
   text-decoration: underline;
@@ -708,6 +732,32 @@ img.image-loading {
   border-radius: 10px;
   border: 1px solid var(--border-default);
   background: #fff;
+}
+.markdown-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 12px 0 16px;
+}
+.markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+  background: #fff;
+}
+.markdown-table th,
+.markdown-table td {
+  border: 1px solid var(--border-default);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.markdown-table th {
+  background: #f8fafc;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.markdown-table td {
+  color: var(--text-secondary);
 }
 
 /* ---- Comments Section ---- */
