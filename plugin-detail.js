@@ -38,7 +38,7 @@
 
     // Header
     html += '<div class="detail-header">';
-    html += '  <img class="detail-icon" src="' + escapeAttr(icon) + '" alt="" width="80" height="80" onerror="this.src=\'' + DEFAULT_ICON + '\'">';
+    html += '  <img class="detail-icon image-loading" src="' + escapeAttr(icon) + '" alt="" width="80" height="80" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\');this.src=\'' + DEFAULT_ICON + '\'">';
     html += '  <div class="detail-title-area">';
     html += "    <h1>" + escapeHtml(p.name) + "</h1>";
     html += '    <p class="detail-author">by ' + escapeHtml(p.author || "Unknown") + "</p>";
@@ -421,7 +421,7 @@
     var widthAttr = widthMatch ? ' width="' + escapeAttr(widthMatch[1]) + '"' : "";
     var heightAttr = heightMatch ? ' height="' + escapeAttr(heightMatch[1]) + '"' : "";
 
-    return '<p class="markdown-image-wrap"><img class="markdown-image" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy"></p>';
+    return '<p class="markdown-image-wrap"><img class="markdown-image image-loading" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\')"></p>';
   }
 
   function normalizeImageUrl(url) {

@@ -55,7 +55,7 @@
     return (
       '<div class="plugin-card">' +
         '<div class="card-header">' +
-          '<img class="card-icon" src="' + escapeAttr(icon) + '" alt="" width="48" height="48" loading="lazy" onerror="this.src=\'' + DEFAULT_ICON + '\'">' +
+          '<img class="card-icon image-loading" src="' + escapeAttr(icon) + '" alt="" width="48" height="48" loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\');this.src=\'' + DEFAULT_ICON + '\'">' +
           '<div class="card-title-area">' +
             '<h3><a href="plugin.html?id=' + encodeURIComponent(p.id) + '">' + escapeHtml(p.name) + "</a></h3>" +
             '<span class="card-author">' + escapeHtml(p.author || "Unknown") + "</span>" +

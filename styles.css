@@ -57,6 +57,22 @@ img {
   height: auto;
 }
 
+img.image-loading {
+  background: linear-gradient(
+    90deg,
+    #eef2f7 0%,
+    #e2e8f0 45%,
+    #eef2f7 100%
+  );
+  background-size: 220% 100%;
+  animation: imageShimmer 1.1s linear infinite;
+}
+
+@keyframes imageShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -20% 0; }
+}
+
 /* ---- Layout ---- */
 
 .container {
