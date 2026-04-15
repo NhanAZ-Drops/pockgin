@@ -416,12 +416,22 @@
     var widthMatch = tag.match(/\bwidth\s*=\s*["']([^"']+)["']/i);
     var heightMatch = tag.match(/\bheight\s*=\s*["']([^"']+)["']/i);
 
-    var src = resolveMarkdownUrl(srcMatch[1], plugin);
+    var src = normalizeImageUrl(resolveMarkdownUrl(srcMatch[1], plugin));
     var alt = altMatch ? escapeHtml(altMatch[1]) : "";
     var widthAttr = widthMatch ? ' width="' + escapeAttr(widthMatch[1]) + '"' : "";
     var heightAttr = heightMatch ? ' height="' + escapeAttr(heightMatch[1]) + '"' : "";
 
     return '<p class="markdown-image-wrap"><img class="markdown-image" src="' + escapeAttr(src) + '" alt="' + alt + '"' + widthAttr + heightAttr + ' loading="lazy"></p>';
+  }
+
+  function normalizeImageUrl(url) {
+    var value = String(url || "");
+    // Convert GitHub blob links to raw links so <img> can load.
+    var m = value.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i);
+    if (m) {
+      return "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + m[4];
+    }
+    return value;
   }
 
   function githubSvg() {
