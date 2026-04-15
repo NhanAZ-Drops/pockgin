@@ -1,0 +1,40 @@
+{
+  "id": "anti-poggit-staff",
+  "name": "AntiPoggitStaff",
+  "author": "NhanAZ-Plugins",
+  "description": "😡 Has your plugin been rejected multiple times on the Poggit platform? Use this plugin to get revenge on them by banning them upon server start!",
+  "readme_markdown": "<h1>AntiPoggitStaff<img src=\"https://github.com/NhanAZ/AntiPoggitStaff/blob/master/icon.png\" height=\"64\" width=\"64\" align=\"left\" alt=\"AntiPoggitStaff Logo\"></h1>\n\n**Has your plugin been rejected multiple times on the Poggit platform?  \nUse this plugin to get revenge on them by banning them upon server start!**\n\n<img src=\"https://raw.githubusercontent.com/xShamir/AntiPoggitStaff/master/Ban-Hammer.gif\" autoplay=\"true\"/>\n\n## Bonus Reading\n\nIf you would like a completely unserious and deeply theatrical English-language satire about Poggit rules, read [SATIRICAL-README.md](SATIRICAL-README.md).\n",
+  "repo": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff",
+  "archive_repo": null,
+  "icon_url": "assets/icons/anti-poggit-staff.png",
+  "verified": true,
+  "approved_release_tag": "v1.0.0",
+  "stars": 30,
+  "total_downloads": 0,
+  "last_commit_at": "2026-04-15T09:43:38Z",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "published_at": "2026-04-15T09:43:40Z",
+      "downloads": 0,
+      "download_url": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff/releases/download/v1.0.0/AntiPoggitStaff.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "v1.0.0",
+      "published_at": "2026-04-15T09:43:40Z",
+      "download_url": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff/releases/download/v1.0.0/AntiPoggitStaff.phar"
+    }
+  ],
+  "comments": {
+    "enabled": true,
+    "provider": "giscus"
+  },
+  "build": {
+    "provider": "github-releases",
+    "include_prerelease": false
+  }
+}
