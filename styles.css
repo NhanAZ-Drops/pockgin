@@ -475,6 +475,25 @@ img.image-loading {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.detail-author a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+.detail-author a:hover {
+  color: var(--brand-primary);
+}
+.author-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
 }
 .detail-desc {
   font-size: 1rem;

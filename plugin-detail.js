@@ -30,6 +30,7 @@
 
   function renderDetail(p) {
     var icon = p.icon_url || DEFAULT_ICON;
+    var authorMeta = buildAuthorMeta(p);
     var badges = "";
     var pendingGiscus = null;
     if (p.featured) {
@@ -43,7 +44,17 @@
     html += '  <img class="detail-icon image-loading" src="' + escapeAttr(icon) + '" alt="" width="80" height="80" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\');this.src=\'' + DEFAULT_ICON + '\'">';
     html += '  <div class="detail-title-area">';
     html += "    <h1>" + escapeHtml(p.name) + "</h1>";
-    html += '    <p class="detail-author">by ' + escapeHtml(p.author || "Unknown") + "</p>";
+    html += '    <div class="detail-author">';
+    if (authorMeta.avatar_url) {
+      html += '      <img class="author-avatar image-loading" src="' + escapeAttr(authorMeta.avatar_url) + '" alt="' + escapeAttr(authorMeta.name) + '" width="22" height="22" loading="lazy" onload="this.classList.remove(\'image-loading\')" onerror="this.classList.remove(\'image-loading\')">';
+    }
+    html += "      <span>by </span>";
+    if (authorMeta.profile_url) {
+      html += '      <a href="' + escapeAttr(authorMeta.profile_url) + '" target="_blank" rel="noopener">' + escapeHtml(authorMeta.name) + "</a>";
+    } else {
+      html += "      <span>" + escapeHtml(authorMeta.name) + "</span>";
+    }
+    html += "    </div>";
     html += '    <p class="detail-desc">' + escapeHtml(p.description || "") + "</p>";
     html += '    <div class="detail-badges">' + badges + "</div>";
     html += "  </div>";
@@ -676,6 +687,23 @@
       return "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + m[4];
     }
     return value;
+  }
+
+  function buildAuthorMeta(plugin) {
+    var repoOwner = parseGithubOwnerFromRepo(plugin && plugin.repo);
+    var name = String((plugin && plugin.author) || repoOwner || "Unknown");
+    var profileUrl = repoOwner ? ("https://github.com/" + encodeURIComponent(repoOwner)) : null;
+    var avatarUrl = repoOwner ? ("https://avatars.githubusercontent.com/" + encodeURIComponent(repoOwner) + "?s=64") : null;
+    return {
+      name: name,
+      profile_url: profileUrl,
+      avatar_url: avatarUrl,
+    };
+  }
+
+  function parseGithubOwnerFromRepo(repoUrl) {
+    var match = String(repoUrl || "").match(/^https:\/\/github\.com\/([^/]+)\/[^/]+/i);
+    return match ? match[1] : null;
   }
 
   function linkifyPlainSegments(html, plugin) {
