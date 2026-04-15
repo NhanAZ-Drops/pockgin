@@ -407,6 +407,7 @@
       var resolved = resolveMarkdownUrl(url, plugin);
       return '<a href="' + escapeAttr(resolved) + '" target="_blank" rel="noopener">' + label + "</a>";
     });
+    html = linkifyPlainSegments(html, plugin);
     return html;
   }
 
@@ -493,6 +494,43 @@
       return "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + m[4];
     }
     return value;
+  }
+
+  function linkifyPlainSegments(html, plugin) {
+    var parts = html.split(/(<a\b[\s\S]*?<\/a>|<code\b[\s\S]*?<\/code>)/gi);
+    for (var i = 0; i < parts.length; i++) {
+      var part = parts[i];
+      if (!part) continue;
+      if (/^<a\b/i.test(part) || /^<code\b/i.test(part)) continue;
+      parts[i] = linkifyTextPart(part, plugin);
+    }
+    return parts.join("");
+  }
+
+  function linkifyTextPart(text, plugin) {
+    var out = text;
+
+    // 1) Plain URLs
+    out = out.replace(/(https?:\/\/[^\s<]+)/g, function (url) {
+      var safe = escapeAttr(url);
+      return '<a href="' + safe + '" target="_blank" rel="noopener">' + safe + "</a>";
+    });
+
+    // 2) @username mentions
+    out = out.replace(/(^|[^A-Za-z0-9_])@([A-Za-z0-9-]{1,39})\b/g, function (_, prefix, username) {
+      var safeUser = escapeAttr(username);
+      return prefix + '<a href="https://github.com/' + safeUser + '" target="_blank" rel="noopener">@' + safeUser + "</a>";
+    });
+
+    // 3) #123 references -> repo pull request link
+    if (plugin && plugin.repo) {
+      var repoBase = plugin.repo.replace(/\/+$/, "");
+      out = out.replace(/(^|[^A-Za-z0-9_])#(\d+)\b/g, function (_, prefix, number) {
+        return prefix + '<a href="' + escapeAttr(repoBase + "/pull/" + number) + '" target="_blank" rel="noopener">#' + number + "</a>";
+      });
+    }
+
+    return out;
   }
 
   function githubSvg() {
