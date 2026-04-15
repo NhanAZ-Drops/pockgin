@@ -27,12 +27,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install scripts
         run: |
           git clone https://github.com/pockgin/scripts.git /tmp/pockgin-scripts
-          cd /tmp/pockgin-scripts && npm ci
+          cd /tmp/pockgin-scripts && npm install
 
       - name: Restore sync cache
         uses: actions/cache@v4
