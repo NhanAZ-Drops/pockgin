@@ -1,0 +1,61 @@
+{
+  "id": "playercollide",
+  "name": "PlayerCollide",
+  "author": "AIPTU",
+  "description": "A PocketMine-MP plugin that enables player-to-player collision, applying knockback when players get too close to each other.",
+  "readme_markdown": "# PlayerCollide\nA PocketMine-MP plugin that enables player-to-player collision, applying knockback when players get too close to each other.\n\n# Features\n- **Player Collision**: Players within a configurable distance will collide.\n- **Configurable Knockback**: Adjust the base knockback strength and a multiplier based on player speed.\n\n# Default Config\n``` yaml\n# PlayerCollide Configuration\n\n# The maximum distance (in blocks) between two players for collision to occur.\n# Players closer than this distance will be considered for collision.\ncollision_distance: 0.8\n\n# The base knockback strength applied when players collide.\n# This is the minimum knockback applied.\nknockback_strength: 0.1\n\n# The multiplier for knockback strength based on player speed.\n# If a player is moving fast, the knockback will be increased by this multiplier\n# multiplied by the player's speed.\nspeed_knockback_multiplier: 0.5\n```\n- **collision_distance**: The maximum distance (in blocks) between two players for a collision to be registered. Players closer than this distance will experience knockback.\n- **knockback_strength**: The base knockback strength applied to both players during a collision. This is the minimum knockback value.\n- **speed_knockback_multiplier**: A multiplier that increases the knockback strength based on the player's movement speed. A higher value means faster-moving players will cause more knockback.\n\n# Upcoming Features\n\n- Currently none planned. You can contribute or suggest for new features.\n\n# Additional Notes\n\n- If you find bugs or want to give suggestions, please visit [here](https://github.com/AIPTU/PlayerCollide/issues).\n- We accept all contributions! If you want to contribute, please make a pull request in [here](https://github.com/AIPTU/PlayerCollide/pulls).\n- Icons made from [www.flaticon.com](https://www.flaticon.com)",
+  "readme_source_url": "https://github.com/AIPTU/PlayerCollide",
+  "icon_url": "https://raw.githubusercontent.com/AIPTU/PlayerCollide/d936e02e34cef90d95080dab09cb843935411d35/icon.png",
+  "featured": false,
+  "repo": "https://github.com/AIPTU/PlayerCollide",
+  "archive_repo": null,
+  "approved_release_tag": "r-14129",
+  "stars": 0,
+  "total_downloads": 272,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "AIPTU"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14129",
+      "published_at": null,
+      "downloads": 272,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14129/playercollide-1.0.0-r14129.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14129",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14129/playercollide-1.0.0-r14129.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PlayerCollide",
+    "stable_release_id": 14129
+  }
+}

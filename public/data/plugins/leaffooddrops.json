@@ -1,0 +1,66 @@
+{
+  "id": "leaffooddrops",
+  "name": "LeafFoodDrops",
+  "author": "JesusHR1k",
+  "description": "🍃 LeafFoodDrops",
+  "readme_markdown": "# 🍃 LeafFoodDrops\n\n[![Poggit-CI](https://poggit.pmmp.io/shield.state/LeafFoodDrops)](https://poggit.pmmp.io/p/LeafFoodDrops)\n[![API 5](https://img.shields.io/badge/PocketMine--MP-API%205.x-green)](#)\n\n**LeafFoodDrops** is a lightweight and fun plugin for **PocketMine-MP 5** that adds a small survival twist:  \nwhen players break leaf blocks, they have a random chance to receive different types of **RAW food**.  \nPerfect for **SkyBlock**, **Survival**, or **Adventure** servers that want to make exploration more rewarding.\n\n---\n\n## 🌱 Features\n- Random **RAW food drops** when breaking leaves (player-break only, no decay)\n- Fully compatible with **PocketMine-MP 5**\n- Lightweight and performance-friendly\n- Simple configuration file (`config.yml`)\n- Per-world enable/disable with commands\n- Optional multi-language messages (EN default, ES available)\n- No dependencies required\n\n---\n\n## ⚙️ Configuration\nWhen the plugin starts, it automatically creates a configuration file like this:\n\n```yaml\nenabled: true\n\n# NOTES:\n# - Plugin language:\n#   - en = English (default)\n#   - es = Spanish\nlanguage: en\n\n# NOTES:\n# - Drop chance (0.0 to 1.0)\n#   - 0.03 = 3% (low)\n#   - 0.06 = 6% (normal)\n#   - 0.10 = 10% (high)\nchance: 0.06\n\n# NOTES:\n# - Amount dropped per successful roll\ncount_min: 1\ncount_max: 1\n\n# NOTES:\n# - If the player is in creative:\n#   - true = drop the item on the ground\n#   - false = drop nothing\ncreative_drop: true\n\n# NOTES:\n# - Enable/disable per world:\n#   - If a world is NOT listed here, it defaults to ON (true)\n#   - Commands:\n#     - /lf on <world>\n#     - /lf off <world>\nworlds:\n  world: true\n  lobby: false\n\n# NOTES:\n# - Foods (RAW) with weights:\n#   - Higher weight = higher probability\n#   - You can use \"minecraft:beef\" or \"beef\"\nfoods:\n  minecraft:apple: 8\n  minecraft:beef: 4\n  minecraft:chicken: 4\n  minecraft:porkchop: 4\n  minecraft:mutton: 3\n  minecraft:rabbit: 2\n  minecraft:potato: 4\n  minecraft:carrot: 5\n  minecraft:beetroot: 4\n\n# NOTES:\n# - Plugin messages per language\n# - Placeholders:\n#   - {world} = world name\n#   - {state} = ON/OFF\nmessages:\n  en:\n    no_permission: \"§cYou don't have permission.\"\n    usage: \"§cUsage: §f/lf <on|off> <world>\"\n    toggled: \"§aLeafFoodDrops in §f{world} §a=> {state}\"\n    state_on: \"§aON\"\n    state_off: \"§cOFF\"\n  es:\n    no_permission: \"§cNo tienes permiso.\"\n    usage: \"§cUso: §f/lf <on|off> <mundo>\"\n    toggled: \"§aLeafFoodDrops en §f{world} §a=> {state}\"\n    state_on: \"§aON\"\n    state_off: \"§cOFF\"\n```\n🧩 Commands\n\n/lf on <world> Enable LeafFoodDrops in a world\n\n/lf off <world> Disable LeafFoodDrops in a world\n\nPermission: leafdrops.admin (default: op)\n\n📦 Installation\n\nDownload the latest .phar from Poggit\n\nPlace it inside the plugins/ folder of your PocketMine-MP 5 server\n\nRestart the server and edit plugin_data/LeafFoodDrops/config.yml\n\n🧠 Author\n\nDeveloped by JesusHR1k (RetroMC Team)\nCreated for the PocketMine-MP 5 community ❤️\n\n🧾 License\n\nThis project is open-source under the MIT License.\nFeel free to use or modify it for your own server",
+  "readme_source_url": "https://github.com/JesusHR1k/LeafFoodDrops",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/JesusHR1k/LeafFoodDrops",
+  "archive_repo": null,
+  "approved_release_tag": "r-14301",
+  "stars": 0,
+  "total_downloads": 44,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "JesusHR1k"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/261926",
+  "versions": {
+    "stable": {
+      "version": "1.2.0",
+      "tag": "r-14301",
+      "published_at": null,
+      "downloads": 17,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14301/leaffooddrops-1.2.0-r14301.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14301",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14301/leaffooddrops-1.2.0-r14301.phar"
+    },
+    {
+      "tag": "r-14281",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14281/leaffooddrops-1.1.0-r14281.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "LeafFoodDrops",
+    "stable_release_id": 14301
+  }
+}

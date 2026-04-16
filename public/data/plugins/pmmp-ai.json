@@ -1,0 +1,61 @@
+{
+  "id": "pmmp-ai",
+  "name": "PMMP-AI",
+  "author": "RenzMc",
+  "description": "PMMP-AI Assistant",
+  "readme_markdown": "# PMMP-AI Assistant\n\n![PMMP-AI Logo](icon.png)\n\n## 🤖 Advanced AI Assistant for Minecraft Pocket Edition Servers\n\nPMMP-AI is a powerful AI assistant plugin for PocketMine-MP servers that integrates multiple AI providers to enhance your Minecraft server experience. The plugin offers a wide range of features including AI chat, crafting help, building calculations, server information, and more.\n\n[![Latest Release](https://img.shields.io/github/v/release/RenzMc/PMMP-AI?include_prereleases&label=release&style=flat-square)](https://github.com/RenzMc/PMMP-AI/releases/latest)\n[![PocketMine-MP API](https://img.shields.io/badge/API-5.15.0-orange?style=flat-square)](https://github.com/pmmp/PocketMine-MP)\n[![License](https://img.shields.io/github/license/RenzMc/PMMP-AI?style=flat-square)](LICENSE)\n\n## ✨ Features\n\n- **Multi-Provider AI Integration**: Support for OpenAI, Anthropic, Google AI, OpenRouter, and local AI models\n- **Interactive Chat**: Talk directly with AI to get help with Minecraft-related questions\n- **Crafting Helper**: Get crafting recipes for any item in the game\n- **Building Calculator**: Calculate required materials for your building projects\n- **Server Information**: Access server stats, rules, and features\n- **Token System**: Optional economy integration with configurable token packages\n- **Chat History**: Save and review past conversations with the AI\n- **Fully Customizable**: Extensive configuration options for all aspects of the plugin\n- **Broadcast System**: Configurable AI tips broadcast to players\n- **HTTPS REQUEST** Asynchronous HTTPS requests with secure header masking, retries, and use PocketMine BulkCurlTask.\n\n## 📋 Requirements\n\n- PocketMine-MP 5.15.0+\n- [FormAPI](https://github.com/jojoe77777/FormAPI) plugin\n- Economy plugin (optional, for token system): EconomyAPI, BedrockEconomy\n\n## 📥 Installation\n\n1. Download the latest release from the [releases page](https://github.com/RenzMc/PMMP-AI/releases)\n2. Place the `.phar` file in your server's `plugins` folder\n3. Install the required [FormAPI](https://github.com/jojoe77777/FormAPI) plugin\n4. Restart your server\n5. Configure the plugin by editing the configuration files in the `plugins/PMMP-AI` folder\n\n## ⚙️ Configuration\n\nPMMP-AI offers extensive configuration options through multiple YAML files:\n\n### config.yml\n\nThe main configuration file contains settings for:\n- API providers (OpenAI, Anthropic, Google AI, OpenRouter, Local AI)\n- AI prompt settings\n- Message settings\n- Server information\n- Token system\n- Chat history\n- Advanced settings\n\n### forms.yml\n\nThe forms configuration file allows you to customize all UI elements:\n- Form titles and content\n- Button texts and colors\n- Button textures\n- Form layouts\n- Text formatting\n\n### fiturserver.yml\n\nThis file contains information about your server's features that the AI can use to help players:\n- Economy features\n- Land protection systems\n- Teleportation commands\n- Custom enchantments\n- Minigames\n- Voting systems\n- Ranks and more\n\n## 🎮 Usage\n\n### Player Commands\n\n- `/ai` - Open the main AI Assistant interface\n\n### Admin Commands\n\n- `/ai <question>` - direct ai response in chat\n- `/ai setup <provider> <apikey> <models>` - quick settings ai in-game\n- `/ai help` - see all available command\n\n## 🎨 Customization\n\n### Form Customization\n\nAll forms can be fully customized through the `forms.yml` file:\n\n```yaml\n# Example: Customizing the main form\nmain_form:\n  title: \"My Custom AI\"\n  content: \"Welcome to my custom AI assistant!\"\n  buttons:\n    chat:\n      text: \"Talk to AI\"\n      color: \"{primary}\"\n      texture: \"textures/ui/chat_icon\"\n```\n\n### Button Textures\n\nYou can customize button textures using Minecraft's built-in textures or your own resource pack:\n\n```yaml\nbutton_textures:\n  chat: \"textures/ui/chat_icon\"\n  crafting: \"textures/ui/crafting_icon\"\n  building: \"textures/ui/building_icon\"\n```\n\n### Text Formatting\n\nCustomize text colors and formatting throughout the plugin:\n\n```yaml\ntext_formatting:\n  title: \"&l&b\"       # Bold Aqua\n  subtitle: \"&l&e\"    # Bold Yellow\n  heading: \"&l&6\"     # Bold Gold\n  content: \"&7\"       # Gray\n```\n\n## 🔧 API Integration\n\n### OpenAI Setup\n\n1. Get an API key from [OpenAI](https://platform.openai.com/)\n2. Add your API key to the `config.yml` file:\n\n```yaml\napi_providers:\n  default_provider: \"openai\"\n  openai:\n    enabled: true\n    api_key: \"YOUR_OPENAI_API_KEY\"\n    model: \"gpt-3.5-turbo\"\n```\n\n### Other Providers\n\nThe plugin also supports:\n- [Anthropic Claude](https://www.anthropic.com/)\n- [Google AI (Gemini)](https://ai.google.dev/)\n- [OpenRouter](https://openrouter.ai/)\n- Local AI models (self-hosted)\n\n## 📊 Token System\n\nThe plugin includes an optional token system that integrates with economy plugins:\n\n- Players receive free daily tokens\n- Additional tokens can be purchased with in-game currency\n- Configurable token packages and prices\n- Support for multiple economy plugins\n\n## 📝 License\n\nThis project is licensed under the [MIT License](LICENSE).\n\n## 👨‍💻 Author\n\n- **Renz** - [GitHub](https://github.com/RenzMc)\n\n## 🙏 Acknowledgements\n\n- [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) team for the amazing server software\n- [jojoe77777](https://github.com/jojoe77777) for the FormAPI plugin\n- All contributors and testers who helped improve this plugin\n- This work builds upon the concept introduced in the ChatPM-GPT project.\nI am grateful to the author for sharing their innovation and making this development possible.\nhttps://github.com/HBIDamian/ChatPM_GPT",
+  "readme_source_url": "https://github.com/RenzMc/PMMP-AI",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/RenzMc/PMMP-AI",
+  "archive_repo": null,
+  "approved_release_tag": "r-14206",
+  "stars": 0,
+  "total_downloads": 75,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.20.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "RenzMc"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14206",
+      "published_at": null,
+      "downloads": 75,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14206/pmmp-ai-1.0.0-r14206.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14206",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14206/pmmp-ai-1.0.0-r14206.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PMMP-AI",
+    "stable_release_id": 14206
+  }
+}

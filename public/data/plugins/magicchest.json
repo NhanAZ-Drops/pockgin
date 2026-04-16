@@ -1,0 +1,61 @@
+{
+  "id": "magicchest",
+  "name": "MagicChest",
+  "author": "fernanACM",
+  "description": "A MagicChest full of special and random items. Only servers PocketMine-MP 5.0",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/MagicChest)](https://poggit.pmmp.io/p/MagicChest)\n\n[![](https://poggit.pmmp.io/shield.api/MagicChest)](https://poggit.pmmp.io/p/MagicChest)\n\n# MagicChest\n\nA MagicChest full of special and random items. Only servers PocketMine-MP 5.0\n\n![1750733594209](https://github.com/user-attachments/assets/f48f90ff-785c-4f3c-9287-b4532548099e)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 🌍 Wiki\n* Check our plugin [wiki](https://github.com/fernanACM/MagicChest/wiki) for features and secrets in the...\n\n### 💡 Implementations\n* [X] Configuration\n* [x] Keys in config.yml\n* [x] Loot system\n* [x] Reward system\n\n### 💾 Config \n```yaml\n#  __  __                   _           ____   _                    _   \n# |  \\/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ \n# | |\\/| |  / _` |  / _` | | |  / __| | |     | '_ \\   / _ \\ / __| | __|\n# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \\__ \\ | |_ \n# |_|  |_|  \\__,_|  \\__, | |_|  \\___|  \\____| |_| |_|  \\___| |___/  \\__|\n#                   |___/\n#           by fernanACM\n\n# Chest refill system with random items. Easy to set up and fun. Only \n# for PocketMine-MP 5.0 servers.\n\n# DO NOT TOUCH!!\nconfig-version: \"1.0.0\"\n\n# Languages\n# \"eng\", // English\n# \"spa\", // Spanish\n# \"ger\", // German\n# \"indo\", // Indonesian\n# \"vie\" // Vietnamese\nlanguage: eng\n\n# Prefix plugin\nPrefix: \"&l&f[&9MC&f]&8»&r \"\n\n# ====(SETTINGS)====\nSettings:\n  MagicChest:\n    # It's time to fill the magic chest:\n    # 300 => 5 minutes\n    refill-interval: 300\n    # ====(LOOT)====\n    Loot:\n      # Minimum amount of loot in the chest.\n      min: 4\n      # Maximum amount of loot in the chest.\n      max: 6\n    # ====(BROADCAST)====\n    Broadcast:\n      # Enter the number of seconds the announcer \n      # will be active. If you have no idea what \n      # it's for, leave it as is.\n      times: [1, 2, 3, 4, 5, 60, 3600, 10800, 86400, 2592000]\n```\n\n### 🌐 MultiLanguage\n| Language | Translated by |\n|----------|---------------|\n| English | [fernanACM](https://github.com/fernanACM) |\n| Spanish | [fernanACM](https://github.com/fernanACM) |\n| Indonesian | MagicChest |\n| German | MagicChest |\n| Vietnamese | MagicChest |\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/MagicChest/issues)\n\n### 📞 Contact\n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [InvMenu](https://github.com/Muqsit/InvMenu) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |\n****",
+  "readme_source_url": "https://github.com/fernanACM/MagicChest",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/MagicChest/ee771af3ba0672f9bfe23993c0f835cc86d33d78/icon-magicchest.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/MagicChest",
+  "archive_repo": null,
+  "approved_release_tag": "r-14238",
+  "stars": 0,
+  "total_downloads": 110,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260434",
+  "versions": {
+    "stable": {
+      "version": "1.0.1",
+      "tag": "r-14238",
+      "published_at": null,
+      "downloads": 110,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14238/magicchest-1.0.1-r14238.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14238",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14238/magicchest-1.0.1-r14238.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "MagicChest",
+    "stable_release_id": 14238
+  }
+}

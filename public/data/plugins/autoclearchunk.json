@@ -1,0 +1,61 @@
+{
+  "id": "autoclearchunk",
+  "name": "AutoClearChunk",
+  "author": "HazardTeam",
+  "description": "A PocketMine-MP plugin that automatically clears chunks in specified worlds at regular intervals.",
+  "readme_markdown": "# AutoClearChunk\n\n[![](https://poggit.pmmp.io/shield.state/AutoClearChunk)](https://poggit.pmmp.io/p/AutoClearChunk)\n[![](https://poggit.pmmp.io/shield.dl.total/AutoClearChunk)](https://poggit.pmmp.io/p/AutoClearChunk)\n\nA PocketMine-MP plugin that automatically clears chunks in specified worlds at regular intervals.\n\n# Features\n- **Automated Chunk Management**: Automatically clears unloaded chunks in configured worlds to optimize server performance.\n- **Flexible Scheduling**: Allows for a configurable interval to automatically clear chunks, adapting to your server's specific needs.\n- **Graceful Unloading**: Includes a configurable grace period, ensuring chunks without players remain loaded for a specified duration before being considered for unloading.\n- **Manual Control**: Provides commands to manually trigger chunk clearing for immediate action.\n- **Customizable Player Feedback**: Offers configurable messages for different events, enhancing the player experience with clear notifications.\n- **World Exclusion**: Supports a blacklist to exclude specific worlds from the automatic chunk clearing process.\n- **Stay Up-to-Date**: Features an auto-update notifier to inform you of the latest plugin releases.\n\n# Default Config\n``` yaml\n# AutoClearChunk Configuration\n\n# Enable Auto-Schedule\n# Determines whether the plugin automatically schedules the task to clear unloaded chunks at the specified interval.\n# Set to 'true' to enable auto-scheduling, 'false' to disable.\nenable-auto-schedule: true\n\n# Clear Interval Duration\n# Defines the time interval at which unloaded chunks are automatically cleared.\n# The value should be specified in a duration format.\n# Examples: 1h (1 hour), 30m (30 minutes), 15s (15 seconds)\nclear-interval-duration: 5m30s\n\n# Chunk Unload Grace Period Duration\n# Specifies how long a chunk without players should wait before being considered for unloading.\n# Set to \"0s\" to disable the grace period and unload instantly (reverts to old behavior).\n# Examples: 30s, 5m, 1h\nchunk-unload-grace-period-duration: \"30s\"\n\n# Clear Chunk Message\n# Message displayed when chunks are cleared using the /clearchunk command.\n# Use %d as a placeholder for the number of cleared chunks and %s for the world name.\n# Color codes are supported.\n# Default: \"&aSuccessfully cleared %d chunks in world %s\"\nclearchunk-message: \"&aSuccessfully cleared %d chunks in world %s\"\n\n# Clear Chunk Broadcast Message\n# Message broadcast to all players when chunks are cleared using the /clearchunk command.\n# Use %d as a placeholder for the number of cleared chunks and %s for the world name.\n# Color codes are supported.\n# Default: \"&e%d chunks have been cleared in world %s\"\nclearchunk-broadcast-message: \"&e%d chunks have been cleared in world %s\"\n\n# Clear All Chunk Message\n# Message displayed when chunks are cleared using the /clearallchunk command.\n# Use %d as a placeholder for the number of cleared chunks.\n# Color codes are supported.\n# Default: \"&aSuccessfully cleared %d chunks in all worlds\"\nclearallchunk-message: \"&aSuccessfully cleared %d chunks in all worlds\"\n\n# Clear All Chunk Broadcast Message\n# Message broadcast to all players when chunks are cleared using the /clearallchunk command.\n# Use %d as a placeholder for the number of cleared chunks.\n# Color codes are supported.\n# Default: \"&e%d chunks have been cleared in all worlds\"\nclearallchunk-broadcast-message: \"&e%d chunks have been cleared in all worlds\"\n\n# Enable Broadcast Messages\n# Set to 'true' to enable broadcasting messages to all players when chunks are cleared, 'false' to disable.\nbroadcast-message: true\n\n# Blacklisted Worlds\n# List of world names that will be excluded from the chunk clearing process.\n# Add the exact names of any worlds you want to exclude.\n# Default: []\nblacklisted-worlds:\n  - your_world\n  - another_world\n\n```\n\n# Configuration\nThe plugin configuration file (`config.yml`) allows you to customize various aspects of the AutoClearChunk plugin. Here are the configurable options:\n\n- `enable-auto-schedule` (boolean): Set this option to `true` if you want to enable the automatic chunk clearing schedule. If set to `false`, chunks will only be cleared manually using commands.\n- `clear-interval-duration` (string): Specify the duration interval at which chunks should be cleared automatically. The duration should be specified in the format of `1h30m` for 1 hour and 30 minutes.\n- `chunk-unload-grace-period-duration` (string): Defines how long a chunk without players should wait before being considered for unloading. Set to \"0s\" to disable the grace period and unload instantly. Examples: `30s, 5m, 1h`.\n- `clearchunk-message` (string): Customize the message sent to players when chunks are cleared using the `/clearchunk` command.\n- `clearchunk-broadcast-message` (string): Customize the message broadcasted to all players when chunks are cleared using the `/clearchunk` command.\n- `clearallchunk-message` (string): Customize the message sent to players when chunks are cleared using the `/clearallchunk` command.\n- `clearallchunk-broadcast-message` (string): Customize the message broadcasted to all players when chunks are cleared using the `/clearallchunk` command.\n- `broadcast-message` (boolean): Set this option to `true` if you want to enable the broadcasting message when Chunk Cleared\n- `blacklisted-worlds` (array): Specify a list of worlds to exclude from chunk clearing. Add world names as individual array items.\n\nYou can edit the `config.yml` file using a text editor to adjust the plugin's behavior, customize messages, and define the worlds where chunk clearing should be applied.\n\n# Commands\nThe AutoClearChunk plugin provides the following commands for chunk clearing:\n\n- `/clearchunk`: Clears all chunks in the current world. Players receive a notification message.\n  - Permission: `autoclearchunk.command.clearchunk`\n- `/clearallchunk`: Clears all chunks in all configured worlds. Players receive a notification message.\n  - Permission: `autoclearchunk.command.clearallchunk`\n\n# Permissions\nTo control access to the commands provided by the AutoClearChunk plugin, the following permissions are available:\n\n- `autoclearchunk.command.clearchunk`: Allows players to use the `/clearchunk` command.\n- `autoclearchunk.command.clearallchunk`: Allows players to use the `/clearallchunk` command.\n\nGrant these permissions to specific player groups or individuals using a permissions management plugin of your choice.\n\n# Upcoming Features\n\n- Currently none planned. You can contribute or suggest for new features.\n\n# Additional Notes\n\n- If you find bugs or want to give suggestions, please visit [here](https://github.com/HazardTeam/AutoClearChunk/issues).\n- We accept all contributions! If you want to contribute, please make a pull request in [here](https://github.com/HazardTeam/AutoClearChunk/pulls).\n- Icons made from [icons8.com](https://icons8.com)",
+  "readme_source_url": "https://github.com/HazardTeam/AutoClearChunk",
+  "icon_url": "https://raw.githubusercontent.com/HazardTeam/AutoClearChunk/f40c47f21458891175d5addaede2c2801fcbcb26/icon.png",
+  "featured": false,
+  "repo": "https://github.com/HazardTeam/AutoClearChunk",
+  "archive_repo": null,
+  "approved_release_tag": "r-14101",
+  "stars": 0,
+  "total_downloads": 261,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "HazardTeam"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257446",
+  "versions": {
+    "stable": {
+      "version": "3.0.2",
+      "tag": "r-14101",
+      "published_at": null,
+      "downloads": 261,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14101/autoclearchunk-3.0.2-r14101.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14101",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14101/autoclearchunk-3.0.2-r14101.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "AutoClearChunk",
+    "stable_release_id": 14101
+  }
+}

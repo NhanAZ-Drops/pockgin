@@ -1,0 +1,61 @@
+{
+  "id": "fixbucketitem",
+  "name": "FixBucketItem",
+  "author": "JkqzDev",
+  "description": "🪣 FixBucketItem",
+  "readme_markdown": "# 🪣 FixBucketItem\nFixBucketItem is a PocketMine-MP plugin that fixes a common bug in recent versions, where water and lava buckets cannot be placed correctly when using Shift + Right Click (while sneaking).\n\nWith this plugin, the original behavior is restored: you can place liquids without issues while sneaking, preserving the intended Minecraft gameplay experience.\n\n✨ Features\n- Fixes water and lava placement when sneaking.\n- Supports both empty and filled water/lava buckets.\n- Zero performance impact on your server.\n- Plug-and-play: just drop it into your plugins/ folder.",
+  "readme_source_url": "https://github.com/JkqzDev/fixbucketitem",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/JkqzDev/fixbucketitem",
+  "archive_repo": null,
+  "approved_release_tag": "r-14157",
+  "stars": 0,
+  "total_downloads": 42,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "JkqzDev"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14157",
+      "published_at": null,
+      "downloads": 42,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14157/fixbucketitem-1.0.0-r14157.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14157",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14157/fixbucketitem-1.0.0-r14157.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "FixBucketItem",
+    "stable_release_id": 14157
+  }
+}

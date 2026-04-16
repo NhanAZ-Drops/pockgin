@@ -1,0 +1,61 @@
+{
+  "id": "motdshuffle",
+  "name": "MOTDShuffle",
+  "author": "HBIDamian",
+  "description": "Gives a random MOTD shuffle, such as the Minecraft Featured Servers! :D",
+  "readme_markdown": "# MOTDShuffle\nGives a random MOTD shuffle, such as the Minecraft Featured Servers! :D",
+  "readme_source_url": "https://github.com/HBIDamian/MOTDShuffle",
+  "icon_url": "https://raw.githubusercontent.com/HBIDamian/MOTDShuffle/40e82ac49aba5d407d5dafe7cdc1e1b2d5b1a6a5/icon.png",
+  "featured": false,
+  "repo": "https://github.com/HBIDamian/MOTDShuffle",
+  "archive_repo": null,
+  "approved_release_tag": "r-14135",
+  "stars": 0,
+  "total_downloads": 161,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "HBIDamian"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258104",
+  "versions": {
+    "stable": {
+      "version": "1.5.0",
+      "tag": "r-14135",
+      "published_at": null,
+      "downloads": 161,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14135/motdshuffle-1.5.0-r14135.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14135",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14135/motdshuffle-1.5.0-r14135.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "MOTDShuffle",
+    "stable_release_id": 14135
+  }
+}

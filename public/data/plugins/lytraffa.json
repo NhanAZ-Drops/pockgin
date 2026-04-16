@@ -1,0 +1,61 @@
+{
+  "id": "lytraffa",
+  "name": "LytraFFA",
+  "author": "FresherGAMING",
+  "description": "LytraFFA is a Pocketmine MP Plugin that provides very customizable FFA Games",
+  "readme_markdown": "# LytraFFA\nLytraFFA is a Pocketmine MP Plugin that provides very customizable FFA Games\n\nYou can customize the scoreboard, spawn items and much more\n\nTo begin, you can do /ffa in game\n\nThere are a lot of options there, from creating an arena, renaming an arena, adding brief description, set kits as your inventory and toggle permissions such as breaking blocks, placing blocks and using water bucket\n\nEverytime player got kills or deaths, the data would be stored into database inside plugin data with SQLite and MYSQL Supported\n\n![alt text](https://i.imgur.com/pbymUDg.jpeg)\n\n# Commands - Permissions\n| Commands | Description         | Permissions     |\n| -------- | ------------------- | --------------- |\n| /spawn   | Teleport  to spawn  | lytraffa.spawn  |\n| /ffa     | Manage FFA          | lytraffa.manage |",
+  "readme_source_url": "https://github.com/FresherGAMING/LytraFFA",
+  "icon_url": "https://raw.githubusercontent.com/FresherGAMING/LytraFFA/bd87c65137ef02d536d8ed4bf969c4740a5c1773/icon.png",
+  "featured": false,
+  "repo": "https://github.com/FresherGAMING/LytraFFA",
+  "archive_repo": null,
+  "approved_release_tag": "r-14145",
+  "stars": 0,
+  "total_downloads": 64,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "FresherGAMING"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14145",
+      "published_at": null,
+      "downloads": 64,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14145/lytraffa-1.0.0-r14145.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14145",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14145/lytraffa-1.0.0-r14145.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "LytraFFA",
+    "stable_release_id": 14145
+  }
+}

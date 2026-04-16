@@ -1,0 +1,63 @@
+{
+  "id": "eastereggs",
+  "name": "EasterEggs",
+  "author": "fernanACM",
+  "description": "EasterEggs addon with customizable locations, world objectives, and unique rewards. Make your players enjoy searching and competing!",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/EasterEggs)](https://poggit.pmmp.io/p/EasterEggs)\n\n[![](https://poggit.pmmp.io/shield.api/EasterEggs)](https://poggit.pmmp.io/p/EasterEggs)\n\n# EasterEggs\n\nEasterEggs addon with customizable locations, world objectives, and unique rewards. Make your players enjoy searching and competing!\n\n![image](https://github.com/user-attachments/assets/be799da7-2e28-40a4-bbd6-f92df924008a)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 🌍 Wiki\n* Check our plugin [wiki](https://github.com/fernanACM/EasterEggs/wiki) for features and secrets in the...\n\n### 💡 Implementations\n* [X] Configuration\n* [x] ScoreHud support\n* [x] Keys in config.yml\n* [x] Reward system\n\n### 💾 Config \n```yaml\n#  _____                 _                   _____                       \n# | ____|   __ _   ___  | |_    ___   _ __  | ____|   __ _    __ _   ___ \n# |  _|    / _` | / __| | __|  / _ \\ | '__| |  _|    / _` |  / _` | / __|\n# | |___  | (_| | \\__ \\ | |_  |  __/ | |    | |___  | (_| | | (_| | \\__ \\\n# |_____|  \\__,_| |___/  \\__|  \\___| |_|    |_____|  \\__, |  \\__, | |___/\n#                                                    |___/   |___/\n#               by fernanACM\n\n# EasterEggs for PocketMine-MP 5.0 servers. Find the Eggs and get rewards \n# by completing the Eggs goal.\n\n# DO NOT TOUCH!!\nconfig-version: \"1.0.0\"\n\n# Languages\n# \"eng\", // English\n# \"spa\", // Spanish\n# \"ger\", // German\n# \"indo\", // Indonesian\n# \"vie\" // Vietnamese\nlanguage: eng\n\n# Prefix plugin\nPrefix: \"&l&f[&aEasterEggs&f]&8»&r \"\n\n# ====(SETIINGS)====\nSettings:\n  Form:\n    # Set the character limit to create an event\n    characteres: 16\n  EasterEgg:\n    # EasterEggs limit\n    egg-limit: 10\n\n    Reward:\n      # Use \"true\" or \"false\" to activate/deactivate this option\n      broadcast: true\n      # Use \"true\" or \"false\" to activate/deactivate this option\n      player-titles: true\n\n      Commands:\n        # Use \"true\" or \"false\" to activate/deactivate this option\n        execute: true\n        # Use \"{PLAYER}\" to run commands with the player name\n        list:\n          - give \"{PLAYER}\" apple 22\n      Items:\n        # Use \"true\" or \"false\" to activate/deactivate this option\n        receive: true\n        # Set the minimum number of items to receive\n        min: 5\n        # Set the maximum number of items to receive\n        max: 8\n    Entity:\n      # Use \"true\" or \"false\" to activate/deactivate this option\n      particles: true\n      # Sets the particle color for the egg. Use this page to get the RGB code:\n      # https://htmlcolorcodes.com/es/\n      particle-color: [16, 230, 227]\n```\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```eastereggs.cmd.acm``` | Executing the command |\n| ```eastereggs.events.cmd.acm``` | Events |\n| ```eastereggs.loot.cmd.acm``` | Loot |\n| ```eastereggs.setup.cmd.acm``` | Setup |\n| ```astereggs.enter.setupmode.acm``` | Enter in setup mode |\n| ```eastereggs.use.remover.wand.acm``` | Use the wand to remove eggs |\n\n### 🍟ScoreHud\n| Tag | Description |\n|---------|-------------|\n| ```{eastereggs.eggs}``` | Eggs obtained |\n| ```{eastereggs.goal}``` | Egg goal |\n| ```{eastereggs.event-name}``` | Current event |\n\n### 🌐 MultiLanguage\n| Language | Translated by |\n|----------|---------------|\n| English | [fernanACM](https://github.com/fernanACM) |\n| Spanish | [fernanACM](https://github.com/fernanACM) |\n| Indonesian | EasterEggs |\n| German | EasterEggs |\n| Vietnamese | EasterEggs |\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/EasterEggs/issues)\n\n### 📞 Contact\n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [InvMenu](https://github.com/Muqsit/InvMenu) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |\n****",
+  "readme_source_url": "https://github.com/fernanACM/EasterEggs",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/EasterEggs/84e67cca0d7f078b1cdb417bef3969f19ffc6d3d/icon-eastereggs.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/EasterEggs",
+  "archive_repo": null,
+  "approved_release_tag": "r-14248",
+  "stars": 0,
+  "total_downloads": 52,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [
+      "ScoreHud"
+    ],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260516",
+  "versions": {
+    "stable": {
+      "version": "1.0.1",
+      "tag": "r-14248",
+      "published_at": null,
+      "downloads": 52,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14248/eastereggs-1.0.1-r14248.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14248",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14248/eastereggs-1.0.1-r14248.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "EasterEggs",
+    "stable_release_id": 14248
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "ranksystem",
+  "name": "RankSystem",
+  "author": "IvanCraft623",
+  "description": "👑 RankSystem 🔧",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/RankSystem)](https://poggit.pmmp.io/p/RankSystem)\n[![](https://poggit.pmmp.io/shield.dl.total/RankSystem)](https://poggit.pmmp.io/p/RankSystem)\n\n<div align=\"center\">\n  <h1> 👑 RankSystem 🔧</h1>\n  <p><strong>The most powerful and flexible Rank & Permissions Manager for PocketMine-MP</strong></p>\n  \n  <a href=\"https://poggit.pmmp.io/p/RankSystem\">\n    <img src=\"https://img.shields.io/badge/Download-Poggit-2292ee?style=for-the-badge&logo=pocketmine&logoColor=white\" alt=\"Download on Poggit\">\n  </a>\n</div>\n\n\n## 📖 Description\n\n**RankSystem** is a permissions manager for **PocketMine-MP**. It simplifies complex hierarchy management with a system for multiple ranks, temporal permissions, and a user-friendly forms interface.\n\n#### 💖 Support the Project\n\nRankSystem is and will always be **free and open-source**. If this project helps your server grow, consider supporting me and its development.\n\n<p align=\"center\">\n  <a href=\"https://donate.endergames.org/IvanCraft623\">\n    <img src=\"https://img.shields.io/badge/Tip-Support%20Project-orange?style=for-the-badge&logo=heart\" alt=\"Tip\">\n  </a>\n</p>\n\n\n## ✨ Features\n\n* 🌍 **Global:** Full Multi-language support.\n* 👥 **Multi-Rank:** Support for multiple ranks per user simultaneously.\n* ⏳ **Temporary System:** Set expiration times for both ranks and specific permissions.\n* 💾 **Data Support:** Native support for **SQLite3** and **MySQL** providers.\n* 🔄 **Easy Migration:** Built-in migrator for existing data (e.g., PurePerms).\n* 🛠️ **UI Driven:** Intuitive Forms for management without complex commands.\n* 🧬 **Inheritance:** Advanced rank inheritance system to simplify permission management.\n* 💻 **API Ready:** Flexible API designed for plugin developers.\n* 📊 **Integrations:** Full ScoreHud integration to display ranks on scoreboards.\n\n\n## 🤖 Commands\n\n| Command | Description | Permission |\n| :--- | :--- | :--- |\n| `/ranks manage` | Open the management UI | `ranksystem.command.manage` |\n| `/ranks create` | Create a new Rank | `ranksystem.command.create` |\n| `/ranks delete <rank>` | Delete a Rank | `ranksystem.command.delete` |\n| `/ranks edit <rank>` | Edit a Rank's properties | `ranksystem.command.edit` |\n| `/ranks list` | List all available ranks | `ranksystem.command.list` |\n| `/ranks setrank <user> <rank> [time]` | Set a Rank to a User | `ranksystem.command.setrank` |\n| `/ranks removerank <user> <rank>` | Remove a Rank from a User | `ranksystem.command.removerank` |\n| `/ranks setpermission <user> <perm> [time]` | Set a Permission to a User | `ranksystem.command.setpermission` |\n| `/ranks removepermission <user> <perm>` | Remove a User permission | `ranksystem.command.removepermission` |\n| `/ranks permissions <plugin>` | List all plugin permissions | `ranksystem.command.permissions` |\n| `/ranks rankinfo <rank>` | Show info about a rank | `ranksystem.command.rankinfo` |\n| `/ranks userinfo <user>` | Show info about a user | `ranksystem.command.userinfo` |\n\n> [!TIP]\n> You can use `/ranks` as a shortcut for the `/ranksystem` command.\n\n\n## 📊 ScoreHud Integration\n\nUse these tags to display information in [ScoreHud](https://poggit.pmmp.io/p/ScoreHud):\n\n| Tag | Description |\n| :--- | :--- |\n| `{ranksystem.ranks}` | Shows all player's ranks. |\n| `{ranksystem.highest_rank}` | Shows the player's highest rank. |\n| `{ranksystem.nametag}` | Shows the RankSystem assigned NameTag. |\n\n## 📋 FAQ (Frequently Asked Questions)\n\n<details>\n<summary><b>Why is the previous rank not removed when I use /ranks setrank?</b></summary>\nRankSystem is a <b>multi-rank</b> system, meaning ranks are stackable. If you want to remove a specific rank from a player, you must use <code>/ranks removerank</code>.\n</details>\n\n<details>\n<summary><b>Will you add support for JSON or YAML data storage?</b></summary>\n<b>No. Never.</b> These formats are not designed to function as databases. As the player base grows, they become extremely slow and can cause server lag. RankSystem uses high-performance storage solutions to ensure stability.\n</details>\n\n<details>\n<summary><b>Can I block users from using formatting codes (§*) in chat?</b></summary>\nThis is currently <b>outside the scope</b> of this plugin. While it's not difficult to implement, it might be added as a configurable option in a future update.\n</details>\n\n<details>\n<summary><b>How does the 'time' argument work in /setrank or /setpermission?</b></summary>\nIf no time is specified, the rank/permission will be permanent. The format used is:\n<ul>\n  <li><code>y</code> = year, <code>M</code> = month, <code>w</code> = week, <code>d</code> = day, <code>h</code> = hour, <code>m</code> = minute.</li>\n</ul>\n<b>Examples:</b>\n<ul>\n  <li><code>1y3M</code>: One year and three months (same as 15M).</li>\n  <li><code>1w2d12h</code>: One week, two days, and twelve hours (same as 9d12h).</li>\n</ul>\n</details>\n\n<details>\n<summary><b>How does rank hierarchy work?</b></summary>\nThe hierarchy is determined by the order of the ranks in the <code>config.yml</code> file under the <code>Hierarchy</code> section. The rank at the <b>top</b> of the list has the highest priority, while the one at the <b>bottom</b> is the lowest. If a rank is not listed there, it will automatically be assigned the lowest possible position.\n\nThis hierarchy is used to determine which rank's prefix or nametag should be displayed first. It is especially important when using placeholders like:\n<ul>\n  <li><code>{nametag_highest-rank_prefix}</code></li>\n  <li><code>{chat_highest-rank_prefix}</code></li>\n</ul>\nThese will automatically display the prefix of the player's most powerful rank according to your hierarchy list.\n</details>\n\n<details>\n<summary><b>How can I see all permissions available for a specific plugin or PocketMine-MP?</b></summary>\nRankSystem includes a powerful built-in tool to explore permissions. You can use the command:\n<br>\n<code>/ranks permissions &lt;pluginName&gt; [page]</code>\n<br><br>\nThis will list all permissions registered by that specific plugin. You can also use <code>pocketmine</code> as the argument to see all core permissions! \n<br><i>Note: This works as long as the plugin has correctly registered its permissions in its <code>plugin.yml</code> or via code.</i>\n</details>\n\n<details>\n<summary><b>I found a bug or my server crashed! What should I do?</b></summary>\nPlease <b>report the issue on GitHub</b>. Make sure to include the crash dump and steps to reproduce the error so I can fix it as soon as possible.\n</details>\n\n<details>\n<summary><b>I need help configuring the plugin. Where can I find support?</b></summary>\nDon't hesitate to <b>ping me on the official PMMP Discord</b>. I'm usually around to help with configuration questions.\n</details>\n\n\n## 🛠 For Developers\n\nFind examples, API methods, and tutorials on **[RankSystem Wiki](https://github.com/IvanCraft623/RankSystem/wiki)**.",
+  "readme_source_url": "https://github.com/IvanCraft623/RankSystem",
+  "icon_url": "https://raw.githubusercontent.com/IvanCraft623/RankSystem/34333320ccfaddc8b588a79a38ef58c565071ea6/icon.png",
+  "featured": false,
+  "repo": "https://github.com/IvanCraft623/RankSystem",
+  "archive_repo": null,
+  "approved_release_tag": "r-14297",
+  "stars": 0,
+  "total_downloads": 545,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "IvanCraft623"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/261833",
+  "versions": {
+    "stable": {
+      "version": "1.1.4",
+      "tag": "r-14297",
+      "published_at": null,
+      "downloads": 545,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14297/ranksystem-1.1.4-r14297.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14297",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14297/ranksystem-1.1.4-r14297.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "RankSystem",
+    "stable_release_id": 14297
+  }
+}

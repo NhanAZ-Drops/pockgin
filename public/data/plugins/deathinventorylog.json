@@ -1,0 +1,61 @@
+{
+  "id": "deathinventorylog",
+  "name": "DeathInventoryLog",
+  "author": "Muqsit",
+  "description": "A plugin that logs players' inventory contents on death for future retrieval.",
+  "readme_markdown": "# DeathInventoryLog\n[![](https://poggit.pmmp.io/shield.state/DeathInventoryLog)](https://poggit.pmmp.io/p/DeathInventoryLog)\n\nA plugin that logs players' inventory contents on death for future retrieval.<br>\nHandy for server administrators who may want to refund items that players have lost to hackers, bugs, and the likes.\n\n## How it works?\nWhen a player dies, their inventory and armor inventory contents are logged and are assigned an ID.\nThe player's personal death inventory logs list can be accessed by running `/dil history <player> [page=1]`.\n```\n> dil history BoxierChimera37\nDeath Entries Page 1\n1. #5 logged on 2021-10-15 02:43:20\n2. #2 logged on 2021-10-15 02:18:58\n3. #1 logged on 2021-10-15 02:17:36\n```\nThe number to right of number sign (`#`) is the ID of their death's inventory log.\nInventory and armor inventory contents linked to a player's specific death can be accessed by running `/dil retrieve <id>`\n```\n> dil retrieve 5\nThis command can only be executed in-game.\n```\nThis command can be used only in-game because it opens an inventory GUI containing contents of the player's inventory during their time of death.\nItems can be added and removed from this inventory GUI, however the death inventory log per se is **unmodifyable**. When the log is retrieved again, you'll notice\nitems in the log inventory GUI laid out exactly the way they originally were, despite items being taken out of that inventory GUI.\n\n\n## Integrating with DeathInventoryLog\nFor plugins that would like to integrate with DeathInventoryLog to log manually handled player deaths,\nsuch as logging deaths from \"Combat Logger NPCs\", there isn't a sane method to do so _yet_ other than directly accessing the database\ninterface of this plugin in this way (PRs are welcome!):\n```php\n/** @var Loader $plugin */\n$plugin = $server->getPluginManager()->getPlugin(\"DeathInventoryLog\");\n\n/** @var Item[] $inventory */\t\t// = Living::getInventory()->getContents()\n/** @var Item[] $armor_inventory */\t// = Living::getArmorInventory()->getContents()\n/** @var UuidInterface $uuid */\t\t// = Player::getUniqueId()\n$plugin->getDatabase()->store($uuid, new DeathInventory($inventory, $armor_inventory), function(int $id) : void{\n\techo \"Logged death inventory, use '/dil history {$id}' to access this log\";\n});\n```\n\n\n## UUID to Gamertag (and vice-versa) Translation\nDeathInventoryLog stores players' death inventory logs indexed by their UUIDs.\nBy default, DeathInventoryLog maintains a UUID => Gamertag mapping in a local database (located at `plugin_data/DeathInventoryLog/uuid_gamertag_translations.sqlite`).\nThis mapping is used to translate player gamertag specified during `/dil history <player>` to a UUID. This UUID is then seached in the database containing all death inventory logs.\n\nIf you maintain a UUID <-> Gamertag mapping already and do not like how there's this another database being maintained by this plugin and causing data redundancy,\nand you also happen to have some knowledge in the field of programming plugins for PocketMine-MP, you can write your own `GamertagUUIDTranslator` implementation and set it to\nDeathInventoryLog in the following way:\n```php\n/** @var Loader $plugin */\n$plugin = $server->getPluginManager()->getPlugin(\"DeathInventoryLog\");\n\n/** @var GamertagUUIDTranslator $my_custom_translator */ \n$plugin->setTranslator($my_custom_translator);\n```\n`GamertagUUIDTranslator` is asynchronous-friendly, so you can translate between uuids and gamertags without necessarily blocking the main thread while at it.",
+  "readme_source_url": "https://github.com/Muqsit/DeathInventoryLog",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/Muqsit/DeathInventoryLog",
+  "archive_repo": null,
+  "approved_release_tag": "r-14174",
+  "stars": 0,
+  "total_downloads": 68,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.30.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Muqsit"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258930",
+  "versions": {
+    "stable": {
+      "version": "1.0.3",
+      "tag": "r-14174",
+      "published_at": null,
+      "downloads": 68,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14174/deathinventorylog-1.0.3-r14174.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14174",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14174/deathinventorylog-1.0.3-r14174.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "DeathInventoryLog",
+    "stable_release_id": 14174
+  }
+}

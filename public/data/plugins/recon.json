@@ -1,0 +1,61 @@
+{
+  "id": "recon",
+  "name": "Recon",
+  "author": "TrixNEW",
+  "description": "AutoRecon",
+  "readme_markdown": "# AutoRecon\n\n**Recon** is a PocketMine-MP 5.x plugin that ensures a smooth player experience by automatically reconnecting players to a server when the current one shuts down\n\n## To the person reviewing this plugin\n- Please unban me from pocketmine discord, i deeply regret my actions. PLZ UNBAN\n- (discord @trix.pro)\n\n## 🔧 Features\n\n- 🔁 Reconnects players to the **same server** after restart\n- 🌐 Alternatively, connect to a **specified server IP and port**\n- ⚙️ Clean and simple `config.yml` with optional debug messages\n- ✅ Designed for production networks with frequent server restarts (e.g., minigames, temporary worlds)\n\n## ⚙️ Configuration\n\n```yaml\n# Automatically reconnect players to the same server (requires proxy support)\nauto-reconnect: true\n\n# Enable debug logging\ndebug-messages: true\n\n# Target server details (used only if auto-reconnect is false)\nquery:\n  ip-address: sukomc.net\n  port: 19132",
+  "readme_source_url": "https://github.com/TrixNEW/Recon-PM",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/TrixNEW/Recon-PM",
+  "archive_repo": null,
+  "approved_release_tag": "r-14149",
+  "stars": 0,
+  "total_downloads": 39,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "TrixNEW"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14149",
+      "published_at": null,
+      "downloads": 39,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14149/recon-1.0.0-r14149.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14149",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14149/recon-1.0.0-r14149.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Recon",
+    "stable_release_id": 14149
+  }
+}

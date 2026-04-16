@@ -1,0 +1,61 @@
+{
+  "id": "gamereplay",
+  "name": "GameReplay",
+  "author": "J1b1x",
+  "description": "MapVideoExample",
+  "readme_markdown": "# MapVideoExample\n\n![php](https://img.shields.io/badge/php-8.1-informational)\n![api](https://img.shields.io/badge/pocketmine-5.0-informational)\n\nThis is a plugin **example**, of how to use the [Replay](https://github.com/J1b1x/Replay) library.\n## NOTE\n\nThis is just an EXAMPLE plugin, of how you can use the Replay API, it's not really supposed to be a \"feature rich\" plugin (even though it is). \n\n### Functionality\nYou can either use this plugin as recorder or as a replayer.\nJust configure it in the [config.yml](https://github.com/J1b1x/ReplayExample/blob/main/resources/config.yml).\n\n#### Recording\nIf you're using this plugin for recording, you need to use the ```/record``` command.\n\n- ``/record`` | _gamereplay.command_\n- ``/record record [game-name] [identifier-length]`` | _gamereplay.command.record_\n- ``/record stop`` | _gamereplay.command.stop_\n- ``/record world <world> [teleport-players]`` | _gamereplay.command.world_\n\n#### Replaying\nWell, replaying is actually pretty simple. Just join the server and click on the compass.\n\nIf you have the permission ``gamereplay.search``, you can also watch replays of other people, if you have their replay's ID. Just press the ``Search Replay`` button and put in the replay ID.\nOnly people with the ``gamereplay.delete`` permission can delete replays.",
+  "readme_source_url": "https://github.com/J1b1x/ReplayExample",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/J1b1x/ReplayExample",
+  "archive_repo": null,
+  "approved_release_tag": "r-14142",
+  "stars": 0,
+  "total_downloads": 76,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.3.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "J1b1x"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258308",
+  "versions": {
+    "stable": {
+      "version": "1.0.4",
+      "tag": "r-14142",
+      "published_at": null,
+      "downloads": 76,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14142/gamereplay-1.0.4-r14142.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14142",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14142/gamereplay-1.0.4-r14142.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "GameReplay",
+    "stable_release_id": 14142
+  }
+}

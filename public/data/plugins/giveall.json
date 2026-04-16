@@ -1,0 +1,61 @@
+{
+  "id": "giveall",
+  "name": "GiveAll",
+  "author": "fernanACM",
+  "description": "Give all your elements easily with a single user interface. For PocketMine-MP 5.0 servers only**",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/GiveAll)](https://poggit.pmmp.io/p/GiveAll)\n\n[![](https://poggit.pmmp.io/shield.api/GiveAll)](https://poggit.pmmp.io/p/GiveAll)\n\n# GiveAll\n **Give all your elements easily with a single user interface. For PocketMine-MP 5.0 servers only**\n\n![image](https://github.com/fernanACM/GiveAll/assets/83558341/182b2538-cc7f-49a2-addd-aa520c10c112)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 📸 Images\n**Form menu for one task at a time:**\n<img src=\"https://github.com/fernanACM/GiveAll/assets/83558341/6076b0a7-869c-466f-8748-4414f3a33dba\">\n\n**Inventory menu for several tasks at the same time:**\n<img src=\"https://github.com/fernanACM/GiveAll/assets/83558341/8b1e56de-1fe3-4406-ba88-55b180415d2f\">\n\n### 🌍 Wiki\n* Check our plugin [wiki](https://github.com/fernanACM/GiveAll/wiki) for features and secrets in the...\n\n### 💡 Implementations\n* [X] Configuration\n* [X] Automatic GiveAll\n\n### 💾 Config \n```yaml\n#   ____   _                     _      _   _ \n#  / ___| (_) __   __   ___     / \\    | | | |\n# | |  _  | | \\ \\ / /  / _ \\   / _ \\   | | | |\n# | |_| | | |  \\ V /  |  __/  / ___ \\  | | | |\n#  \\____| |_|   \\_/    \\___| /_/   \\_\\ |_| |_|\n#         by fernanACM\n# Give items to all players on your server. Only for PocketMine-MP 5.0\n\n# DO NOT TOUCH!\nconfig-version: \"1.0.0\"\n# Prefix plugin\nPrefix: \"&l&f[&9GiveAll&f]&8»&r \"\n\n# ==(SETTINGS)==\nSettings:\n  Assistant:\n    # Automatic delivery assistant\n    # Use true or false to activate/deactivate this option\n    enabled: true\n    # The time to receive the items:\n    # 600 => 10 minutes\n    # 300 => 5 minutes\n    # More...\n    delay: 600\n    # Items you will receive\n    items-to-receive: 3\n\n# ==(GUI - FORM)==\nMenu:\n  GUI:\n    Items:\n      place-item: \"&r&ePut the item here:\"\n      close-menu: \"&r&l&4CLOSE MENU\"\n      item-send: \"&r&aSend article to all\"\n  Form:\n    content:\n      - \"&aAre you sure you want to give this item to everyone?\"\n      - \"{LINE}\"\n      - \"&l&cITEM:&r\"\n      - \"&bName:&d {ITEM_NAME}\"\n      - \"&bCount:&d x{ITEM_COUNT}\"\n    accept-button: \"&l&2YES\"\n    deny-button: \"&l&4NO\"\n\n# ==(MESSAGES)==\nMessages:\n  successful:\n    item-received: \"&aYou have received items!\"\n    item-sent: \"&bYou have sent &ax{ITEM_COUNT}&b of&a {ITEM_NAME}&r&b to all players!\"\n    item-sent-auto: \"&bYou have sent items to all players!\"\n    inventory-saved-successfully: \"&aThe inventory content has been successfully saved!\"\n  error:\n    no-item: \"&cThe item is invalid!\"\n    no-permission: \"&cYou don't have permissions for this!\"\n```\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/GiveAll/issues)\n\n### 📞 Contact\n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [InvMenu](https://github.com/Muqsit/InvMenu) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |\n****",
+  "readme_source_url": "https://github.com/fernanACM/GiveAll",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/GiveAll/d276da1e48bcd547fa4df09c5b82b7c415df7a4f/icon-giveall.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/GiveAll",
+  "archive_repo": null,
+  "approved_release_tag": "r-14241",
+  "stars": 5,
+  "total_downloads": 83,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260449",
+  "versions": {
+    "stable": {
+      "version": "1.0.1",
+      "tag": "r-14241",
+      "published_at": null,
+      "downloads": 83,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14241/giveall-1.0.1-r14241.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14241",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14241/giveall-1.0.1-r14241.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "GiveAll",
+    "stable_release_id": 14241
+  }
+}

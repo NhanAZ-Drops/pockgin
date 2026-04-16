@@ -1,0 +1,61 @@
+{
+  "id": "commandcooldown",
+  "name": "CommandCooldown",
+  "author": "Artsakhskiyy",
+  "description": "A PocketMine-MP plugin that adds configurable cooldowns to commands...",
+  "readme_markdown": "# CommandCooldown\nA PocketMine-MP plugin that adds configurable cooldowns to commands...\n\n## Features\n- Set a global cooldown for all commands...\n- Exclude specific commands from the cooldown...\n- Change cooldown duration with /setcooldown...\n- Customizable messages in config.yml...\n- Permission system for bypassing cooldown and changing settings...\n\n## Commands\n- /setcooldown <seconds> — Sets the cooldown time (requires permission)...\n\n## Permissions\n- cooldown.commandcooldown — Bypass cooldown...\n- cooldown.set — Change cooldown time...",
+  "readme_source_url": "https://github.com/Artsakhskiyy/CommandCooldown",
+  "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/CommandCooldown/a6a7365f4cea7f7a5f5b05dd7e97a21128287774/icon.png",
+  "featured": false,
+  "repo": "https://github.com/Artsakhskiyy/CommandCooldown",
+  "archive_repo": null,
+  "approved_release_tag": "r-14159",
+  "stars": 0,
+  "total_downloads": 89,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Artsakhskiyy"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14159",
+      "published_at": null,
+      "downloads": 89,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14159/commandcooldown-1.0.0-r14159.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14159",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14159/commandcooldown-1.0.0-r14159.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "CommandCooldown",
+    "stable_release_id": 14159
+  }
+}

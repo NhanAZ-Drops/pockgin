@@ -1,0 +1,63 @@
+{
+  "id": "netherperms",
+  "name": "NetherPerms",
+  "author": "NetherByte233",
+  "description": "NetherPerms is a modern permissions plugin for PocketMine-MP. It lets server admins control what features players can use by creating groups and assigning permissions.",
+  "readme_markdown": "# NetherPerms\n\nNetherPerms is a modern permissions plugin for PocketMine-MP. It lets server admins control what features players can use by creating groups and assigning permissions.\n\nIt is:\n- **Fast** — written with performance and scalability in mind.\n- **Easy to use** — set up permissions using commands, directly in config files, or using the in-game editor.\n- **Extensive** — a rich set of customization options and settings to suit your server.\n- **Free** — available at no cost, permissively licensed so it can remain free forever.\n\n### Storage Backends\n\nNetherPerms can store data in two ways: \"SQLite\" and \"YAML\". You can change this in the `storage` setting of `config.yml`.\n\nThe default option is **SQLite**.\n\n| Backend | Pros | Cons |\n| --- | --- | --- |\n| SQLite (single DB file) | Fast and robust; WAL journaling; fewer files to manage; good durability | Not as friendly for hand-editing; requires SQLite3 extension (bundled with PMMP builds) |\n| YAML (per-entity files) | Human-readable; easy to edit; simple to version with Git | Many small files; slower I/O on some hosts; filesystem-bound concurrency |\n\n### Commands\n\nA full list with examples and permissions is in `COMMAND_USAGE.md`.\n\nHighlights:\n- Groups: create/delete/rename/clone, permissions, parents, weights, meta, list members, show tracks.\n- Users: show info, parents (add/set/remove/switchprimarygroup), permissions, meta, primary group (show/set/unset), temporary permissions.\n- Tracks:\n  - Legacy syntax: `/np track set <track> <g1> <g2> ...` and `/np track show <track>`.\n  - Preferred syntax: `/np track <track> info|set|rename|clone|insert|remove|append ...`.\n  - Promote/demote along a track: `/np promote <player> <track>`, `/np demote <player> <track>`.\n\n### Contexts\n\nA context is a set of conditions where a permission or parent applies:\n- Supported keys: `world`, `gamemode`.\n- Format: `key=value` pairs separated by commas, e.g. `world=world,gamemode=survival`.\n\nIf no context is provided, the change applies globally.\n\n### Wildcards and Temporary Permissions\n\n- Wildcards: Nodes ending with `.*` expand to all registered permissions with that prefix (PMMP registry), without overriding explicitly set nodes.\n- Temporary permissions: Grant user permissions that expire after a duration (e.g., `10m`, `1h30m`, `2d3h`).\n\n### Installation\n\n1. Place the plugin into your `plugins/` directory.\n2. Configure groups, users, and tracks via commands.\n\n### Troubleshooting\n\n- Group deletion doesn’t remove the YAML file:\n  - Ensure you run a command that saves data (most management commands do), or restart/reload; the per-entity saver removes stale files.\n- Promote/Demote says “Track not found”:\n  - Verify the track exists and contains at least two ordered groups.\n- Permission isn’t applying:\n  - Check priority and meta, and whether contexts limit the scope (world/gamemode).\n\n### License\n\n[MIT](LICENSE)",
+  "readme_source_url": "https://github.com/NetherByte233/NetherPerms",
+  "icon_url": "https://raw.githubusercontent.com/NetherByte233/NetherPerms/644c949db73c6681b0310d214b8b97eda20a5622/icon.png",
+  "featured": false,
+  "repo": "https://github.com/NetherByte233/NetherPerms",
+  "archive_repo": null,
+  "approved_release_tag": "r-14222",
+  "stars": 0,
+  "total_downloads": 30,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": [
+      "PlaceholderAPI_NB"
+    ]
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "NetherByte233"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14222",
+      "published_at": null,
+      "downloads": 30,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14222/netherperms-1.0.0-r14222.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14222",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14222/netherperms-1.0.0-r14222.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "NetherPerms",
+    "stable_release_id": 14222
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "persianchatfixer",
+  "name": "PersianChatFixer",
+  "author": "AMGamer615",
+  "description": "PersianChatFixer** is a lightweight and efficient plugin for **PocketMine-MP** servers that fixes common issues with Persian text display. It automatically corrects the display...",
+  "readme_markdown": "# PersianChatFixer\n\n<div dir=\"ltr\">\n\n**PersianChatFixer** is a lightweight and efficient plugin for **PocketMine-MP** servers that fixes common issues with Persian text display. It automatically corrects the display and text direction in both **chat messages** and **block signs** for Persian and English, without any user interaction needed.\n\n---\n\n## Features | ویژگی‌ها\n\n- Automatically fixes Persian text direction (right-to-left) and display issues  \n  <div dir=\"rtl\">اصلاح خودکار جهت متن فارسی (راست‌چین) و مشکلات نمایش</div>  \n- Supports both Persian and English text seamlessly  \n  <div dir=\"rtl\">پشتیبانی کامل از متن فارسی و انگلیسی به صورت همزمان</div>  \n- Corrects text display on **chat messages** and **block signs**  \n  <div dir=\"rtl\">اصلاح نمایش متن در پیام‌های چت و تابلوهای داخل بازی</div>  \n- Lightweight and optimized with minimal CPU usage  \n  <div dir=\"rtl\">سبک و بهینه با حداقل استفاده از منابع CPU</div>  \n- Easy to install, just place the plugin in the `plugins` folder and restart the server  \n  <div dir=\"rtl\">نصب آسان، فقط فایل پلاگین را در پوشه plugins قرار داده و سرور را ری‌استارت کنید</div>  \n\n---\n\n## Installation | نصب و راه‌اندازی\n\n1. Download the plugin `.phar` file.  \n   <div dir=\"rtl\">فایل پلاگین .phar را دانلود کنید.</div>  \n2. Place it into the `plugins` folder of your PocketMine-MP server.  \n   <div dir=\"rtl\">فایل را در پوشه plugins سرور PocketMine-MP خود قرار دهید.</div>  \n3. Restart or reload your server to activate the plugin.  \n   <div dir=\"rtl\">سرور را ری‌استارت یا بارگذاری مجدد کنید تا پلاگین فعال شود.</div>  \n\n---\n\n## Usage | نحوه استفاده\n\nSimply write text normally in Persian or English, whether in chat or on in-game block signs. PersianChatFixer automatically fixes any display issues.  \n<div dir=\"rtl\">فقط به صورت معمولی در چت یا روی تابلوهای داخل بازی متن فارسی یا انگلیسی بنویسید. PersianChatFixer به طور خودکار مشکلات نمایش را اصلاح می‌کند.</div>\n\n---\n\n## Compatibility | سازگاری\n\nDesigned specifically for PocketMine-MP and compatible with most Minecraft Bedrock server versions.  \n<div dir=\"rtl\">طراحی شده مخصوص PocketMine-MP و سازگار با بیشتر نسخه‌های سرور Minecraft Bedrock.</div>\n\n---\n\n## Support | پشتیبانی\n\nIf you encounter any issues or have suggestions, please open an issue on the GitHub repository.  \n<div dir=\"rtl\">اگر مشکلی داشتید یا پیشنهادی دارید، لطفاً در بخش Issues گیت‌هاب اطلاع دهید.</div>\n\n---\n\n## ⭐ Support Us by Starring! | با زدن ستاره از ما حمایت کنید!\n\nIf you find this plugin useful, please consider **starring** the repository on GitHub. It helps us grow and lets others discover the project!  \n<div dir=\"rtl\">اگر این پلاگین براتون مفید بود، لطفاً با زدن ⭐ روی مخزن گیت‌هاب از ما حمایت کنید. این کار باعث دلگرمی ما میشه و به بقیه هم کمک می‌کنه تا این پروژه رو پیدا کنن!</div>\n\n---\n\n## License | مجوز\n\nThis plugin is released under the MIT License.  \n<div dir=\"rtl\">این پلاگین تحت مجوز MIT منتشر شده است.</div>\n\n---\n\n### Developer | توسعه‌دهنده\n\nAMGamer615  \nPHP Developer and Minecraft Bedrock Plugin Author  \n<div dir=\"rtl\">برنامه‌نویس PHP و توسعه‌دهنده پلاگین‌های Minecraft Bedrock</div>\n\n</div>",
+  "readme_source_url": "https://github.com/AMGamer615/PersianChatFixer",
+  "icon_url": "https://raw.githubusercontent.com/AMGamer615/PersianChatFixer/f46566e3edb2593b8cdc54d5f9fd511e8234eb69/icon.png",
+  "featured": false,
+  "repo": "https://github.com/AMGamer615/PersianChatFixer",
+  "archive_repo": null,
+  "approved_release_tag": "r-14147",
+  "stars": 5,
+  "total_downloads": 166,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.14.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "AMGamer615"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "2.0.0",
+      "tag": "r-14147",
+      "published_at": null,
+      "downloads": 166,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14147/persianchatfixer-2.0.0-r14147.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14147",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14147/persianchatfixer-2.0.0-r14147.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PersianChatFixer",
+    "stable_release_id": 14147
+  }
+}

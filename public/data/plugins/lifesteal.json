@@ -1,0 +1,63 @@
+{
+  "id": "lifesteal",
+  "name": "Lifesteal",
+  "author": "GabBiswajit",
+  "description": "How To Install",
+  "readme_markdown": "![5f2cc91d628c3814618c0fd03a7ff8c67440f834](https://github.com/GabBiswajit/Lifesteal/assets/121815367/f79a66ec-ea2e-40a4-9467-f872b2157275)\n\n# How To Install\n-  Download The Plugin !\n-  Upload In Your Server Plugin Fills !\n-  Start The Server !\n\n## Requirement\n- PocketMine-MP 5.0.0 or higher\n- [Customies plugin](https://poggit.pmmp.io/ci/DavyCraft648/Customies-NG/Customies)\n\n# ![585fbdecae66270004252fb47648c5f03dee1917](https://github.com/GabBiswajit/Lifesteal/assets/121815367/6c9bd400-3307-4c96-a544-f5d43cfb0ac2)\n\n- Life steal, Upon killing a player you gain a heart and they loose a heart.\n- Eliminations, when a player reaches 0 hearts they are eliminated.\n- Upcoming Staff can modify a player's hearts, eliminate and revive players\n- Hearts can be crafted.\n- Players can withdraw hearts.\n- Resource pack.\n\n# ![e93a94d7d625672ffe020b368ccf303baf22a6a5](https://github.com/GabBiswajit/Lifesteal/assets/121815367/b3963825-5e6c-4ff8-96a9-75979c496473)\n\n- You Can Costomize The Ban On Heart In Config If Its Make A Crash Than set Is On **Default** : 1\n- If **register-recipes** Is true Than You Can Craft A Heart !\n\n# ![ca35920dea65c7e33cd9a4e4bad59ab38b3e66b5](https://github.com/GabBiswajit/Lifesteal/assets/121815367/71dce745-b90c-486b-840d-c876559159e1)\n\n- **/withdrawal**\n- Upcoming Command **/setheart**\n\n# Heart Recipe\n![IMG_20230722_153523](https://github.com/GabBiswajit/Lifesteal/assets/121815367/44d2936d-00ac-4312-8462-2ad0d814374d)",
+  "readme_source_url": "https://github.com/GabBiswajit/Lifesteal",
+  "icon_url": "https://raw.githubusercontent.com/GabBiswajit/Lifesteal/7c7769e5595a0c95c4e1656d82d3577900db8f9c/icon.png",
+  "featured": false,
+  "repo": "https://github.com/GabBiswajit/Lifesteal",
+  "archive_repo": null,
+  "approved_release_tag": "r-14163",
+  "stars": 0,
+  "total_downloads": 477,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [
+      "Customies"
+    ],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "GabBiswajit"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258749",
+  "versions": {
+    "stable": {
+      "version": "2.1.0",
+      "tag": "r-14163",
+      "published_at": null,
+      "downloads": 477,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14163/lifesteal-2.1.0-r14163.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14163",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14163/lifesteal-2.1.0-r14163.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Lifesteal",
+    "stable_release_id": 14163
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "teleportto",
+  "name": "TeleportTo",
+  "author": "AEDXDEV",
+  "description": "Teleport from a place to place",
+  "readme_markdown": "# TeleportTo\nTeleport from a place to place\n\n# Commands\nCommand | Description\n--- | ---\n`/tpto item <Playername:optional>` | `give setup item`\n`/tpto from` | `set the first position`\n`/tpto to` | `set the second position`\n`/tpto get` | `get id from click on teleport position`\n`/tpto remove` | `remove or delete teleport by id`\n\n# YouTube\n- @AEDXDEV\n- https://youtube.com/@aedxdev?si=hGoo2eohlFlFbBNu\n\n# Discord\n- aedxdev",
+  "readme_source_url": "https://github.com/AEDXDEV/TeleportTo",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/AEDXDEV/TeleportTo",
+  "archive_repo": null,
+  "approved_release_tag": "r-14128",
+  "stars": 0,
+  "total_downloads": 120,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "AEDXDEV"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257941",
+  "versions": {
+    "stable": {
+      "version": "2.0.1",
+      "tag": "r-14128",
+      "published_at": null,
+      "downloads": 120,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14128/teleportto-2.0.1-r14128.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14128",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14128/teleportto-2.0.1-r14128.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "TeleportTo",
+    "stable_release_id": 14128
+  }
+}

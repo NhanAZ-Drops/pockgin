@@ -1,0 +1,61 @@
+{
+  "id": "lootprotection",
+  "name": "LootProtection",
+  "author": "TrixNEW",
+  "description": "Loot Protection",
+  "readme_markdown": "# Loot Protection\n\nA PocketMine-MP 5.x plugin that protects a player's dropped loot from being picked up by others for a configurable duration after they are killed.  \nPerfect for PvP servers to prevent loot swiping.\n\n---\n\n## Features\n- **Customizable Protection Time** – Set how many seconds loot remains protected for the killer.\n- **Automatic Removal** – Protection tag is automatically removed after the set duration.\n- **Killer-Only Pickup** – Only the player who dealt the killing blow can pick up the loot until the timer expires.\n- **Optimized** – Tested in production with over 100+ players without lag.\n\n---\n\n## To the reviewer\n- Please unban me from pocketmine discord i deeply regret my actions\n- **@trix.pro**\n---\n\n## Installation\n1. Download the latest release `.phar` file.\n2. Place it into your server's `plugins/` folder.\n3. Restart the server.\n\n---\n\n## Configuration\nLocated in `config.yml`:\n\n```yaml\n# The amount of seconds loot will be protected after a player kill\nprotection-duration: 10\n```\n---\n## How it works\n1. When a player is killed, their loot is tagged with:\n  - Killer's name\n  - Remaining protection time\n2. Only the killer can pick up the items during the protection period.\n3. After the timer runs out, anyone can pick up the loot.\n---",
+  "readme_source_url": "https://github.com/TrixNEW/LootProtection",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/TrixNEW/LootProtection",
+  "archive_repo": null,
+  "approved_release_tag": "r-14153",
+  "stars": 0,
+  "total_downloads": 71,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "TrixNEW"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0-beta",
+      "tag": "r-14153",
+      "published_at": null,
+      "downloads": 71,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14153/lootprotection-1.0.0-beta-r14153.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14153",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14153/lootprotection-1.0.0-beta-r14153.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "LootProtection",
+    "stable_release_id": 14153
+  }
+}

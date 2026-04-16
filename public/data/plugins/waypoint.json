@@ -1,0 +1,66 @@
+{
+  "id": "waypoint",
+  "name": "Waypoint",
+  "author": "Cosmoverse",
+  "description": "Waypoint is a plugin that lets you set a visual holographic marker at your desired position. The concept is similar to",
+  "readme_markdown": "# Waypoint\nWaypoint is a plugin that lets you set a visual holographic marker at your desired position. The concept is similar to\nhomes in that a waypoint is a labeled position, but differs in that you need to walk all the way to your desired location.\n\nhttps://github.com/user-attachments/assets/c629811d-d5b5-4c31-b246-778a8231198e\n\n## Installation\nSimply download this plugin as a .phar file from Poggit CI and restart your server. Use `/waypoint` or `/wp` to manage\nyour personal waypoints. A player may have up to 64 waypoints configured, but can see only 1 waypoint  at any given\nmoment. However, both these values are configurable from [config.yml](resources/config.yml).\n\n## Usage\nQuick start: use `/wp sethere mywaypoint` to set a waypoint at your position.\n\nA waypoint comprises of 5 properties—a name, a title, X, Y, Z position values. A name is a unique identifier, so you are\nrestricted to the usage of alpha-numeric characters and underscores. But you can use fancier characters including color\ncodes (`§` and `&`) in the title. Title is displayed in the hologram. X Y Z are the coordinates to your waypoint. You\nmay use `~`, `~+40`, etc. to set relative coordinates when using `/wp set`.\n\n| Command                                   | Description                                           |\n|-------------------------------------------|-------------------------------------------------------|\n| `/wp set <name> <x> <y> <z> [title=name]` | Set a waypoint named `<name>` at `<x> <y> <z>`        |\n| `/wp sethere <name> [title=name]`         | Set a waypoint named `<name>` at your position        |\n| `/wp delete <name>`                       | Delete a waypoint named `<name>`                      |\n| `/wp toggle <name>`                       | Toggle a waypoint (show/hide current waypoint)        |\n| `/wp rename <name> <newTitle>`            | Change title of a waypoint                            |\n| `/wp face <name>`                         | Face towards a waypoint                               |\n| `/wp list [page=1]`                       | List all waypoints                                    |\n| `/wp config`                              | Configure waypoint preferences                        |\n\n## Developer documentation\nAs a developer, you get to have more control over waypoint management. To programatically create a waypoint for a player,\nuse `WaypointPlugin::setWaypointForPlayer()`. As this plugin uses `await-generator`, your plugin must use the library as\nwell. If you are new to await-generator, wrap the `yield from` statements in `Await::f2c()` closure. I will show you an\nexample here so you get an idea of how to use it:\n```php\nAwait::f2c(function() : Generator{\n\t$server = Server::getInstance();\n\t$player = $server->getPlayerExact(\"BlahCoast30765\");\n\t\n\t/** @var WaypointPlugin $plugin */\n\t$plugin = $server->getPluginManager()->getPlugin(\"Waypoint\");\n\t\n\t// for an online player\n\tyield from $plugin->setWaypointForPlayer($player, \"name\", \"Title\", 320, 64, 128);\n\t\n\t// or if they are offline\n\tyield from $plugin->setWaypoint($uuid, \"name\", new Waypoint(\"Title\", 320, 64, 128), true);\n\t\n\t// delete it\n\tyield from $plugin->deleteWaypoint($uuid, \"name\");\n\t\n\t// list all waypoint names\n\t$names = yield from $plugin->listWaypointNames($uuid); // list<string>\n\t\n\t// list a waypoint\n\t$value = yield from $plugin->getWaypoint($uuid, \"name\"); // array{Waypoint, string, bool}|null\n\t[$waypoint, $name, $selected] = $value;\n});\n```\n\nBoth `setWaypoint()` and `setWaypointForPlayer()` persist waypoints in database. You may instead create waypoint objects\ndirectly if you do not intend to persist them. However, these waypoints will stay hidden from `/wp` command as they will\nnot be tied a `<name>`:\n```php\n$waypoint = new Waypoint(\"Title\", 320, 64, 128);\n$renderer = new WaypointRenderer($waypoint, $player, 5.0, \"{TITLE} [{DISTANCE}m]\");\n\n// to hide the waypoint (which will also destroy the $renderer object's state)\n$renderer->destroy();\n```\n\nWhile static limits can be defined in `config.yml`, you as a developer have more control in that you get to set\nper-player limits. These limits are evaluated during creation or when a player toggles a waypoint:\n```php\n$plugin->limit_evaluator = new MyWaypointLimitEvaluator();\n```\n\nRegistering a `WaypointListener` will notify you whenever a waypoint is created or deleted. This is generally sufficient\nif you are working on something like updating a command enum of per-player waypoints (pair it with listWaypointNames\nduring player join):\n```php\nWaypointPlugin::$listeners[] = new class implements WaypointListener{\n\tpublic function onCreate(UuidInterface $uuid, string $name, Waypoint $waypoint) : void{}\n\tpublic function onDelete(UuidInterface $uuid, string $name) : void{}\n\tpublic function onRender(WaypointRenderer $renderer) : void{}\n\tpublic function onDerender(WaypointRenderer $renderer) : void{}\n};\n```",
+  "readme_source_url": "https://github.com/Cosmoverse/Waypoint",
+  "icon_url": "https://raw.githubusercontent.com/Cosmoverse/Waypoint/be593877904036d6757c47057b0bcf556a86495e/icon.png",
+  "featured": false,
+  "repo": "https://github.com/Cosmoverse/Waypoint",
+  "archive_repo": null,
+  "approved_release_tag": "r-14180",
+  "stars": 0,
+  "total_downloads": 268,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.30.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Cosmoverse"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/259010",
+  "versions": {
+    "stable": {
+      "version": "0.0.2",
+      "tag": "r-14180",
+      "published_at": null,
+      "downloads": 172,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14180/waypoint-0.0.2-r14180.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14180",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14180/waypoint-0.0.2-r14180.phar"
+    },
+    {
+      "tag": "r-14084",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14084/waypoint-0.0.1-r14084.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Waypoint",
+    "stable_release_id": 14180
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "repairui",
+  "name": "RepairUI",
+  "author": "fernanACM",
+  "description": "Repair and customize your item names with RepairUI, use money or experience to perform these actions. Only for PocketMine-MP 5.0 servers**",
+  "readme_markdown": "# RepairUI\n[![](https://poggit.pmmp.io/shield.state/RepairUI)](https://poggit.pmmp.io/p/RepairUI)\n\n[![](https://poggit.pmmp.io/shield.api/RepairUI)](https://poggit.pmmp.io/p/RepairUI)\n\n**Repair and customize your item names with RepairUI, use money or experience to perform these actions. Only for PocketMine-MP 5.0 servers**\n\n![Captura de pantalla 2022-06-29 174022](https://user-images.githubusercontent.com/83558341/176567746-9eda44e8-2ce8-4a36-9b84-eacf611e1385.png)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 🌍 Wiki\n* Check our plugin [wiki](https://github.com/fernanACM/RepairUI/wiki) for features and secrets in the...\n\n### 💡 Implementations\n* [x] Images > *To load the images, use [FormImagesFIX](https://poggit.pmmp.io/ci/VennDev/VFormImagesFix/VFormImagesFix)*\n* [X] Configuration\n* [X] Multilanguage\n* [x] EconmyAPI & BedrockEconomy\n* [x] Sounds\n* [X] Commands\n---\n\n### 💾 Config\n```yml\n#  ____                           _          _   _   ___ \n# |  _ \\    ___   _ __     __ _  (_)  _ __  | | | | |_ _|\n# | |_) |  / _ \\ | '_ \\   / _` | | | | '__| | | | |  | | \n# |  _ <  |  __/ | |_) | | (_| | | | | |    | |_| |  | | \n# |_| \\_\\  \\___| | .__/   \\__,_| |_| |_|     \\___/  |___|\n#                |_|                                     \n#           by fernanACM\n# Repair and customize your item names with RepairUI, for PocketMine-MP 5.0 servers\n\n# DO NOT TOUCH!\nconfig-version: \"1.0.0\"\n# Plugin prefix\nPrefix: \"&l&f[&dRepairUI&f]&8»&r \"\n# Languages\n# \"eng\", // English\n# \"spa\", // Spanish\n# \"ger\", // German\n# \"indo\", // Indonesian\n# \"vie\" // Vietnamese\nlanguage: eng\n# Usa economyapi, bedrockeconomy, xp\nEconomy: \n  provider: bedrockeconomy\n# ==(SETTINGS)==\nSettings:\n  Use:\n    # Use \"true\" or \"false\" to interact with the anvil\n    anvil: true\n  Commands:\n    # Use \"true\" or \"false\" to run the command\n    # RepairAll command; /repair all\n    all: true\n    # Use \"true\" or \"false\" to run the command\n    # RepairHand command: /repair hand\n    hand: true\n    # Use \"true\" or \"false\" to run the command\n    # RepairAll command; /repair rename <name>\n    rename: true\n    # Use \"true\" or \"false\" to run the command\n    # RepairAll command; /repair lore <lore>\n    lore: true\n\n# ==(REPAIR COST)==\nRepairCost:\n  # Repair mode\n  Repair:\n    # Put the amount of money cost to repair the items\n    money-cost: 30\n    # Put the amount of experience cost to repair the items\n    xp-cost: 10\n    # Damage repair mode. The price will be multiplied by the damage of the item. \n    # IT IS RECOMMENDED TO PUT THE PRICE LOW IF THIS OPTION IS CURRENT.\n    # Use \"true\" or \"false\" to enable/disable this option\n    damage-mode: false\n  # Lore mode\n  Lore:\n    # Put the amount of money cost to change the lore of the items\n    money-cost: 60\n    # Put the amount of experence cost to change the lore of the items\n    xp-cost: 20\n  # Rename mode\n  Rename:\n    # Put the amount of money cost to change the name of the items\n    money-cost: 50\n    # Put the amount of experence cost to change the name of the items\n    xp-cost: 20\n```\n\n### 🕹 Commands\n| Command | Description |\n|---------|-------------|\n| ```/repairui``` | Open the main menu |\n| ```/repairui help``` | Command list |\n| ```/repairui all``` | Repair all items |\n| ```/repairui hand``` | Repair the items in your hand |\n| ```/repairui rename``` | Rename the item in your hand |\n| ```/repairui lore``` | Lore the item in your hand |\n\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```repairui.cmd.acm``` | Executing the command |\n| ```repairui.help.acm``` | Command list |\n| ```repairui.repair.all``` | Repair all command |\n| ```repairui.repair.hand``` | Repair hand command |\n| ```repairui.repair.money``` | Repair with money |\n| ```repairui.repair.xp``` | Repair with xp |\n| ```repairui.rename.money``` | Rename with money |\n| ```repairui.rename.xp``` | Rename with xp |\n| ```repairui.rename.cmd``` | Rename command |\n| ```repairui.lore.money``` | Lore with money |\n| ```repairui.lore.xp``` | Lore with xp |\n| ```repairui.lore.cmd``` | Lore command |\n\n### 🌐 MultiLanguage\n| Language | Translated by |\n|----------|---------------|\n| English | [fernanACM](https://github.com/fernanACM) |\n| Spanish | [fernanACM](https://github.com/fernanACM) |\n| Indonesian | RepairUI |\n| German | [GamerMJay](https://github.com/GamerMJay) |\n| Vietnamese | [NhanAZ](https://github.com/NhanAZ) |\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/RepairUI/issues)\n\n### 📞 Contact \n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyEconomy](https://github.com/DaPigGuy/libPiggyEconomy) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |",
+  "readme_source_url": "https://github.com/fernanACM/RepairUI",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/RepairUI/ff66a96470193453cca6499b1fecd72e8ca5a574/icon-repairui.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/RepairUI",
+  "archive_repo": null,
+  "approved_release_tag": "r-14245",
+  "stars": 0,
+  "total_downloads": 185,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": [
+      "EconomyAPI",
+      "BedrockEconomy"
+    ]
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260472",
+  "versions": {
+    "stable": {
+      "version": "3.0.2",
+      "tag": "r-14245",
+      "published_at": null,
+      "downloads": 185,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14245/repairui-3.0.2-r14245.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14245",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14245/repairui-3.0.2-r14245.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "RepairUI",
+    "stable_release_id": 14245
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "servercleaner",
+  "name": "ServerCleaner",
+  "author": "Artsakhskiyy",
+  "description": "A PocketMine-MP plugin that automatically clears entities to keep your server clean...",
+  "readme_markdown": "# ServerCleaner\nA PocketMine-MP plugin that automatically clears entities to keep your server clean...\n\n## Features\n- Automatically clean entities at configurable intervals...\n- Manual clearing with the /serverclear command...\n- Customizable messages ( supports chat, action bar, and toast notifications )...\n- Exclusion list for important mobs and items...\n- Configurable countdown before clearing...\n\n## Commands\n- /serverclear - Delete all entities...\n\n## Permissions\n- servercleaner.use - Allows the use of the /serverclear command...",
+  "readme_source_url": "https://github.com/Artsakhskiyy/ServerCleaner",
+  "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/ServerCleaner/e8a08862d89d15e7786b5803dbb2440d521305a6/icon.png",
+  "featured": false,
+  "repo": "https://github.com/Artsakhskiyy/ServerCleaner",
+  "archive_repo": null,
+  "approved_release_tag": "r-14189",
+  "stars": 5,
+  "total_downloads": 186,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Artsakhskiyy"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14189",
+      "published_at": null,
+      "downloads": 186,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14189/servercleaner-1.0.0-r14189.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14189",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14189/servercleaner-1.0.0-r14189.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "ServerCleaner",
+    "stable_release_id": 14189
+  }
+}

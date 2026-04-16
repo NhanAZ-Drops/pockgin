@@ -1,0 +1,61 @@
+{
+  "id": "hidecommands",
+  "name": "HideCommands",
+  "author": "HimbeersaftLP",
+  "description": "Description",
+  "readme_markdown": "# HideCommands <img alt=\"Plugin Logo/Icon\" src=\"https://raw.githubusercontent.com/HimbeersaftLP/HideCommands/master/icon.png\" height=\"45\">\n\n[![Poggit CI Status](https://poggit.pmmp.io/ci.shield/HimbeersaftLP/HideCommands/HideCommands)](https://poggit.pmmp.io/ci/HimbeersaftLP/HideCommands/HideCommands)\n[![Poggit Release Status](https://poggit.pmmp.io/shield.state/HideCommands)](https://poggit.pmmp.io/p/HideCommands)\n[![Join the Discord Server](https://img.shields.io/discord/252874887113342976?logo=discord)](https://www.himbeer.me/discord)\n\n## Description\n\nA [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) plugin that removes specific commands from the in-game command suggestions. Supports different settings per world.\n\nNote: Just because the commands are hidden, doesn't mean they can't be executed. You still need to make sure to have proper permission management in place.\n\n## Usage\n\n1. Put phar from Poggit into `plugins` folder\n2. Start server\n3. Stop server\n4. Edit the config.yml file located in `plugin_data/HideCommands`\n    - Per-world settings:\n        - The settings under `default:` are the default settings for all worlds\n        - The settings under `per-world:` overwrite the default settings\n    - Choose whitelist or blacklist mode\n        - whitelist mode will only show the commands specified below and hide all others\n        - blacklist mode will hide the commands specified below and show all others\n    - Select the commands to whitelist/blacklist\n        - Always use the full command names, not aliases!\n            - Hiding a command also hides all its aliases\n            - For example: \"unban\" is an alias of \"pardon\" in order to hide the \"unban\" command, add \"pardon\" to the blacklist\n\nThe permission `hidecommands.unhide` allows players to see hidden commands again.\nIt has been set to `default: false`, which means you need to explicitly give it to a player or group using a permission manager like [PurePerms](https://poggit.pmmp.io/p/PurePerms/).\n\n## Additional Information\n\nIcon credits: https://pixabay.com/vectors/spy-hat-anony-anonymous-detect-2657484/",
+  "readme_source_url": "https://github.com/HimbeersaftLP/HideCommands",
+  "icon_url": "https://raw.githubusercontent.com/HimbeersaftLP/HideCommands/b21b60724abfe99de1ec75d98cf805fd9f8ed3c4/icon.png",
+  "featured": false,
+  "repo": "https://github.com/HimbeersaftLP/HideCommands",
+  "archive_repo": null,
+  "approved_release_tag": "r-14169",
+  "stars": 0,
+  "total_downloads": 163,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "4.4.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "HimbeersaftLP"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258810",
+  "versions": {
+    "stable": {
+      "version": "3.0.16",
+      "tag": "r-14169",
+      "published_at": null,
+      "downloads": 163,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14169/hidecommands-3.0.16-r14169.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14169",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14169/hidecommands-3.0.16-r14169.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "HideCommands",
+    "stable_release_id": 14169
+  }
+}

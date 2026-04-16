@@ -1,0 +1,61 @@
+{
+  "id": "fireworkshow",
+  "name": "FireworkShow",
+  "author": "DavyCraft648",
+  "description": "Bring automated firework displays to your PocketMine-MP server.",
+  "readme_markdown": "# <img src=\"https://github.com/DavyCraft648/FireworkShow/blob/main/icon.png\" height=\"64\" width=\"64\"></img> FireworkShow\n\nBring automated firework displays to your PocketMine-MP server.\n\nFireworkShow spawns fireworks at configured positions in worlds on a repeating schedule. It's ideal for nightly shows,\nholidays, or automated decorations.\n\n## Features\n\n- Spawn fireworks automatically at configured positions per world\n- Per-position options: enabled, night-only mode, spawn delay (ticks)\n- Customizable explosions: type, colors, fade colors, twinkle, trail\n- Add, remove, toggle positions from console or in-game via a simple UI\n- Command name and aliases are configurable\n\n## Installation\n\n1. Drop the plugin .phar or plugin folder into your server's `plugins/` directory.\n2. Start (or restart) the server. A default `config.yml` will be created if it doesn't exist.\n3. Edit `config.yml` to set positions, command name, or explosion presets as needed.\n\n### Requirements\n\n- PocketMine-MP v5.34.0+\n- PHP 8.2+\n\n\n## Quick usage\n\nDefault command: `/fireworkshow` (can be changed in `config.yml`)\n\nPermission: `fireworkshow.command.fireworkshow`\n\n### Subcommands:\n\n- `/fireworkshow list` — show configured positions for all worlds\n- `/fireworkshow add <world> <x> <y> <z>` — add a new position (there's also an in-game UI)\n- `/fireworkshow remove <world> <index>` — remove a position by its index\n- `/fireworkshow toggle <world> <index>` — enable/disable a position\n\nNotes:\n\n- The command name and aliases are configurable in `config.yml`. The permission node is\n  `fireworkshow.command.fireworkshow` by default.\n- The plugin also provides a simple UI for adding, toggling, and removing positions when used in-game.\n\n## Behavior details\n\n- Each configured position runs on its own repeating task using the `spawnTick` interval (in ticks; 20 ticks ≈ 1\n  second).\n- If `nightOnly: true` for a position, fireworks spawn only while the world's time is in the night range.\n- Fireworks spawn only when the chunk containing the position is loaded.\n- If a position has an `explosions` list, those explosions are used deterministically. If omitted, the plugin will spawn\n  randomized fireworks.\n- Flight time (controlled by `flightTimeMultiplier`) determines how long the rocket entity will fly before exploding. See the \"Flight time\" section below for the exact formula and examples.\n\n## Configuration\n\nThe plugin stores configuration in `config.yml`. A default file is generated on first run. Key sections:\n\n- `command`: controls the registered command name, description, usage, and aliases.\n- `positions`: list of configured firework positions. Each entry defines where and how fireworks spawn.\n\nExample `positions` entries:\n\n```yaml\ncommand:\n  name: fireworkshow\n  description: Manage firework shows\n  usage: /fireworkshow\n  aliases:\n    - fwshow\n    - fws\n\npositions:\n  - worldName: world\n    x: -385\n    y: 67\n    z: -24\n    enabled: true\n    nightOnly: false\n    spawnTick: 40\n    flightTimeMultiplier: 1\n    explosions:\n      - type: SMALL_BALL\n        colors:\n          - LIGHT_BLUE\n        fade: []\n        twinkle: true\n        trail: false\n  - worldName: world\n    x: -390\n    y: 66\n    z: -20\n    enabled: true\n    nightOnly: false\n    spawnTick: 40\n    flightTimeMultiplier: 1\n    explosions:\n      - type: CREEPER\n        colors:\n          - LIME\n        fade: []\n        twinkle: false\n        trail: false\n```\n\n### Position fields\n\n- `worldName` (string): the world where the position is located.\n- `x`, `y`, `z` (int/float): coordinates for the spawn location.\n- `enabled` (bool): whether this position is active.\n- `nightOnly` (bool): if true, spawn only during night.\n- `spawnTick` (int): spawn interval in ticks (20 ticks ≈ 1 second).\n- `flightTimeMultiplier` (int): multiplier that controls rocket flight duration before explosion. Valid range: 1–127. Default: 1\n- `explosions` (optional array): explicit explosion definitions to use at this position.\n\n### Flight time (how `flightTimeMultiplier` works)\n\nWhen a firework is spawned the plugin computes a randomized duration in ticks using this formula:\n\nrandom duration (ticks) = ((flightTimeMultiplier + 1) * 10) + random(0..12)\n\n- Example: `flightTimeMultiplier = 1` -> ((1 + 1) * 10) + (0..12) = 20..32 ticks (≈ 1.0–1.6 seconds).\n- Example: `flightTimeMultiplier = 5` -> ((5 + 1) * 10) + (0..12) = 60..72 ticks (≈ 3.0–3.6 seconds).\n- Example: `flightTimeMultiplier = 127` -> ((127 + 1) * 10) + (0..12) = 1280..1292 ticks (≈ 64.0–64.6 seconds).\n\nA larger `flightTimeMultiplier` makes rockets fly longer before exploding. The UI and config accept integer values; the in-game UI clamps the input to the 1–127 range.\n\n### Explosion schema\n\nEach explosion object supports:\n\n- `type` (string|int): firework shape (case-insensitive name or numeric id). Common names: SMALL_BALL, LARGE_BALL, STAR,\n  CREEPER, BURST.\n- `colors` (array): dye color names (e.g., RED) or numeric color ids.\n- `fade` (array, optional): dye color names or ids used for fade.\n- `twinkle` (bool, optional): if true, the explosion twinkles.\n- `trail` (bool, optional): if true, the explosion leaves a trail.\n\nNotes on values:\n\n- The plugin accepts both enum names and numeric IDs for colors and explosion types.\n- Names are matched case-insensitively; separators like spaces, dashes, and underscores are ignored when matching.\n\n## Troubleshooting\n\n- No fireworks are appearing: check that the position's chunk is loaded and `enabled` is true.\n- Night-only positions don't fire: verify the world's time and the `nightOnly` flag.\n- Command not found: confirm the command name/aliases in `config.yml` and that you have the permission node.\n\n## Contributing & Support\n\nFound a bug or want a feature? Open an issue or submit a pull request.\n\n## License\n\nSee the LICENSE file included with this project for license details.",
+  "readme_source_url": "https://github.com/DavyCraft648/FireworkShow",
+  "icon_url": "https://raw.githubusercontent.com/DavyCraft648/FireworkShow/532ae04e7476f5bcf3de2363b8bf34ab9049f5c5/icon.png",
+  "featured": false,
+  "repo": "https://github.com/DavyCraft648/FireworkShow",
+  "archive_repo": null,
+  "approved_release_tag": "r-14294",
+  "stars": 0,
+  "total_downloads": 51,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.34.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "DavyCraft648"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "0.1.0",
+      "tag": "r-14294",
+      "published_at": null,
+      "downloads": 51,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14294/fireworkshow-0.1.0-r14294.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14294",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14294/fireworkshow-0.1.0-r14294.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "FireworkShow",
+    "stable_release_id": 14294
+  }
+}

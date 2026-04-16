@@ -11,7 +11,7 @@
   "archive_repo": null,
   "approved_release_tag": "r-14367",
   "stars": 0,
-  "total_downloads": 219,
+  "total_downloads": 609,
   "last_commit_at": null,
   "last_updated_at": null,
   "license": null,
@@ -44,6 +44,11 @@
       "tag": "r-14367",
       "published_at": null,
       "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14367/worldguardplugin-3.0.2-r14367.phar"
+    },
+    {
+      "tag": "r-14152",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14152/worldguardplugin-1.5.0-r14152.phar"
     }
   ],
   "comments": {

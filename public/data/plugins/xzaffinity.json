@@ -1,0 +1,61 @@
+{
+  "id": "xzaffinity",
+  "name": "XzAffinity",
+  "author": "IndraMC",
+  "description": "📋 Overview",
+  "readme_markdown": "## 📋 Overview\n\n**XzAffinity** is a comprehensive relationship system for PocketMine-MP servers, inspired by Mobile Legends' affinity system. It allows players to form special relationships with each other, such as Lovers, Best Friends, Siblings, or Rivals. This plugin enhances player interaction and creates a more engaging social experience on your server.\n\nDeveloped by **IndraMC**, XzAffinity features an intuitive UI system powered by FormAPI, making it easy for players to manage their relationships.\n\n## ✨ Features\n\n- **Multiple Affinity Types**: Customize different relationship types (Lovers, Best Friends, Siblings, Rivals, etc.)\n- **User-friendly UI**: Easy-to-use forms for all player interactions\n- **Request System**: Send, accept, or decline affinity requests\n- **Relationship Management**: View and delete existing affinities\n- **Join/Quit Notifications**: Get notified when your affinity partners join or leave the server\n- **Admin Controls**: Easily manage affinity types and their limits\n- **Per-Type Limits**: Set different maximum limits for each affinity type\n- **Fully Configurable**: Customize all messages and settings\n\n## 🗒️ Example usage\n\n### Player\n- Sending an request type `/affinity request` or select `send request` from main menu\n- select a player from the list and choose an affinity type to request\n- the player will receiver a notification about your request\n- accepting/declining requests type `/affinity` or `/affinity accept` to open the requests menu\n- Select the request you want to manage\n- Choose to accept or decline the request\n- Both players will be notified of the decision\n- Managing Affinities\n- Type `/affinity list` to view your current affinities\n- Use `/affinity delete <player>` to remove an affinity\n\n### Admin\n- Type `/affinityadmin` to open the admin menu\n- Select `Manage Affinity Types` to view, edit, or delete types\n- Select `Add New Affinity` Type to create a new type\n\n\n## 📥 Installation\n\n1. Download the latest version of XzAffinity from [Poggit](https://poggit.pmmp.io/p/XzAffinity)\n3. Place both plugins in your server's `plugins` folder\n4. Restart your server\n5. Configure the plugin settings in `plugin_data/XzAffinity/config.yml` (optional)\n\n## 🔧 Commands\n\n### Player Commands\n| Command | Description | Permission |\n|---------|-------------|------------|\n| `/affinity` | Opens the main affinity menu | xzaffinity.command.use |\n| `/affinity request` | Opens the player selection menu to send a request | xzaffinity.command.use |\n| `/affinity accept <player>` | Accept an affinity request | xzaffinity.command.use |\n| `/affinity decline <player>` | Decline an affinity request | xzaffinity.command.use |\n| `/affinity delete <player>` | Delete an existing affinity | xzaffinity.command.use |\n| `/affinity list` | View your affinities and pending requests | xzaffinity.command.use |\n| `/affinity types` | View available affinity types and their limits | xzaffinity.command.use |\n\n### Admin Commands\n| Command | Description | Permission |\n|---------|-------------|------------|\n| `/affinityadmin` | Opens the admin management menu | xzaffinity.command.admin |\n\n## 🔒 Permissions\n\n| Permission | Description | Default |\n|------------|-------------|---------|\n| xzaffinity.command.use | Allows using all player commands | true |\n| xzaffinity.command.admin | Allows using admin commands | op |\n\n## ⚙️ Configuration\n\nXzAffinity is highly configurable. You can customize all messages in the `config.yml` file, and you can customize affinity types and maximum limits in the `settings.yml` file.\n\n### Default Affinity Types\n- Lovers (Default max: 1)\n- Best Friends (Default max: 3)\n- Siblings (Default max: 5)\n- Rivals (Default max: 3)\n\n### Example settings.yml\n```yaml\n# Affinity types and their maximum limits\naffinity_types:\n  - \"Lovers\"\n  - \"Best Friends\"\n  - \"Siblings\"\n  - \"Rivals\"\n\nmax_affinities:\n  \"Lovers\": 1\n  \"Best Friends\": 3\n  \"Siblings\": 5\n  \"Rivals\": 3\n\n# You can customize all messages in the messages section\n```\n\n## 🙏 Credits\n- Developer: IndraMC\n- UI Library: FormAPI by jojoe77777\n- GitHub: [LordzDraa](https://github.com/IndraMC)\n- Discord: IndraMC#7345",
+  "readme_source_url": "https://github.com/IndraMC/XzAffinity",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/IndraMC/XzAffinity",
+  "archive_repo": null,
+  "approved_release_tag": "r-14085",
+  "stars": 1,
+  "total_downloads": 48,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "IndraMC"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14085",
+      "published_at": null,
+      "downloads": 48,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14085/xzaffinity-1.0.0-r14085.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14085",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14085/xzaffinity-1.0.0-r14085.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "XzAffinity",
+    "stable_release_id": 14085
+  }
+}

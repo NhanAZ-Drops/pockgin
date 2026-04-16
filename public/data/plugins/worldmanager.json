@@ -1,0 +1,61 @@
+{
+  "id": "worldmanager",
+  "name": "WorldManager",
+  "author": "PocketMine-Community",
+  "description": "🌍 WorldManager",
+  "readme_markdown": "# 🌍 WorldManager\n\n[![PMMP API 5.x](https://img.shields.io/badge/PocketMine--MP-API%205.x-blue?logo=pocketmine)](https://github.com/pmmp/PocketMine-MP)\n[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)\n[![Plugin Status](https://img.shields.io/badge/status-active-brightgreen)]()\n[![Made with ❤️ for PMMP](https://img.shields.io/badge/made%20for-PocketMine--MP-orange)](https://pmmp.io)\n\n**WorldManager** is a powerful and lightweight world management plugin for PocketMine-MP servers.  \nCreate, delete, duplicate, rename, load, unload, teleport and fully control your worlds directly in-game — all with region support!\n\n---\n\n## ✨ Features\n\n- 🔧 Create new worlds (supports custom generators)\n- 🗑 Delete worlds safely\n- 📦 Duplicate (clone) worlds\n- ✏ Rename existing worlds\n- 🚀 Teleport between worlds\n- 🔄 Load & unload worlds dynamically\n- 📃 List all available worlds\n- 🗺 Region management system (`/wm region`)\n- 🎯 Full permission system\n- ⚡ Fast and optimized performance\n- 🎮 In-game commands with aliases and tab completion\n\n---\n\n## 📥 Installation\n\n1️⃣ Download the latest release of the plugin.  \n2️⃣ Place the `.phar` file into your server's `plugins/` directory.  \n3️⃣ Restart your server.\n\n---\n\n## ⚙ Commands\n\nMain command: `/worldmanager`  \nAlias: `/wm`\n\n| Subcommand | Description | Usage | Aliases | Permission |\n|-------------|-------------|--------|---------|-------------|\n| `help` | Show help message | `/worldmanager help` | — | `worldmanager.subcommand.help` |\n| `region` | Region management | `/worldmanager region <args>` | `rg` | `worldmanager.subcommand.region` |\n| `delete` | Delete a world | `/worldmanager delete <world>` | — | `worldmanager.subcommand.delete` |\n| `duplicate` | Duplicate a world | `/worldmanager duplicate <source> <newName>` | `clone` | `worldmanager.subcommand.duplicate` |\n| `list` | List all worlds | `/worldmanager list` | `ls` | `worldmanager.subcommand.list` |\n| `tp` | Teleport to world | `/worldmanager tp <world>` | `teleport` | `worldmanager.subcommand.tp` |\n| `create` | Create new world | `/worldmanager create <name> <generator>` | `new` | `worldmanager.subcommand.create` |\n| `load` | Load world | `/worldmanager load <name>` | — | `worldmanager.subcommand.load` |\n| `unload` | Unload world | `/worldmanager unload <name>` | — | `worldmanager.subcommand.unload` |\n| `rename` | Rename world | `/worldmanager rename <oldName> <newName>` | — | `worldmanager.subcommand.rename` |\n\n---\n\n## 🔐 Permissions\n\n| Permission | Description | Default |\n|-------------|-------------|---------|\n| `worldmanager.command` | Access main command | OP |\n| `worldmanager.subcommand.help` | Help command | true |\n| `worldmanager.subcommand.region` | Region commands | OP |\n| `worldmanager.subcommand.delete` | Delete worlds | OP |\n| `worldmanager.subcommand.duplicate` | Duplicate worlds | OP |\n| `worldmanager.subcommand.list` | List worlds | true |\n| `worldmanager.subcommand.tp` | Teleport to worlds | OP |\n| `worldmanager.subcommand.create` | Create worlds | OP |\n| `worldmanager.subcommand.load` | Load worlds | OP |\n| `worldmanager.subcommand.unload` | Unload worlds | OP |\n| `worldmanager.subcommand.rename` | Rename worlds | OP |\n\n---\n\n## 🗺 Region System\n\nRegion management commands are accessible via:\n\n/worldmanager region <args>\n\n\nAlias: `/wm rg`  \n*(Region subcommands can be expanded based on your plugin details)*\n\n---\n\n## 📦 Requirements\n\n- PocketMine-MP: **API 5.x**\n- PHP: **8.0+**\n\n---\n\n## 📄 License\n\nThis project is licensed under the [MIT License](LICENSE).\n\n---\n\n## ❤️ Support\n\nIf you enjoy using this plugin, consider giving a ⭐ star on GitHub or sharing feedback!\n\n---",
+  "readme_source_url": "https://github.com/PocketMine-Community/WorldManager",
+  "icon_url": "https://raw.githubusercontent.com/PocketMine-Community/WorldManager/bfac237a74d821cc9aa9167ee8eb0a9b8933fa2b/icon.png",
+  "featured": false,
+  "repo": "https://github.com/PocketMine-Community/WorldManager",
+  "archive_repo": null,
+  "approved_release_tag": "r-14262",
+  "stars": 0,
+  "total_downloads": 269,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "PocketMine-Community"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260870",
+  "versions": {
+    "stable": {
+      "version": "1.1.0",
+      "tag": "r-14262",
+      "published_at": null,
+      "downloads": 269,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14262/worldmanager-1.1.0-r14262.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14262",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14262/worldmanager-1.1.0-r14262.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "WorldManager",
+    "stable_release_id": 14262
+  }
+}

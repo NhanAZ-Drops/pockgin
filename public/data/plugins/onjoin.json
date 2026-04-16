@@ -1,0 +1,61 @@
+{
+  "id": "onjoin",
+  "name": "OnJoin",
+  "author": "darknessplx",
+  "description": "OnJoin Plugin (PocketMine API 5)",
+  "readme_markdown": "# OnJoin Plugin (PocketMine API 5)\n\n## Description\nOnJoin is a simple plugin for PocketMine API 5 servers that sends custom messages when a player joins or leaves. It supports the `{PLAYER}` placeholder, which is replaced with the player's name.\n\n## Features\n- Sends join and leave messages.\n- Supports the `{PLAYER}` placeholder.\n- Fully configurable to match your style.\n- New Tip Join and leave messages(Appears above player's hotbar)\n- Compatible with PocketMine API 5.\n- Configuration can be done in-game using /onjoin. The permission is `onjoin.config`\n\n## Example Messages\n- **Join:** `[+] {PLAYER}`\n- **Leave:** `[-] {PLAYER}`\n\n## Configuration\n- All messages are customizable in the plugin's config file and in-game using /onjoin.\n- New `type` parameter, there are 2 value `message` or `tip`",
+  "readme_source_url": "https://github.com/darknessplx/OnJoin",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/darknessplx/OnJoin",
+  "archive_repo": null,
+  "approved_release_tag": "r-14162",
+  "stars": 0,
+  "total_downloads": 96,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "darknessplx"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258737",
+  "versions": {
+    "stable": {
+      "version": "1.1.0",
+      "tag": "r-14162",
+      "published_at": null,
+      "downloads": 96,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14162/onjoin-1.1.0-r14162.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14162",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14162/onjoin-1.1.0-r14162.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "OnJoin",
+    "stable_release_id": 14162
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "battlesense",
+  "name": "BattleSense",
+  "author": "MrEcstsy",
+  "description": "BattleSense is a PocketMine-MP plugin that provides advanced PvP and PvE statistics, summaries, and configurable feedback for your Minecraft Bedrock server.",
+  "readme_markdown": "# BattleSense\n\nBattleSense is a PocketMine-MP plugin that provides advanced PvP and PvE statistics, summaries, and configurable feedback for your Minecraft Bedrock server.\n\n## Features\n\n- 📊 **PvP and PvE Fight Summaries**  \n  Get detailed breakdowns of damage dealt, combos, healing used, and more after every fight.\n\n- 🛠️ **Configurable Output**  \n  Choose between chat, actionbar, or title for displaying summaries.\n\n- 🌐 **Multi-language Support**  \n  Easily create or translate or customize all messages via language files.\n\n## Commands\n\n| Command            | Description                          | Permission                    |\n|--------------------|--------------------------------------|-------------------------------|\n| `/battlesense`     | Lists all BattleSense commands       | battlesense.command           |\n| `/battlesense about` | Shows plugin info                  | battlesense.command           |\n| `/battlesense reload` | Reloads all configs (admin only)  | battlesense.command.reload    |\n\n## Installation\n\n1. Download the latest `.phar` from [Poggit Releases](https://poggit.pmmp.io/p/BattleSense).\n2. Place it in your server's `plugins/` folder.\n3. Restart or reload your server.\n\n## Configuration\n\n- All settings are in `/BattleSense/config.yml`.\n- Language files are in `/BattleSense/locale/`.\n\n## Example PvP Summary\n\n```\nYou killed Steve!\n• Total Damage Dealt: 8\n• Highest Combo: 3 hits\n• Damage Breakdown:\n   - Sword (4) (2x)\n   - Air (1)\n• Final Blow: Sword (4)\n```",
+  "readme_source_url": "https://github.com/MrEcstsy/BattleSense",
+  "icon_url": "https://raw.githubusercontent.com/MrEcstsy/BattleSense/4441a6f7ef1b25e2afedda1146db9e4ccfa1befc/icon.png",
+  "featured": false,
+  "repo": "https://github.com/MrEcstsy/BattleSense",
+  "archive_repo": null,
+  "approved_release_tag": "r-14096",
+  "stars": 0,
+  "total_downloads": 64,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.3.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "MrEcstsy"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14096",
+      "published_at": null,
+      "downloads": 64,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14096/battlesense-1.0.0-r14096.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14096",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14096/battlesense-1.0.0-r14096.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BattleSense",
+    "stable_release_id": 14096
+  }
+}

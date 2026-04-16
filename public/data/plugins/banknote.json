@@ -1,0 +1,64 @@
+{
+  "id": "banknote",
+  "name": "BankNote",
+  "author": "GabBiswajit",
+  "description": "💰 BankNote Plugin v2.0.0",
+  "readme_markdown": "# 💰 BankNote Plugin v2.0.0\n\n[![Poggit-CI](https://poggit.pmmp.io/ci.shield/GabBiswajit/BankNote/BankNote)](https://poggit.pmmp.io/ci/GabBiswajit/BankNote/BankNote)\n[![](https://poggit.pmmp.io/shield.state/BankNote)](https://poggit.pmmp.io/p/BankNote)\n[![](https://poggit.pmmp.io/shield.dl/BankNote)](https://poggit.pmmp.io/p/BankNote)\n\nA secure and feature-rich banknote system for PocketMine-MP servers! Convert your money into physical items that can be traded, stored, and redeemed safely with advanced anti-duplication protection.\n\n## 🆕 **What's New in v2.0.0**\n\n### 🔥 **Major Updates:**\n- **🆕 BedrockEconomy Support**: Modern async economy system (replacing libEco)\n- **🛡️ Enhanced Security**: Advanced anti-duplication and exploit prevention\n- **💎 Universal Item Support**: Use ANY Minecraft item via StringToItemParser\n- **🎨 Improved UI**: Better FormAPI integration with fallback support\n- **🔐 Professional Permissions**: Standardized `banknote.use` system\n- **⚡ Performance Boost**: Async operations and optimized code\n- **📋 Poggit Ready**: Full compliance with modern standards\n\n### 🔄 **Breaking Changes:**\n- **Economy System**: libEco → BedrockEconomy (auto-detection included)\n- **Permissions**: `BankNote.note.cmd` → `banknote.use`\n- **Configuration**: Enhanced config structure with more options\n\n## ✨ **Core Features**\n\n### 🛡️ **Advanced Security**\n- **Anti-Duplication System**: Prevents exploit attempts and item duplication\n- **NBT Validation**: Ensures banknote integrity and authenticity  \n- **Block Interaction Filter**: Prevents conflicts with chests and item frames\n- **Cooldown Protection**: Configurable spam prevention system\n- **Item Validation**: Multi-layer verification for secure transactions\n\n### 💎 **Flexible Item System**\n- **StringToItemParser**: Support for ANY Minecraft item type\n- **Custom Items**: Diamond, emerald, nether star, totem, and more\n- **Visual Customization**: Color codes, custom names, and lore\n- **Placeholder Support**: Dynamic {amount}, {creator}, {date} variables\n\n### 💰 **Multi-Economy Support**\n- **BedrockEconomy** (Primary) - Modern async operations\n- **EconomyAPI** (Secondary) - Classic compatibility\n- **Auto-Detection**: Seamless economy plugin detection\n- **Fallback Support**: Works with either economy system\n\n### 🎨 **Enhanced User Interface**\n- **FormAPI Integration**: Beautiful GUI forms with quick amounts\n- **Custom Amount Input**: Flexible amount entry system\n- **Fallback UI**: Text-based interface when FormAPI unavailable\n- **User-Friendly Messages**: Clear feedback and error handling\n\n## 📋 **Requirements**\n\n- **PocketMine-MP**: 5.0.0+\n- **PHP**: 8.0+\n- **Economy Plugin**: BedrockEconomy OR EconomyAPI\n- **Optional**: FormAPI for enhanced GUI experience\n\n## 🚀 **Installation**\n\n1. Download from [Poggit](https://poggit.pmmp.io/p/BankNote)\n2. Place the `.phar` file in your server's `plugins/` folder\n3. Install an economy plugin:\n   - **Recommended**: [BedrockEconomy](https://poggit.pmmp.io/p/BedrockEconomy)\n   - **Alternative**: [EconomyAPI](https://poggit.pmmp.io/p/EconomyAPI)\n4. **Optional**: Install [FormAPI](https://poggit.pmmp.io/p/FormAPI) for GUI support\n5. Restart your server\n6. Configure in `plugins/BankNote/config.yml`\n\n## 🎯 **Commands & Permissions**\n\n| Command | Description | Permission | Aliases |\n|---------|-------------|------------|---------|\n| `/banknote <amount>` | Create a banknote | `banknote.use` | `/bn`, `/note` |\n| `/banknote ui` | Open GUI interface | `banknote.use` | `/bn ui` |\n\n### 🔐 **Permissions:**\n- `banknote.use` - Create and redeem banknotes (default: true)\n- `banknote.admin` - Administrative access (default: op)\n\n## 📖 **How to Use**\n\n### **Creating Banknotes:**\n1. **Command Method**: `/banknote 1000` - Creates $1000 banknote\n2. **GUI Method**: `/banknote ui` - Interactive form (requires FormAPI)\n3. **Quick Amounts**: Predefined buttons for common values\n\n### **Redeeming Banknotes:**\n1. **Right-click** the banknote item while holding it\n2. Money is instantly added to your balance\n3. Item is consumed and cannot be duplicated\n\n### **Supported Items:**\nUse any Minecraft item via configuration:\n```yaml\nbanknote:\n  item:\n    type: \"paper\"        # Default\n    type: \"diamond\"      # Premium look\n    type: \"nether_star\"  # Ultra rare\n    type: \"emerald\"      # Classic currency\n    # ... and 500+ more items!\n```\n\n## ⚙️ **Configuration**\n\n```yaml\n# Enhanced Configuration v2.0.0\nbanknote:\n  item:\n    type: \"paper\"\n    name: \"§r§l§6${amount} §aBAN§fK §aNOTE\"\n    lore:\n      - \"§r§7Right-click to redeem\"\n      - \"§r§7Value: §a${amount}\"\n  \n  limits:\n    minimum: 1\n    maximum: 1000000\n    cooldown: 1\n\nui:\n  enabled: true\n  title: \"§l§aBankNote Manager\"\n  quick_amounts: [100, 500, 1000, 5000, 10000]\n\neconomy:\n  preferred: \"BedrockEconomy\"\n  auto_detect: true\n\nsecurity:\n  anti_duplication: true\n  nbt_validation: true\n  block_interaction_filter: true\n```\n\n## 🔌 **Economy Plugin Compatibility**\n\n### BedrockEconomy (Recommended)\n```yaml\n# Modern async economy system\n- Better performance\n- Async operations\n- Active development\n- Latest PocketMine-MP support\n```\n\n### EconomyAPI (Legacy Support)\n```yaml\n# Classic economy plugin\n- Backwards compatibility\n- Synchronous operations\n- Stable and tested\n- Wide plugin support\n```\n\n## 📊 **Version Comparison**\n\n| Feature | v1.0.0 | v2.0.0 |\n|---------|--------|--------|\n| Economy Support | libEco only | BedrockEconomy + EconomyAPI |\n| Item Support | Paper only | Any Minecraft item |\n| Security | Basic | Advanced anti-duplication |\n| UI | FormAPI only | FormAPI + fallback |\n| Permissions | Non-standard | Professional system |\n| Performance | Standard | Optimized with async |\n| Poggit Compliance | Partial | Full compliance |\n\n## 📝 **Changelog**\n\n### **v2.0.0** (Major Update)\n#### 🆕 **New Features:**\n- BedrockEconomy integration with async support\n- StringToItemParser for universal item support\n- Advanced anti-duplication security system\n- Professional permission system (`banknote.use`)\n- Enhanced FormAPI integration with fallback UI\n- Comprehensive configuration system\n- Poggit CI compliance and quality checks\n\n#### 🔄 **Changes:**\n- **BREAKING**: Replaced libEco with BedrockEconomy\n- **BREAKING**: Updated permission names for standardization\n- Improved error handling and user feedback\n- Cleaner code structure (removed unnecessary logging)\n- Updated plugin.yml for modern standards\n- Enhanced .poggit.yml configuration\n\n#### 🐛 **Bug Fixes:**\n- Fixed duplication exploits and security vulnerabilities\n- Resolved interaction conflicts with storage blocks\n- Improved NBT validation and item integrity checks\n- Enhanced cooldown system reliability\n\n#### 🎯 **Performance:**\n- Async economy operations for better server performance\n- Optimized item validation and processing\n- Reduced memory footprint and CPU usage\n- Faster plugin initialization and loading\n\n### **v1.0.0** (Initial Release)\n- Basic banknote functionality\n- libEco integration\n- FormAPI support\n- Simple configuration\n\n## 👨‍💻 **Author & Support**\n\n**Biswajit** - Plugin Developer\n- GitHub: [@GabBiswajit](https://github.com/GabBiswajit)\n- Repository: [BankNote](https://github.com/GabBiswajit/BankNote)\n\n### 🆘 **Support:**\n- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/GabBiswajit/BankNote/issues)\n- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/GabBiswajit/BankNote/discussions)\n- ⭐ **Show Support**: Star the repository\n\n---\n\n**🎉 Thank you for using BankNote v2.0.0!**  \n*Making secure economy transactions simple and reliable for the PocketMine-MP community.*",
+  "readme_source_url": "https://github.com/GabBiswajit/BankNote",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/GabBiswajit/BankNote",
+  "archive_repo": null,
+  "approved_release_tag": "r-14125",
+  "stars": 5,
+  "total_downloads": 99,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [
+      "EconomyAPI",
+      "BedrockEconomy"
+    ],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "GabBiswajit"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257915",
+  "versions": {
+    "stable": {
+      "version": "2.0.0",
+      "tag": "r-14125",
+      "published_at": null,
+      "downloads": 99,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14125/banknote-2.0.0-r14125.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14125",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14125/banknote-2.0.0-r14125.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BankNote",
+    "stable_release_id": 14125
+  }
+}

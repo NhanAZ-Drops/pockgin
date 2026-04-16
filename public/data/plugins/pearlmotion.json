@@ -1,0 +1,61 @@
+{
+  "id": "pearlmotion",
+  "name": "PearlMotion",
+  "author": "TrixNEW",
+  "description": "PearlMotion – Motion Customizer for Ender Pearls",
+  "readme_markdown": "# PearlMotion – Motion Customizer for Ender Pearls\n\nPearlMotion is a PocketMine-MP 5.x plugin that lets you customize the **motion speed** of thrown ender pearls on each axis (X, Y, Z).\n\n---\n\n## To the reviewer\n- Please unban me from the pocketmine discord\n- I repent my actions.\n- @trix.pro\n\n---\n\n## 📦 Features\n- Change ender pearl throw speed per axis.\n- Simple configuration file.\n- Lightweight and optimized.\n\n---\n\n## ⚙️ Configuration\n`config.yml`:\n```yaml\n# Adjust the motion axis values (float)\npearl-motion:\n  x: 1.4\n  y: 1.4\n  z: 1.4\n```\n- **x** → Horizontal motion (left/right)\n- **y** → Vertical motion (up/down)\n- **z** → Horizontal motion (forward/backward)  \n\nValues must be **floats**.  \nFor example: `1.0` = default speed, `2.0` = double speed, `0.5` = half speed.\n\n---\n\n## 📥 Installation\n1. Place the plugin `.phar` file into your server’s `plugins/` folder.\n2. Start the server to generate `config.yml`.\n3. Edit `config.yml` to your liking.\n4. Restart the server.\n\n---\n\n## 🚀 How it Works\nWhenever a player throws an ender pearl:\n1. The plugin intercepts the launch event.\n2. It multiplies the pearl's motion by your configured values.\n3. The pearl travels faster or slower depending on your settings.\n\n---\n\n## 🛠 Requirements\n- PocketMine-MP **5.x**\n- PHP **8.1+**\n\n---",
+  "readme_source_url": "https://github.com/TrixNEW/PearlMotion",
+  "icon_url": "https://raw.githubusercontent.com/TrixNEW/PearlMotion/3e03e05d39a703cb18544b721f78fa1d393384e5/icon.png",
+  "featured": false,
+  "repo": "https://github.com/TrixNEW/PearlMotion",
+  "archive_repo": null,
+  "approved_release_tag": "r-14151",
+  "stars": 0,
+  "total_downloads": 46,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "TrixNEW"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14151",
+      "published_at": null,
+      "downloads": 46,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14151/pearlmotion-1.0.0-r14151.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14151",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14151/pearlmotion-1.0.0-r14151.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PearlMotion",
+    "stable_release_id": 14151
+  }
+}

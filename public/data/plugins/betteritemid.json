@@ -1,0 +1,61 @@
+{
+  "id": "betteritemid",
+  "name": "BetterItemID",
+  "author": "fernanACM",
+  "description": "The best ItemID for PocketMine-MP 5.0 servers. Special use for builders.**",
+  "readme_markdown": "# BetterItemID\n[![](https://poggit.pmmp.io/shield.state/BetterItemID)](https://poggit.pmmp.io/p/BetterItemID)\n\n[![](https://poggit.pmmp.io/shield.api/BetterItemID)](https://poggit.pmmp.io/p/BetterItemID)\n\n**The best ItemID for PocketMine-MP 5.0 servers. Special use for builders.**\n\n![icon-betteritemid](https://user-images.githubusercontent.com/83558341/167280782-a099e1f2-189f-4698-bf13-aaeb271c5375.png) \n\nThis plugin adds options to see the ID of the blocks in the game, you can customize their texts and sounds very easily through 'config.yml'. Page for the sounds of the game [sounds](https://www.digminecraft.com/lists/sound_list_pe.php)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 💡 Implementations\n* [x] BlockInfo\n* [x] Sounds\n* [x] Message customization\n* [x] Commands\n---\n\n### 💾 Config\n```yaml\n   #   ____           _     _                   ___   _                        ___   ____  \n   #  | __ )    ___  | |_  | |_    ___   _ __  |_ _| | |_    ___   _ __ ___   |_ _| |  _ \\ \n   #  |  _ \\   / _ \\ | __| | __|  / _ \\ | '__|  | |  | __|  / _ \\ | '_ ` _ \\   | |  | | | |\n   #  | |_) | |  __/ | |_  | |_  |  __/ | |     | |  | |_  |  __/ | | | | | |  | |  | |_| |\n   #  |____/   \\___|  \\__|  \\__|  \\___| |_|    |___|  \\__|  \\___| |_| |_| |_| |___| |____/ \n   #         by fernanACM\n\n   # The best ItemID for PocketMine-MP 5.0 servers. Special use for builders.\n   # This plugin adds options to see the ID of the blocks in the game, you can \n   # customize their texts and sounds very easily through 'config.yml'. \n   # Page for the sounds of the game: https://www.digminecraft.com/lists/sound_list_pe.php\n\n   # DO NOT TOUCH!\n   config-version: \"2.0.0\"\n   # =======(SETTINGS)=======\n   Settings:\n    # Use \"true\" or \"false\" to enable/disable tip-id\n    No-tip-itemid: true\n    # Use \"true\" or \"false\" to enable/disable the sound when executing the command.\n    Id-no-sound: true\n    # I put the name of the sound you like: example:\n    # Id-sound: \"cauldron.adddye\"\n    Id-sound: \"random.burp\"\n\n   # =======(MESSAGES)=======\n   Messages:\n    # Tip ID message\n    Tip-itemid: \"&l&b»&r&f[&eITEM&f] §a{ID}&l&b«\"\n    # Use '{LINE}' like 'enter' and use '{NAME}' to see the player's name.\n    Itemid:\n      - \"§e=======(§bBetterItemID§e)=======\"\n      - \"§cHELLO: §f{NAME}\"\n      - \"§aID: §b{ID}\"\n      - \"§e==========================\"\n    # Block info message\n    block-info: \"&e{ID}\"\n  ```\n\n### 🕹 Commands\n| Command | Description |\n|---------|-------------|\n| ```/betteritemid``` | To see the ID of the item in hand |\n| ```/betteritemid blockinfo``` | Use blockinfo |\n\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```betteritemid.cmd.acm``` | Executing the command |\n| ```betteritemid.use.acm``` | Use blockinfo |\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/BetterItemId/issues)\n\n### 📞 Contact \n\n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |",
+  "readme_source_url": "https://github.com/fernanACM/BetterItemID",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/BetterItemID/edaa22a22729d00854e31542c29399e2b74a50b2/icon-betteritemid.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/BetterItemID",
+  "archive_repo": null,
+  "approved_release_tag": "r-14246",
+  "stars": 0,
+  "total_downloads": 153,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260480",
+  "versions": {
+    "stable": {
+      "version": "3.1.0",
+      "tag": "r-14246",
+      "published_at": null,
+      "downloads": 153,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14246/betteritemid-3.1.0-r14246.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14246",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14246/betteritemid-3.1.0-r14246.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BetterItemID",
+    "stable_release_id": 14246
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "texter",
+  "name": "Texter",
+  "author": "fuyutsuki",
+  "description": "Texter is a plugin for PocketMine-MP that supports multiple worlds and allows you to add, edit, move, and delete FloatingText.",
+  "readme_markdown": "<div align=\"center\">\n\n<img src=\"/assets/Texter.png\" width=\"600px\">\n\n<h1>Texter</h1>\n\nTexter is a plugin for [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) that supports multiple worlds and allows you to add, edit, move, and delete FloatingText.\n\n[![GitHub](https://img.shields.io/github/license/fuyutsuki/Texter?style=flat-square)](https://github.com/fuyutsuki/Texter/blob/master/LICENSE)\n[![](https://poggit.pmmp.io/shield.state/Texter&style=flat-square)](https://poggit.pmmp.io/p/Texter)\n[![](https://poggit.pmmp.io/shield.api/Texter&style=flat-square)](https://poggit.pmmp.io/p/Texter)\n\n[![](https://poggit.pmmp.io/shield.dl/Texter&style=flat-square)](https://poggit.pmmp.io/p/Texter) / [![](https://poggit.pmmp.io/shield.dl.total/Texter&style=flat-square)](https://poggit.pmmp.io/p/Texter)\n\n[![PoggitCI Badge](https://poggit.pmmp.io/ci.badge/fuyutsuki/Texter/Texter)](https://poggit.pmmp.io/ci/fuyutsuki/Texter/Texter)\n\n</div>\n\n***\n\n<!--\n**This branch is under development. It may contain many bugs.**\n-->\n\nOther languages:\n- [日本語](/.github/readme/ja_jp.md)\n- [Русский](/.github/readme/ru_ru.md)\n- [Tiếng Việt](/.github/readme/vi_vn.md)\n\n\n:inbox_tray: Download\n-----------------------------------------\n\n* [Poggit](https://poggit.pmmp.io/p/Texter)\n\n\n:sparkles: Features\n-----------------------------------------\n\n#### Commands\n\nAll commands have permissions set to `texter.command.txt` (OP only).\n\n| \\ |Command|aliases|usage|\n|:--:|:--:|:--:|:--|\n|Add text|`/txt add`|`/txt a`|`/txt add [name] [text]`|\n|Edit text|`/txt edit`|`/txt e`|`/txt edit [name] [text]`|\n|Move text|`/txt move`|`/txt m`|`/txt move [name] [here\\|x y z]`|\n|Remove text|`/txt remove`|`/txt r`|`/txt remove [name]`|\n|help|`/txt`||`/txt`|\n\n**Please insert `#` for line breaks**.\n\n\n:symbols: Language\n-----------------------------------------\n\nYou can change the language in the console by changing the `locale` in [config.yml](/resources/config.yml).  \nThe supported languages will be automatically translated according to the language settings of each player's client.\n\n#### Support status\n\nissue or PR in other languages is welcome!\n\n- [x] en_us(English)\n- [x] es_mx(Spanish/Mexico)\n- [ ] id_id(Indonesian)\n- [x] ja_jp(Japanese)\n- [ ] ko_kr(Korean)\n- [ ] ru_ru(Russian)\n- [ ] tr_tr(Turkish)\n- [ ] zh_cn(Chinese/Simplified)\n- [ ] vi_vn(Vietnamese)\n- [x] de_de(German)",
+  "readme_source_url": "https://github.com/fuyutsuki/Texter",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/fuyutsuki/Texter",
+  "archive_repo": null,
+  "approved_release_tag": "r-14302",
+  "stars": 0,
+  "total_downloads": 296,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.3.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fuyutsuki"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/261939",
+  "versions": {
+    "stable": {
+      "version": "4.3.3",
+      "tag": "r-14302",
+      "published_at": null,
+      "downloads": 131,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14302/texter-4.3.3-r14302.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14302",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14302/texter-4.3.3-r14302.phar"
+    },
+    {
+      "tag": "r-14137",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14137/texter-4.3.2-r14137.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Texter",
+    "stable_release_id": 14302
+  }
+}

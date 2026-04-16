@@ -1,0 +1,61 @@
+{
+  "id": "leap",
+  "name": "Leap",
+  "author": "Steak-Web",
+  "description": "A Leap system for PM5.0.0",
+  "readme_markdown": "A Leap system for PM5.0.0\n\nauto give while player join server\non Inventory 4 and 6 \n\nYou can have second leap on flight :)",
+  "readme_source_url": "https://github.com/Steak-Web/LeapSystem",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/Steak-Web/LeapSystem",
+  "archive_repo": null,
+  "approved_release_tag": "r-14158",
+  "stars": 0,
+  "total_downloads": 28,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Steak-Web"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14158",
+      "published_at": null,
+      "downloads": 28,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14158/leap-1.0.0-r14158.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14158",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14158/leap-1.0.0-r14158.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Leap",
+    "stable_release_id": 14158
+  }
+}

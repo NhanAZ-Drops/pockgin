@@ -1,0 +1,61 @@
+{
+  "id": "lmao",
+  "name": "lmao",
+  "author": "NgLam2911",
+  "description": "An ultimate troll plugin for PocketMine-MP",
+  "readme_markdown": "![image](https://user-images.githubusercontent.com/33188123/158940956-9406baec-ae21-4260-be95-b799ad95c793.png)\n[![](https://poggit.pmmp.io/shield.state/lmao)](https://poggit.pmmp.io/p/lmao)\n# LMAO\nAn ultimate troll plugin for PocketMine-MP\n# Feature\n|Feature|Description|\n|:--:|:--:|\n|Alone|Hides every player, let them feed alone|\n|Burn|Burn the player|\n|FakeOp|Sends an op message to the player. They are not opped...|\n|Launch|3... 2... 1... LIFTOFF!|\n|Bolt|The player is really feeling the wrath of the God of lightning!|\n|Crash|Kicks player with a not so nice disconnected message :>|\n|FakeDeop|Sends a deop message to the player. They are not deopped...|\n|Shuffle|Shuffle player's inventory :>|\n|Push|An uncontrolled flight...|\n|Hurt|Ouch! That hurts...|\n|Boom|Blow up the player!|\n|DropInv|Drop player's inventory!|\n|Chat|Sends a chat message or run a command on behalf of the player!|\n|FakeBan|Are you sure you got banned ?|\n|Flip|Flip the player 180 degrees!|\n|Spin|You spin me right round ...|\n|Swap|Swap postion with the player!|\n|Creeper|Something is behind you ???(Let them hear creeper sound)|\n|NoMine|Can't mine blocks ??? Maybe lag.|\n|NoPlace|Can't place blocks ??? Maybe lag.|\n|NoPick|Can't pickup items ??? Maybe lag.|\n|Rickroll|Rolling with Rick(let them hear a very familiar song... hehe)|\n|PumpkinHead|Put a pumpkin on player head|\n|Starve|Make them get hungry faster|\n|InfiniteDeath|They can't respawn now ...|\n\n# NOTE\n* NgLam has stopped maintaining PocketMine-MP-related projects since 8/2023 due to his 6-year-old laptop already reaching its limit and being too busy for school projects. No one, including him, knew when he would come back...",
+  "readme_source_url": "https://github.com/NgLam2911/LMAO",
+  "icon_url": "https://raw.githubusercontent.com/NgLam2911/LMAO/b5960e20d3c612d2fe0d4c0fd45179246dd34ac1/icon.png",
+  "featured": false,
+  "repo": "https://github.com/NgLam2911/LMAO",
+  "archive_repo": null,
+  "approved_release_tag": "r-14164",
+  "stars": 1,
+  "total_downloads": 90,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.30.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "NgLam2911"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258978",
+  "versions": {
+    "stable": {
+      "version": "0.2.3",
+      "tag": "r-14164",
+      "published_at": null,
+      "downloads": 90,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14164/lmao-0.2.3-r14164.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14164",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14164/lmao-0.2.3-r14164.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "lmao",
+    "stable_release_id": 14164
+  }
+}

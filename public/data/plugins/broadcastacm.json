@@ -1,0 +1,61 @@
+{
+  "id": "broadcastacm",
+  "name": "BroadcastACM",
+  "author": "fernanACM",
+  "description": "The best announcer for PocketMine-MP 5.0 servers, make messages for your users very easily.",
+  "readme_markdown": "# BroadcastACM\r\n[![](https://poggit.pmmp.io/shield.state/BroadcastACM)](https://poggit.pmmp.io/p/BroadcastACM)\r\n\r\n[![](https://poggit.pmmp.io/shield.api/BroadcastACM)](https://poggit.pmmp.io/p/BroadcastACM)\r\n\r\n**The best announcer for PocketMine-MP 5.0 servers, make messages for your users very easily.\r\nMake the best announcements for your server without any difficulty when making them, only with UI it will serve you**\r\n\r\n![Captura de pantalla 2023-06-03 213457](https://github.com/fernanACM/BroadcastACM/assets/83558341/afd46959-2c8e-42e9-b8d7-deb167838016)\r\n\r\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\r\n\r\n### 🌍 Wiki\r\n* Check our plugin [wiki](https://github.com/fernanACM/BroadcastACM/wiki) for features and secrets in the...\r\n\r\n### 💡 Implementations\r\n* [x] Images > *To load the images, use [FormImagesFIX](https://poggit.pmmp.io/r/210344/FormImagesFix_dev-16.phar)*\r\n* [X] Configuration\r\n* [x] Sounds.\r\n* [x] Message customization.\r\n* [X] Commands.\r\n* [x] Keys in the form.\r\n* [x] Discord system\r\n---\r\n\r\n### 🔑 Keys in the form\r\n**This is for the purpose of writing comfortably; Use the following keys for greater comfort:**\r\n```\r\n  - {LINE} => \"\\n\" -> This counts as one space\r\n  - & => \"§\" -> Color code\r\n  - {PLAYER} => Player name\r\n  - {WORLD_NAME} => World name\r\n  - {HEALTH} => Player health\r\n  - {MAX_HEALTH} => Player max health\r\n  - {FOOD} => Player hunger\r\n  - {MAX_FOOD} => Player max hunger\r\n  - {ONLINE} => Connected players \r\n  - {MAX_ONLINE} => Player slots\r\n```\r\n**Example:**\r\n\r\n![Captura de pantalla 2022-05-16 190044](https://user-images.githubusercontent.com/83558341/168701084-b6ccabf2-2bf4-466e-b08d-84d4a78bf8ba.png)\r\n\r\n### 💾 Config\r\n```yml\r\n#   ____                               _                        _        _       ____   __  __ \r\n#  | __ )   _ __    ___     __ _    __| |   ___    __ _   ___  | |_     / \\     / ___| |  \\/  |\r\n#  |  _ \\  | '__|  / _ \\   / _` |  / _` |  / __|  / _` | / __| | __|   / _ \\   | |     | |\\/| |\r\n#  | |_) | | |    | (_) | | (_| | | (_| | | (__  | (_| | \\__ \\ | |_   / ___ \\  | |___  | |  | |\r\n#  |____/  |_|     \\___/   \\__,_|  \\__,_|  \\___|  \\__,_| |___/  \\__| /_/   \\_\\  \\____| |_|  |_|\r\n#        by fernanACM\r\n\r\n# The best announcer for PocketMine-MP 4.0 servers, make messages for your users very easily.\r\n# Customize or disable the sound to the Broadcast, The page for the sounds is here: \r\n# https://www.digminecraft.com/lists/sound_list_pe.php\r\n\r\n# DO NOT TOUCH!\r\nconfig-version: \"2.0.0\"\r\n# PREFIX\r\nPrefix: \"&l&f[&6BroadcastACM&f]&7»&r \"\r\n# Use \"true\" or \"false\" to enable/disable broadcast\r\nBroadcast: true\r\n# The message production delay, default is '300' => 300 seconds\r\nBroadcast-delay: 300\r\n# Broadcast message mode\r\nBroadcastMode:\r\n  # Available message modes:\r\n  # - MESSAGE => Player chat message \r\n  # - TOAST => Player notification bar\r\n  mode: \"MESSAGE\"\r\n  # Sound list:\r\n  # https://www.digminecraft.com/lists/sound_list_pe.php\r\n  soundName: \"random.pop2\"\r\n  # Use \"true\" or \"false\" to enable/disable this option\r\n  sound: true\r\n# Broadcast messages here, you can use the following 'keys' to improve the messages. \r\n#                 [NOTE] \r\n# Follow the Broadcast pattern to avoid possible errors.\r\n# =======(KEYS)=======\r\n# & => §\r\n# {LINE} => \"\\n\"\r\n# {PLAYER} => Player's name\r\n# {PING} => Player ping\r\n# {ONLINE} => Connected players\r\n# {MAX_ONLINE} => Player slots\r\n# {WORLD_NAME} => World name\r\n# {TPS} => Server heartbeat\r\nMessages:\r\n  - \"&eHey &a{PLAYER}&e, thanks for using BroadcastACM\"\r\n  - \"&eVisit my discord server: &bhttps://discord.gg/YyE9XFckqb\"\r\n  - \"&eRight now there are &a{ONLINE}&5/&c{MAX_ONLINE}&e people connected to the server\"\r\n  - \"&eHi &a{PLAYER}&e, your ping &d{PING} &eis amazing :o\"\r\n  - \"&eYou are in &6{WORLD_NAME}\"\r\n  - \"&eYour server has heartbeats of &a{TPS}\"\r\n\r\n# Discord\r\nDiscord:\r\n  # Here is the Discord webhook URL:\r\n  url: \"\"\r\n  # Webhook name:\r\n  userName: \"BroadcastACM\"\r\n  # Webhook avatar:\r\n  avatarURL: \"https://i.imgur.com/PAwhnh8.png\"\r\n  # Color: https://gist.github.com/thomasbnt/b6f455e2c7d743b796917fa3c205f812\r\n  color: \"16776960\"\r\n  # Discord broadcast\r\n  Broadcast:\r\n    # Use \"true\" or \"false\" to enable/disable this option\r\n    enabled: false\r\n    # Title for broadcast\r\n    title: \"BroadcastACM\"\r\n    # Content for broadcast\r\n    # Check: https://support.discord.com/hc/es/articles/210298617-Markdown-Text-101-formato-de-chat-negrita-cursiva-subrayado-\r\n    messages:\r\n      - \"Hey, thanks for using BroadcastACM\"\r\n      - \"Visit my discord server: https://discord.gg/YyE9XFckqb\"\r\n      - \"Don't forget to check my github: https://github.com/fernanACM/\"\r\n      - \"Hi! Are you new to BroadcastACM? Check the WIKI of the plugin: https://github.com/fernanACM/BroadcastACM/wiki\"\r\n```\r\n### 🕹 Commands\r\n| Command | Description |\r\n|---------|-------------|\r\n| ```/broadcastacm``` | Open the main menu |\r\n| ```/broadcastacm help``` | Command list |\r\n| ```/broadcastacm title``` | Title and subTitle |\r\n| ```/broadcastacm toast``` | Toast |\r\n| ```/broadcastacm tip``` | Tip |\r\n| ```/broadcastacm actionbar``` | ActionBar |\r\n| ```/broadcastacm popup``` | Popup |\r\n| ```/broadcastacm message``` | Message |\r\n| ```/broadcastacm discord``` | Discord |\r\n\r\n### 🔒 Permissions\r\n| Permission | Description |\r\n|---------|-------------|\r\n| ```broadcastacm.cmd.acm``` | Executing the command |\r\n| ```broadcastacm.help.acm``` | Command list |\r\n| ```broadcastacm.message.acm``` | Message |\r\n| ```broadcastacm.title.acm``` | Title |\r\n| ```broadcastacm.tip.acm``` | Tip |\r\n| ```broadcastacm.actionbar.acm``` | ActionBar |\r\n| ```broadcastacm.toast.acm``` | Toast |\r\n| ```broadcastacm.popup.acm``` | Popup |\r\n| ```broadcastacm.discord.acm``` | Discord |\r\n\r\n### 📢 Report bug\r\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/BroadcastACM/issues)\r\n\r\n### 📞 Contact \r\n\r\n| Redes | Tag | Link |\r\n|-------|-------------|------|\r\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \r\n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\r\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\r\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\r\n****\r\n\r\n### ✔ Credits\r\n| Authors | Github | Lib |\r\n|---------|--------|-----|\r\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\r\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\r\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [DiscordWebhookAPI](https://github.com/CortexPE/DiscordWebhookAPI/tree/PM4/) |\r\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\r\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |\r\n****",
+  "readme_source_url": "https://github.com/fernanACM/BroadcastACM",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/BroadcastACM/2dd6d02059aa87b3689f7a8f30f92109eaca8cce/icon-broadcastacm.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/BroadcastACM",
+  "archive_repo": null,
+  "approved_release_tag": "r-14242",
+  "stars": 5,
+  "total_downloads": 130,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260454",
+  "versions": {
+    "stable": {
+      "version": "3.0.2",
+      "tag": "r-14242",
+      "published_at": null,
+      "downloads": 130,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14242/broadcastacm-3.0.2-r14242.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14242",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14242/broadcastacm-3.0.2-r14242.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BroadcastACM",
+    "stable_release_id": 14242
+  }
+}

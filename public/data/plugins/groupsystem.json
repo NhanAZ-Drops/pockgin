@@ -1,0 +1,61 @@
+{
+  "id": "groupsystem",
+  "name": "GroupSystem",
+  "author": "r3pt1s",
+  "description": "Manage permissions and ranks of the players!",
+  "readme_markdown": "# [GroupSystem](https://poggit.pmmp.io/p/GroupSystem) [![](https://poggit.pmmp.io/shield.dl/GroupSystem)](https://poggit.pmmp.io/p/GroupSystem) [![](https://poggit.pmmp.io/shield.dl.total/GroupSystem)](https://poggit.pmmp.io/p/GroupSystem)\r\n\r\nManage permissions and ranks of the players!\r\n\r\n## Features\r\n- **Full-Custom** Messages\r\n- **Temp**-Ranks\r\n- **Temp**-Permissions (including negative permissions -> negative means a certain permission is revoked for a group or player)\r\n- **Custom** Paths\r\n- **ScoreHud** Support\r\n- **Update** Checker\r\n- **MySQL** Support\r\n\r\n## Commands\r\n| Usage      | Description                        | Permission                                    |\r\n|------------|------------------------------------|-----------------------------------------------|\r\n| /group     | Manage the groups and player       | groupsystem.group.command                     |\r\n| /groupinfo | See your group and the expire date | groupsystem.groupinfo.command (default: true) |\r\n\r\n## ScoreHud Tags\r\n| Tag                      | Description                            |\r\n|--------------------------|----------------------------------------|\r\n| groupsystem.group        | Shows the group name with the color    |\r\n| groupsystem.group.name   | Shows the group name without the color |\r\n| groupsystem.group.expire | Shows the remaining time of your group |\r\n\r\n## Configuration\r\n```yaml\r\n# The data provider you want to use to store and retrieve player & group data.\r\n# mysql, json, yml\r\nprovider: json\r\n\r\n# Your MySQL login, if provider is set to 'mysql'\r\nmysql:\r\n  host: \"localhost\"\r\n  port: 3306\r\n  username: \"root\"\r\n  password: \"your_password\"\r\n  database: \"your_database\"\r\n\r\n# The default group used for every player\r\nDefaultGroup: Player\r\n# When enabled, the plugin checks itself for updates\r\nUpdate-Check: true\r\n# When enabled, debugs shown in the console (if debug log level > 1 in your pocketmine.yml) are also shown in-game\r\nInGameDebugging: false\r\n# Where your groups are saved (directory only)\r\n# Example: /home/GroupSystem/\r\n# Default: plugin_data/GroupSystem/\r\nGroups-Path: default\r\n# Where all the player data is saved (directory only)\r\n# Example: /home/GroupSystem/players/\r\n# Default: plugin_data/GroupSystem/players/\r\nPlayers-Path: default\r\n# Where all the group data is saved (directory only)\r\n# Example: /home/GroupSystem/\r\n# Default: plugin_data/GroupSystem/\r\nMessages-Path: default\r\n# How much time a player session has to retrieve its data before it gets kicked\r\n# Default: 5 (in seconds)\r\nSession-Timeout: 5\r\n# This defines the group hierarchy.\r\n# If the list is empty, the actual order from configs and databases is used.\r\n# if a group was left out it gets put at the end of the hierarchy.\r\n# Example:\r\n# Group-Hierarchy:\r\n#  - Owner\r\n#  - Admin\r\n#  - Developer\r\n#  - Player\r\nGroup-Hierarchy: []\r\n```\r\n\r\n## Messages\r\n(The latest version v3.4.0 does not use customizable messages for new messages cuz I am too lazy)\r\n```yaml\r\nprefix: §8» §l§cGroupSystem §r§8| §r§7\r\nraw_year: year(s)\r\nraw_month: month(s)\r\nraw_day: day(s)\r\nraw_hour: hour(s)\r\nraw_minute: minute(s)\r\nraw_second: second(s)\r\nraw_never: NEVER\r\nupdater_outdated: '{PREFIX}§cYour version of §e''GroupSystem'' §coutdated!'\r\nupdater_outdated_2: '{PREFIX}§cYour Version: §e{%0} §r§8| §cLatest Version: §e{%1}'\r\nupdater_error: '{PREFIX}§cAn error has occurred! Disabling the plugin...'\r\nupdater_uptodate: '{PREFIX}§aYour version of §e''GroupSystem'' §ais up to date!'\r\nno_perm: '{PREFIX}§cYou don''t have the permission to use this command!'\r\ncommand.description.group: Manage the groups\r\ngroup_changed: '{PREFIX}Your group was changed to §e{%0}§7!{line}{PREFIX}Expires in:\r\n  §e{%1}'\r\nplayer_not_found: §cThe player §e{%0} §7wasn't found!\r\ngroup_added: §7The group §e{%0} §7was added to the player §e{%1}§7!\r\ngroup_cant_added: §cThe group §e{%0} §ccan't added to the player §e{%1}§c!\r\ngroup_removed: §7The group §e{%0} §7was removed from the player §e{%1}§7!\r\ngroup_cant_removed: §cThe group §e{%0} §ccan't removed from the player §e{%1}§c!\r\ngroup_created: §7The group §e{%0} §7was created!\r\ngroup_deleted: §7The group §e{%0} §7was removed!\r\ngroup_edited: §7The group §e{%0} §7was edited!\r\ngroup_info: '{PREFIX}§7Your group: §e{%0}{line}{PREFIX}§7Expires in: §e{%1}'\r\ngroup_doesnt_exists: §cThe group §e{%0} §cdoesn't exists!\r\ngroup_already_exists: §cThe group §e{%0} §calready exists!\r\ngroups_reloaded: §7The groups were reloaded!\r\ngroups_reload_failed: §cFailed to reload the groups.\r\npermission_added: §7The permission §e{%1} §7was added to the player §e{%0}§7!\r\npermission_removed: §7The permission §e{%1} §7was removed from the player §e{%0}§7!\r\nprovide_permission: §cPlease provide a permission!\r\nprovide_group_name: §cPlease provide a group name!\r\nplayer_has_no_groups: §7The player §e{%0} §7has §cno groups§7!\r\ngroup_skipped: §7The group of the player §e{%0} §7was skipped!\r\nmain_ui_title: §cGroupSystem\r\nmain_ui_text: '§7There are currently §e{%0} group(s) §aavailable§8: §e{%1}'\r\nmain_ui_manage_players: §cManage Players\r\nmain_ui_manage_groups: §cManage Groups\r\nselect_player_ui_title: §7Provide a player\r\nselect_player_input_text: §7Username\r\nmanage_players_ui_title: §cManage Players §8- §e{%0}\r\nmanage_players_ui_text: '§7Group: §e{%0}{line}§7Expires in: §e{%1}'\r\nmanage_players_ui_add_group: §aAdd group\r\nmanage_players_ui_remove_group: §cRemove group\r\nmanage_players_ui_skip_group: §2Skip group\r\nmanage_players_ui_see_groups: §eSee groups\r\nmanage_players_ui_add_permission: §aAdd permission\r\nmanage_players_ui_remove_permission: §cRemove permission\r\nmanage_players_ui_see_permissions: §eSee permissions\r\nmanage_players_ui_back: §4Back\r\nadd_group_ui_title: §aAdd group\r\nadd_group_ui_choose_group: §7Choose a group\r\nadd_group_ui_choose_time: §7Choose a time §8(§cLeave it blank for lifetime§8)\r\nremove_group_ui_title: §cRemove group\r\nremove_group_ui_choose_group: §7Choose a group\r\nsee_groups_ui_title: §eSee groups\r\nsee_groups_ui_text: §7The player §e{%0} §7has §e{%1} groups§7!\r\nadd_permission_ui_title: §aAdd permission\r\nadd_permission_ui_which_permission: §7Which permission would you add?\r\nadd_permission_ui_choose_time: §7Choose a time §8(§cLeave it blank for lifetime§8)\r\nremove_permission_ui_title: §cRemove permission\r\nremove_permission_ui_which_permission: §7Which permission would you remove?\r\nsee_permissions_ui_title: §eSee permissions\r\nsee_permissions_ui_text: §7The player §e{%0} §7has §e{%1} extra permissions§7!\r\nmanage_groups_ui_title: §cManage Groups\r\nmanage_groups_ui_create_group: §aCreate group\r\nmanage_groups_ui_remove_group: §cRemove group\r\nmanage_groups_ui_edit_group: §eEdit group\r\nmanage_groups_ui_see_groups: §6See groups\r\nmanage_groups_ui_reload_groups: §3Reload groups\r\nmanage_groups_ui_back: §4Back\r\ncreate_group_ui_title: §aCreate group\r\ncreate_group_ui_text: §cLeave fields blank to set the value to the default!\r\ncreate_group_ui_name: §7Name of the Group\r\ncreate_group_ui_nametag: §7NameTag of the Group §8(§e{name} §8= §7Player§8)\r\ncreate_group_ui_displayname: §7DisplayName of the Group §8(§e{name} §8= §7Player§8)\r\ncreate_group_ui_colorcode: '§7ColorCode of the Group §8(§7Example: §ePARAGRAPH+4 §8=\r\n  §4DARK_RED§8)'\r\ncreate_group_ui_chatformat: §7ChatFormat of the Group §8(§e{name} §8= §7Player§8,\r\n  §e{msg} §8= §7Message§8)\r\ncreate_group_ui_permissions: §7Permissions of the Group §8(§cSeperated by §e;§8)\r\ndelete_group_ui_title: §cRemove group\r\ndelete_group_ui_choose_group: §7Choose a group\r\nedit_group_ui_title: §eEdit group\r\n```",
+  "readme_source_url": "https://github.com/r3pt1s/GroupSystem",
+  "icon_url": "https://raw.githubusercontent.com/r3pt1s/GroupSystem/4d0fb13318e44e3326f861e59e8292b342554613/icon.png",
+  "featured": false,
+  "repo": "https://github.com/r3pt1s/GroupSystem",
+  "archive_repo": null,
+  "approved_release_tag": "r-14226",
+  "stars": 0,
+  "total_downloads": 182,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "r3pt1s"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260110",
+  "versions": {
+    "stable": {
+      "version": "3.4.0",
+      "tag": "r-14226",
+      "published_at": null,
+      "downloads": 182,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14226/groupsystem-3.4.0-r14226.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14226",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14226/groupsystem-3.4.0-r14226.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "GroupSystem",
+    "stable_release_id": 14226
+  }
+}

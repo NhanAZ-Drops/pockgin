@@ -1,0 +1,61 @@
+{
+  "id": "betternpc",
+  "name": "BetterNPC",
+  "author": "r3pt1s",
+  "description": "BetterNPC is a npc plugin for PocketMine-MP.",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/BetterNPC)](https://poggit.pmmp.io/p/BetterNPC) [![](https://poggit.pmmp.io/shield.api/BetterNPC)](https://poggit.pmmp.io/p/BetterNPC)\n# About\nBetterNPC is a npc plugin for PocketMine-MP.\n\n## Features\n- Entities are being saved in the world directly\n- **Editable** via command or by right-clicking the entity (Required Permission: betternpc.edit)\n- Customize the entities to your will\n- Assign hit actions to your entities\n\n## Commands\n| Name                              | Description       | Permission        |\n|-----------------------------------|-------------------|-------------------|\n| /betternpc                        | Main Command      | betternpc.command |\n| /betternpc create                 | Create an entity  |                   |\n| /betternpc edit [entityId: int]   | Edit an entity    |                   |\n| /betternpc remove [entityId: int] | Remove an entity  |                   |\n| /betternpc list                   | List all entities |                   |\n\n## Current Hit Actions\n| Action       | Description                      | Note                                       |\n|--------------|----------------------------------|--------------------------------------------|\n| Emote        | The entity is doing an emote     | The emote only works for human entities    |\n| Run Command  | The player runs a command        |                                            |\n| Send Message | Send a message to the player     |                                            |\n\n## Action Tag-Replacements\nCurrent player = The player who clicks on the NPC and runs the action\n\n| Tag      | Description               |\n|----------|---------------------------|\n| {player} | Current player username   |\n\n## Config\n```yaml\n# You can find all the emotes at https://github.com/JustTalDevelops/bedrock-emotes?tab=readme-ov-file#emotes\nemotes:\n  wave:\n    id: 4c8ae710-df2e-47cd-814d-cc7bf21a3d67\n    name: Wave\n  yoga:\n    id: 3f1bdf46-80b0-4a64-b631-4ac2f2491165\n    name: Yoga\n\n# The cooldown for each hit action for the entities in seconds (Default: 10)\nhit-action-cooldown: 10\n\n# The cooldown for the random emote setting for entities in seconds (Default: 60)\nrandom-emote-cooldown: 60\n\n# If true, when a player hits the entity and the entity has a \"run_command\" hit action, the server performs the command and not the client. (Default: false)\nserver-command-handling: false\n```",
+  "readme_source_url": "https://github.com/r3pt1s/BetterNPC",
+  "icon_url": "https://raw.githubusercontent.com/r3pt1s/BetterNPC/06a62bdd56a5519711349bc760aeaac24a13ca24/icon.png",
+  "featured": false,
+  "repo": "https://github.com/r3pt1s/BetterNPC",
+  "archive_repo": null,
+  "approved_release_tag": "r-14220",
+  "stars": 0,
+  "total_downloads": 222,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "r3pt1s"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/259962",
+  "versions": {
+    "stable": {
+      "version": "1.0.1",
+      "tag": "r-14220",
+      "published_at": null,
+      "downloads": 222,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14220/betternpc-1.0.1-r14220.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14220",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14220/betternpc-1.0.1-r14220.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BetterNPC",
+    "stable_release_id": 14220
+  }
+}

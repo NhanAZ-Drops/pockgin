@@ -1,0 +1,61 @@
+{
+  "id": "placeholderapi",
+  "name": "PlaceholderAPI",
+  "author": "MohamadRZ4",
+  "description": "A powerful and flexible placeholder plugin for PocketMine-MP Minecraft servers, enabling dynamic data integration in chat, scoreboards, and other plugins.",
+  "readme_markdown": "# PlaceholderAPI\n\nA powerful and flexible placeholder plugin for PocketMine-MP Minecraft servers, enabling dynamic data integration in chat, scoreboards, and other plugins.\n\n## Overview\n\nPlaceholderAPI allows server administrators to use dynamic placeholders (e.g., `%player_name%`, `%server_online_players%`) to display real-time information about players, server status, and time. It includes built-in expansions and supports custom ones for developers to extend functionality.\n\n## Features\n\n- **Dynamic Placeholders**: Replace placeholders with real-time data.\n- **Built-in Expansions**: Player, server, and time data out of the box.\n- **Player Data Tracking**: Tracks session data like join time.\n- **Commands**: Manage and test placeholders easily.\n- **Developer-Friendly**: Extendable with custom expansions.\n\n## Commands\n\n- `/papi reload`: Reloads the plugin configuration.\n- `/papi list`: Lists all registered expansions.\n- `/papi parse <text>`: Parses placeholders in the given text.\n- `/papi test <expansion> <placeholder>`: Tests a specific placeholder.\n\n**Permission**: `placeholderapi.admin` (required for commands).\n\n## Default Expansions\n\n### Player Expansion (`player`)\n- `%player_name%`: Player's username.\n- `%player_display_name%`: Player's display name.\n- `%player_ping%`: Player's ping.\n- `%player_health%`: Current health.\n- `%player_max_health%`: Maximum health.\n- `%player_food%`: Food level.\n- `%player_level%`: World name.\n- `%player_gamemode%`: Current gamemode.\n- `%player_ip%`: Player's IP address.\n- `%player_x%`, `%player_y%`, `%player_z%`: Coordinates.\n- `%player_is_op%`: Operator status (`true`/`false`).\n- `%player_name_format%`: Rank-based name color (requires RankSystem).\n- `%player_session_time%`: Session duration (HH:MM:SS).\n\n### Server Expansion (`server`)\n- `%server_name%`: Server MOTD.\n- `%server_ip%`: Server IP.\n- `%server_port%`: Server port.\n- `%server_max_players%`: Max player limit.\n- `%server_online_players%`: Current online players.\n- `%server_version%`: Server version.\n- `%server_tps%`: Ticks per second.\n- `%server_load%`: Tick usage percentage.\n\n### Time Expansion (`time`)\n- `%time_current%`: Current time (e.g., `14:30:45`).\n- `%time_date%`: Current date (e.g., `2025-07-23`).\n- `%time_datetime%`: Date and time (e.g., `2025-07-23 14:30:45`).\n- `%time_timestamp%`: Unix timestamp.\n\n## Parsing Placeholders\n\nTo use placeholders in your plugin, call the `parsePlaceholders` method from the `PlaceholderAPI` class. This method processes a string containing placeholders and replaces them with their corresponding values.\n\n### Method Signature\n```php\npublic function parsePlaceholders(string $text, ?Player $player = null): string\n```\n\n- **Parameters**:\n  - `$text`: The input string containing placeholders (e.g., `Hello %player_name%!`).\n  - `$player`: An optional `Player` object for player-specific placeholders. Pass `null` for non-player-specific placeholders (e.g., server or time).\n- **Returns**: The string with placeholders replaced by their values.\n\n### How It Works\nThe method uses a regular expression to match placeholders in the format `%identifier_placeholder%` (e.g., `%player_name%`). It then calls the `onPlaceholderRequest` method of the corresponding expansion to retrieve the value. If the placeholder or expansion is invalid, the original placeholder text is returned unchanged.\n\n### Example Usage\n```php\nuse MohamadRZ4\\Placeholder\\PlaceholderAPI;\nuse pocketmine\\player\\Player;\n\nfunction displayWelcomeMessage(Player $player): void {\n    $placeholderAPI = PlaceholderAPI::getAPI();\n    if ($placeholderAPI !== null) {\n        $message = $placeholderAPI->parsePlaceholders(\n            \"Welcome %player_name% to %server_name%! Time: %time_current%\",\n            $player\n        );\n        $player->sendMessage($message);\n    }\n}\n```\n\n**Output** (example):\n```\nWelcome Steve to MyServer! Time: 14:30:45\n```\n\n### Notes on Parsing\n- Ensure the `PlaceholderAPI` plugin is enabled and loaded before calling `getAPI()`.\n- Placeholders are case-sensitive.\n- For player-specific placeholders, always pass a valid `Player` object.\n- Non-existent placeholders remain unchanged in the output string. \n\n## For Developers\n\nCreate custom expansions by extending `PlaceholderExpansion`. Implement required methods: `getIdentifier`, `getVersion`, `getAuthor`, and `onPlaceholderRequest`.\n\n### Example: Custom Expansion\n```php\n<?php\n\nnamespace MyPlugin\\Expansion;\n\nuse MohamadRZ4\\Placeholder\\expansion\\PlaceholderExpansion;\nuse MohamadRZ4\\Placeholder\\PlaceholderAPI;\nuse pocketmine\\player\\Player;\n\nclass PlayTimeExpansion extends PlaceholderExpansion {\n\n    public function getIdentifier(): string {\n        return \"playtime\";\n    }\n\n    public function getVersion(): string {\n        return \"1.0.0\";\n    }\n\n    public function getAuthor(): string {\n        return \"YourName\";\n    }\n\n    public function onPlaceholderRequest(?Player $player, string $placeholder): ?string {\n        if ($player === null) {\n            return null;\n        }\n\n        if ($placeholder === \"total_hours\") {\n            $joinTime = $this->plugin->getPlayerData($player->getName())[\"join_time\"] ?? time();\n            $totalSeconds = time() - $joinTime;\n            $hours = floor($totalSeconds / 3600);\n            return (string)$hours;\n        }\n\n        return null;\n    }\n\n    public function onRegister(PlaceholderAPI $plugin): void {\n        parent::onRegister($plugin);\n    }\n}\n```\n\nRegister the expansion:\n```php\n$placeholderAPI = PlaceholderAPI::getAPI();\nif ($placeholderAPI !== null) {\n    $placeholderAPI->registerExpansion(new PlayTimeExpansion());\n}\n```\n\nUse `%playtime_total_hours%` to display total hours played.\n\n## Notes\n\n- Requires RankSystem for `%player_name_format%`.\n- Placeholders are case-sensitive (e.g., `%player_name%`).\n- Updates every 20 ticks (1 second) for real-time data.\n- Ensure dependencies are installed for full functionality.",
+  "readme_source_url": "https://github.com/MohamadRZ4/Placeholder",
+  "icon_url": "https://raw.githubusercontent.com/MohamadRZ4/Placeholder/8f904463f80aab6d74a2df800d202721f6f995dc/icon.png",
+  "featured": false,
+  "repo": "https://github.com/MohamadRZ4/Placeholder",
+  "archive_repo": null,
+  "approved_release_tag": "r-14133",
+  "stars": 5,
+  "total_downloads": 178,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "MohamadRZ4"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258059",
+  "versions": {
+    "stable": {
+      "version": "3.0.0",
+      "tag": "r-14133",
+      "published_at": null,
+      "downloads": 178,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14133/placeholderapi-3.0.0-r14133.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14133",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14133/placeholderapi-3.0.0-r14133.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PlaceholderAPI",
+    "stable_release_id": 14133
+  }
+}

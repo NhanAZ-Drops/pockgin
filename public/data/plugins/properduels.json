@@ -1,0 +1,61 @@
+{
+  "id": "properduels",
+  "name": "ProperDuels",
+  "author": "JavierLeon9966",
+  "description": "ProperDuels is a plugin that adds a duel system into your server. No need to worry about any glitches unlike other duel plugins!",
+  "readme_markdown": "# ProperDuels\nProperDuels is a plugin that adds a duel system into your server. No need to worry about any glitches unlike other duel plugins!\n \n## Features\n- Customizable kits\n- Customizable messages\n- Multi arena support\n- Simple commands\n- SQL Database\n- Queue system\n- Low memory overhead\n\n## Commands\n\n### /arena\nManage arenas for duel matches.\n- /arena create <arena: string> <firstSpawnPos: x y z> <secondSpawnPos: x y z> [kit: string]\n- /arena delete <arena: string>\n- /arena list\n\n### /duel\nDuel players and queue to a match.\n- /duel <player: string> [arena: string]\n- /duel accept <player: string>\n- /duel deny <player: strint>\n- /duel queue [arena: string]\n\n### /kit\nManage kits for duel matches.\n- /kit create <kit: string>\n- /kit delete <kit: string>\n- /kit update <kit: string> [newName: string]\n- /kit enable <kit: string>\n- /kit disable <kit: string>\n- /kit list",
+  "readme_source_url": "https://github.com/JavierLeon9966/ProperDuels",
+  "icon_url": "https://raw.githubusercontent.com/JavierLeon9966/ProperDuels/84a83c5b531c9c2c6603b66b20d8d27ca4c2c1f1/icon.png",
+  "featured": false,
+  "repo": "https://github.com/JavierLeon9966/ProperDuels",
+  "archive_repo": null,
+  "approved_release_tag": "r-14112",
+  "stars": 0,
+  "total_downloads": 265,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "JavierLeon9966"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257642",
+  "versions": {
+    "stable": {
+      "version": "3.0.0",
+      "tag": "r-14112",
+      "published_at": null,
+      "downloads": 265,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14112/properduels-3.0.0-r14112.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14112",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14112/properduels-3.0.0-r14112.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "ProperDuels",
+    "stable_release_id": 14112
+  }
+}

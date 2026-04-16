@@ -11,7 +11,7 @@
   "archive_repo": null,
   "approved_release_tag": "r-14362",
   "stars": 1,
-  "total_downloads": 36,
+  "total_downloads": 90,
   "last_commit_at": null,
   "last_updated_at": null,
   "license": null,
@@ -37,13 +37,24 @@
       "downloads": 36,
       "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14362/martianenchantments-0.0.2-dev-r14362.phar"
     },
-    "dev": null
+    "dev": {
+      "version": "0.0.1-DEV",
+      "tag": "r-14296",
+      "published_at": null,
+      "downloads": 54,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14296/martianenchantments-0.0.1-dev-r14296.phar"
+    }
   },
   "recent_builds": [
     {
       "tag": "r-14362",
       "published_at": null,
       "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14362/martianenchantments-0.0.2-dev-r14362.phar"
+    },
+    {
+      "tag": "r-14296",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14296/martianenchantments-0.0.1-dev-r14296.phar"
     }
   ],
   "comments": {

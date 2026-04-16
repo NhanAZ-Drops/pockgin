@@ -1,0 +1,61 @@
+{
+  "id": "customgui",
+  "name": "Customgui",
+  "author": "NetherByte233",
+  "description": "CustomGUI Plugin",
+  "readme_markdown": "# CustomGUI Plugin\n[![](https://poggit.pmmp.io/shield.state/Customgui)](https://poggit.pmmp.io/p/Customgui) [![](https://poggit.pmmp.io/shield.dl.total/Customgui)](https://poggit.pmmp.io/p/Customgui) \n\nA powerful and flexible custom GUI system for PocketMine-MP 5.x that allows server administrators to create interactive graphical user interfaces with various actions and customizations.\n\n## 🌟 Features\n\n### 🎨 **Visual GUI Builder**\n- **In-game GUI Editor**: Create and edit GUIs directly in-game with a visual grid interface\n- **Drag & Drop Interface**: Intuitive 6x9 grid layout for easy item placement\n- **Real-time Preview**: See your GUI changes instantly as you build\n\n### ⚡ **Action System**\n- **Command Actions**: Execute server commands when players click items\n- **Teleport Actions**: Teleport players to specific coordinates\n- **GUI Navigation**: Open other GUIs from within a GUI (nested navigation)\n- **Multiple Actions**: Assign multiple actions to a single item slot\n\n### 📝 **Custom Lore System**\n- **Dynamic Lore**: Add custom titles and descriptions to any item\n- **Interactive Hints**: Show additional information on item hover\n- **Rich Text Support**: Use color codes and formatting in lore text\n\n### 🔧 **Management Features**\n- **GUI Management Menu**: Comprehensive in-game GUI management system\n- **Action Management**: Add, edit, and remove actions from any slot\n- **Lore Management**: Manage custom lore for items\n- **GUI Deletion**: Safely remove unwanted GUIs\n\n### 🚀 **Performance & Reliability**\n- **Caching System**: Server-wide and per-player GUI caching for optimal performance\n- **Database Support**: SQLite and MySQL database support for data persistence\n- **Error Handling**: Robust error handling with user-friendly messages\n- **Permission System**: Granular permission control for different user roles\n\n## 📋 Requirements\n\n- **PocketMine-MP**: Version 5.0.0 or higher\n- **PHP**: Version 8.0 or higher\n- **Database**: SQLite (included) or MySQL (optional)\n\n## 🛠️ Installation\n\n### 1. Download the Plugin\n1. Download the latest release from the releases page\n2. Extract the plugin files to your server's `plugins` folder\n\n### 2. Install Dependencies\nThe plugin includes all necessary libraries:\n- **InvMenu**: For inventory menu functionality\n- **libasynql**: For database operations\n- **pmforms**: For form handling\n\n### 3. Configure the Plugin\n1. Start your server once to generate the configuration files\n2. Edit `plugins/Customgui/config.yml` to configure your database settings\n3. Restart your server\n\n### 4. Set Up Permissions\nConfigure permissions in your permission plugin:\n```yaml\npermissions:\n  cg.use:\n    description: \"Allows use of /customgui command\"\n    default: true\n  cg.admin:\n    description: \"Allows access to the GUI management menu\"\n    default: op\n```\n\n## 🎮 Usage\n\n### Commands\n\n| Command | Permission | Description |\n|---------|------------|-------------|\n| `/customgui` | `cg.use` | Opens the main GUI management menu |\n| `/customgui <gui_name>` | `cg.use` | Opens a specific GUI by name |\n\n### Creating Your First GUI\n\n1. **Access the Management Menu**\n   ```\n   /customgui\n   ```\n\n2. **Create a New GUI**\n   - Select \"Create GUI\" from the main menu\n   - Enter a name for your GUI (e.g., \"welcome_menu\")\n   - Click \"Submit\"\n\n3. **Design Your GUI**\n   - Use the 6x9 grid to place items\n   - Right-click to place items in slots\n   - Items will be saved automatically\n\n4. **Add Actions**\n   - Click on an item slot to add actions\n   - Choose from Command, Teleport, or Open GUI actions\n   - Configure the action parameters\n\n5. **Add Custom Lore**\n   - Add descriptive titles and descriptions to items\n   - Use color codes for formatting (e.g., `§a` for green)\n\n### Action Types\n\n#### Command Actions\nExecute server commands when players click items.\n```yaml\ntype: command\ncommand: \"spawn\"\n```\n\n#### Teleport Actions\nTeleport players to specific coordinates.\n```yaml\ntype: teleport\nx: 100.5\ny: 64\nz: 200.5\n```\n\n#### Open GUI Actions\nOpen another GUI when players click items.\n```yaml\ntype: open_gui\ngui_name: \"shop_menu\"\n```\n\n## ⚙️ Configuration\n\n### Database Configuration\n\nThe plugin supports both SQLite and MySQL databases:\n\n#### SQLite (Default)\n```yaml\ndatabase:\n  type: sqlite\n  sqlite:\n    file: customgui.sqlite\n  worker-limit: 1\n```\n\n#### MySQL\n```yaml\ndatabase:\n  type: mysql\n  mysql:\n    host: 127.0.0.1\n    username: your_username\n    password: your_password\n    schema: your_database\n  worker-limit: 2\n```\n\n### GUI Storage\n\nGUIs are stored as JSON files in the `plugin_data/customgui/guis/` directory. Each GUI has its own file with the structure:\n\n```json\n{\n  \"0,0\": {\n    \"nbt\": \"item_nbt_data\",\n    \"action\": {\n      \"type\": \"command\",\n      \"command\": \"spawn\"\n    },\n    \"lore\": {\n      \"title\": \"Spawn\",\n      \"description\": \"Return to spawn\"\n    }\n  }\n}\n```\n## 🎯 Examples\n\n### Welcome Menu GUI\nCreate a welcome menu with navigation options:\n\n1. **Spawn Button**\n   - Item: Compass\n   - Action: Teleport to spawn coordinates\n   - Lore: \"§a§lSPAWN§r\\n§7Click to return to spawn\"\n     <p align=\"center\">\n  <img src=\"https://github.com/NetherByte233/images/blob/main/spawn.jpg?raw=true\" width=\"80%\" />\n</p>\n\n2. **Shop Button**\n   - Item: Emerald\n   - Action: Open GUI \"shop_menu\"\n   - Lore: \"§a§lSHOP§r\\n§7Click to open the shop\"\n  <p align=\"center\">\n  <img src=\"https://github.com/NetherByte233/images/blob/main/shop.jpg?raw=true\" width=\"45%\" />\n  <img src=\"https://github.com/NetherByte233/images/blob/main/shop_menu.jpg?raw=true\" width=\"45%\" />\n</p>\n3. **Rules Button**\n   - Item: Book\n   - Action: Command \"rules\"\n   - Lore: \"§e§lRULES§r\\n§7Click to view server rules\n   <p align=\"center\">\n  <img src=\"https://github.com/NetherByte233/images/blob/main/rules.jpg?raw=true\" width=\"80%\" />\n</p>\n\n### Admin Panel GUI\nCreate an admin panel with management tools:\n\n1. **Player Management**\n   - Item: Player Head\n   - Action: Open GUI \"player_management\"\n   - Lore: \"§c§lPLAYER MANAGEMENT§r\\n§7Manage players and permissions\"\n\n2. **Server Control**\n   - Item: Redstone\n   - Action: Command \"server status\"\n   - Lore: \"§c§lSERVER CONTROL§r\\n§7View server status and controls\"\n\n## 🔧 Advanced Features\n\n### Nested GUI Navigation\nCreate complex menu systems with multiple levels:\n- Main Menu → Category Menu → Item Menu\n- Each level can have its own actions and navigation\n\n### Multiple Actions per Slot\nAssign multiple actions to a single item:\n```json\n{\n  \"action\": [\n    {\n      \"type\": \"command\",\n      \"command\": \"spawn\"\n    },\n    {\n      \"type\": \"teleport\",\n      \"x\": 100,\n      \"y\": 64,\n      \"z\": 200\n    }\n  ]\n}\n```\n\n### Dynamic Content\n- GUIs automatically reload when files are modified\n- Cache system ensures optimal performance\n- Real-time updates without server restarts\n\n## 🐛 Troubleshooting\n\n### Common Issues\n\n**\"Received invalid form json\" error**\n- This usually occurs with GUI names that are numbers\n- Ensure all GUI names are properly formatted as strings\n- The plugin automatically handles this in recent versions\n\n**GUI not found error**\n- Check that the GUI file exists in `resources/guis/`\n- Ensure the GUI name matches exactly (case-sensitive)\n- Verify file permissions\n\n**Actions not working**\n- Check that the action type is correct\n- Verify command permissions for command actions\n- Ensure coordinates are valid for teleport actions\n\n**Performance issues**\n- Consider using MySQL for large servers\n- Increase worker-limit for MySQL connections\n- Monitor cache usage\n\n### Debug Mode\nEnable debug messages by checking the server console for detailed error information.\n\n## 🤝 Contributing\n\nWe welcome contributions! Please feel free to:\n\n1. Fork the repository\n2. Create a feature branch\n3. Make your changes\n4. Submit a pull request\n\n### Development Setup\n1. Clone the repository\n2. Install dependencies\n3. Set up a development environment\n4. Follow the coding standards\n\n## 📄 License\n\nThis project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.\n\n## 🙏 Acknowledgments\n\n- **PocketMine-MP Team** for the amazing server software\n- **InvMenu Library** for inventory menu functionality\n- **libasynql** for database abstraction\n- **pmforms** for form handling\n\n## 📞 Support\n\n- **GitHub Issues**: Report bugs and request features\n- **Discord**: Join our community for support\n- **Documentation**: Check the wiki for detailed guides\n\n---\n\n**Made with ❤️ by NetherByte**\n\n*CustomGUI - Empowering server administrators with powerful GUI tools*",
+  "readme_source_url": "https://github.com/NetherByte233/CustomGUI",
+  "icon_url": "https://raw.githubusercontent.com/NetherByte233/CustomGUI/03f99cb2f88f112454c027fde8505f204001778d/resources/icon.png",
+  "featured": false,
+  "repo": "https://github.com/NetherByte233/CustomGUI",
+  "archive_repo": null,
+  "approved_release_tag": "r-14114",
+  "stars": 5,
+  "total_downloads": 348,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "NetherByte233"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14114",
+      "published_at": null,
+      "downloads": 348,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14114/customgui-1.0.0-r14114.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14114",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14114/customgui-1.0.0-r14114.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "Customgui",
+    "stable_release_id": 14114
+  }
+}

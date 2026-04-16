@@ -1,0 +1,61 @@
+{
+  "id": "playerwarn",
+  "name": "PlayerWarn",
+  "author": "AIPTU",
+  "description": "A PocketMine-MP plugin that allows server administrators to issue warnings to players and keep track of their warning history.",
+  "readme_markdown": "# PlayerWarn\r\n\r\n[![PlayerWarn build state badge](https://poggit.pmmp.io/shield.state/PlayerWarn)](https://poggit.pmmp.io/p/PlayerWarn)\r\n[![PlayerWarn download count badge](https://poggit.pmmp.io/shield.dl.total/PlayerWarn)](https://poggit.pmmp.io/p/PlayerWarn)\r\n\r\nA PocketMine-MP plugin that allows server administrators to issue warnings to players and keep track of their warning history.\r\n\r\n## Features\r\n\r\n1. **Player Warning System**: Comprehensive system for issuing warnings to players who violate server rules or exhibit inappropriate behavior.\r\n2. **Warning Limits**: Set configurable limits on the number of warnings a player can accumulate, triggering actions when limits are reached.\r\n3. **Customizable Punishments**: Define various types of punishments (kick, ban, ban-ip, tempban, none) for players exceeding the warning limit.\r\n4. **Delayed Punishments**: Schedule punishments to activate after a specified delay, allowing time for players to correct behavior.\r\n5. **Warning Expiration**: Assign expiration dates to warnings using duration strings (e.g., `1d`, `2h30m`); players are notified when warnings expire.\r\n6. **Discord Integration**: Integrate with Discord via webhooks to receive notifications for warning-related events and punishments.\r\n7. **Player Notifications**: Players receive notifications upon joining, indicating their current warning count and new warnings since last login.\r\n8. **Update Notifications**: Optionally notify administrators of plugin updates.\r\n9. **Pending Punishments**: Queue pending punishments for offline players, ensuring they are applied upon login.\r\n10. **Database Support**: Uses SQLite (default) or MySQL for warning storage with async operations.\r\n11. **Multi-Language Support**: Fully customizable messages with support for multiple languages (default: English and Indonesian).\r\n\r\n## Default Config\r\n\r\n``` yaml\r\n# PlayerWarn Configuration\r\n\r\n# Do not change this (Only for internal use)!\r\nconfig-version: 3.0\r\n\r\n# Enable or disable the auto update checker notifier.\r\nupdate_notifier: true\r\n\r\n# Language setting\r\n# Available languages: \"en\" (English), \"id\" (Indonesian)\r\n# You can add your own language by creating a new file in the \"lang\" folder.\r\nlanguage: en\r\n\r\n# Warning settings\r\nwarning:\r\n  # The `expiration_check_interval` option specifies the time in seconds after which a warning expires.\r\n  # Set to a positive integer. Default value: 180 (3 minutes)\r\n  expiration_check_interval: 180\r\n\r\n  # The `limit` option specifies the maximum number of warnings a player can receive before punishment is applied.\r\n  # Set to a positive integer. Default value: 3\r\n  limit: 3\r\n\r\n  # The `delay` option specifies the delay time in seconds before applying the punishment.\r\n  # If the delay is greater than 0, a warning message will be sent to the player.\r\n  # If the delay is 0 or negative, the punishment will be applied immediately without delay.\r\n  # Default value: 5\r\n  delay: 5\r\n\r\n  # The `broadcast_to_everyone` option enables or disables broadcasting warning events to all players on the server.\r\n  # Set to true to enable broadcasting, or false to disable it.\r\n  # When enabled, all players will be notified when a warning is issued.\r\n  # Default value: true\r\n  broadcast_to_everyone: true\r\n\r\n# Punishment settings\r\npunishment:\r\n  # The `type` option specifies the type of punishment to apply when a player reaches the warning limit.\r\n  # Valid options are \"kick\", \"ban\", \"ban-ip\", \"tempban\", and \"none\".\r\n  # - \"kick\": Kicks the player from the server when the warning limit is reached.\r\n  # - \"ban\": Bans the player from the server when the warning limit is reached.\r\n  # - \"ban-ip\": Bans the player's IP address from the server when the warning limit is reached.\r\n  # - \"tempban\": Temporarily bans the player from the server when the warning limit is reached.\r\n  # - \"none\": No punishment will be applied when the warning limit is reached.\r\n  # Default value is \"none\".\r\n  type: none\r\n\r\n  # Duration for \"tempban\" punishment type (e.g., \"1d\", \"12h\", \"1d12h30m\").\r\n  tempban_duration: \"1d\"\r\n\r\n# Database settings\r\ndatabase:\r\n  # The database type. \"sqlite\" and \"mysql\" are supported.\r\n  type: sqlite\r\n\r\n  # Edit these settings only if you choose \"sqlite\".\r\n  sqlite:\r\n    # The file name of the database in the plugin data folder.\r\n    # You can also put an absolute path here.\r\n    file: warnings.sqlite\r\n  # Edit these settings only if you choose \"mysql\".\r\n  mysql:\r\n    host: 127.0.0.1\r\n    # Avoid using the \"root\" user for security reasons.\r\n    username: root\r\n    password: \"\"\r\n    schema: your_schema\r\n  # The maximum number of simultaneous SQL queries\r\n  # Recommended: 1 for sqlite, 2 for MySQL. You may want to further increase this value if your MySQL connection is very slow.\r\n  worker-limit: 1\r\n\r\n# Discord integration settings\r\ndiscord:\r\n  # Enable or disable the Discord integration.\r\n  # Set to true to enable the integration, or false to disable it.\r\n  enabled: false\r\n\r\n  # The Discord webhook URL to send messages to.\r\n  # Replace 'YOUR_WEBHOOK_URL' with the actual URL of your Discord webhook.\r\n  # Example: \"https://discord.com/api/webhooks/123456789012345678/abcdeFGHiJKLmNOpqRSTUvwxYZ1234567890\"\r\n  webhook_url: \"YOUR_WEBHOOK_URL\"\r\n```\r\n\r\n## Discord Integration\r\n\r\nUse this awesome website to generate valid json with built-in preview: [Discohook](https://discohook.app/), also you can send webhooks to your server with it if you just want fancy embed in your channel without any automatization.\r\nFor tags reference see [TAGS_REFERENCE.md](resources/webhooks/TAGS_REFERENCE.md)\r\n\r\n- Webhook on Discord\r\n  1. Go to **Server settings** -> **Webhooks** -> **Create Webhook**\r\n  1. Setup name, avatar and the channel, where it will be posted. Copy **Webhook URL**. **Do not share! Very dangerous!**\r\n  1. Click **Save** and then the **Done** button\r\n\r\n- Enable Discord Integration\r\n  1. Open the **config.yml** file.\r\n  1. Find the **discord** section and change **enabled** to **true**.\r\n  1. Paste the webhook URL under **webhook_url**.\r\n\r\n## Custom Messages & Languages\r\n\r\nPlayerWarn supports multiple languages and fully customizable messages. By default, English (`en`) and Indonesian (`id`) are included.\r\n\r\n### Changing the Language\r\n\r\n1. Open `config.yml`.\r\n2. Change the `language` setting to your desired language code (e.g., `language: id`).\r\n3. Restart the server.\r\n\r\n### Adding a New Language\r\n\r\n1. Navigate to the `plugin_data/PlayerWarn/lang/` directory.\r\n2. Copy `en.yml` and rename it to your language code (e.g., `es.yml` for Spanish).\r\n3. Open the new file and translate the messages.\r\n4. Update `config.yml` to use your new language code (e.g., `language: es`).\r\n5. Restart the server.\r\n\r\n## Commands\r\n\r\n| Command | Description | Permission | Default |\r\n| --------- | ------------- | ------------ | --------- |\r\n| `/warn <player> <reason> [duration]` | Issue a warning to a player | `playerwarn.command.warn` | OP |\r\n| `/warns [player]` | View warning history | `playerwarn.command.warns` | All |\r\n| `/clearwarns <player>` | Clear all warnings for a player | `playerwarn.command.clearwarns` | OP |\r\n| `/delwarn <player> <id>` | Delete a specific warning by ID | `playerwarn.command.delwarn` | OP |\r\n| `/editwarn <player> <id> <reason> [duration]` | Edit a specific warning by ID | `playerwarn.command.editwarn` | OP |\r\n| `/listwarns` | View all players with warnings | `playerwarn.command.listwarns` | OP |\r\n\r\n### Examples\r\n\r\n```bash\r\n/warn Steve griefing              # Permanent warning\r\n/warn Steve spamming 2h30m        # Warning expires in 2 hours 30 minutes\r\n/editwarn Steve 1 reason hacking  # Edit warning 1's reason only\r\n/editwarn Steve 1 duration 2h30m  # Edit warning 1's duration only\r\n/delwarn Steve 1                  # Delete warning 1\r\n```\r\n\r\n## Permissions\r\n\r\n- `playerwarn.command.warn` - Use the /warn command (default: op)\r\n- `playerwarn.command.warns` - Use the /warns command (default: true)\r\n- `playerwarn.command.clearwarns` - Use the /clearwarns command (default: op)\r\n- `playerwarn.command.delwarn` - Use the /delwarn command (default: op)\r\n- `playerwarn.command.editwarn` - Use the /editwarn command (default: op)\r\n- `playerwarn.command.listwarns` - Use the /listwarns command (default: op)\r\n- `playerwarn.bypass` - Cannot be warned (default: op)\r\n\r\nGrant these permissions to specific player groups or individuals using a permissions management plugin of your choice.\r\n\r\n## Migration from v1.2.0 to v1.3.0\r\n\r\nUpgrading from JSON-based versions? The plugin automatically migrates your data on first run. The old file is renamed to `warnings.json.migrated`.\r\n\r\n## TODO Features\r\n\r\n- **WarnHistory**: provide advanced warning history, analytics, and reporting features.\r\n\r\n## Additional Notes\r\n\r\n- If you find bugs or want to give suggestions, please visit the [issues page](https://github.com/AIPTU/PlayerWarn/issues).\r\n- We accept all contributions! If you want to contribute, please make a pull request on the [pull requests page](https://github.com/AIPTU/PlayerWarn/pulls).\r\n- Icons made from [www.flaticon.com](https://www.flaticon.com)",
+  "readme_source_url": "https://github.com/AIPTU/PlayerWarn",
+  "icon_url": "https://raw.githubusercontent.com/AIPTU/PlayerWarn/02e70383678dc34ba1e285147f70d40594acf1e4/icon.png",
+  "featured": false,
+  "repo": "https://github.com/AIPTU/PlayerWarn",
+  "archive_repo": null,
+  "approved_release_tag": "r-14100",
+  "stars": 0,
+  "total_downloads": 165,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "AIPTU"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257428",
+  "versions": {
+    "stable": {
+      "version": "1.2.0",
+      "tag": "r-14100",
+      "published_at": null,
+      "downloads": 165,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14100/playerwarn-1.2.0-r14100.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14100",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14100/playerwarn-1.2.0-r14100.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PlayerWarn",
+    "stable_release_id": 14100
+  }
+}

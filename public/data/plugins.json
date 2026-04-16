@@ -1,5 +1,17 @@
 [
   {
+    "id": "newalias",
+    "name": "_NewAlias",
+    "author": "JavierLeon9966",
+    "description": "Detects players possible alternatives accounts",
+    "icon_url": "https://raw.githubusercontent.com/JavierLeon9966/Alias/038ae2e25767059c550327f07a1fc6011b865465/icon.png",
+    "featured": false,
+    "stable_version": "2.0.0",
+    "total_downloads": 145,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14117/_newalias-2.0.0-r14117.phar"
+  },
+  {
     "id": "afkzone",
     "name": "AFKZone",
     "author": "LuthMC",
@@ -12,6 +24,18 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14346/afkzone-3.0.2-r14346.phar"
   },
   {
+    "id": "allsigns",
+    "name": "AllSigns",
+    "author": "survanetwork",
+    "description": "Turn signs into World Teleport and Command Signs",
+    "icon_url": "https://raw.githubusercontent.com/survanetwork/AllSigns/1504e144fe909ad41e034cce6339d8778d83de39/icon.png",
+    "featured": false,
+    "stable_version": "2.0.8",
+    "total_downloads": 107,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14298/allsigns-2.0.8-r14298.phar"
+  },
+  {
     "id": "arabicfixerpe",
     "name": "ArabicFixerPE",
     "author": "MEMOxiiii",
@@ -22,6 +46,18 @@
     "total_downloads": 99,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14398/arabicfixerpe-2.0.0-r14398.phar"
+  },
+  {
+    "id": "autoclearchunk",
+    "name": "AutoClearChunk",
+    "author": "HazardTeam",
+    "description": "A PocketMine-MP plugin that automatically clears chunks in specified worlds at regular intervals.",
+    "icon_url": "https://raw.githubusercontent.com/HazardTeam/AutoClearChunk/f40c47f21458891175d5addaede2c2801fcbcb26/icon.png",
+    "featured": false,
+    "stable_version": "3.0.2",
+    "total_downloads": 261,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14101/autoclearchunk-3.0.2-r14101.phar"
   },
   {
     "id": "autosellpe",
@@ -48,6 +84,30 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14384/badwordblocker-2.0.4-r14384.phar"
   },
   {
+    "id": "banknote",
+    "name": "BankNote",
+    "author": "GabBiswajit",
+    "description": "💰 BankNote Plugin v2.0.0",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "2.0.0",
+    "total_downloads": 99,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14125/banknote-2.0.0-r14125.phar"
+  },
+  {
+    "id": "battlesense",
+    "name": "BattleSense",
+    "author": "MrEcstsy",
+    "description": "BattleSense is a PocketMine-MP plugin that provides advanced PvP and PvE statistics, summaries, and configurable feedback for your Minecraft Bedrock server.",
+    "icon_url": "https://raw.githubusercontent.com/MrEcstsy/BattleSense/4441a6f7ef1b25e2afedda1146db9e4ccfa1befc/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 64,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14096/battlesense-1.0.0-r14096.phar"
+  },
+  {
     "id": "bedwarspm",
     "name": "BedwarsPM",
     "author": "Sergittos",
@@ -60,6 +120,102 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14390/bedwarspm-1.1.0-r14390.phar"
   },
   {
+    "id": "betteritemid",
+    "name": "BetterItemID",
+    "author": "fernanACM",
+    "description": "The best ItemID for PocketMine-MP 5.0 servers. Special use for builders.**",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/BetterItemID/edaa22a22729d00854e31542c29399e2b74a50b2/icon-betteritemid.png",
+    "featured": false,
+    "stable_version": "3.1.0",
+    "total_downloads": 153,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14246/betteritemid-3.1.0-r14246.phar"
+  },
+  {
+    "id": "betternpc",
+    "name": "BetterNPC",
+    "author": "r3pt1s",
+    "description": "BetterNPC is a npc plugin for PocketMine-MP.",
+    "icon_url": "https://raw.githubusercontent.com/r3pt1s/BetterNPC/06a62bdd56a5519711349bc760aeaac24a13ca24/icon.png",
+    "featured": false,
+    "stable_version": "1.0.1",
+    "total_downloads": 222,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14220/betternpc-1.0.1-r14220.phar"
+  },
+  {
+    "id": "betterrewards",
+    "name": "BetterRewards",
+    "author": "fernanACM",
+    "description": "Daily and monthly rewards, depending on the day of the week. With these rewards you can make your server one of the most fun. Available for PocketMine-MP 5.0 servers",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/BetterRewards/5b507523ae26e33712ef40f21d26de7b9eb8672c/icon-btrewards.png",
+    "featured": false,
+    "stable_version": "2.0.1",
+    "total_downloads": 127,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14240/betterrewards-2.0.1-r14240.phar"
+  },
+  {
+    "id": "blockpets",
+    "name": "BlockPets",
+    "author": "BlockHorizons",
+    "description": "An advanced pets plugin for PocketMine-MP, a server software for Minecraft PE servers in PHP. Implements highly customizable pets with interesting features.",
+    "icon_url": "https://raw.githubusercontent.com/BlockHorizons/BlockPets/d9dd23cce1e11b87c24a57322519e4962aad1c7f/resources/BlockPetsLogo.png",
+    "featured": false,
+    "stable_version": "3.0.0",
+    "total_downloads": 181,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14265/blockpets-3.0.0-r14265.phar"
+  },
+  {
+    "id": "broadcastacm",
+    "name": "BroadcastACM",
+    "author": "fernanACM",
+    "description": "The best announcer for PocketMine-MP 5.0 servers, make messages for your users very easily.",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/BroadcastACM/2dd6d02059aa87b3689f7a8f30f92109eaca8cce/icon-broadcastacm.png",
+    "featured": false,
+    "stable_version": "3.0.2",
+    "total_downloads": 130,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14242/broadcastacm-3.0.2-r14242.phar"
+  },
+  {
+    "id": "clearlagg",
+    "name": "ClearLagg",
+    "author": "ClousClouds",
+    "description": "ClearLagg is a plugin for PocketMine-MP designed to reduce lag by periodically clearing dropped items in the world. It provides configurable options and commands to manage item...",
+    "icon_url": "https://raw.githubusercontent.com/ClousClouds/ClearLagg/46c4dd99a593813406d8bc075f5fe0646771d2b9/icon.png",
+    "featured": false,
+    "stable_version": "2.0.0",
+    "total_downloads": 786,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14279/clearlagg-2.0.0-r14279.phar"
+  },
+  {
+    "id": "commandcooldown",
+    "name": "CommandCooldown",
+    "author": "Artsakhskiyy",
+    "description": "A PocketMine-MP plugin that adds configurable cooldowns to commands...",
+    "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/CommandCooldown/a6a7365f4cea7f7a5f5b05dd7e97a21128287774/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 89,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14159/commandcooldown-1.0.0-r14159.phar"
+  },
+  {
+    "id": "customgui",
+    "name": "Customgui",
+    "author": "NetherByte233",
+    "description": "CustomGUI Plugin",
+    "icon_url": "https://raw.githubusercontent.com/NetherByte233/CustomGUI/03f99cb2f88f112454c027fde8505f204001778d/resources/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 348,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14114/customgui-1.0.0-r14114.phar"
+  },
+  {
     "id": "deathchest",
     "name": "DeathChest",
     "author": "Terpz710",
@@ -70,6 +226,42 @@
     "total_downloads": 131,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14303/deathchest-1.0.3-r14303.phar"
+  },
+  {
+    "id": "deathinventorylog",
+    "name": "DeathInventoryLog",
+    "author": "Muqsit",
+    "description": "A plugin that logs players' inventory contents on death for future retrieval.",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.3",
+    "total_downloads": 68,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14174/deathinventorylog-1.0.3-r14174.phar"
+  },
+  {
+    "id": "eastereggs",
+    "name": "EasterEggs",
+    "author": "fernanACM",
+    "description": "EasterEggs addon with customizable locations, world objectives, and unique rewards. Make your players enjoy searching and competing!",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/EasterEggs/84e67cca0d7f078b1cdb417bef3969f19ffc6d3d/icon-eastereggs.png",
+    "featured": false,
+    "stable_version": "1.0.1",
+    "total_downloads": 52,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14248/eastereggs-1.0.1-r14248.phar"
+  },
+  {
+    "id": "enderchest",
+    "name": "EnderChest",
+    "author": "fernanACM",
+    "description": "Portable EnderChest for PocketMine-MP 5.0 Servers Everything can be configured via 'config.yml', the name of the enderchest, a custom sound function can also be added. The sound...",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/EnderChest/e3a06a1f000fd380926396c5d02efa6e66bc3e5e/icon-enderchest.png",
+    "featured": false,
+    "stable_version": "2.0.4",
+    "total_downloads": 188,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14247/enderchest-2.0.4-r14247.phar"
   },
   {
     "id": "fancygenerators",
@@ -96,6 +288,30 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14377/ffa-2.5.0-r14377.phar"
   },
   {
+    "id": "fireworkshow",
+    "name": "FireworkShow",
+    "author": "DavyCraft648",
+    "description": "Bring automated firework displays to your PocketMine-MP server.",
+    "icon_url": "https://raw.githubusercontent.com/DavyCraft648/FireworkShow/532ae04e7476f5bcf3de2363b8bf34ab9049f5c5/icon.png",
+    "featured": false,
+    "stable_version": "0.1.0",
+    "total_downloads": 51,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14294/fireworkshow-0.1.0-r14294.phar"
+  },
+  {
+    "id": "fixbucketitem",
+    "name": "FixBucketItem",
+    "author": "JkqzDev",
+    "description": "🪣 FixBucketItem",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 42,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14157/fixbucketitem-1.0.0-r14157.phar"
+  },
+  {
     "id": "friendsx",
     "name": "FriendsX",
     "author": "Akari-my",
@@ -103,9 +319,69 @@
     "icon_url": "https://raw.githubusercontent.com/Akari-my/FriendsX/9fe52d4b36ffb6eb7a5746ce59e947e9af3ff4e5/icon.png",
     "featured": false,
     "stable_version": "1.2.0",
-    "total_downloads": 46,
+    "total_downloads": 72,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14374/friendsx-1.2.0-r14374.phar"
+  },
+  {
+    "id": "gamereplay",
+    "name": "GameReplay",
+    "author": "J1b1x",
+    "description": "MapVideoExample",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.4",
+    "total_downloads": 76,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14142/gamereplay-1.0.4-r14142.phar"
+  },
+  {
+    "id": "giveall",
+    "name": "GiveAll",
+    "author": "fernanACM",
+    "description": "Give all your elements easily with a single user interface. For PocketMine-MP 5.0 servers only**",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/GiveAll/d276da1e48bcd547fa4df09c5b82b7c415df7a4f/icon-giveall.png",
+    "featured": false,
+    "stable_version": "1.0.1",
+    "total_downloads": 83,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14241/giveall-1.0.1-r14241.phar"
+  },
+  {
+    "id": "groupsystem",
+    "name": "GroupSystem",
+    "author": "r3pt1s",
+    "description": "Manage permissions and ranks of the players!",
+    "icon_url": "https://raw.githubusercontent.com/r3pt1s/GroupSystem/4d0fb13318e44e3326f861e59e8292b342554613/icon.png",
+    "featured": false,
+    "stable_version": "3.4.0",
+    "total_downloads": 182,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14226/groupsystem-3.4.0-r14226.phar"
+  },
+  {
+    "id": "hidecommands",
+    "name": "HideCommands",
+    "author": "HimbeersaftLP",
+    "description": "Description",
+    "icon_url": "https://raw.githubusercontent.com/HimbeersaftLP/HideCommands/b21b60724abfe99de1ec75d98cf805fd9f8ed3c4/icon.png",
+    "featured": false,
+    "stable_version": "3.0.16",
+    "total_downloads": 163,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14169/hidecommands-3.0.16-r14169.phar"
+  },
+  {
+    "id": "hiveorerewards",
+    "name": "HiveOreRewards",
+    "author": "PDevChris",
+    "description": "Enhance your Minecraft server with custom ore rewards, random drops, enchantments, effects, and a heart system! This is useful for FFA Servers. Break ores to gain items, potion...",
+    "icon_url": "https://raw.githubusercontent.com/PDevChris/HiveOreRewards/ad05e9f5011e6ab0f2058aabd336511f27c8f62b/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 88,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14193/hiveorerewards-1.0.0-r14193.phar"
   },
   {
     "id": "hotblock",
@@ -120,6 +396,138 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14383/hotblock-1.2.6-r14383.phar"
   },
   {
+    "id": "invcraft",
+    "name": "InvCraft",
+    "author": "NgLam2911",
+    "description": "Invcraft - A 6x6 crafting table plugin for PocketMine-MP",
+    "icon_url": "https://raw.githubusercontent.com/NgLam2911/InvCraft/806b4198006b971b3136623cfcabe193cd15e755/icon.png",
+    "featured": false,
+    "stable_version": "1.1.0",
+    "total_downloads": 53,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14235/invcraft-1.1.0-r14235.phar"
+  },
+  {
+    "id": "invsee",
+    "name": "InvSee",
+    "author": "BlockHorizons",
+    "description": "InvSee lets you view and modify player's inventory and ender chest inventory realtime.",
+    "icon_url": "https://raw.githubusercontent.com/BlockHorizons/InvSee/86ea96a53b27a03cf2ec82bde46dfb3c39e07491/icon.png",
+    "featured": false,
+    "stable_version": "2.4.3",
+    "total_downloads": 617,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14173/invsee-2.4.3-r14173.phar"
+  },
+  {
+    "id": "joinacm",
+    "name": "JoinACM",
+    "author": "fernanACM",
+    "description": "A simple JoinUI customizable through the 'config.yml' file, you can edit the form and chat messages, you can also edit the sounds.",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/JoinACM/156913f1d1fffe4d7b0165a3729924d269b649e8/icon-joinacm.png",
+    "featured": false,
+    "stable_version": "3.0.2",
+    "total_downloads": 135,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14244/joinacm-3.0.2-r14244.phar"
+  },
+  {
+    "id": "leaffooddrops",
+    "name": "LeafFoodDrops",
+    "author": "JesusHR1k",
+    "description": "🍃 LeafFoodDrops",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.2.0",
+    "total_downloads": 44,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14301/leaffooddrops-1.2.0-r14301.phar"
+  },
+  {
+    "id": "leap",
+    "name": "Leap",
+    "author": "Steak-Web",
+    "description": "A Leap system for PM5.0.0",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 28,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14158/leap-1.0.0-r14158.phar"
+  },
+  {
+    "id": "lifesteal",
+    "name": "Lifesteal",
+    "author": "GabBiswajit",
+    "description": "How To Install",
+    "icon_url": "https://raw.githubusercontent.com/GabBiswajit/Lifesteal/7c7769e5595a0c95c4e1656d82d3577900db8f9c/icon.png",
+    "featured": false,
+    "stable_version": "2.1.0",
+    "total_downloads": 477,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14163/lifesteal-2.1.0-r14163.phar"
+  },
+  {
+    "id": "lmao",
+    "name": "lmao",
+    "author": "NgLam2911",
+    "description": "An ultimate troll plugin for PocketMine-MP",
+    "icon_url": "https://raw.githubusercontent.com/NgLam2911/LMAO/b5960e20d3c612d2fe0d4c0fd45179246dd34ac1/icon.png",
+    "featured": false,
+    "stable_version": "0.2.3",
+    "total_downloads": 90,
+    "stars": 1,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14164/lmao-0.2.3-r14164.phar"
+  },
+  {
+    "id": "lootprotection",
+    "name": "LootProtection",
+    "author": "TrixNEW",
+    "description": "Loot Protection",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0-beta",
+    "total_downloads": 71,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14153/lootprotection-1.0.0-beta-r14153.phar"
+  },
+  {
+    "id": "lytraffa",
+    "name": "LytraFFA",
+    "author": "FresherGAMING",
+    "description": "LytraFFA is a Pocketmine MP Plugin that provides very customizable FFA Games",
+    "icon_url": "https://raw.githubusercontent.com/FresherGAMING/LytraFFA/bd87c65137ef02d536d8ed4bf969c4740a5c1773/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 64,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14145/lytraffa-1.0.0-r14145.phar"
+  },
+  {
+    "id": "magicchest",
+    "name": "MagicChest",
+    "author": "fernanACM",
+    "description": "A MagicChest full of special and random items. Only servers PocketMine-MP 5.0",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/MagicChest/ee771af3ba0672f9bfe23993c0f835cc86d33d78/icon-magicchest.png",
+    "featured": false,
+    "stable_version": "1.0.1",
+    "total_downloads": 110,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14238/magicchest-1.0.1-r14238.phar"
+  },
+  {
+    "id": "magmadamage",
+    "name": "MagmaDamage",
+    "author": "Artsakhskiyy",
+    "description": "A PocketMine-MP plugin that damages players standing on magma blocks like in vanilla Minecraft...",
+    "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/MagmaDamage/576d6035e54382b8b5d227247ef893d0fa0ccc87/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 46,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14228/magmadamage-1.0.0-r14228.phar"
+  },
+  {
     "id": "martianenchantments",
     "name": "MartianEnchantments",
     "author": "MrEcstsy",
@@ -127,9 +535,117 @@
     "icon_url": "https://raw.githubusercontent.com/MrEcstsy/MartianEnchantments/4f075a8182423cc656a15b7549022a6d1d2ef65e/icon.png",
     "featured": false,
     "stable_version": "0.0.2-DEV",
-    "total_downloads": 36,
+    "total_downloads": 90,
     "stars": 1,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14362/martianenchantments-0.0.2-dev-r14362.phar"
+  },
+  {
+    "id": "maskui",
+    "name": "MaskUI",
+    "author": "SkulZOnTheYT",
+    "description": "MaskUI** is a modern revision of the original MaskShop plugin.",
+    "icon_url": "https://raw.githubusercontent.com/SkulZOnTheYT/MaskUI/1203cba95bb8a8915fc35ae08a03f7cb2369d8bc/icon.gif",
+    "featured": false,
+    "stable_version": "1.3.1",
+    "total_downloads": 85,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14209/maskui-1.3.1-r14209.phar"
+  },
+  {
+    "id": "motdshuffle",
+    "name": "MOTDShuffle",
+    "author": "HBIDamian",
+    "description": "Gives a random MOTD shuffle, such as the Minecraft Featured Servers! :D",
+    "icon_url": "https://raw.githubusercontent.com/HBIDamian/MOTDShuffle/40e82ac49aba5d407d5dafe7cdc1e1b2d5b1a6a5/icon.png",
+    "featured": false,
+    "stable_version": "1.5.0",
+    "total_downloads": 161,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14135/motdshuffle-1.5.0-r14135.phar"
+  },
+  {
+    "id": "multiworld",
+    "name": "MultiWorld",
+    "author": "CzechPMDevs",
+    "description": "✔️ Passing PHPStan Level 9",
+    "icon_url": "https://raw.githubusercontent.com/CzechPMDevs/MultiWorld/f2618730b9fe92fc9acf962734cff4524b82a5d0/icon.png",
+    "featured": false,
+    "stable_version": "2.1.2",
+    "total_downloads": 1681,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14252/multiworld-2.1.2-r14252.phar"
+  },
+  {
+    "id": "nethermenus",
+    "name": "NetherMenus",
+    "author": "NetherByte233",
+    "description": "A modern PocketMine-MP v5 GUI framework powered by the InventoryUI virion and PlaceholderAPI. Create fully dynamic menus from YAML with placeholders, requirements, actions, live...",
+    "icon_url": "https://raw.githubusercontent.com/NetherByte233/NetherMenus/e411979d8102251ee8636d60d2d0fa31e23982ae/icon.png",
+    "featured": false,
+    "stable_version": "2.0.0",
+    "total_downloads": 63,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14221/nethermenus-2.0.0-r14221.phar"
+  },
+  {
+    "id": "netherperms",
+    "name": "NetherPerms",
+    "author": "NetherByte233",
+    "description": "NetherPerms is a modern permissions plugin for PocketMine-MP. It lets server admins control what features players can use by creating groups and assigning permissions.",
+    "icon_url": "https://raw.githubusercontent.com/NetherByte233/NetherPerms/644c949db73c6681b0310d214b8b97eda20a5622/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 30,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14222/netherperms-1.0.0-r14222.phar"
+  },
+  {
+    "id": "onjoin",
+    "name": "OnJoin",
+    "author": "darknessplx",
+    "description": "OnJoin Plugin (PocketMine API 5)",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.1.0",
+    "total_downloads": 96,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14162/onjoin-1.1.0-r14162.phar"
+  },
+  {
+    "id": "pausescreenping",
+    "name": "PauseScreenPing",
+    "author": "HBIDamian",
+    "description": "This plugin will show the ping of all players on the pause screen, by utilizing the Scoreboard.",
+    "icon_url": "https://raw.githubusercontent.com/HBIDamian/PauseScreenPing/97080e951acb03d669364998c28b38123edc36f4/icon.png",
+    "featured": false,
+    "stable_version": "1.2.0",
+    "total_downloads": 144,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14136/pausescreenping-1.2.0-r14136.phar"
+  },
+  {
+    "id": "pearlmotion",
+    "name": "PearlMotion",
+    "author": "TrixNEW",
+    "description": "PearlMotion – Motion Customizer for Ender Pearls",
+    "icon_url": "https://raw.githubusercontent.com/TrixNEW/PearlMotion/3e03e05d39a703cb18544b721f78fa1d393384e5/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 46,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14151/pearlmotion-1.0.0-r14151.phar"
+  },
+  {
+    "id": "persianchatfixer",
+    "name": "PersianChatFixer",
+    "author": "AMGamer615",
+    "description": "PersianChatFixer** is a lightweight and efficient plugin for **PocketMine-MP** servers that fixes common issues with Persian text display. It automatically corrects the display...",
+    "icon_url": "https://raw.githubusercontent.com/AMGamer615/PersianChatFixer/f46566e3edb2593b8cdc54d5f9fd511e8234eb69/icon.png",
+    "featured": false,
+    "stable_version": "2.0.0",
+    "total_downloads": 166,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14147/persianchatfixer-2.0.0-r14147.phar"
   },
   {
     "id": "perworldinventory",
@@ -139,9 +655,129 @@
     "icon_url": "happy_ghast.png",
     "featured": false,
     "stable_version": "3.0.1",
-    "total_downloads": 17,
+    "total_downloads": 109,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14410/perworldinventory-3.0.1-r14410.phar"
+  },
+  {
+    "id": "phpmailer",
+    "name": "PHPMailer",
+    "author": "gamegam",
+    "description": "Mailer_send",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "5.0.0",
+    "total_downloads": 21,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14250/phpmailer-5.0.0-r14250.phar"
+  },
+  {
+    "id": "placeholderapi",
+    "name": "PlaceholderAPI",
+    "author": "MohamadRZ4",
+    "description": "A powerful and flexible placeholder plugin for PocketMine-MP Minecraft servers, enabling dynamic data integration in chat, scoreboards, and other plugins.",
+    "icon_url": "https://raw.githubusercontent.com/MohamadRZ4/Placeholder/8f904463f80aab6d74a2df800d202721f6f995dc/icon.png",
+    "featured": false,
+    "stable_version": "3.0.0",
+    "total_downloads": 178,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14133/placeholderapi-3.0.0-r14133.phar"
+  },
+  {
+    "id": "playercollide",
+    "name": "PlayerCollide",
+    "author": "AIPTU",
+    "description": "A PocketMine-MP plugin that enables player-to-player collision, applying knockback when players get too close to each other.",
+    "icon_url": "https://raw.githubusercontent.com/AIPTU/PlayerCollide/d936e02e34cef90d95080dab09cb843935411d35/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 272,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14129/playercollide-1.0.0-r14129.phar"
+  },
+  {
+    "id": "playerwarn",
+    "name": "PlayerWarn",
+    "author": "AIPTU",
+    "description": "A PocketMine-MP plugin that allows server administrators to issue warnings to players and keep track of their warning history.",
+    "icon_url": "https://raw.githubusercontent.com/AIPTU/PlayerWarn/02e70383678dc34ba1e285147f70d40594acf1e4/icon.png",
+    "featured": false,
+    "stable_version": "1.2.0",
+    "total_downloads": 165,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14100/playerwarn-1.2.0-r14100.phar"
+  },
+  {
+    "id": "pmmp-ai",
+    "name": "PMMP-AI",
+    "author": "RenzMc",
+    "description": "PMMP-AI Assistant",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 75,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14206/pmmp-ai-1.0.0-r14206.phar"
+  },
+  {
+    "id": "prismghostblock",
+    "name": "PrismGhostBlock",
+    "author": "PrismStudioMC",
+    "description": "Prism Studio - Ghost Block",
+    "icon_url": "https://raw.githubusercontent.com/PrismStudioMC/PrismGhostBlock/3e0e03d476b4596e18e70be880775365901ba500/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 51,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14176/prismghostblock-1.0.0-r14176.phar"
+  },
+  {
+    "id": "properduels",
+    "name": "ProperDuels",
+    "author": "JavierLeon9966",
+    "description": "ProperDuels is a plugin that adds a duel system into your server. No need to worry about any glitches unlike other duel plugins!",
+    "icon_url": "https://raw.githubusercontent.com/JavierLeon9966/ProperDuels/84a83c5b531c9c2c6603b66b20d8d27ca4c2c1f1/icon.png",
+    "featured": false,
+    "stable_version": "3.0.0",
+    "total_downloads": 265,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14112/properduels-3.0.0-r14112.phar"
+  },
+  {
+    "id": "ranksystem",
+    "name": "RankSystem",
+    "author": "IvanCraft623",
+    "description": "👑 RankSystem 🔧",
+    "icon_url": "https://raw.githubusercontent.com/IvanCraft623/RankSystem/34333320ccfaddc8b588a79a38ef58c565071ea6/icon.png",
+    "featured": false,
+    "stable_version": "1.1.4",
+    "total_downloads": 545,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14297/ranksystem-1.1.4-r14297.phar"
+  },
+  {
+    "id": "recon",
+    "name": "Recon",
+    "author": "TrixNEW",
+    "description": "AutoRecon",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 39,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14149/recon-1.0.0-r14149.phar"
+  },
+  {
+    "id": "repairui",
+    "name": "RepairUI",
+    "author": "fernanACM",
+    "description": "Repair and customize your item names with RepairUI, use money or experience to perform these actions. Only for PocketMine-MP 5.0 servers**",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/RepairUI/ff66a96470193453cca6499b1fecd72e8ca5a574/icon-repairui.png",
+    "featured": false,
+    "stable_version": "3.0.2",
+    "total_downloads": 185,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14245/repairui-3.0.2-r14245.phar"
   },
   {
     "id": "root-emojis",
@@ -156,6 +792,18 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14419/root-emojis-1.0.0-r14419.phar"
   },
   {
+    "id": "servercleaner",
+    "name": "ServerCleaner",
+    "author": "Artsakhskiyy",
+    "description": "A PocketMine-MP plugin that automatically clears entities to keep your server clean...",
+    "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/ServerCleaner/e8a08862d89d15e7786b5803dbb2440d521305a6/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 186,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14189/servercleaner-1.0.0-r14189.phar"
+  },
+  {
     "id": "simpleeconomy",
     "name": "SimpleEconomy",
     "author": "NhanAZ-Plugins",
@@ -166,6 +814,30 @@
     "total_downloads": 59,
     "stars": 5,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14387/simpleeconomy-1.0.0-r14387.phar"
+  },
+  {
+    "id": "sizeui",
+    "name": "SizeUI",
+    "author": "fernanACM",
+    "description": "Change your size from large to small with SizeUI:**",
+    "icon_url": "https://raw.githubusercontent.com/fernanACM/SizeUI/155a97d4718a8a2ec42aa452592ffc9197929527/icon.png",
+    "featured": false,
+    "stable_version": "2.0.2",
+    "total_downloads": 138,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14243/sizeui-2.0.2-r14243.phar"
+  },
+  {
+    "id": "smaccer",
+    "name": "Smaccer",
+    "author": "AIPTU",
+    "description": "Smaccer is a powerful and easy-to-use PocketMine-MP plugin designed for managing NPCs (Non-Player Characters) in your Minecraft world. Whether you want to create interactive cha...",
+    "icon_url": "https://raw.githubusercontent.com/AIPTU/Smaccer/54bd6728c89530d2c0ed8c91683d6514fbcae90b/icon.png",
+    "featured": false,
+    "stable_version": "1.1.0",
+    "total_downloads": 138,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14257/smaccer-1.1.0-r14257.phar"
   },
   {
     "id": "superiorveinminer",
@@ -180,6 +852,30 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14364/superiorveinminer-1.1.2-r14364.phar"
   },
   {
+    "id": "teleportto",
+    "name": "TeleportTo",
+    "author": "AEDXDEV",
+    "description": "Teleport from a place to place",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "2.0.1",
+    "total_downloads": 120,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14128/teleportto-2.0.1-r14128.phar"
+  },
+  {
+    "id": "texter",
+    "name": "Texter",
+    "author": "fuyutsuki",
+    "description": "Texter is a plugin for PocketMine-MP that supports multiple worlds and allows you to add, edit, move, and delete FloatingText.",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "4.3.3",
+    "total_downloads": 296,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14302/texter-4.3.3-r14302.phar"
+  },
+  {
     "id": "topstats",
     "name": "TopStats",
     "author": "nicholass003",
@@ -187,7 +883,7 @@
     "icon_url": "https://raw.githubusercontent.com/nicholass003/TopStats/29ae10b204d98d0c9b702d9b58ba7b68834458ca/assets/icon.png",
     "featured": false,
     "stable_version": "0.3.8",
-    "total_downloads": 67,
+    "total_downloads": 238,
     "stars": 5,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14394/topstats-0.3.8-r14394.phar"
   },
@@ -228,6 +924,18 @@
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14420/visibleautopickup-1.1.3-r14420.phar"
   },
   {
+    "id": "waypoint",
+    "name": "Waypoint",
+    "author": "Cosmoverse",
+    "description": "Waypoint is a plugin that lets you set a visual holographic marker at your desired position. The concept is similar to",
+    "icon_url": "https://raw.githubusercontent.com/Cosmoverse/Waypoint/be593877904036d6757c47057b0bcf556a86495e/icon.png",
+    "featured": false,
+    "stable_version": "0.0.2",
+    "total_downloads": 268,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14180/waypoint-0.0.2-r14180.phar"
+  },
+  {
     "id": "worldguardplugin",
     "name": "WorldGuardPlugin",
     "author": "gamegam",
@@ -235,9 +943,21 @@
     "icon_url": "https://raw.githubusercontent.com/gamegam/WorldGuard/5919ac66b9a6169ca7dd46b19d5c62a0e94073da/icon.png",
     "featured": false,
     "stable_version": "3.0.2",
-    "total_downloads": 219,
+    "total_downloads": 609,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14367/worldguardplugin-3.0.2-r14367.phar"
+  },
+  {
+    "id": "worldmanager",
+    "name": "WorldManager",
+    "author": "PocketMine-Community",
+    "description": "🌍 WorldManager",
+    "icon_url": "https://raw.githubusercontent.com/PocketMine-Community/WorldManager/bfac237a74d821cc9aa9167ee8eb0a9b8933fa2b/icon.png",
+    "featured": false,
+    "stable_version": "1.1.0",
+    "total_downloads": 269,
+    "stars": 0,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14262/worldmanager-1.1.0-r14262.phar"
   },
   {
     "id": "worlds",
@@ -247,7 +967,7 @@
     "icon_url": "https://raw.githubusercontent.com/survanetwork/Worlds/ebfebb35cd6e94e64812aedae4761fe184d2f15d/icon.png",
     "featured": false,
     "stable_version": "4.0.9",
-    "total_downloads": 97,
+    "total_downloads": 506,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14382/worlds-4.0.9-r14382.phar"
   },
@@ -259,7 +979,7 @@
     "icon_url": "https://raw.githubusercontent.com/HBIDamian/wsRCON/e23e0e679748d36af4b9e0a0358405e073020273/icon.png",
     "featured": false,
     "stable_version": "1.1.0",
-    "total_downloads": 26,
+    "total_downloads": 91,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14321/wsrcon-1.1.0-r14321.phar"
   },
@@ -286,5 +1006,29 @@
     "total_downloads": 18,
     "stars": 0,
     "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14309/xgtsmithingtable-1.0.0-r14309.phar"
+  },
+  {
+    "id": "xzaffinity",
+    "name": "XzAffinity",
+    "author": "IndraMC",
+    "description": "📋 Overview",
+    "icon_url": "happy_ghast.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 48,
+    "stars": 1,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14085/xzaffinity-1.0.0-r14085.phar"
+  },
+  {
+    "id": "zfactions",
+    "name": "zFactions",
+    "author": "zPluginsTeam",
+    "description": "🛡 zPlugins Factions — Advanced Factions System for PocketMine-MP",
+    "icon_url": "https://raw.githubusercontent.com/zPluginsTeam/zFactions/c8205f1edbd8377b57576392345d43a24dc80a44/icon.png",
+    "featured": false,
+    "stable_version": "1.0.0",
+    "total_downloads": 218,
+    "stars": 5,
+    "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14274/zfactions-1.0.0-r14274.phar"
   }
 ]

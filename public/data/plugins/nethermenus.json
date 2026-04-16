@@ -1,0 +1,63 @@
+{
+  "id": "nethermenus",
+  "name": "NetherMenus",
+  "author": "NetherByte233",
+  "description": "A modern PocketMine-MP v5 GUI framework powered by the InventoryUI virion and PlaceholderAPI. Create fully dynamic menus from YAML with placeholders, requirements, actions, live...",
+  "readme_markdown": "# NetherMenus\n\nA modern PocketMine-MP v5 GUI framework powered by the InventoryUI virion and PlaceholderAPI. Create fully dynamic menus from YAML with placeholders, requirements, actions, live updates, sounds, and more.\n\n- Main class: `NetherByte\\NetherMenus\\NetherMenus`\n- API: PocketMine-MP 5.x\n- Softdepends: `PlaceholderAPI`, `PocketVault`\n\n## Features\n- Dynamic GUIs defined in simple YAML files under the plugin data folder\n- Full PlaceholderAPI support (names, lore, requirements, actions)\n- View and click requirements with success/deny actions\n- Custom open commands per GUI (e.g. `/shop`, `/kits`), plus `/gui` and `/guiadmin`\n- Live updates without closing the GUI (`update_interval`, `[refresh]` action)\n- Rich action system (console/player commands, sounds, money/xp, perms, open GUI)\n- Material sources: standard item IDs, NBT base64 blobs, placeholder-provided items, equipment\n- Armor trims, leather dye, dynamic amounts\n- Per-player menu tracking + placeholders (current/last menu)\n\n## Installation\n1. Place NetherMenus in your server `plugins/` folder.\n2. Ensure these dependencies are installed as needed:\n   - PlaceholderAPI (for placeholders in text and requirements)\n   - PocketVault (for money/permissions actions and money requirements)\n3. Start the server to generate `plugin_data/NetherMenus/` and default folders.\n4. Place your GUI YAML files in: `plugin_data/NetherMenus/guis/*.yml`.\n\n### Inventory UI Resource Pack Requirement\nNetherMenus uses a bundled InventoryUI virion that requires the server to have the Inventory UI Resource Pack installed and resource packs forced for clients.\n\n- Required RP UUID: `21f0427f-572a-416d-a90e-c5d9becb0fa3`\n- Required RP version: `1.1.0`\n- Server setting: `force_resources=true` in `server.properties`\n\nIf the pack is missing or not forced:\n- The plugin stays enabled in a safe degraded mode.\n- `/gui`, custom open commands and `/guiadmin` will show a message and NOT open any forms.\n- Console will show messages like:\n  - `[NetherMenus] InventoryUI not ready: Resource pack 'Inventory UI Resource Pack' not found`\n  - `[NetherMenus] Plugin will not work and features will be degraded`\n  - `[NetherMenus] Download the resource pack from (link)`\n  - `[NetherMenus] NetherMenus: Resource pack not detected. Please download/enable the Inventory UI Resource Pack for full functionality.`\n\nInstall the [resource pack](https://github.com/NetherByte233/NetherMenus/releases/download/v2.0.0/InventoryUIResourcePack-main.mcpac) put the resource pack in the resource pack folder and set force_resources=true in resource_packs.yml and name file name of resource pack in resource_stack: like this \n```yaml\nresource_stack:\n-Inventory UI Resource Pack\n```\nThen restart the server to restore full functionality.\n\n## Commands & Permissions\n- `/gui <id>`\n  - Opens a GUI if its YAML contains `open_command: \"gui <id>\"`\n  - Permission: `nethermenus.command` (default: true)\n- `/guiadmin`\n  - Opens the admin form UI\n  - Permission: `nethermenus.admin` (default: op)\n- Custom open commands\n  - Defined per GUI via `open_command:` (string or list). Example: `open_command: shop` registers `/shop`.\n  - Permission: `nethermenus.command`\n\n## YAML Overview\nTop-level keys (GUI file):\n- `id: string` – Logical ID (defaults to the file name without extension)\n- `name: string` – GUI title (supports placeholders)\n- `rows: 1..6` – Number of rows (size = rows * 9)\n- `open_command: string | string[]` – Commands that open this GUI (besides `/gui <id>`)\n- `command_description: string` – Description used when registering custom commands\n- `open_actions: string | string[]` – Actions to run when GUI opens\n- `close_actions: string | string[]` – Actions to run when GUI closes\n- `open_requirement: { … }` – Requirement block evaluated before opening\n- `update_interval: number` – Seconds between updates for items with `update: true`\n- `filler_item:` – Background filler configuration\n  - `material: string`\n  - `slots: string | string[]` – Comma list or ranges (e.g. `\"0-8, 36-44\"`)\n- `items:` – Map of item entries. Each entry supports:\n  - `slot: number | string | string[]` – Single slot or comma/range/array\n  - `priority: number` – Lower is chosen first when entries target the same slot\n  - `material: string` – See Materials\n  - `amount: number` (1..64)\n  - `dynamic_amount: string` – Placeholder string resolving to 1..64\n  - `display_name: string`\n  - `lore: string | string[]`\n  - `tooltip: { display_name?, lore? }` – Alternate container for name/lore\n  - `dye: string` – leather color (`purple` or `#RRGGBB`)\n  - `trim_material: string` – e.g. `emerald, copper, netherite, ...`\n  - `trim_pattern: string` – e.g. `host, coast, vex, ...`\n  - `update: bool` – If `true`, only name/lore are refreshed each `update_interval`\n  - `view_requirement: { … }` – Requirement block controlling visibility\n  - `click_requirement: { … }` – Requirement block evaluated on click\n  - `success_actions: string | string[]` – Actions to run on click success\n  - `action | actions` – Legacy aliases for `success_actions`\n\n### Materials\n- Standard identifiers via `StringToItemParser`:\n  - `STONE`, `OAK_PLANKS`, or full names like `minecraft:netherite_chestplate`\n- Base64 NBT item:\n  - `material: nbt-\"<base64-serialized-nbt>\"`\n- Placeholder-provided identifiers:\n  - `material: placeholder-%player_item_in_hand%`\n- Equipment shortcuts:\n  - `main_hand` | `mainhand`, `off_hand` | `offhand`\n  - `armor_helmet`, `armor_chestplate`, `armor_leggings`, `armor_boots`\n\n### Actions\nWrite as lines in `[tag] arg` format. All args are parsed by PlaceholderAPI before use.\n- Core\n  - `[close]` – Closes the GUI (runs `close_actions`)\n  - `[opengui] <guiId>` – Opens another GUI (respects its open requirement)\n  - `[refresh]` – Rebuilds current GUI items without closing\n  - `[message] <text>` / `[broadcast] <text>` / `[chat] <text>`\n  - `[console] <cmd>` / `[player] <cmd>`\n- Economy (PocketVault)\n  - `[givemoney] <amount>` / `[takemoney] <amount>`\n- Permissions (PocketVault)\n  - `[givepermission] <node>` / `[takepermission] <node>`\n- Experience\n  - `[giveexp] <amt|amtL>` / `[takeexp] <amt|amtL>` (`L` suffix = levels)\n- Sounds (Bedrock ids)\n  - `[sound] <id> [volume] [pitch]`\n  - `[broadcastsound] <id> [volume] [pitch]`\n  - `[broadcastsoundworld] <id> [volume] [pitch]`\n\n### Requirements\nA requirement block is evaluated as a whole and supports success/deny actions.\n\nBlock keys:\n- `requirements:` – map of individual requirement specs\n- `minimum_requirements: number` – Minimum number of individual requirements that must pass\n- `stop_at_success: bool` – Stop evaluating after reaching `minimum_requirements`\n- `success_actions:` – Run if the block passes\n- `deny_actions:` – Run if the block fails\n\nIndividual requirement types (examples):\n- `type: has permission` + `permission: node`\n- `type: has permissions` + `permissions: [node1, node2]` + `minimum: 1`\n- `type: has money` + `amount: 500`\n- `type: has exp` + `amount: 10` + `level: true|false`\n- `type: is near` + `location: 'WORLD,X,Y,Z'` + `distance: '5'`\n- `type: has item` with advanced options (name/lore contains, ignorecase, armor/offhand, strict)\n- String comparisons:\n  - `type: string equals` / `string equals ignorecase` / `string contains`\n  - `type: string length` + `min:` + `max:`\n- Comparators:\n  - `type: (==, !=, >=, <=, >, <)` + `input:` + `output:`\n- `type: javascript` + `expression:`\n\nNegation is supported for any type using `type: \"!has permission\"`, etc.\n\n### Placeholders (NetherMenus)\nProvided via `hook/PlaceholdersHook.php` (requires PlaceholderAPI):\n- `%nethermenus_opened_menu%` – ID of the menu currently open (empty if none)\n- `%nethermenus_is_in_menu%` – `yes`/`no` if a menu is open\n- `%nethermenus_last_menu%` – ID of the last menu the player had open\n- `%nethermenus_opened_menu_name%` – Display name of the currently open menu\n- `%nethermenus_last_menu_name%` – Display name of the last open menu\n\n### Open Command and Visibility\n- Command(s) to open a GUI are read from `open_command:` and registered on enable (excluding the base `/gui` to avoid conflicts).\n- If multiple items compete for the same slot, entries are considered in ascending `priority`. When priority ties, the last-defined entry wins.\n\n## Example GUI YAML\n```yaml\nid: a1\nname: Actions Menu\nrows: 4\nopen_command: action\ncommand_description: Open the actions menu\nopen_actions: '[sound] beacon.activate 1 1'\nclose_actions: '[sound] beacon.deactivate 1 1'\nupdate_interval: 1\nfiller_item:\n  material: light_gray_stained_glass_pane\n  slots: 0-35\nitems:\n  Slot_24:\n    material: minecraft:clock\n    slot: 24\n    update: true\n    display_name: Ping\n    lore:\n      - 'Ping: %player_ping%'\n  Slot_26:\n    material: minecraft:netherite_chestplate\n    slot: 26\n    trim_material: emerald\n    trim_pattern: host\n```\n\n## Troubleshooting\n- Inventory UI Resource Pack missing\n  - Install the pack (UUID/version above), set `force_resources=true`, restart the server.\n  - In degraded mode, `/gui` and `/guiadmin` will send an in-game message and not open.\n- Actions not working\n  - For economy/permissions actions, ensure PocketVault is installed and providers are available.\n- Placeholders not resolving\n  - Ensure PlaceholderAPI is installed and the text supports parsing (GUI name, lore, actions, requirement inputs/outputs).\n\n## File/Folder Structure\n- `src/NetherByte/NetherMenus/` – Main plugin code\n- `src/NetherByte/NetherMenus/ui/gui/` – GUI runtime\n- `src/NetherByte/NetherMenus/hook/` – Hooks (PlaceholderAPI provider, PocketVault hook, inventory close listener)\n- `src/NetherByte/NetherMenus/libs/` – Bundled virions/libs (InventoryUI, forms, etc.)\n- `plugin_data/NetherMenus/guis/*.yml` – Your GUI definitions\n\n## Credits\n- InventoryUI virion by tedo0627 (bundled)\n- PlaceholderAPI by NetherByte\n- PocketVault by NetherByte (economy/permission integration)\n\nIf you want a full in-depth guide, see the wiki in `NetherMenus-wiki/` for options, examples, and requirement type references.",
+  "readme_source_url": "https://github.com/NetherByte233/NetherMenus",
+  "icon_url": "https://raw.githubusercontent.com/NetherByte233/NetherMenus/e411979d8102251ee8636d60d2d0fa31e23982ae/icon.png",
+  "featured": false,
+  "repo": "https://github.com/NetherByte233/NetherMenus",
+  "archive_repo": null,
+  "approved_release_tag": "r-14221",
+  "stars": 0,
+  "total_downloads": 63,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": [
+      "PlaceholderAPI_NB"
+    ]
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "NetherByte233"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "2.0.0",
+      "tag": "r-14221",
+      "published_at": null,
+      "downloads": 63,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14221/nethermenus-2.0.0-r14221.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14221",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14221/nethermenus-2.0.0-r14221.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "NetherMenus",
+    "stable_release_id": 14221
+  }
+}

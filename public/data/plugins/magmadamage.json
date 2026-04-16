@@ -1,0 +1,61 @@
+{
+  "id": "magmadamage",
+  "name": "MagmaDamage",
+  "author": "Artsakhskiyy",
+  "description": "A PocketMine-MP plugin that damages players standing on magma blocks like in vanilla Minecraft...",
+  "readme_markdown": "# MagmaDamage\nA PocketMine-MP plugin that damages players standing on magma blocks like in vanilla Minecraft...\n\n## Features\n- Periodically damages players who stand on magma blocks...\n- Fully simulates vanilla magma block behavior...\n\n## Permissions\n*( none required — the plugin works automatically )*",
+  "readme_source_url": "https://github.com/Artsakhskiyy/MagmaDamage",
+  "icon_url": "https://raw.githubusercontent.com/Artsakhskiyy/MagmaDamage/576d6035e54382b8b5d227247ef893d0fa0ccc87/icon.png",
+  "featured": false,
+  "repo": "https://github.com/Artsakhskiyy/MagmaDamage",
+  "archive_repo": null,
+  "approved_release_tag": "r-14228",
+  "stars": 0,
+  "total_downloads": 46,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Artsakhskiyy"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14228",
+      "published_at": null,
+      "downloads": 46,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14228/magmadamage-1.0.0-r14228.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14228",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14228/magmadamage-1.0.0-r14228.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "MagmaDamage",
+    "stable_release_id": 14228
+  }
+}

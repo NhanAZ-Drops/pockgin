@@ -1,0 +1,61 @@
+{
+  "id": "sizeui",
+  "name": "SizeUI",
+  "author": "fernanACM",
+  "description": "Change your size from large to small with SizeUI:**",
+  "readme_markdown": "# SizeUI\n\n[![](https://poggit.pmmp.io/shield.state/SizeUI)](https://poggit.pmmp.io/p/SizeUI)\n\n[![](https://poggit.pmmp.io/shield.api/SizeUI)](https://poggit.pmmp.io/p/SizeUI)\n\n**Change your size from large to small with SizeUI:**\n\n![Captura de pantalla 2021-12-08 055622](https://user-images.githubusercontent.com/83558341/145198736-d4566ee7-ed91-43ae-b63e-df3abc861eda.png)\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 💡 Implementations\n* [X] Configuration\n* [X] Multilanguage\n* [X] New commands\n\n### 🕹 Commands\n| Command | Description |\n|---------|-------------|\n| ```/sizeui``` | Open the menu |\n| ```/sizeui manage``` | Open the management menu |\n\n***\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```sizeui.acm``` | Executing the command |\n| ```sizeui.manage.acm``` | Management mode |\n\n### 🌐 MultiLanguage\n| Language | Translated by |\n|----------|---------------|\n| English | [fernanACM](https://github.com/fernanACM) |\n| Spanish | [fernanACM](https://github.com/fernanACM) |\n| Indonesian | SizeUI |\n| German | [GamerMJay](https://github.com/GamerMJay) |\n| Vietnamese | [NhanAZ](https://github.com/NhanAZ) |\n\n### 📞 Contact \n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |",
+  "readme_source_url": "https://github.com/fernanACM/SizeUI",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/SizeUI/155a97d4718a8a2ec42aa452592ffc9197929527/icon.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/SizeUI",
+  "archive_repo": null,
+  "approved_release_tag": "r-14243",
+  "stars": 0,
+  "total_downloads": 138,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260459",
+  "versions": {
+    "stable": {
+      "version": "2.0.2",
+      "tag": "r-14243",
+      "published_at": null,
+      "downloads": 138,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14243/sizeui-2.0.2-r14243.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14243",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14243/sizeui-2.0.2-r14243.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "SizeUI",
+    "stable_release_id": 14243
+  }
+}

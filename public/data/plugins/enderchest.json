@@ -1,0 +1,61 @@
+{
+  "id": "enderchest",
+  "name": "EnderChest",
+  "author": "fernanACM",
+  "description": "Portable EnderChest for PocketMine-MP 5.0 Servers Everything can be configured via 'config.yml', the name of the enderchest, a custom sound function can also be added. The sound...",
+  "readme_markdown": "[![](https://poggit.pmmp.io/shield.state/EnderChest)](https://poggit.pmmp.io/p/EnderChest)\n\n[![](https://poggit.pmmp.io/shield.api/EnderChest)](https://poggit.pmmp.io/p/EnderChest)\n\n# EnderChest\n**Portable EnderChest for PocketMine-MP 5.0 Servers Everything can be configured via 'config.yml', the name of the enderchest, a custom sound function can also be added. The sounds page of the game:** [minecraft sounds](https://www.digminecraft.com/lists/sound_list_pe.php)\n\n\n![Captura de pantalla 2022-05-08 164331](https://user-images.githubusercontent.com/83558341/167317673-138cd3d8-9af8-453a-8929-8f75c7341eca.png)\n\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n---\n\n### 💾 Config\n```yaml\n #  _____               _                  ____   _                    _   \n # | ____|  _ __     __| |   ___   _ __   / ___| | |__     ___   ___  | |_ \n # |  _|   | '_ \\   / _` |  / _ \\ | '__| | |     | '_ \\   / _ \\ / __| | __|\n # | |___  | | | | | (_| | |  __/ | |    | |___  | | | | |  __/ \\__ \\ | |_ \n # |_____| |_| |_|  \\__,_|  \\___| |_|     \\____| |_| |_|  \\___| |___/  \\__|\n #          by fernanACM\n \n # Portable EnderChest for PocketMine-MP 4.0 Servers.\n # Everything can be configured via 'config.yml', the name of the \n # enderchest, a custom sound function can also be added. The sounds \n # page of the game: https://www.digminecraft.com/lists/sound_list_pe.php\n\n# DO NOT TOUCH\nconfig-version: \"1.0.0\"\n# ======(SETTINGS)======\nSettings:\n  EnderChest-name: \"EnderChest inventory\"\n  EnderChest-sound: true\n  EnderChest-open-soundName: \"random.enderchestopen\"\n  EnderChest-closed-soundName: \"random.enderchestclosed\"\n   ```\n   \n### 🕹 Commands\n| Command | Description |\n|---------|-------------|\n| ```/enderchest``` | Open Portable EnderChest |\n\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```enderchest.acm``` | Executing the command |\n\n### 📞 Contact\n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n****\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [InvMenu](https://github.com/Muqsit/InvMenu) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |",
+  "readme_source_url": "https://github.com/fernanACM/EnderChest",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/EnderChest/e3a06a1f000fd380926396c5d02efa6e66bc3e5e/icon-enderchest.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/EnderChest",
+  "archive_repo": null,
+  "approved_release_tag": "r-14247",
+  "stars": 0,
+  "total_downloads": 188,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260487",
+  "versions": {
+    "stable": {
+      "version": "2.0.4",
+      "tag": "r-14247",
+      "published_at": null,
+      "downloads": 188,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14247/enderchest-2.0.4-r14247.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14247",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14247/enderchest-2.0.4-r14247.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "EnderChest",
+    "stable_release_id": 14247
+  }
+}

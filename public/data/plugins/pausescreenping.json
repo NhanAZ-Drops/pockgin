@@ -1,0 +1,66 @@
+{
+  "id": "pausescreenping",
+  "name": "PauseScreenPing",
+  "author": "HBIDamian",
+  "description": "This plugin will show the ping of all players on the pause screen, by utilizing the Scoreboard.",
+  "readme_markdown": "# PauseScreenPing\r\nThis plugin will show the ping of all players on the pause screen, by utilizing the Scoreboard.\r\n\r\n## Configuration\r\n```yaml\r\n# PauseScreenPing's Config\r\n\r\n# Display Name or Title on the Pause Menu\r\n# If you want it to be empty, just do \" \"\r\ndisplay-name: \"&dPauseScreenPing\"\r\n\r\n# Update the ping of the players every x ticks\r\n# (20 ticks = 1 second) \r\n# Allowed values: Integer (1 or more)\r\nupdate-interval: 20\r\n\r\n# Only see own ping (true/false)\r\nonly-see-own-ping: false\r\n```",
+  "readme_source_url": "https://github.com/HBIDamian/PauseScreenPing",
+  "icon_url": "https://raw.githubusercontent.com/HBIDamian/PauseScreenPing/97080e951acb03d669364998c28b38123edc36f4/icon.png",
+  "featured": false,
+  "repo": "https://github.com/HBIDamian/PauseScreenPing",
+  "archive_repo": null,
+  "approved_release_tag": "r-14136",
+  "stars": 0,
+  "total_downloads": 144,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "HBIDamian"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/258110",
+  "versions": {
+    "stable": {
+      "version": "1.2.0",
+      "tag": "r-14136",
+      "published_at": null,
+      "downloads": 104,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14136/pausescreenping-1.2.0-r14136.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14136",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14136/pausescreenping-1.2.0-r14136.phar"
+    },
+    {
+      "tag": "r-14121",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14121/pausescreenping-1.1.0-r14121.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PauseScreenPing",
+    "stable_release_id": 14136
+  }
+}

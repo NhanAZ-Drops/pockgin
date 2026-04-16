@@ -1,0 +1,61 @@
+{
+  "id": "phpmailer",
+  "name": "PHPMailer",
+  "author": "gamegam",
+  "description": "Mailer_send",
+  "readme_markdown": "# Mailer_send\nCommands: \nUsage: /email (send mail) (subject) (message)\n\nUsage:\nAdd it to plugins and reboot the server.\n\nAfter rebooting, enter your account information (email, password, or app password) in config.yml under plugin_data\\PHPMailer.\nFor Google, the server host is smtp.google.com.\nOr, you can use AI assistance.\n\nOnce the configuration is complete, you can edit index.html.\nThis can also be done with AI assistance.\n\nVirion download: https://github.com/gamegam/PMMP-PHPMailer",
+  "readme_source_url": "https://github.com/gamegam/Mailer_send",
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "repo": "https://github.com/gamegam/Mailer_send",
+  "archive_repo": null,
+  "approved_release_tag": "r-14250",
+  "stars": 0,
+  "total_downloads": 21,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "gamegam"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "5.0.0",
+      "tag": "r-14250",
+      "published_at": null,
+      "downloads": 21,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14250/phpmailer-5.0.0-r14250.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14250",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14250/phpmailer-5.0.0-r14250.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PHPMailer",
+    "stable_release_id": 14250
+  }
+}

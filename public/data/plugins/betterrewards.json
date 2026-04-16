@@ -1,0 +1,61 @@
+{
+  "id": "betterrewards",
+  "name": "BetterRewards",
+  "author": "fernanACM",
+  "description": "Daily and monthly rewards, depending on the day of the week. With these rewards you can make your server one of the most fun. Available for PocketMine-MP 5.0 servers",
+  "readme_markdown": "# BetterRewards\n\n[![](https://poggit.pmmp.io/shield.state/BetterRewards)](https://poggit.pmmp.io/p/BetterRewards)\n\n[![](https://poggit.pmmp.io/shield.api/BetterRewards)](https://poggit.pmmp.io/p/BetterRewards)\n\nDaily and monthly rewards, depending on the day of the week. With these rewards you can make your server one of the most fun. Available for PocketMine-MP 5.0 servers\n\n![Captura de pantalla 2023-04-28 161916](https://user-images.githubusercontent.com/83558341/235257406-d5797344-884e-4d26-a71c-26d19adcc605.png)\n<a href=\"https://discord.gg/YyE9XFckqb\"><img src=\"https://img.shields.io/discord/837701868649709568?label=discord&color=7289DA&logo=discord\" alt=\"Discord\" /></a>\n\n### 📸 Images\n> Here I leave a tutorial of the plugin: [BetterRewards](https://youtu.be/HAAUUf719Ec)\n\n**Main menu**\n> You can choose the type of reward you want to receive\n<img src=\"https://user-images.githubusercontent.com/83558341/235257406-d5797344-884e-4d26-a71c-26d19adcc605.png\">\n\n**Daily rewards menu**\n> Select the day of the week to receive your reward with just one click\n<img src=\"https://user-images.githubusercontent.com/83558341/235257867-2a3d8bc4-f368-4963-af7d-cccfd4e7c5f5.png\">\n\n**Monthly rewards menu**\n> Receive your monthly reward with this menu\n<img src=\"https://user-images.githubusercontent.com/83558341/235257958-f69b1079-0c59-4186-a92a-da7ea68875d0.png\">\n\n**Inventory editing menu**\n> Here you can edit the inventory of the objects to receive. It will only work when the ```custom-inventory``` option is ```true```.\n<img src=\"https://user-images.githubusercontent.com/83558341/235258138-f1711b7c-9a96-4913-b5b7-092a375b49f3.png\">\n\n### 🌍 Wiki\n* Check our plugin [wiki](https://github.com/fernanACM/BetterRewards/wiki) for features and secrets in the...\n\n### 💡 Implementations\n* [X] Multilanguage\n* [X] Configuration\n* [X] Database provider\n* [X] Cooldown\n* [X] Commands\n* [X] inventory editor\n* [X] Save item information\n\n### 💾 Config\n```yaml\n#  ____           _     _                   ____                                         _       \n# | __ )    ___  | |_  | |_    ___   _ __  |  _ \\    ___  __      __   __ _   _ __    __| |  ___ \n# |  _ \\   / _ \\ | __| | __|  / _ \\ | '__| | |_) |  / _ \\ \\ \\ /\\ / /  / _` | | '__|  / _` | / __|\n# | |_) | |  __/ | |_  | |_  |  __/ | |    |  _ <  |  __/  \\ V  V /  | (_| | | |    | (_| | \\__ \\\n# |____/   \\___|  \\__|  \\__|  \\___| |_|    |_| \\_\\  \\___|   \\_/\\_/    \\__,_| |_|     \\__,_| |___/\n#        by fernanAcM\n# Daily and monthly rewards, depending on the day of the week. Available for PocketMine-MP 5.0 servers\n\n# DO NOT TOUCH\nconfig-version: \"2.0.1\"\n\n# Languages\n# \"eng\", // English\n# \"spa\", // Spanish\n# \"ger\", // German\n# \"frc\", // French\n# \"indo\", // Indonesian\n# \"portg\", // Portuguese\n# \"vie\" // Vietnamese\nlanguage: eng\n\n# Prefix plugin\nPrefix: \"&l&f[&bBetterRewards&f]&8»&r \"\n\n# Providers\ndatabase:\n  # The database type. \"sqlite\" and \"mysql\" are supported.\n  type: sqlite\n\n  # Edit these settings only if you choose \"sqlite\".\n  sqlite:\n    # The file name of the database in the plugin data folder.\n    # You can also put an absolute path here.\n    file: data.sqlite\n  # Edit these settings only if you choose \"mysql\".\n  mysql:\n    host: 127.0.0.1\n    # Avoid using the \"root\" user for security reasons.\n    username: root\n    password: \"\"\n    schema: your_schema\n  # The maximum number of simultaneous SQL queries\n  # Recommended: 1 for sqlite, 2 for MySQL. You may want to further increase this value if your MySQL connection is very slow.\n  worker-limit: 1\n\n# Settings for daily and monthly rewards.\nReward:\n  # Here are the rewards with commands, you can add \n  # as many as you can.\n  # Use {PLAYER} to identify the player\n\n  # (Rewards for custom inventories)\n  # Only works if the (custom-inventory) option \n  # is enabled. But if not, implement the commands in: \n  # weekly-normal-content: []\n  monday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} iron_sword 1\"\n  tuesday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} iron_pickaxe 1\"\n  wednesday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} diamond_sword 1\"\n  thursday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} stone 12\"\n  friday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} wool 13\"\n  saturday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} iron_block 1\"\n  sunday-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} book 1\"\n\n  # (General rewards)\n  weekly-commands:\n    - \"give {PLAYER} golden_apple 4\"\n    - \"give {PLAYER} stone 12\"\n  monthly-commands:\n    - \"give {PLAYER} apple 24\"\n    - \"give {PLAYER} diamond 33\"\n  # This for rewards with custom items.\n  # It only works if the (custom-inventory) option is disabled.\n  # Follow this example for custom items:\n  \n  # ONLY WORKS WITH THESE:\n  # weekly-normal-content []\n  # monthly-normal-content: []\n\n  # NOTE: Use \"&\" as a replacement for the minecraft color code\n  # weekly-normal-content:\n  #   items:\n  #     - item: \"diamond\"\n  #       count: 23\n  #       name: \"A diamond!\"\n  #       lore:\n  #         - \"This diamond is very valuable\"\n  #         - \"Careful not to lose it!\"\n  #       enchantments:\n  #         - \"sharpness:3\"\n  #         - \"fire_aspect:1\"\n  #\n  # // It also works like this\n  # \n  #     - item: \"1:0\"\n  #       count: 32\n  #       name: \"A stone!\"\n  #       lore: []\n  #       enchantments:\n  #         - \"protection:3\"\n  weekly-normal-content:\n    items:\n      - item: \"1:0\"\n        count: 16\n        name: \"&r&cA stone!\"\n        lore:\n          - \"&r&bBy:&a fernanACM\"\n        enchantments:\n          - \"protection:3\"\n  monthly-normal-content:\n    items:\n      - item: \"stone\"\n        count: 16\n        name: \"&r&aA stone!\"\n        lore: []\n        enchantments:\n          - \"protection:1\"\n\nSettings:\n  inventory:\n    # With this enabled, you will be able to customize \n    # your inventory for a weekly or monthly reward. Use /betterrewards edit\n    custom-inventory: false\n    # Here you can put the items to receive your daily and \n    # monthly reward. It only works if the (custom-inventory) option is enabled.\n\n    # RECOMMENDATION:\n    # If you put 3 and you have 10 items in the custom inventory, you will only receive 3 random \n    # items that are in the inventory, if you want them to have all the items, put the number of \n    # items that are in the custom inventory.\n\n    # You can put /betterrewards count <inventory type>\n    # weekly\n    monday-items-to-receive: 4\n    tuesday-items-to-receive: 2\n    wednesday-items-to-receive: 4\n    thursday-items-to-receive: 5\n    friday-items-to-receive: 1\n    saturday-items-to-receive: 6\n    sunday-items-to-receive: 5\n    # monthly\n    monthly-items-to-receive: 5\n# TimeMode\nTimeMode:\n  years: \"{YEAR} year(s)\"\n  months: \"{MONTH} month(s)\"\n  days: \"{DAY} day(s)\"\n  hours: \"{HOUR} hour(s)\"\n  minutes: \"{MINUTE} minute(s)\"\n  seconds: \"{SECOND} second(s)\"\n# Change the name of day\nDays:\n  monday: Monday\n  tuesday: Tuesday\n  wednesday: Wednesday\n  thursday: Thursday\n  friday: Friday\n  saturday: Saturday\n  sunday: Sunday\n```\n\n### 🦴 Item in config.yml\n> Create items from here, this will work if the option: ```custom-inventory``` is set to ```false```.\n```yml\n# Example:\n# weekly-normal-content:\n#  items:\n#    - item: \"id\"\n#        count: 16\n#        name: \"Name for the item\"\n#        lore:\n#          - \"Lore for the item\"\n#          - \"fernanACM\"\n#        enchantments:\n#          - \"enchantment:level\"\n\nweekly-normal-content:\n  items:\n    - item: \"1:0\"\n      count: 16\n      name: \"&r&cA stone!\"\n      lore: []\n      enchantments:\n      - \"protection:3\"\n    - item: \"wood\"\n      count: 1\n      name: \"&r&eA plank of wood\"\n      lore: []\n      enchantments: []\n```\n\n### 🕹 Commands\n| Command | Description |\n|---------|-------------|\n| ```/betterrewards``` | Open the main menu |\n| ```/betterrewards diary``` | Open daily rewards menu |\n| ```/betterrewards monthly``` | Open monthly rewards menu |\n| ```/betterrewards edit``` | Open inventory editing menu |\n| ```/betterrewards count``` | Count inventory items |\n\n### 🔒 Permissions\n| Permission | Description |\n|---------|-------------|\n| ```betterrewards.cmd.acm:``` | Executing the command |\n| ```betterrewards.diary.acm``` | Diary |\n| ```betterrewards.monthly.acm``` | Monthly |\n| ```betterrewards.edit.acm``` | Edit |\n\n### 🌐 MultiLanguage\n| Language | Translated by |\n|----------|---------------|\n| English | [fernanACM](https://github.com/fernanACM) |\n| Spanish | [fernanACM](https://github.com/fernanACM) |\n| Indonesian | BetterRewards |\n| German | [GamerMJay](https://github.com/GamerMJay) |\n| French | BetterRewards |\n| Portuguese | BetterRewards |\n| Vietnamese | [NhanAZ](https://github.com/NhanAZ) |\n\n### 📢 Report bug\n* If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/BetterRewards/issues)\n\n### 📞 Contact \n| Redes | Tag | Link |\n|-------|-------------|------|\n| YouTube | fernanACM | [YouTube](https://www.youtube.com/channel/UC-M5iTrCItYQBg5GMuX5ySw) | \n| Discord | fernanACM#5078 | [Discord](https://discord.gg/YyE9XFckqb) |\n| GitHub | fernanACM | [GitHub](https://github.com/fernanACM)\n| Poggit | fernanACM | [Poggit](https://poggit.pmmp.io/ci/fernanACM)\n\n### ✔ Credits\n| Authors | Github | Lib |\n|---------|--------|-----|\n| Vecnavium | [Vecnavium](https://github.com/Vecnavium) | [FormsUI](https://github.com/Vecnavium/FormsUI/tree/master/) |\n| CortexPE | [CortexPE](https://github.com/CortexPE) | [Commando](https://github.com/CortexPE/Commando/tree/master/) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [SimplePacketHandler](https://github.com/Muqsit/SimplePacketHandler) |\n| Muqsit | [Muqsit](https://github.com/Muqsit) | [InvMenu](https://github.com/Muqsit/InvMenu) |\n| DaPigGuy | [DaPigGuy](https://github.com/DaPigGuy) | [libPiggyUpdateChecker](https://github.com/DaPigGuy/libPiggyUpdateChecker) |\n| Poggit | [Poggit](https://github.com/poggit) | [libasynql](https://github.com/poggit/libasynql) |\n| [jacob3105](https://github.com/jacob3105) | Thanks for your help in the libasynql implementation | |",
+  "readme_source_url": "https://github.com/fernanACM/BetterRewards",
+  "icon_url": "https://raw.githubusercontent.com/fernanACM/BetterRewards/5b507523ae26e33712ef40f21d26de7b9eb8672c/icon-btrewards.png",
+  "featured": false,
+  "repo": "https://github.com/fernanACM/BetterRewards",
+  "archive_repo": null,
+  "approved_release_tag": "r-14240",
+  "stars": 0,
+  "total_downloads": 127,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.36.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "fernanACM"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/260444",
+  "versions": {
+    "stable": {
+      "version": "2.0.1",
+      "tag": "r-14240",
+      "published_at": null,
+      "downloads": 127,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14240/betterrewards-2.0.1-r14240.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14240",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14240/betterrewards-2.0.1-r14240.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "BetterRewards",
+    "stable_release_id": 14240
+  }
+}

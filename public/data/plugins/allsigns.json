@@ -1,0 +1,61 @@
+{
+  "id": "allsigns",
+  "name": "AllSigns",
+  "author": "survanetwork",
+  "description": "Turn signs into World Teleport and Command Signs",
+  "readme_markdown": "<p align=\"center\">\n    <img src=\".github/.media/logo.png\" width=\"144\" height=\"144\" alt=\"AllSigns plugin logo\">\n</p>\n\n<h1 align=\"center\">AllSigns</h1>\n<p align=\"center\">Turn signs into World Teleport and Command Signs</p>\n\n<br>\n\n<p align=\"center\">\n    <a href=\"https://poggit.pmmp.io/p/AllSigns\">\n        <img src=\"https://poggit.pmmp.io/shield.state/AllSigns\" alt=\"Plugin version\">\n    </a>\n    <a href=\"https://github.com/pmmp/PocketMine-MP\">\n        <img src=\"https://poggit.pmmp.io/shield.api/AllSigns\" alt=\"PocketMine-MP API version\">\n    </a>\n    <a href=\"https://poggit.pmmp.io/p/AllSigns\">\n        <img src=\"https://poggit.pmmp.io/shield.dl.total/AllSigns\" alt=\"Downloads on Poggit\">\n    </a>\n    <a href=\"https://github.com/survanetwork/AllSigns/blob/master/LICENSE\">\n        <img src=\"https://img.shields.io/github/license/survanetwork/AllSigns.svg\" alt=\"License\">\n    </a>\n    <a href=\"https://discord.gg/t4Kg4j3829\">\n        <img src=\"https://img.shields.io/discord/685532530451283997?color=blueviolet\" alt=\"Discord\">\n    </a>\n    <a href=\"https://dev.surva.net/plugins/\">\n        <img src=\"https://img.shields.io/badge/website-visit-ee8031\" alt=\"Website\">\n    </a>\n</p>\n\n##\n\n<p align=\"center\">\n    <a href=\"https://dev.surva.net/plugins/#allsigns\">\n        <img src=\"https://static.surva.net/osplugins/assets/dl-buttons/allsigns.png\" width=\"220\" height=\"auto\" alt=\"Download AllSigns plugin release\">\n        <img src=\"https://static.surva.net/osplugins/assets/feature-banners/allsigns.png\" width=\"650\" height=\"auto\" alt=\"AllSigns plugin features\">\n    </a>\n</p>\n\n[Description](#-description) | [Features](#-features) | [Usage](#-usage)\n| [Command Signs](#%EF%B8%8F-command-signs) | [Teleport Signs](#-teleport-signs) | [Contribution](#-contribution)\n| [License](#%EF%B8%8F-license)\n\n## 📙 Description\nWith AllSigns, you can easily create signs which are executing commands or teleporting players into another world/to coordinates when they tap on them.\nIt provides an easy-to-use GUI to create the signs.\n\n## 🎁 Features\n- **COMMAND SIGNS** Signs executing commands when players tap them\n- **TELEPORT SIGNS** Signs teleporting players in a specific world/coordinates when they tap them\n- **USABILITY** Easy to use with in-game form windows, no need to use commands or edit config files\n\n## 🖱 Usage\nPlease see the [full documentation 📖](https://plugin-docs.surva.net/allsigns) for a detailed description of all features.\n\nTo create a new AllSign, place a sign and write `#as` into the first line. A form wizard will open where you can configure all settings for the sign.\n\n![Create new sign form](https://static.surva.net/osplugins/allsigns/create-new-sign.png)\n\n### ⌨️ Command Signs\nTo create a command sign which executes a specific command when a player touches it, just create a sign like described above.\n\n![Command sign settings form](https://static.surva.net/osplugins/allsigns/command-sign.png)\n\n### 🌎 Teleport Signs\nTo create a world sign which teleports a player to a specific world or coordinates, create a sign like described above.\n\n![Teleport sign settings form](https://static.surva.net/osplugins/allsigns/teleport-sign.png)\n\nTo edit a sign, touch it with a golden pickaxe. If you want to remove a sign, just break it.\n\n[Read the full documentation 📖](https://plugin-docs.surva.net/allsigns) • [Ask questions on Discord 💬](https://discord.gg/t4Kg4j3829)\n\n## 🙋‍ Contribution\nFeel free to contribute if you have ideas or found an issue.\n\nYou can:\n- [open an issue](https://github.com/survanetwork/AllSigns/issues) (problems, bugs or feature requests)\n- [create a pull request](https://github.com/survanetwork/AllSigns/pulls) (code contributions like fixed bugs or added features)\n- [help translating the plugin](https://www.transifex.com/surva/allsigns) (help us to translate this plugin into your language on Transifex platform)\n\nPlease read our **[Contribution Guidelines](CONTRIBUTING.md)** before creating an issue or submitting a pull request.\n\nMany thanks for their support to all contributors!\n\n## 👨‍⚖️ License\n[MIT](https://github.com/survanetwork/AllSigns/blob/master/LICENSE)",
+  "readme_source_url": "https://github.com/survanetwork/AllSigns",
+  "icon_url": "https://raw.githubusercontent.com/survanetwork/AllSigns/1504e144fe909ad41e034cce6339d8778d83de39/icon.png",
+  "featured": false,
+  "repo": "https://github.com/survanetwork/AllSigns",
+  "archive_repo": null,
+  "approved_release_tag": "r-14298",
+  "stars": 0,
+  "total_downloads": 107,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "survanetwork"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/261843",
+  "versions": {
+    "stable": {
+      "version": "2.0.8",
+      "tag": "r-14298",
+      "published_at": null,
+      "downloads": 107,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14298/allsigns-2.0.8-r14298.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14298",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14298/allsigns-2.0.8-r14298.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "AllSigns",
+    "stable_release_id": 14298
+  }
+}

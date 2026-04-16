@@ -1,0 +1,61 @@
+{
+  "id": "newalias",
+  "name": "_NewAlias",
+  "author": "JavierLeon9966",
+  "description": "Detects players possible alternatives accounts",
+  "readme_markdown": "# Alias\nDetects players possible alternatives accounts\n\n## Overview\nThis plugin stores players `Address`, `ClientRandomId`, `DeviceId`, `SelfSignedId`, and `XUID`.\nWhich will detect players accurately and hard for hackers to ban evade.\n\nAlso it has a command and alert system to staff members.\n\n## Configuration\nIn the configuration you can modify the `mode`, `data` and `alert`.\n\nHere's a example of the default configuration:\n```yaml\nalert: false #Everyone that has alias.alerts permission\nban: 'You are banned' #Ban message\nmode: none #Options: none, ban\ndata: ['Address', 'ClientRandomId', 'DeviceId', 'SelfSignedId', 'XUID'] #Check for matching data in which will alert the staff members or ban the player\n# Data that can be saved from a detected player, usually you would want to save the data that can't be spoofed, so it doesn't ban\n# innocent players, but you may also want to save legit players that attempt to ban evade.\nsave: ['Address', 'XUID']\n```\n\n## Command\n`/alias <name: target>`\n\nOnly users with `alias.command.alias` permission can execute this command.\n\nReturns a list of possible players matching `IP`, `ClientRandomId`, `DeviceId`, `SelfSignedId`, and `XUID`.\n\n## API\nYou can use this plugin API by the following:\n```php\nuse JavierLeon9966\\Alias\\Alias;\nuse SOFe\\AwaitGenerator\\Await;\n\nAwait::f2c(function() use($player){\n    $database = yield from Alias::getDatabase();\n    $players = yield from $database->getPlayersMatchingAddressesFrom($player->getName());\n    //Do something with the players whose adresses match the given player's name\n});\n```\n\n## Database\nIn the data folder of this plugin there is a file called `players.sqlite` which there's stored all the players that have logged into the server.",
+  "readme_source_url": "https://github.com/JavierLeon9966/Alias",
+  "icon_url": "https://raw.githubusercontent.com/JavierLeon9966/Alias/038ae2e25767059c550327f07a1fc6011b865465/icon.png",
+  "featured": false,
+  "repo": "https://github.com/JavierLeon9966/Alias",
+  "archive_repo": null,
+  "approved_release_tag": "r-14117",
+  "stars": 0,
+  "total_downloads": 145,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "JavierLeon9966"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/257735",
+  "versions": {
+    "stable": {
+      "version": "2.0.0",
+      "tag": "r-14117",
+      "published_at": null,
+      "downloads": 145,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14117/_newalias-2.0.0-r14117.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14117",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14117/_newalias-2.0.0-r14117.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "_NewAlias",
+    "stable_release_id": 14117
+  }
+}

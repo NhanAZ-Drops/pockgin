@@ -11,7 +11,7 @@
   "archive_repo": null,
   "approved_release_tag": "r-14394",
   "stars": 5,
-  "total_downloads": 67,
+  "total_downloads": 238,
   "last_commit_at": null,
   "last_updated_at": null,
   "license": null,
@@ -37,7 +37,7 @@
       "version": "0.3.8",
       "tag": "r-14394",
       "published_at": null,
-      "downloads": 67,
+      "downloads": 68,
       "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14394/topstats-0.3.8-r14394.phar"
     },
     "dev": null
@@ -47,6 +47,16 @@
       "tag": "r-14394",
       "published_at": null,
       "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14394/topstats-0.3.8-r14394.phar"
+    },
+    {
+      "tag": "r-14293",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14293/topstats-0.3.7-r14293.phar"
+    },
+    {
+      "tag": "r-14280",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14280/topstats-0.3.6-r14280.phar"
     }
   ],
   "comments": {

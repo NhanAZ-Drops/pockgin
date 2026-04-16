@@ -1,0 +1,63 @@
+{
+  "id": "zfactions",
+  "name": "zFactions",
+  "author": "zPluginsTeam",
+  "description": "🛡 zPlugins Factions — Advanced Factions System for PocketMine-MP",
+  "readme_markdown": "# 🛡 zPlugins Factions — Advanced Factions System for PocketMine-MP\n\n> **A fully-featured factions plugin for PocketMine-MP 5.x**, built for performance and simplicity  \n> by **zPluginsTeam**\n\n---\n\n## ⚔️ Features\n\n- 🏘 **Faction Creation & Management**\n- 🤝 **Invites, Promotions, Demotions**\n- 💬 **Faction & Ally Chat Systems**\n- 🌍 **Territory Claiming, Overclaiming & Unclaiming**\n- 🏡 **Faction Home & Set Home**\n- 🏦 **Faction Bank System (Deposit & Withdraw)**\n- 🗺 **Territory Map Viewer**\n- 🛡 **Alliances, Enemies, and Diplomacy**\n- ✏️ **Faction Description & Renaming Support**\n\n---\n\n## 📦 Requirements\n\n- [x] PocketMine-MP 5.0.0+\n- [x] [BedrockEconomy](https://poggit.pmmp.io/p/BedrockEconomy) (required for economy features)\n\n---\n\n## 📥 Installation\n\n1. Download the `zFactions.phar`\n2. Place it in your `plugins/` folder\n3. Restart your server\n4. Configure settings in `config.yml` if available\n5. Done!\n\n---\n\n## 🧾 Commands\n\n| Command | Description |\n|--------|-------------|\n| `/f create <name>` | Create a new faction |\n| `/f invite <player>` | Invite a player to your faction |\n| `/f accept <faction>` | Accept a faction invite |\n| `/f deny <faction>` | Deny a faction invite |\n| `/f promote <player>` | Promote a faction member |\n| `/f demote <player>` | Demote a faction member |\n| `/f rename <name>` | Rename your faction |\n| `/f description <text>` | Set a new description for your faction |\n| `/f leave` | Leave your current faction |\n| `/f claim` | Claim the current chunk |\n| `/f overclaim` | Overclaim territory from another faction |\n| `/f unclaim` | Unclaim the current chunk |\n| `/f unclaimall` | Unclaim all your faction’s territory |\n| `/f home` | Teleport to faction home |\n| `/f sethome` | Set your faction home |\n| `/f bank` | View the faction bank balance |\n| `/f deposit <amount>` | Deposit money into your faction’s bank |\n| `/f withdraw <amount>` | Withdraw money from your faction’s bank |\n| `/f chat` | Toggle faction-only chat |\n| `/f allychat` | Toggle chat with allies |\n| `/f fly` | Toggle faction flight mode |\n| `/f info [faction]` | View info about a faction |\n| `/f map` | View the faction territory map |\n| `/f ally <faction>` | Request alliance with another faction |\n| `/f acceptally <faction>` | Accept an alliance request |\n| `/f denyally <faction>` | Deny an alliance request |\n| `/f enemy <faction>` | Declare another faction as an enemy |\n| `/f help` | View the help message |\n\n---\n\n## 📜 Permissions (Optional)\n\n| Permission | Description | Default |\n|------------|-------------|---------|\n| `zfactions.command` | Use basic faction commands | `true` |\n| `zfactions.admin` | Admin-only controls and overrides | `op` |\n| `zfactions.fly` | Allows flying in your faction claim | `true` |\n| `zfactions.overclaim` | Allows overclaiming faction claims | `true` |",
+  "readme_source_url": "https://github.com/zPluginsTeam/zFactions",
+  "icon_url": "https://raw.githubusercontent.com/zPluginsTeam/zFactions/c8205f1edbd8377b57576392345d43a24dc80a44/icon.png",
+  "featured": false,
+  "repo": "https://github.com/zPluginsTeam/zFactions",
+  "archive_repo": null,
+  "approved_release_tag": "r-14274",
+  "stars": 5,
+  "total_downloads": 218,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": [
+      "BedrockEconomy"
+    ]
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "zPluginsTeam"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14274",
+      "published_at": null,
+      "downloads": 218,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14274/zfactions-1.0.0-r14274.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14274",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14274/zfactions-1.0.0-r14274.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "zFactions",
+    "stable_release_id": 14274
+  }
+}

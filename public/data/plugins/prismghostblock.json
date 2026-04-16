@@ -1,0 +1,63 @@
+{
+  "id": "prismghostblock",
+  "name": "PrismGhostBlock",
+  "author": "PrismStudioMC",
+  "description": "Prism Studio - Ghost Block",
+  "readme_markdown": "# Prism Studio - Ghost Block\nA PocketMine-MP plugin that adds ghost and invisible blocks to your server, perfect for creating visual illusions and secret constructions.\n\n## Features\n\n- **Ghost Block**: A transparent block that automatically displays the adjacent block, creating stunning visual illusions\n- **Invisible Block**: A completely transparent block with collision, ideal for hidden mechanisms and secret builds\n- **Custom Resource Pack**: Includes textures and models for both block types\n- **Performance Optimized**: Uses AsyncIterator for better performance when available\n\n## Requirements\n\n- PocketMine-MP 5.0.0 or higher\n- **Customies** plugin (required dependency)\n- **AsyncIterator** virion (soft dependency - recommended for better performance)\n\n## Installation\n\n1. Download the plugin files\n2. Place the plugin folder in your `plugins/` directory\n3. Install **Customies** plugin (required)\n4. Install **AsyncIterator** virion (recommended)\n5. Restart your server\n\n## Usage\n\n### Ghost Block\n- Place a ghost block next to any other block\n- The ghost block will automatically display the texture of the adjacent block\n- Perfect for creating floating block effects and visual illusions\n\n### Invisible Block\n- Place invisible blocks where you want hidden collision\n- Players can walk through them but they provide solid collision\n- Ideal for secret passages and hidden mechanisms\n\n## Configuration\nNo configuration file is needed. The plugin works out of the box with default settings.\n\n## Dependencies\n\n- **Customies**: Required for custom block registration\n- **AsyncIterator**: Soft dependency for performance optimization\n\n## License\nThis project is licensed under the [GNU General Public License v3.0](LICENSE) – see the LICENSE file for details.",
+  "readme_source_url": "https://github.com/PrismStudioMC/PrismGhostBlock",
+  "icon_url": "https://raw.githubusercontent.com/PrismStudioMC/PrismGhostBlock/3e0e03d476b4596e18e70be880775365901ba500/icon.png",
+  "featured": false,
+  "repo": "https://github.com/PrismStudioMC/PrismGhostBlock",
+  "archive_repo": null,
+  "approved_release_tag": "r-14176",
+  "stars": 0,
+  "total_downloads": 51,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [
+      "Customies"
+    ],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "PrismStudioMC"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14176",
+      "published_at": null,
+      "downloads": 51,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14176/prismghostblock-1.0.0-r14176.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14176",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14176/prismghostblock-1.0.0-r14176.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "PrismGhostBlock",
+    "stable_release_id": 14176
+  }
+}
