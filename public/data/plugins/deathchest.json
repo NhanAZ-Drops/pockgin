@@ -2,7 +2,7 @@
   "id": "deathchest",
   "name": "DeathChest",
   "author": "Terpz710",
-  "description": " ",
+  "description": "DeathChest plugin for Pocketmine-MP",
   "readme_markdown": "<p align=\"center\">\n    <a href=\"https://github.com/Terpz710/DeathChest\"><img src=\"https://github.com/Terpz710/DeathChest/blob/main/icon.png\"></img></a><br>\n    <b>DeathChest plugin for Pocketmine-MP</b>\n\n<a href=\"https://poggit.pmmp.io/p/DeathChest\"><img src=\"https://poggit.pmmp.io/shield.state/DeathChest\"></a>\n<a href=\"https://poggit.pmmp.io/p/DeathChest\"><img src=\"https://poggit.pmmp.io/shield.api/DeathChest\"></a>\n\n## Downloads:\n<a href=\"https://poggit.pmmp.io/p/DeathChest\"><img src=\"https://poggit.pmmp.io/shield.dl/DeathChest\"></a>\n\n## Total Downloads:\n<a href=\"https://poggit.pmmp.io/p/DeathChest\"><img src=\"https://poggit.pmmp.io/shield.dl.total/DeathChest\"></a>\n\n# About\n\nA Pocketmine-MP plugin that adds the players items in a chest when they die and when you interact with the death chest it will give you the player items.\n\n# Features\n\n* Lore indicating how many or which items are inside the death chest.\n\n* Configurable messages.",
   "readme_source_url": "https://github.com/Terpz710/DeathChest",
   "icon_url": "https://raw.githubusercontent.com/Terpz710/DeathChest/6b839e1fcd25e8063c15c521b8714cab2e114596/icon.png",

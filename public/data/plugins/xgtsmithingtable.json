@@ -2,7 +2,7 @@
   "id": "xgtsmithingtable",
   "name": "XGTSmithingTable",
   "author": "XGDavid",
-  "description": "XGTSmithingTable",
+  "description": "A PocketMine-MP plugin that implements the Smithing Table functionality",
   "readme_markdown": "# XGTSmithingTable\n\n[![YouTube Video Views](https://img.shields.io/youtube/views/XfUYBb2InlI?style=social&link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXfUYBb2InlI)](https://www.youtube.com/watch?v=XfUYBb2InlI)\n\n[![Discord](https://img.shields.io/discord/689211475537297411?logo=discord)](https://discord.gg/h8uTKFh)\n\n[![](https://poggit.pmmp.io/shield.dl.total/XGTSmithingTable)](https://poggit.pmmp.io/p/XGTSmithingTable)\n\n[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/XGDavid)\n\nA PocketMine-MP plugin that implements the Smithing Table functionality\n\n## Credits\n\n- Implementation inspired by [pmmp/PocketMine-MP#6202](https://github.com/pmmp/PocketMine-MP/pull/6202)\n- bStats integration based on [BlckqPlugins/bStats-PMMP](https://github.com/BlckqPlugins/bStats-PMMP) (modified)\n\n## Issues\n\nFound a bug or have a suggestion? Open an issue on [GitHub Issues](https://github.com/xgdavid/XGTSmithingTable/issues).",
   "readme_source_url": "https://github.com/XGDavid/XGTSmithingTable",
   "icon_url": "https://raw.githubusercontent.com/XGDavid/XGTSmithingTable/5af931e26bdc34becdbda26973f6a5051cf98c40/logo.png",
