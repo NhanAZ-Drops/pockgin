@@ -1,5 +1,5 @@
 {
-  "last_updated_at": "2026-04-16T07:04:46.576Z",
+  "last_updated_at": "2026-04-16T13:17:00.193Z",
   "moderators": [
     {
       "username": "NhanAZ",
@@ -10,304 +10,52 @@
   ],
   "top_authors_by_plugins": [
     {
-      "username": "fernanACM",
-      "display_name": "fernanACM",
-      "avatar_url": "https://avatars.githubusercontent.com/fernanACM?s=64",
-      "plugin_count": 10,
-      "plugins": [
-        {
-          "id": "betteritemid",
-          "name": "BetterItemID"
-        },
-        {
-          "id": "betterrewards",
-          "name": "BetterRewards"
-        },
-        {
-          "id": "broadcastacm",
-          "name": "BroadcastACM"
-        },
-        {
-          "id": "eastereggs",
-          "name": "EasterEggs"
-        },
-        {
-          "id": "enderchest",
-          "name": "EnderChest"
-        },
-        {
-          "id": "giveall",
-          "name": "GiveAll"
-        },
-        {
-          "id": "joinacm",
-          "name": "JoinACM"
-        },
-        {
-          "id": "magicchest",
-          "name": "MagicChest"
-        },
-        {
-          "id": "repairui",
-          "name": "RepairUI"
-        },
-        {
-          "id": "sizeui",
-          "name": "SizeUI"
-        }
-      ]
-    },
-    {
-      "username": "survanetwork",
-      "display_name": "survanetwork",
-      "avatar_url": "https://avatars.githubusercontent.com/survanetwork?s=64",
-      "plugin_count": 5,
-      "plugins": [
-        {
-          "id": "allsigns",
-          "name": "AllSigns"
-        },
-        {
-          "id": "badwordblocker",
-          "name": "BadWordBlocker"
-        },
-        {
-          "id": "fancygenerators",
-          "name": "FancyGenerators"
-        },
-        {
-          "id": "hotblock",
-          "name": "HotBlock"
-        },
-        {
-          "id": "worlds",
-          "name": "Worlds"
-        }
-      ]
-    },
-    {
-      "username": "AIPTU",
-      "display_name": "AIPTU",
-      "avatar_url": "https://avatars.githubusercontent.com/AIPTU?s=64",
+      "username": "NhanAZ-Plugins",
+      "display_name": "NhanAZ-Plugins",
+      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
       "plugin_count": 3,
       "plugins": [
         {
-          "id": "playercollide",
-          "name": "PlayerCollide"
+          "id": "anti-poggit-staff",
+          "name": "AntiPoggitStaff"
         },
         {
-          "id": "playerwarn",
-          "name": "PlayerWarn"
+          "id": "simpleeconomy",
+          "name": "SimpleEconomy"
         },
         {
-          "id": "smaccer",
-          "name": "Smaccer"
+          "id": "uncensor",
+          "name": "Uncensor"
         }
       ]
     },
     {
-      "username": "Artsakhskiyy",
-      "display_name": "Artsakhskiyy",
-      "avatar_url": "https://avatars.githubusercontent.com/Artsakhskiyy?s=64",
-      "plugin_count": 3,
+      "username": "pockgin",
+      "display_name": "YourName",
+      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
+      "plugin_count": 1,
       "plugins": [
         {
-          "id": "commandcooldown",
-          "name": "CommandCooldown"
-        },
-        {
-          "id": "magmadamage",
-          "name": "MagmaDamage"
-        },
-        {
-          "id": "servercleaner",
-          "name": "ServerCleaner"
-        }
-      ]
-    },
-    {
-      "username": "BlockHorizons",
-      "display_name": "BlockHorizons",
-      "avatar_url": "https://avatars.githubusercontent.com/BlockHorizons?s=64",
-      "plugin_count": 3,
-      "plugins": [
-        {
-          "id": "blockpets",
-          "name": "BlockPets"
-        },
-        {
-          "id": "invsee",
-          "name": "InvSee"
-        },
-        {
-          "id": "perworldinventory",
-          "name": "PerWorldInventory"
-        }
-      ]
-    },
-    {
-      "username": "HBIDamian",
-      "display_name": "HBIDamian",
-      "avatar_url": "https://avatars.githubusercontent.com/HBIDamian?s=64",
-      "plugin_count": 3,
-      "plugins": [
-        {
-          "id": "motdshuffle",
-          "name": "MOTDShuffle"
-        },
-        {
-          "id": "pausescreenping",
-          "name": "PauseScreenPing"
-        },
-        {
-          "id": "wsrcon",
-          "name": "wsRCON"
-        }
-      ]
-    },
-    {
-      "username": "NetherByte233",
-      "display_name": "NetherByte233",
-      "avatar_url": "https://avatars.githubusercontent.com/NetherByte233?s=64",
-      "plugin_count": 3,
-      "plugins": [
-        {
-          "id": "customgui",
-          "name": "Customgui"
-        },
-        {
-          "id": "nethermenus",
-          "name": "NetherMenus"
-        },
-        {
-          "id": "netherperms",
-          "name": "NetherPerms"
-        }
-      ]
-    },
-    {
-      "username": "TrixNEW",
-      "display_name": "TrixNEW",
-      "avatar_url": "https://avatars.githubusercontent.com/TrixNEW?s=64",
-      "plugin_count": 3,
-      "plugins": [
-        {
-          "id": "lootprotection",
-          "name": "LootProtection"
-        },
-        {
-          "id": "pearlmotion",
-          "name": "PearlMotion"
-        },
-        {
-          "id": "recon",
-          "name": "Recon"
-        }
-      ]
-    },
-    {
-      "username": "GabBiswajit",
-      "display_name": "GabBiswajit",
-      "avatar_url": "https://avatars.githubusercontent.com/GabBiswajit?s=64",
-      "plugin_count": 2,
-      "plugins": [
-        {
-          "id": "banknote",
-          "name": "BankNote"
-        },
-        {
-          "id": "lifesteal",
-          "name": "Lifesteal"
-        }
-      ]
-    },
-    {
-      "username": "gamegam",
-      "display_name": "gamegam",
-      "avatar_url": "https://avatars.githubusercontent.com/gamegam?s=64",
-      "plugin_count": 2,
-      "plugins": [
-        {
-          "id": "phpmailer",
-          "name": "PHPMailer"
-        },
-        {
-          "id": "worldguardplugin",
-          "name": "WorldGuardPlugin"
+          "id": "example",
+          "name": "Example Plugin"
         }
       ]
     }
   ],
   "top_authors_by_downloads": [
     {
-      "username": "CzechPMDevs",
-      "display_name": "CzechPMDevs",
-      "avatar_url": "https://avatars.githubusercontent.com/CzechPMDevs?s=64",
-      "total_downloads": 1681,
-      "plugin_count": 1
-    },
-    {
-      "username": "fernanACM",
-      "display_name": "fernanACM",
-      "avatar_url": "https://avatars.githubusercontent.com/fernanACM?s=64",
-      "total_downloads": 1301,
-      "plugin_count": 10
-    },
-    {
-      "username": "BlockHorizons",
-      "display_name": "BlockHorizons",
-      "avatar_url": "https://avatars.githubusercontent.com/BlockHorizons?s=64",
-      "total_downloads": 907,
+      "username": "NhanAZ-Plugins",
+      "display_name": "NhanAZ-Plugins",
+      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
+      "total_downloads": 2,
       "plugin_count": 3
     },
     {
-      "username": "ClousClouds",
-      "display_name": "ClousClouds",
-      "avatar_url": "https://avatars.githubusercontent.com/ClousClouds?s=64",
-      "total_downloads": 786,
+      "username": "pockgin",
+      "display_name": "YourName",
+      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
+      "total_downloads": 2,
       "plugin_count": 1
-    },
-    {
-      "username": "survanetwork",
-      "display_name": "survanetwork",
-      "avatar_url": "https://avatars.githubusercontent.com/survanetwork?s=64",
-      "total_downloads": 762,
-      "plugin_count": 5
-    },
-    {
-      "username": "gamegam",
-      "display_name": "gamegam",
-      "avatar_url": "https://avatars.githubusercontent.com/gamegam?s=64",
-      "total_downloads": 630,
-      "plugin_count": 2
-    },
-    {
-      "username": "GabBiswajit",
-      "display_name": "GabBiswajit",
-      "avatar_url": "https://avatars.githubusercontent.com/GabBiswajit?s=64",
-      "total_downloads": 576,
-      "plugin_count": 2
-    },
-    {
-      "username": "AIPTU",
-      "display_name": "AIPTU",
-      "avatar_url": "https://avatars.githubusercontent.com/AIPTU?s=64",
-      "total_downloads": 575,
-      "plugin_count": 3
-    },
-    {
-      "username": "IvanCraft623",
-      "display_name": "IvanCraft623",
-      "avatar_url": "https://avatars.githubusercontent.com/IvanCraft623?s=64",
-      "total_downloads": 545,
-      "plugin_count": 1
-    },
-    {
-      "username": "NetherByte233",
-      "display_name": "NetherByte233",
-      "avatar_url": "https://avatars.githubusercontent.com/NetherByte233?s=64",
-      "total_downloads": 441,
-      "plugin_count": 3
     }
   ],
   "top_contributors": [
