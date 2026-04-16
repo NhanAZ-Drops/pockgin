@@ -1,0 +1,61 @@
+{
+  "id": "superiorveinminer",
+  "name": "SuperiorVeinMiner",
+  "author": "Not-Baguette",
+  "description": " 📦 SuperiorVeinMiner - A fork of DeluxeVeinMiner ",
+  "readme_markdown": "<h1 align=\"center\">📦 SuperiorVeinMiner - A fork of DeluxeVeinMiner</h1>\n<p align=\"center\">SuperiorVeinMiner allows players to mine entire veins of minerals or connected blocks by simply breaking a single one.</p>\n\n---\n\n## 🌟 Features\n\n- Automatically mines all connected ores of the same type.\n- Compatible with enchantments like **Fortune** and **Unbreaking**.\n- Applies durability loss correctly and respects tool compatibility.\n- Drops all ores at the first block broken.\n- Ignores world and block blacklists.\n- Fast, recursive vein-mining logic with a configurable block limit (default: 64).\n- Easy configuration and live command-based control.\n- Java-like vein-mining experience for PocketMine-MP servers.\n\n---\n\n## 📜 Commands\n\n| Command                                     | Description                                    | Permission                                |\n| ------------------------------------------- | ---------------------------------------------- | ----------------------------------------- |\n| `/deluxeveinminer addblock <block>`         | Add a block to the block blacklist            | `deluxeveinminer.command.add.block`       |\n| `/deluxeveinminer removeblock <block>`      | Remove a block from the block blacklist       | `deluxeveinminer.command.remove.block`    |\n| `/deluxeveinminer addwhitelist <block>`     | Add a block to the whitelist                  | `deluxeveinminer.command.add.whitelist`   |\n| `/deluxeveinminer removewhitelist <block>`  | Remove a block from the whitelist             | `deluxeveinminer.command.remove.whitelist`|\n| `/deluxeveinminer addworld <world>`         | Add a world to the world blacklist            | `deluxeveinminer.command.add.world`       |\n| `/deluxeveinminer removeworld <world>`      | Remove a world from the world blacklist       | `deluxeveinminer.command.remove.world`    |\n| `/deluxeveinminer setmaxblocks <number>`    | Set maximum blocks per vein (1-1000)          | `deluxeveinminer.command.setmaxblocks`    |\n| `/deluxeveinminer toggle <option>`          | Toggle features (shift-disable, require-tool) | `deluxeveinminer.command.toggle`          |\n| `/deluxeveinminer status`                   | Show current plugin configuration             | `deluxeveinminer.command.status`          |\n| `/deluxeveinminer reload`                   | Reload the plugin configuration               | `deluxeveinminer.command.reload`          |\n| `/deluxeveinminer help`                     | Show all available commands                   | `deluxeveinminer.command.help`            |\n\n---\n\n## 🧱 Supported Software\n\n> ✅ This plugin is only compatible with **PocketMine-MP**  \n> ❌ It will NOT work on Nukkit, Altay, or other forks\n\n---\n\n## 📥 Installation\n\n1. 📦 [Download SuperiorVeinMiner](https://github.com/Not-Baguette/DeluxeVeinMiner/releases/latest) from Poggit\n2. 📁 Place the `.phar` files inside your `/plugins/` directory\n3. 🔁 Restart your server\n\n---\n\n## ⚙️ Todo\n- [x] Commands for whitelist management\n- [ ] config.yml backwards compatibility\n- [x] Shift to stop veinmining temporarily\n- [x] Disable veinmining with barehands\n\n---\n\n## 📖 License\n\nLicensed under the [MIT License](https://github.com/FrostCheatMC/DeluxeVeinMiner/blob/master/LICENSE)\nYou are free to fork, contribute, or suggest changes.\n\n---\n\n## ☕ Support & Donate\n\nIf you would like to give your thanks:\n\n> 💖 [Donate via PayPal](https://paypal.me/notnotbagu)\n\nAny support is greatly appreciated! Also shout out to the original creator [FrostCheat](https://github.com/FrostCheat/DeluxeVeinMiner)!\n\n---\n\n<p align=\"center\"><b>Made with 💙 by FrostCheatMC | Forked by 🥖 Baguette</b></p>",
+  "readme_source_url": "https://github.com/Not-Baguette/SuperiorVeinMiner",
+  "icon_url": "https://raw.githubusercontent.com/Not-Baguette/SuperiorVeinMiner/dd9f089de35866e29fadce370c759e428d7789e5/icon.png",
+  "featured": false,
+  "repo": "https://github.com/Not-Baguette/SuperiorVeinMiner",
+  "archive_repo": null,
+  "approved_release_tag": "r-14364",
+  "stars": 0,
+  "total_downloads": 73,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.3.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "Not-Baguette"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.1.2",
+      "tag": "r-14364",
+      "published_at": null,
+      "downloads": 73,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14364/superiorveinminer-1.1.2-r14364.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14364",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14364/superiorveinminer-1.1.2-r14364.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "SuperiorVeinMiner",
+    "stable_release_id": 14364
+  }
+}
