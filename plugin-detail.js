@@ -500,9 +500,29 @@
     }
 
     text = kept.join("\n")
+      .replace(/<a\b([^>]*)>\s*(<img\b[^>]*>)\s*<\/a>/gi, function (_, anchorAttrs, imgTag) {
+        var hrefMatch = anchorAttrs.match(/\bhref\s*=\s*["']([^"']+)["']/i);
+        var srcMatch = imgTag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
+        var altMatch = imgTag.match(/\balt\s*=\s*["']([^"']*)["']/i);
+        if (!srcMatch) return "";
+        var href = hrefMatch ? hrefMatch[1] : "";
+        var src = srcMatch[1];
+        var alt = altMatch ? altMatch[1] : "";
+        if (href) return "[![" + alt + "](" + src + ")]" + "(" + href + ")";
+        return "![" + alt + "](" + src + ")";
+      })
+      .replace(/<a\b([^>]*)>\s*([\s\S]*?)\s*<\/a>/gi, function (_, anchorAttrs, inner) {
+        var hrefMatch = anchorAttrs.match(/\bhref\s*=\s*["']([^"']+)["']/i);
+        var href = hrefMatch ? hrefMatch[1] : "";
+        var label = String(inner || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+        if (!href) return label;
+        return "[" + (label || href) + "](" + href + ")";
+      })
       .replace(/<br\s*\/?>/gi, "\n")
       .replace(/<\/?div[^>]*>/gi, "")
-      .replace(/<\/?p[^>]*>/gi, "");
+      .replace(/<\/?p[^>]*>/gi, "")
+      .replace(/<a\b[^>]*>/gi, "")
+      .replace(/<\/a>/gi, "");
 
     function resolveRef(id) {
       return refs[String(id || "").toLowerCase().trim()] || "";
