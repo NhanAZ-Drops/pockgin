@@ -1,5 +1,5 @@
 {
-  "last_updated_at": "2026-04-16T02:01:00.385Z",
+  "last_updated_at": "2026-04-16T04:34:38.034Z",
   "moderators": [
     {
       "username": "NhanAZ",
@@ -8,65 +8,17 @@
       "avatar_url": "https://avatars.githubusercontent.com/NhanAZ?s=64"
     }
   ],
-  "top_authors_by_plugins": [
-    {
-      "username": "NhanAZ-Plugins",
-      "display_name": "NhanAZ-Plugins",
-      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
-      "plugin_count": 3,
-      "plugins": [
-        {
-          "id": "anti-poggit-staff",
-          "name": "AntiPoggitStaff"
-        },
-        {
-          "id": "simpleeconomy",
-          "name": "SimpleEconomy"
-        },
-        {
-          "id": "uncensor",
-          "name": "Uncensor"
-        }
-      ]
-    },
-    {
-      "username": "pockgin",
-      "display_name": "YourName",
-      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
-      "plugin_count": 1,
-      "plugins": [
-        {
-          "id": "example",
-          "name": "Example Plugin"
-        }
-      ]
-    }
-  ],
-  "top_authors_by_downloads": [
-    {
-      "username": "NhanAZ-Plugins",
-      "display_name": "NhanAZ-Plugins",
-      "avatar_url": "https://avatars.githubusercontent.com/NhanAZ-Plugins?s=64",
-      "total_downloads": 2,
-      "plugin_count": 3
-    },
-    {
-      "username": "pockgin",
-      "display_name": "YourName",
-      "avatar_url": "https://avatars.githubusercontent.com/pockgin?s=64",
-      "total_downloads": 2,
-      "plugin_count": 1
-    }
-  ],
+  "top_authors_by_plugins": [],
+  "top_authors_by_downloads": [],
   "top_contributors": [
     {
       "username": "NhanAZ",
       "avatar_url": "https://avatars.githubusercontent.com/u/60387689?v=4",
-      "contributions": 86,
+      "contributions": 87,
       "repos": [
         {
           "repo": "pockgin",
-          "contributions": 61
+          "contributions": 62
         },
         {
           "repo": "plugin-template",

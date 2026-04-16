@@ -15,6 +15,15 @@ on:
         required: false
         type: boolean
         default: true
+      sync_hall_of_fame:
+        description: "Recompute Hall of Fame after import"
+        required: false
+        type: boolean
+        default: true
+      pockgin_org:
+        description: "GitHub org for contributor ranking"
+        required: false
+        default: "pockgin"
 
 permissions:
   contents: write
@@ -60,13 +69,45 @@ jobs:
           echo "Imported plugin count:"
           node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('public/data/plugins.json','utf8')); console.log(data.length);"
 
+      - name: Setup Node.js
+        if: ${{ inputs.sync_hall_of_fame }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Install scripts for Hall of Fame
+        if: ${{ inputs.sync_hall_of_fame }}
+        run: |
+          git clone https://github.com/pockgin/scripts.git /tmp/pockgin-scripts
+          cd /tmp/pockgin-scripts && npm install
+
+      - name: Build temporary sync cache from imported plugins
+        if: ${{ inputs.sync_hall_of_fame }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pockgin-scripts/.sync-cache
+          find public/data/plugins -maxdepth 1 -type f -name '*.json' -exec cp {} /tmp/pockgin-scripts/.sync-cache/ \;
+          echo "Prepared sync-cache entries:"
+          ls -1 /tmp/pockgin-scripts/.sync-cache | wc -l
+
+      - name: Sync Hall of Fame
+        if: ${{ inputs.sync_hall_of_fame }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_DATA_DIR: ${{ github.workspace }}/public/data
+          REGISTRY_DIR: ${{ github.workspace }}/registry
+          POCKGIN_ORG: ${{ inputs.pockgin_org || 'pockgin' }}
+        working-directory: /tmp/pockgin-scripts
+        run: node sync-hall-of-fame.js
+        continue-on-error: true
+
       - name: Commit imported data
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add public/data/plugins.json public/data/plugins public/data/stats.json public/data/mirror-index.json public/data/sync-state.json public/data/plugin-id-map.json
+          git add public/data/plugins.json public/data/plugins public/data/stats.json public/data/mirror-index.json public/data/sync-state.json public/data/plugin-id-map.json public/data/hall-of-fame.json
 
           if git diff --cached --quiet; then
             echo "No data changes to commit."
