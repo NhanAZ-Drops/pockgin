@@ -896,6 +896,15 @@ img.image-loading {
   border: 1px solid var(--border-default);
   background: #fff;
 }
+.markdown-inline-badge {
+  display: inline-block;
+  max-height: 28px;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 2px;
+  border: 0;
+  background: transparent;
+}
 .markdown-table-wrap {
   width: 100%;
   overflow-x: auto;

@@ -19,7 +19,8 @@
     try {
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error("Failed to fetch plugins data");
-      allPlugins = await res.json();
+      const rawPlugins = await res.json();
+      allPlugins = rawPlugins.map(normalizePluginForCard);
       applyFilters();
     } catch (err) {
       listEl.innerHTML =
@@ -54,7 +55,7 @@
             '<span class="card-author">' + escapeHtml(p.author || "Unknown") + "</span>" +
           "</div>" +
         "</div>" +
-        '<p class="card-desc">' + escapeHtml(p.description || "") + "</p>" +
+        '<p class="card-desc">' + escapeHtml(p.description || "No description provided.") + "</p>" +
         '<div class="card-meta">' +
           badges +
           '<span class="meta-item">' + iconSvg("tag") + version + "</span>" +
@@ -98,6 +99,90 @@
   }
 
   /* ---- Helpers ---- */
+
+  function normalizePluginForCard(plugin) {
+    var p = plugin || {};
+    var description = pickBestDescription(p);
+    return Object.assign({}, p, {
+      description: description
+    });
+  }
+
+  function pickBestDescription(plugin) {
+    var primary = cleanDescriptionText(plugin && plugin.description, plugin && plugin.name);
+    if (primary) return primary;
+
+    var readmeSummary = summarizeReadme(plugin && plugin.readme_markdown, plugin && plugin.name);
+    if (readmeSummary) return readmeSummary;
+
+    return "";
+  }
+
+  function summarizeReadme(readme, pluginName) {
+    var raw = String(readme || "").replace(/\r\n/g, "\n");
+    if (!raw) return "";
+
+    var lines = raw.split("\n");
+    for (var i = 0; i < lines.length; i += 1) {
+      var cleaned = cleanDescriptionText(lines[i], pluginName);
+      if (!cleaned) continue;
+      if (isLikelyBadgeOrHeading(cleaned, pluginName)) continue;
+      return cleaned;
+    }
+
+    return "";
+  }
+
+  function cleanDescriptionText(input, pluginName) {
+    var text = String(input || "");
+    if (!text.trim()) return "";
+
+    text = text
+      .replace(/!\[[^\]]*\]\((?:[^)(]+|\([^)(]*\))*\)/g, " ")
+      .replace(/\[([^\]]+)\]\((?:[^)(]+|\([^)(]*\))*\)/g, "$1")
+      .replace(/`{1,3}[^`]*`{1,3}/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/https?:\/\/\S+/g, " ")
+      .replace(/^[#>\-*+\s|:]+/g, " ")
+      .replace(/\|/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (!text) return "";
+    if (text.length > 180) text = text.slice(0, 177).trim() + "...";
+
+    if (isJunkDescription(text, pluginName)) return "";
+    return text;
+  }
+
+  function isLikelyBadgeOrHeading(text, pluginName) {
+    var lower = text.toLowerCase();
+    var normalizedName = String(pluginName || "").toLowerCase().trim();
+
+    if (lower === "overview") return true;
+    if (normalizedName && lower === normalizedName) return true;
+    if (normalizedName && lower === (normalizedName + " overview")) return true;
+    if (/^table of contents$/i.test(text)) return true;
+    if (/^(commands|permissions|config|installation|contact)$/i.test(text)) return true;
+    if (/^(poggit|github|release|dev builds?)$/i.test(text)) return true;
+
+    return false;
+  }
+
+  function isJunkDescription(text, pluginName) {
+    var lower = text.toLowerCase();
+    var normalizedName = String(pluginName || "").toLowerCase().trim();
+
+    if (text.length < 6) return true;
+    if (/^![a-z0-9_.-]+$/i.test(text)) return true;
+    if (/^[-_=*~`|:]+$/.test(text)) return true;
+    if (/^[a-z0-9_.-]+_title$/i.test(text)) return true;
+    if (/^\w+\s*\{\s*\}$/.test(text)) return true;
+    if (normalizedName && (lower === normalizedName || lower === (normalizedName + "."))) return true;
+    if (isLikelyBadgeOrHeading(text, pluginName)) return true;
+
+    return false;
+  }
 
   function formatNumber(n) {
     if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
@@ -155,3 +240,4 @@
 
   init();
 })();
+

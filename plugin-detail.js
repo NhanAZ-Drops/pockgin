@@ -32,6 +32,7 @@
   function renderDetail(p) {
     var icon = p.icon_url || DEFAULT_ICON;
     var author = buildAuthorMeta(p);
+    var displayDescription = sanitizeDisplayDescription(p.description, p.name, p.readme_markdown);
     var pendingGiscus = null;
 
     var h = "";
@@ -56,7 +57,7 @@
       h += '<span>' + escHtml(author.name) + '</span>';
     }
     h += '</div>';
-    if (p.description) h += '<p class="pd-desc">' + escHtml(p.description) + '</p>';
+    if (displayDescription) h += '<p class="pd-desc">' + escHtml(displayDescription) + '</p>';
     h += '</div></div>';
 
     // ── 2-column layout ──
@@ -413,14 +414,129 @@
     return m ? m[1] : null;
   }
 
+  function sanitizeDisplayDescription(description, pluginName, readmeMarkdown) {
+    var primary = cleanDescriptionCandidate(description, pluginName);
+    if (primary) return primary;
+
+    var fallback = summarizeReadmeForDescription(readmeMarkdown, pluginName);
+    return fallback || "";
+  }
+
+  function summarizeReadmeForDescription(readmeMarkdown, pluginName) {
+    var raw = String(readmeMarkdown || "").replace(/\r\n/g, "\n");
+    if (!raw) return "";
+
+    var lines = raw.split("\n");
+    for (var i = 0; i < lines.length; i += 1) {
+      var candidate = cleanDescriptionCandidate(lines[i], pluginName);
+      if (candidate) return candidate;
+    }
+
+    return "";
+  }
+
+  function cleanDescriptionCandidate(input, pluginName) {
+    var text = String(input || "");
+    if (!text.trim()) return "";
+
+    text = text
+      .replace(/!\[[^\]]*\]\((?:[^)(]+|\([^)(]*\))*\)/g, " ")
+      .replace(/\[([^\]]+)\]\((?:[^)(]+|\([^)(]*\))*\)/g, "$1")
+      .replace(/`{1,3}[^`]*`{1,3}/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/https?:\/\/\S+/g, " ")
+      .replace(/^[#>\-*+\s|:]+/g, " ")
+      .replace(/\|/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (!text) return "";
+    if (text.length > 220) text = text.slice(0, 217).trim() + "...";
+    if (isWeakDescription(text, pluginName)) return "";
+
+    return text;
+  }
+
+  function isWeakDescription(text, pluginName) {
+    var lower = String(text || "").toLowerCase().trim();
+    var normalizedName = String(pluginName || "").toLowerCase().trim();
+
+    if (!lower || lower.length < 6) return true;
+    if (lower === "overview") return true;
+    if (normalizedName && (lower === normalizedName || lower === normalizedName + " overview" || lower === normalizedName + ".")) return true;
+    if (/^![a-z0-9_.-]+$/i.test(text)) return true;
+    if (/^[a-z0-9_.-]+_title$/i.test(text)) return true;
+    if (/^\w+\s*\{\s*\}$/.test(text)) return true;
+    if (/^[-_=*~`|:]+$/.test(text)) return true;
+    if (/^(commands|permissions|config|installation|contact)$/i.test(text)) return true;
+    if (/^(poggit|github|release|dev builds?)$/i.test(text)) return true;
+
+    return false;
+  }
   function buildStarUrl(repo) {
     return String(repo || "").replace(/\/+$/, "") + "/stargazers";
+  }
+
+  function preprocessMarkdown(markdown) {
+    var text = String(markdown || "").replace(/\r\n/g, "\n");
+    if (!text) return "";
+
+    text = text.replace(/<!--([\s\S]*?)-->/g, "");
+
+    var refs = {};
+    var kept = [];
+    var lines = text.split("\n");
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var refMatch = line.match(/^\s*\[([^\]]+)\]:\s*(\S+)(?:\s+.*)?$/);
+      if (refMatch) {
+        var key = String(refMatch[1] || "").toLowerCase().trim();
+        var url = String(refMatch[2] || "").trim().replace(/^<|>$/g, "");
+        if (key && url) refs[key] = url;
+        continue;
+      }
+      kept.push(line);
+    }
+
+    text = kept.join("\n")
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/?div[^>]*>/gi, "")
+      .replace(/<\/?p[^>]*>/gi, "");
+
+    function resolveRef(id) {
+      return refs[String(id || "").toLowerCase().trim()] || "";
+    }
+
+    text = text.replace(/\[!\[([^\]]*)\]\[([^\]]+)\]\]\[([^\]]+)\]/g, function (_, alt, imgId, linkId) {
+      var img = resolveRef(imgId);
+      var href = resolveRef(linkId);
+      if (img && href) return "[![" + alt + "](" + img + ")](" + href + ")";
+      return alt || "";
+    });
+
+    text = text.replace(/!\[([^\]]*)\]\[([^\]]+)\]/g, function (_, alt, id) {
+      var u = resolveRef(id);
+      return u ? "![" + alt + "](" + u + ")" : (alt || "");
+    });
+
+    text = text.replace(/\[([^\]]+)\]\[([^\]]+)\]/g, function (_, label, id) {
+      var u = resolveRef(id);
+      return u ? "[" + label + "](" + u + ")" : label;
+    });
+
+    text = text.replace(/\[([^\]]+)\]\[\]/g, function (_, label) {
+      var u = resolveRef(label);
+      return u ? "[" + label + "](" + u + ")" : label;
+    });
+
+    return text;
   }
 
   // ─── Markdown renderer (unchanged logic) ───
 
   function renderMarkdown(markdown, plugin) {
-    var text = String(markdown || "").replace(/\r\n/g, "\n");
+    var text = preprocessMarkdown(markdown);
     if (!text.trim()) return "";
     var lines = text.split("\n");
     var out = [];
@@ -489,6 +605,15 @@
     h = h.replace(/`([^`]+)`/g, "<code>$1</code>");
     h = h.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     h = h.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    h = h.replace(/\[!\[([^\]]*)\]\(([^)\s]+)\)\]\(([^)\s]+)\)/g, function (_, alt, imgUrl, href) {
+      var linkedImg = normalizeImgUrl(resolveUrl(imgUrl, plugin));
+      var linkedHref = resolveUrl(href, plugin);
+      return '<a href="' + esc(linkedHref) + '" target="_blank" rel="noopener"><img class="markdown-inline-badge" src="' + esc(linkedImg) + '" alt="' + escHtml(alt || "") + '" loading="lazy"></a>';
+    });
+    h = h.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, function (_, alt, imgUrl) {
+      var inlineImg = normalizeImgUrl(resolveUrl(imgUrl, plugin));
+      return '<img class="markdown-inline-badge" src="' + esc(inlineImg) + '" alt="' + escHtml(alt || "") + '" loading="lazy">';
+    });
     h = h.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) { return '<a href="' + esc(resolveUrl(url, plugin)) + '" target="_blank" rel="noopener">' + label + "</a>"; });
     h = linkify(h, plugin);
     return h;
