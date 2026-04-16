@@ -1,0 +1,91 @@
+name: Import Mirror Data
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      mirror_ref:
+        description: "Branch/tag from pockgin-mirror-manifest"
+        required: false
+        default: "main"
+      deploy_after_sync:
+        description: "Deploy to GitHub Pages after import"
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: mirror-import
+  cancel-in-progress: false
+
+jobs:
+  import_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout web repo
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Checkout mirror manifest repo
+        uses: actions/checkout@v5
+        with:
+          repository: pockgin-mirror/pockgin-mirror-manifest
+          ref: ${{ inputs.mirror_ref }}
+          token: ${{ secrets.MIRROR_GH_TOKEN || github.token }}
+          path: mirror-manifest
+
+      - name: Import mirror data into public/data
+        run: |
+          set -euo pipefail
+
+          mkdir -p public/data/plugins
+
+          cp mirror-manifest/public/data/plugins.json public/data/plugins.json
+          cp mirror-manifest/public/data/stats.json public/data/stats.json
+          cp mirror-manifest/public/data/mirror-index.json public/data/mirror-index.json
+          cp mirror-manifest/public/data/sync-state.json public/data/sync-state.json
+          cp mirror-manifest/public/data/plugin-id-map.json public/data/plugin-id-map.json
+
+          rm -rf public/data/plugins/*
+          cp -R mirror-manifest/public/data/plugins/. public/data/plugins/
+
+          echo "Imported plugin count:"
+          node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('public/data/plugins.json','utf8')); console.log(data.length);"
+
+      - name: Commit imported data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/data/plugins.json public/data/plugins public/data/stats.json public/data/mirror-index.json public/data/sync-state.json public/data/plugin-id-map.json
+
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: import mirror data [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Setup Pages
+        if: ${{ inputs.deploy_after_sync }}
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        if: ${{ inputs.deploy_after_sync }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        if: ${{ inputs.deploy_after_sync }}
+        id: deployment
+        uses: actions/deploy-pages@v4
