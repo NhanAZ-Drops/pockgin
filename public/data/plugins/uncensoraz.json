@@ -1,0 +1,61 @@
+{
+  "id": "uncensoraz",
+  "name": "UncensorAZ",
+  "author": "NhanAZ-Plugins",
+  "description": "Uncensor",
+  "readme_markdown": "# Uncensor\n\nA plugin for PocketMine-MP that automatically bypasses Minecraft Bedrock's built-in client-side profanity filter.\n\n<img width=\"1920\" height=\"1080\" alt=\"Screenshot\" src=\"https://github.com/user-attachments/assets/04395bca-beb4-4472-98f7-551c100f908c\" />\n\n## How to use\n\n1. Drop the plugin into your `plugins/` folder.\n2. Start the server - the bundled `profanity_filter.wlist` will be extracted automatically.\n3. That's it! All outgoing chat messages will be processed to bypass the client-side filter.\n\n### Customizing the word list\n\nThe word list is located at `plugin_data/Uncensor/profanity_filter.wlist` (one word per line). You can add, remove, or replace words as needed. Changes take effect on server restart.\n\n## Will it interfere with other chat plugins?\n\nThis plugin operates directly on `TextPacket` as it is being sent to the client. Most chat filter plugins process messages **before** they reach the packet stage, so by the time Uncensor sees the message, any server-side filtering has already been applied. It is therefore unlikely to interfere with existing plugins.\n\n## Credits\n\nThis plugin is a fork of [**dktapps-pm-pl/Uncensor**](https://github.com/dktapps-pm-pl/Uncensor/) by [**@dktapps**](https://github.com/dktapps) - the original author and creator of the concept. All credit for the original idea and implementation goes to him.\n\n## License\n\nThis project is licensed under the [GNU General Public License v3.0](LICENSE).",
+  "readme_source_url": "https://github.com/NhanAZ-Plugins/Uncensor",
+  "icon_url": "https://raw.githubusercontent.com/NhanAZ-Plugins/Uncensor/38f618ae5d09f795c26a30823c3829ed44b214cb/icon.png",
+  "featured": false,
+  "repo": "https://github.com/NhanAZ-Plugins/Uncensor",
+  "archive_repo": null,
+  "approved_release_tag": "r-14428",
+  "stars": 0,
+  "total_downloads": 8,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "4.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "NhanAZ-Plugins"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "0.0.1",
+      "tag": "r-14428",
+      "published_at": null,
+      "downloads": 8,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14428/uncensoraz-0.0.1-r14428.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14428",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14428/uncensoraz-0.0.1-r14428.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "UncensorAZ",
+    "stable_release_id": 14428
+  }
+}

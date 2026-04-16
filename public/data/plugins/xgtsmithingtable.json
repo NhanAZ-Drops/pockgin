@@ -1,0 +1,61 @@
+{
+  "id": "xgtsmithingtable",
+  "name": "XGTSmithingTable",
+  "author": "XGDavid",
+  "description": "XGTSmithingTable",
+  "readme_markdown": "# XGTSmithingTable\n\n[![YouTube Video Views](https://img.shields.io/youtube/views/XfUYBb2InlI?style=social&link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXfUYBb2InlI)](https://www.youtube.com/watch?v=XfUYBb2InlI)\n\n[![Discord](https://img.shields.io/discord/689211475537297411?logo=discord)](https://discord.gg/h8uTKFh)\n\n[![](https://poggit.pmmp.io/shield.dl.total/XGTSmithingTable)](https://poggit.pmmp.io/p/XGTSmithingTable)\n\n[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/XGDavid)\n\nA PocketMine-MP plugin that implements the Smithing Table functionality\n\n## Credits\n\n- Implementation inspired by [pmmp/PocketMine-MP#6202](https://github.com/pmmp/PocketMine-MP/pull/6202)\n- bStats integration based on [BlckqPlugins/bStats-PMMP](https://github.com/BlckqPlugins/bStats-PMMP) (modified)\n\n## Issues\n\nFound a bug or have a suggestion? Open an issue on [GitHub Issues](https://github.com/xgdavid/XGTSmithingTable/issues).",
+  "readme_source_url": "https://github.com/XGDavid/XGTSmithingTable",
+  "icon_url": "https://raw.githubusercontent.com/XGDavid/XGTSmithingTable/5af931e26bdc34becdbda26973f6a5051cf98c40/logo.png",
+  "featured": false,
+  "repo": "https://github.com/XGDavid/XGTSmithingTable",
+  "archive_repo": null,
+  "approved_release_tag": "r-14309",
+  "stars": 0,
+  "total_downloads": 18,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "XGDavid"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "r-14309",
+      "published_at": null,
+      "downloads": 18,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14309/xgtsmithingtable-1.0.0-r14309.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14309",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14309/xgtsmithingtable-1.0.0-r14309.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "XGTSmithingTable",
+    "stable_release_id": 14309
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "wsrcon",
+  "name": "wsRCON",
+  "author": "HBIDamian",
+  "description": "WebSocket Console Plugin for PocketMine-MP",
+  "readme_markdown": "# WebSocket Console Plugin for PocketMine-MP\n\nA complete WebSocket implementation for remote server console access with **zero external dependencies**.\n\n## 🚀 Features\n\n- 🔐 **Password Authentication** - Secure your console access\n- 📡 **Real-time Communication** - Instant command execution and responses\n- 🎯 **Event Broadcasting** - Player joins, quits, chat, deaths, and server commands\n- 👥 **Multiple Clients** - Support for concurrent WebSocket connections\n- ⚙️ **Configurable** - Easy setup via config.yml\n- 🛡️ **Session Management** - Secure authentication per connection\n- 📝 **Debug Logging** - Optional detailed logging for troubleshooting\n- 🔧 **Pure PHP** - No external libraries or Composer packages required\n\n\n## Online interface:\n\nI've made an interface for this plugin, that can be found over at [https://hbidamian.github.io/wsRCON/](https://hbidamian.github.io/wsRCON/).\n\nIf you want to self host your own interface, you can grab it from [https://github.com/HBIDamian/wsRCON/tree/webconsole](https://github.com/HBIDamian/wsRCON/tree/webconsole)\n\n\n## ⚙️ Configuration\n\nAfter the first startup, the plugin will create a config file at:\n`plugins/wsRCON/config.yml`\n\nEdit this file to customize your settings:\n\n```yaml\n#═══════════════════════════════════════════════════════════════════════════════\n#                         WebSocket Console Configuration\n#═══════════════════════════════════════════════════════════════════════════════\n\n# 🔐 Authentication Password\n# This will be automatically generated on first run for security\nwebsocket-password: \"change_this_password_123\"\n\n# 🌐 Server Port\n# Set to \"default\" (with quotations) to use the server's current port, or specify a port number (Ex: 19132)\nwebsocket-port: \"default\"\n\n# 🏠 Server Host\n# Default: 0.0.0.0 for all interfaces\nwebsocket-host: \"0.0.0.0\"\n\n# 🐛 Debug Mode\n# Enable debug logging (useful for troubleshooting)\ndebug-logging: false\n\n# 👥 Connection Limit\n# Maximum number of concurrent WebSocket connections\nmax-connections: 10\n\n#═══════════════════════════════════════════════════════════════════════════════\n#                                   Notes\n#═══════════════════════════════════════════════════════════════════════════════\n\n# ⚠️  IMPORTANT: Restart your PocketMine server after changing this configuration\n\n#───────────────────────────────────────────────────────────────────────────────\n#                              Password Examples\n#───────────────────────────────────────────────────────────────────────────────\n\n# 💡 Strong password examples:\n# websocket-password: \"Random_Words-789\"\n# websocket-password: \"WebSocket@Admin#2025\"\n# websocket-password: \"WA%5e6vPF3JHL!\"\n\n# ⚠️  For no authentication (SECURITY RISK):\n# websocket-password: \"\"\n\n\n```\n\n\n## 🌐 Connecting\n\n\n## 📡 Supported Events\n\nThe plugin broadcasts the following server events to all authenticated clients:\n\n- 👋 **Player Join/Quit** - When players connect or disconnect\n- 💬 **Player Chat** - All chat messages\n- 💀 **Player Deaths** - Death messages\n- ⌨️ **Console Commands** - Commands executed in server console\n\n\n\n## 🛠️ Troubleshooting\n\n### Plugin Won't Start\n\n1. **Port in use**: Change `websocket-port` in config.yml\n2. **Permission denied**: Check server file permissions\n3. **Firewall**: Ensure the port is open\n\n### Can't Connect\n\n1. **Wrong host/port**: Verify connection settings\n2. **Firewall**: Check if port is blocked\n3. **Authentication**: Verify password is correct\n\n### Commands Not Working\n\n1. **Not authenticated**: Check password\n2. **Insufficient permissions**: Plugin runs with OP permissions\n3. **Invalid command**: Use `help` to see available commands\n\n## 📊 Debug Mode\n\nThis is meant for troubleshooting and development purposes. You most likely need to use it unless you like to tinker with the code directly\n\n```yaml\ndebug-logging: true\n```\n\nThis will log:\n- Connection attempts\n- Authentication events\n- Message broadcasts\n- Client disconnections\n\n\n## 🤝 Contributing\n\nThis plugin is open source and contributions are welcome! Or if you have a better implementation idea, feel free to share it, and overtake this plugin with your own!\n\n## 📄 License\n\nApache License 2.0 - See LICENSE file for details.\n\n---\n\n**Made with ❤️ for the PocketMine community**",
+  "readme_source_url": "https://github.com/HBIDamian/wsRCON",
+  "icon_url": "https://raw.githubusercontent.com/HBIDamian/wsRCON/e23e0e679748d36af4b9e0a0358405e073020273/icon.png",
+  "featured": false,
+  "repo": "https://github.com/HBIDamian/wsRCON",
+  "archive_repo": null,
+  "approved_release_tag": "r-14321",
+  "stars": 0,
+  "total_downloads": 26,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "HBIDamian"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/262398",
+  "versions": {
+    "stable": {
+      "version": "1.1.0",
+      "tag": "r-14321",
+      "published_at": null,
+      "downloads": 26,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14321/wsrcon-1.1.0-r14321.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14321",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14321/wsrcon-1.1.0-r14321.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "wsRCON",
+    "stable_release_id": 14321
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "worldguardplugin",
+  "name": "WorldGuardPlugin",
+  "author": "gamegam",
+  "description": "• I'm still writing it",
+  "readme_markdown": "• I'm still writing it\n## Flags\n| Flag | Description\n|-----------|---------------------|\n| build | Determines whether players can place or break blocks.\n| tnt | Determines whether explosions are allowed.\n| invincible | Determines whether players are invincible.\n| lava-flow | Determines whether lava can flow.\n| use | Determines whether players can use or interact with objects.\n| water | Determines whether water can flow.\n| tnt-damage | Determines whether players take damage from explosions.\n| pvp | Determines whether players can fight each other.\n| mob-damage | Determines whether mobs can damage players.\n| mob-pvp | Determines whether players can attack mobs.\n| fire | Determines whether players can be on fire.\n| mob-spawn | Determines whether mobs can spawn.\n| chat | Determines whether players can chat.\n| exit | Determines whether players can leave the region.\n| item-drop | Determines whether players can drop items.\n| tp | Determines whether players can teleport in the region.\n| fall-damage | Determines whether players take fall damage. \n| falling-block | Determines whether gravity-affected blocks can fall. \n| keep-inventory | Determines whether players keep their inventory on death. \n| fly | Determines whether players are allowed to fly when entering the region (Survival and Adventure mode only). \n| bow | Determines whether players can shoot bows in the region. \n| ender-pearl | Determines whether players can throw ender pearls in the region. |\n| entry | Determines whether players can enter the region. \n\n## Command\n| command | Description\n|-----------|---------------------|\n|/rg pos | Set the area.\n|/rg define [region] | Creates an area that you set.\n|/rg cancel | Cancel the area you set.\n| /rg flag [region] [flag] [allow/deny/none] | Cancel the area you set.\n| /rg info [region | Check the information in your area.\n| /rg addmembers [region] [player] | Add a member of the region.\n| /rg removemembers [region] [player] | Remove the members of the area.\n| /rg remove [region] | Remove the area.\n| /rg list | Check the list of regions.\n| /rg block [region] | This specific block can be broke\n| /rg teleport [region] | Teleport to a specific area.\n\n#wp command",
+  "readme_source_url": "https://github.com/gamegam/WorldGuard",
+  "icon_url": "https://raw.githubusercontent.com/gamegam/WorldGuard/5919ac66b9a6169ca7dd46b19d5c62a0e94073da/icon.png",
+  "featured": false,
+  "repo": "https://github.com/gamegam/WorldGuard",
+  "archive_repo": null,
+  "approved_release_tag": "r-14367",
+  "stars": 0,
+  "total_downloads": 219,
+  "last_commit_at": null,
+  "last_updated_at": null,
+  "license": null,
+  "api_support": [
+    "5.0.0-5.36.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [
+    "poggit-import"
+  ],
+  "producers": [
+    "gamegam"
+  ],
+  "whats_new": "https://poggit.pmmp.io/r/262478",
+  "versions": {
+    "stable": {
+      "version": "3.0.2",
+      "tag": "r-14367",
+      "published_at": null,
+      "downloads": 219,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14367/worldguardplugin-3.0.2-r14367.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "r-14367",
+      "published_at": null,
+      "download_url": "https://github.com/pockgin-mirror/pockgin-mirror-phars/releases/download/r-14367/worldguardplugin-3.0.2-r14367.phar"
+    }
+  ],
+  "comments": {
+    "enabled": false
+  },
+  "build": {
+    "provider": "mirror-import",
+    "include_prerelease": true
+  },
+  "source": {
+    "provider": "poggit",
+    "plugin_name": "WorldGuardPlugin",
+    "stable_release_id": 14367
+  }
+}
