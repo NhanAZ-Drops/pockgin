@@ -972,6 +972,31 @@ img.image-loading {
 /* ---- Responsive ---- */
 
 @media (max-width: 768px) {
+  .home-main {
+    padding-top: 20px;
+  }
+  .toolbar {
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 6px;
+    margin-bottom: 22px;
+  }
+  .search-box {
+    width: 100%;
+    min-width: 0;
+  }
+  .sort-dropdown {
+    width: 100%;
+  }
+  .sort-trigger {
+    width: 100%;
+    min-width: 0;
+  }
+  .sort-menu {
+    left: 0;
+    right: 0;
+    min-width: 0;
+  }
   .hero h1 {
     font-size: 1.75rem;
   }
@@ -1009,8 +1034,12 @@ img.image-loading {
   }
   .toolbar {
     flex-direction: column;
+    margin-top: 8px;
   }
   .search-box {
     width: 100%;
+  }
+  .sort-trigger {
+    padding: 11px 12px;
   }
 }
