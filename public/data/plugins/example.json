@@ -1,0 +1,59 @@
+{
+  "id": "example",
+  "name": "Example Plugin",
+  "author": "YourName",
+  "description": "A PocketMine-MP plugin built with the Pockgin standard workflow.",
+  "readme_markdown": "# ExamplePlugin\n\nA PocketMine-MP plugin built with the [Pockgin](https://github.com/pockgin) standard workflow.\n\n## Requirements\n\n- PocketMine-MP API 5.0.0+\n- PHP 8.2+\n\n## Installation\n\nDownload the latest `.phar` from the [Releases](../../releases) page and place it in your server's `plugins/` folder.\n\n## Development\n\n1. Clone this repository\n2. Edit the source code in `src/`\n3. Update `version` in `plugin.yml` when ready to release\n4. Push to `main` - the CI workflow will automatically build and create a release\n\n## How It Works\n\nThis template uses the **Pockgin standard build workflow**:\n\n- On every push/PR, the plugin is validated and built using `@pockgin/cli`\n- When `plugin.yml` version is bumped and pushed to `main`, a GitHub Release is automatically created with the `.phar` artifact\n- No manual release steps needed\n\n## License\n\n[MIT](LICENSE)\n",
+  "repo": "https://github.com/pockgin/plugin-template",
+  "archive_repo": null,
+  "icon_url": "happy_ghast.png",
+  "featured": false,
+  "approved_release_tag": "v1.0.0",
+  "stars": 0,
+  "total_downloads": 2,
+  "last_commit_at": "2026-04-15T08:55:11Z",
+  "last_updated_at": "2026-04-15T08:55:13Z",
+  "license": {
+    "spdx_id": "MIT",
+    "name": "MIT License",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "api_support": [
+    "5.0.0"
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "tags": [],
+  "producers": [
+    "YourName",
+    "pockgin"
+  ],
+  "whats_new": "**Full Changelog**: https://github.com/pockgin/plugin-template/commits/v1.0.0",
+  "versions": {
+    "stable": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "published_at": "2026-04-15T08:55:13Z",
+      "downloads": 2,
+      "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
+    },
+    "dev": null
+  },
+  "recent_builds": [
+    {
+      "tag": "v1.0.0",
+      "published_at": "2026-04-15T08:55:13Z",
+      "download_url": "https://github.com/pockgin/plugin-template/releases/download/v1.0.0/ExamplePlugin.phar"
+    }
+  ],
+  "comments": {
+    "enabled": true,
+    "provider": "giscus"
+  },
+  "build": {
+    "provider": "github-releases",
+    "include_prerelease": true
+  }
+}
