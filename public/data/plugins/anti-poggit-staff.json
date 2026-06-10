@@ -10,7 +10,7 @@
   "featured": false,
   "approved_release_tag": "v1.0.0",
   "stars": 30,
-  "total_downloads": 0,
+  "total_downloads": 1,
   "last_commit_at": "2026-04-15T09:43:38Z",
   "last_updated_at": "2026-04-15T09:43:40Z",
   "license": {
@@ -46,7 +46,7 @@
       "version": "1.0.0",
       "tag": "v1.0.0",
       "published_at": "2026-04-15T09:43:40Z",
-      "downloads": 0,
+      "downloads": 1,
       "download_url": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff/releases/download/v1.0.0/AntiPoggitStaff.phar"
     },
     "dev": null
