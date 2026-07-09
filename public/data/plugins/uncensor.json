@@ -6,7 +6,7 @@
   "readme_markdown": "# Uncensor\n\nA plugin for PocketMine-MP that automatically bypasses Minecraft Bedrock's built-in client-side profanity filter.\n\n<img width=\"1920\" height=\"1080\" alt=\"Screenshot\" src=\"https://github.com/user-attachments/assets/04395bca-beb4-4472-98f7-551c100f908c\" />\n\n## How to use\n\n1. Drop the plugin into your `plugins/` folder.\n2. Start the server - the bundled `profanity_filter.wlist` will be extracted automatically.\n3. That's it! All outgoing chat messages will be processed to bypass the client-side filter.\n\n### Customizing the word list\n\nThe word list is located at `plugin_data/Uncensor/profanity_filter.wlist` (one word per line). You can add, remove, or replace words as needed. Changes take effect on server restart.\n\n## Will it interfere with other chat plugins?\n\nThis plugin operates directly on `TextPacket` as it is being sent to the client. Most chat filter plugins process messages **before** they reach the packet stage, so by the time Uncensor sees the message, any server-side filtering has already been applied. It is therefore unlikely to interfere with existing plugins.\n\n## Credits\n\nThis plugin is a fork of [**dktapps-pm-pl/Uncensor**](https://github.com/dktapps-pm-pl/Uncensor/) by [**@dktapps**](https://github.com/dktapps) - the original author and creator of the concept. All credit for the original idea and implementation goes to him.\n\n## License\n\nThis project is licensed under the [GNU General Public License v3.0](LICENSE).\n",
   "repo": "https://github.com/NhanAZ-Plugins/Uncensor",
   "archive_repo": null,
-  "icon_url": "assets/icons/uncensor.png",
+  "icon_url": "happy_ghast.png",
   "featured": false,
   "approved_release_tag": "v0.0.1",
   "stars": 0,

@@ -6,7 +6,7 @@
   "readme_markdown": "<h1>AntiPoggitStaff<img src=\"https://github.com/NhanAZ/AntiPoggitStaff/blob/master/icon.png\" height=\"64\" width=\"64\" align=\"left\" alt=\"AntiPoggitStaff Logo\"></h1>\n\n**Has your plugin been rejected multiple times on the Poggit platform?  \nUse this plugin to get revenge on them by banning them upon server start!**\n\n<img src=\"https://raw.githubusercontent.com/xShamir/AntiPoggitStaff/master/Ban-Hammer.gif\" autoplay=\"true\"/>\n\n## Bonus Reading\n\nIf you would like a completely unserious and deeply theatrical English-language satire about Poggit rules, read [SATIRICAL-README.md](SATIRICAL-README.md).\n",
   "repo": "https://github.com/NhanAZ-Plugins/AntiPoggitStaff",
   "archive_repo": null,
-  "icon_url": "assets/icons/anti-poggit-staff.png",
+  "icon_url": "happy_ghast.png",
   "featured": false,
   "approved_release_tag": "v1.0.0",
   "stars": 30,
