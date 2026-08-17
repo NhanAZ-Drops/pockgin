@@ -10,7 +10,7 @@
   "featured": true,
   "approved_release_tag": "v1.0.0",
   "stars": 1,
-  "total_downloads": 5,
+  "total_downloads": 6,
   "last_commit_at": "2026-08-01T06:05:13Z",
   "last_updated_at": "2026-04-15T11:16:17Z",
   "license": {
@@ -52,7 +52,7 @@
       "version": "1.0.0",
       "tag": "v1.0.0",
       "published_at": "2026-04-15T11:16:17Z",
-      "downloads": 5,
+      "downloads": 6,
       "download_url": "https://github.com/NhanAZ-Plugins/SimpleEconomy/releases/download/v1.0.0/SimpleEconomy.phar"
     },
     "dev": null
